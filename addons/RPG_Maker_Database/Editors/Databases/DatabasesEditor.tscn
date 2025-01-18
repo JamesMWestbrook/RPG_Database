@@ -1,0 +1,131 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcqbtahnsdr2v"]
+
+[ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/databases_editor.gd" id="1_o5pce"]
+[ext_resource type="PackedScene" uid="uid://1btl6oul0k7i" path="res://addons/RPG_Maker_Database/Editors/Databases/Actor/ActorEditor.tscn" id="2_o8jcg"]
+
+[node name="Databases" type="TabContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+script = ExtResource("1_o5pce")
+
+[node name="Characters" type="Control" parent="."]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="TabContainer" type="TabContainer" parent="Characters"]
+layout_mode = 1
+offset_right = 721.0
+offset_bottom = 614.0
+current_tab = 0
+
+[node name="Actors" parent="Characters/TabContainer" instance=ExtResource("2_o8jcg")]
+layout_mode = 2
+
+[node name="Classes" type="Control" parent="Characters/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Enemies" type="Control" parent="Characters/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Troops" type="Control" parent="Characters/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="Objects" type="Control" parent="."]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="TabContainer" type="TabContainer" parent="Objects"]
+layout_mode = 1
+offset_right = 710.0
+offset_bottom = 619.0
+current_tab = 0
+
+[node name="Skills" type="Control" parent="Objects/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Items" type="Control" parent="Objects/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Weapons" type="Control" parent="Objects/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Armors" type="Control" parent="Objects/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="States" type="Control" parent="Objects/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4
+
+[node name="Animations" type="Control" parent="Objects/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 5
+
+[node name="Data" type="Control" parent="."]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Animations" type="Control" parent="Data"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Tilesets" type="Control" parent="Data"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Variables" type="Control" parent="."]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="Common Events" type="Control" parent="."]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4
+
+[node name="System" type="Control" parent="."]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 5
+
+[node name="TabContainer" type="TabContainer" parent="System"]
+layout_mode = 1
+offset_right = 705.0
+offset_bottom = 614.0
+current_tab = 0
+
+[node name="Config" type="Control" parent="System/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Types" type="Control" parent="System/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Terms" type="Control" parent="System/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2

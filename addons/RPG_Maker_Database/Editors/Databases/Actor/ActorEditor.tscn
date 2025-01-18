@@ -1,0 +1,272 @@
+[gd_scene load_steps=4 format=3 uid="uid://1btl6oul0k7i"]
+
+[ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/Actor/actor_editor.gd" id="1_3yu4n"]
+[ext_resource type="Texture2D" uid="uid://bptw84ct7fe68" path="res://assets/sprites/debug/halloween_10.2022/witch/3x_RMMV/$witch2_3.png" id="1_ltq4p"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yb4wf"]
+line_spacing = 0.0
+font_size = 12
+
+[node name="Actors" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3yu4n")
+metadata/_tab_index = 0
+
+[node name="ChangeActorMaxButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.015
+anchor_top = 0.603
+anchor_right = 0.015
+anchor_bottom = 0.603
+offset_left = 0.23
+offset_top = 0.255981
+offset_right = 103.23
+offset_bottom = 31.256
+text = "Change Max"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.066
+anchor_right = 0.174
+anchor_bottom = 0.704
+offset_top = 0.231998
+offset_right = 0.0679932
+offset_bottom = -72.192
+grow_vertical = 2
+
+[node name="ActorsVBox" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="NameLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.256
+anchor_right = 0.256
+offset_left = -51.808
+offset_right = -0.808014
+offset_bottom = 23.0
+text = "Name:"
+
+[node name="NameEdit" type="LineEdit" parent="NameLabel"]
+layout_mode = 0
+offset_top = 25.0
+offset_right = 153.0
+offset_bottom = 56.0
+
+[node name="NicknameLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.256
+anchor_right = 0.256
+offset_left = 110.192
+offset_right = 193.192
+offset_bottom = 23.0
+text = "Nickname:"
+
+[node name="NicknameEdit" type="LineEdit" parent="NicknameLabel"]
+layout_mode = 0
+offset_top = 25.0
+offset_right = 153.0
+offset_bottom = 56.0
+
+[node name="InitialLevelLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.256
+anchor_right = 0.256
+offset_left = 268.192
+offset_right = 351.192
+offset_bottom = 23.0
+text = "Initial Lvl:"
+
+[node name="InitialLevelEdit" type="SpinBox" parent="InitialLevelLabel"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 25.0
+offset_right = 80.0625
+offset_bottom = 56.0
+max_value = 9999.0
+
+[node name="MaxLevelLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.256
+anchor_right = 0.256
+offset_left = 268.192
+offset_top = 57.0
+offset_right = 351.192
+offset_bottom = 80.0
+text = "Max Lvl:"
+
+[node name="MaxLevelEdit" type="SpinBox" parent="MaxLevelLabel"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 25.0
+offset_right = 80.0625
+offset_bottom = 56.0
+min_value = 1.0
+max_value = 9999.0
+value = 1.0
+
+[node name="ProfileLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 60.0
+offset_right = 192.0
+offset_bottom = 83.0
+text = "Profile:"
+
+[node name="TextEdit" type="TextEdit" parent="ProfileLabel"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 4.0
+offset_right = 305.0
+offset_bottom = 51.0
+theme_override_font_sizes/font_size = 10
+placeholder_text = "Character description goes here!"
+wrap_mode = 1
+
+[node name="FaceButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 119.0
+offset_right = 177.0
+offset_bottom = 150.0
+text = "Face"
+
+[node name="BustButton" type="Button" parent="FaceButton"]
+layout_mode = 0
+offset_left = 48.0
+offset_right = 91.0
+offset_bottom = 31.0
+text = "Bust"
+
+[node name="FaceBustTexture" type="TextureRect" parent="FaceButton"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 40.0
+offset_right = 91.0
+offset_bottom = 115.0
+texture = ExtResource("1_ltq4p")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FaceButton2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 234.0
+offset_top = 119.0
+offset_right = 320.0
+offset_bottom = 150.0
+text = "Set Sprite"
+
+[node name="Sprite2D" type="Sprite2D" parent="FaceButton2"]
+position = Vector2(43, 81.08)
+scale = Vector2(0.52, 0.52)
+texture = ExtResource("1_ltq4p")
+hframes = 3
+vframes = 4
+
+[node name="FaceButton3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 324.0
+offset_top = 119.0
+offset_right = 414.0
+offset_bottom = 150.0
+text = "Set Battler"
+
+[node name="Sprite2D" type="Sprite2D" parent="FaceButton3"]
+position = Vector2(43, 81.08)
+scale = Vector2(0.52, 0.52)
+texture = ExtResource("1_ltq4p")
+hframes = 3
+vframes = 4
+
+[node name="InitialEquipmentLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 108.0
+offset_right = 533.0
+offset_bottom = 157.0
+text = "Initial 
+Equipment"
+label_settings = SubResource("LabelSettings_yb4wf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="InitialEquipmentLabel"]
+layout_mode = 0
+offset_top = 51.0
+offset_right = 92.0
+offset_bottom = 277.0
+
+[node name="TraitsLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 247.0
+offset_right = 193.0
+offset_bottom = 270.0
+text = "Traits"
+
+[node name="Button" type="Button" parent="TraitsLabel"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = -3.0
+offset_right = 64.0
+offset_bottom = 28.0
+text = "+"
+
+[node name="Panel" type="Panel" parent="TraitsLabel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.25
+anchor_top = 1.304
+anchor_right = -0.25
+anchor_bottom = 1.304
+offset_left = -5.0
+offset_top = 0.00799942
+offset_right = 97.0
+offset_bottom = 108.008
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TraitsLabel/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TraitsLabel/Panel/ScrollContainer"]
+layout_mode = 2
+
+[node name="ClassesLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 263.0
+offset_top = 238.0
+offset_right = 348.0
+offset_bottom = 287.0
+text = "Classes"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="ClassesLabel"]
+layout_mode = 0
+offset_top = 37.0
+offset_right = 181.0
+offset_bottom = 146.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 9.0
+offset_right = 82.0
+offset_bottom = 32.0
+text = "Actors"

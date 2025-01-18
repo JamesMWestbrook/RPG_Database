@@ -1,1 +1,4 @@
 res://addons/RPG_Maker_Database/Editors/Databases/Actor/ActorEditor.tscn
+res://addons/RPG_Maker_Database/Editors/Databases/Actor/actor_editor.gd
+res://addons/RPG_Maker_Database/Editors/Databases/DatabasesEditor.tscn
+res://data/actors.json

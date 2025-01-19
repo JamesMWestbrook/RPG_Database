@@ -137,7 +137,16 @@ func _load_actor(index:int):
 		actor["face"] = ""
 		face_index(0)
 		face_index_spinbox.value = 0
-		
+	if actor.has("walking_sprite"):
+		var sprite_path:String = actor["walking_sprite"]
+		walking_sprite.texture = load(sprite_path)
+		if sprite_path.get_file().begins_with("$"):
+			#if it starts with $ meaning a single sprite
+			sprite_index_spinbox.hide()
+		else:
+			#full sprite sheet
+			sprite_index_spinbox.show()
+			
 		
 #endregion
 
@@ -187,7 +196,16 @@ func sprite_selected(sprite_path:String):
 	if file_name.begins_with("$"):
 		walking_sprite.hframes = 3
 		walking_sprite.vframes = 4
-		walking_sprite.frame = 0
+		walking_sprite.frame = 1
+		sprite_index_spinbox.hide()
+		
+	else:
+		#filename does NOT start with $, a full spritesheet
+		walking_sprite.hframes = 12
+		walking_sprite.vframes = 8
+		walking_sprite.frame = 1
+		sprite_index_spinbox.show()
+
 	
 	actors[cur_actor_index]["walking_sprite"] = sprite_path
 	

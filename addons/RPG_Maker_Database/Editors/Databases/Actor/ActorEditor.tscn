@@ -211,6 +211,7 @@ hframes = 3
 vframes = 4
 
 [node name="SpriteIndexSpinbox" type="SpinBox" parent="SpriteButton"]
+layout_mode = 0
 offset_left = 12.0
 offset_top = 105.0
 offset_right = 95.0625

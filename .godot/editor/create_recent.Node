@@ -1,4 +1,8 @@
+SpinBox
 Button
+Sprite2D
+FileDialog
+Window
 Label
 Panel
 TextEdit
@@ -6,8 +10,5 @@ VBoxContainer
 ScrollContainer
 TextureRect
 TextureButton
-Sprite2D
-SpinBox
 LineEdit
 Control
-TabContainer

@@ -1,5 +1,6 @@
 @tool
 extends Control
+class_name ActorEditor
 
 @onready var save_button: Button = $SaveButton
 @onready var actor_container:VBoxContainer = $ScrollContainer/ActorsVBox
@@ -8,6 +9,12 @@ extends Control
 @onready var initial_level_edit: SpinBox = $InitialLevelLabel/InitialLevelEdit
 @onready var max_level_edit: SpinBox = $MaxLevelLabel/MaxLevelEdit
 @onready var profile_edit: TextEdit = $ProfileLabel/ProfileEdit
+
+@onready var face_file_dialog: FileDialog = $FaceFileDialog
+@onready var face_sprite: Sprite2D = $FaceButton/FaceSprite
+@onready var face_button: Button = $FaceButton
+@onready var clear_face_button: Button = $FaceButton/ClearFaceButton
+@onready var face_index_spinbox: SpinBox = $FaceButton/FaceIndexSpinbox
 
 
 const JSON_SAVE_PATH = "res://data/actors.json"
@@ -24,7 +31,11 @@ func _ready() -> void:
 	initial_level_edit.value_changed.connect(_start_level)
 	max_level_edit.value_changed.connect(_max_level)
 	profile_edit.text_changed.connect(_profile)
-	
+	face_file_dialog.file_selected.connect(face_selected)
+	face_file_dialog.close_requested.connect(face_file_dialog.hide)
+	face_button.pressed.connect(face_file_dialog.show)
+	clear_face_button.pressed.connect(clear_actor_face)
+	face_index_spinbox.value_changed.connect(face_index)
 	_load_actor(0)
 	
 	
@@ -99,7 +110,21 @@ func _load_actor(index:int):
 	else:
 		profile_edit.text = ""
 		_profile()
-			
+	if actor.has("face") and actor["face"] != "":
+		if FileAccess.file_exists(actor["face"]):
+			face_sprite.texture = load(actor["face"])
+			if actor.has("face_index"):
+				face_index(actor["face_index"])
+				face_index_spinbox.value = actor["face_index"]
+				
+			else:
+				face_index(0)
+				face_index_spinbox.value = 0
+	else:
+		face_sprite.texture = null
+		actor["face"] = ""
+		face_index(0)
+		face_index_spinbox.value = 0
 func _update_name(text):
 	actors[cur_actor_index]["name"] = text
 	actor_container.get_child(cur_actor_index).text = text
@@ -124,3 +149,14 @@ func _save_json():
 	var json_string = JSON.stringify(save_data)
 	var file:FileAccess = FileAccess.open(JSON_SAVE_PATH,FileAccess.WRITE)
 	file.store_string(json_string)
+
+func face_selected(face_path):
+	var new_face = load(face_path)
+	face_sprite.texture = new_face
+	actors[cur_actor_index]["face"] = face_path
+func clear_actor_face():
+	face_sprite.texture = null
+	actors[cur_actor_index]["face"] = ""
+func face_index(index:int):
+	actors[cur_actor_index]["face_index"] = index
+	face_sprite.frame = index

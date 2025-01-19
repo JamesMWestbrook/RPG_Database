@@ -193,8 +193,9 @@ offset_top = 105.0
 offset_right = 95.0625
 offset_bottom = 136.0
 max_value = 7.0
+value = 1.0
 
-[node name="FaceButton2" type="Button" parent="."]
+[node name="SpriteButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 234.0
 offset_top = 119.0
@@ -202,12 +203,20 @@ offset_right = 320.0
 offset_bottom = 150.0
 text = "Set Sprite"
 
-[node name="Sprite2D" type="Sprite2D" parent="FaceButton2"]
+[node name="WalkingSprite" type="Sprite2D" parent="SpriteButton"]
 position = Vector2(43, 81.08)
 scale = Vector2(0.52, 0.52)
 texture = ExtResource("1_ltq4p")
 hframes = 3
 vframes = 4
+
+[node name="SpriteIndexSpinbox" type="SpinBox" parent="SpriteButton"]
+offset_left = 12.0
+offset_top = 105.0
+offset_right = 95.0625
+offset_bottom = 136.0
+max_value = 11.0
+value = 1.0
 
 [node name="FaceButton3" type="Button" parent="."]
 layout_mode = 0
@@ -298,6 +307,16 @@ offset_right = 181.0
 offset_bottom = 146.0
 
 [node name="FaceFileDialog" type="FileDialog" parent="."]
+title = "Open a File"
+initial_position = 4
+size = Vector2i(303, 405)
+always_on_top = true
+ok_button_text = "Open"
+file_mode = 0
+filters = PackedStringArray("*.png")
+
+[node name="SpriteFileDialog" type="FileDialog" parent="."]
+auto_translate_mode = 1
 title = "Open a File"
 initial_position = 4
 size = Vector2i(303, 405)

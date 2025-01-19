@@ -16,6 +16,11 @@ class_name ActorEditor
 @onready var clear_face_button: Button = $FaceButton/ClearFaceButton
 @onready var face_index_spinbox: SpinBox = $FaceButton/FaceIndexSpinbox
 
+@onready var sprite_button: Button = $SpriteButton
+@onready var walking_sprite: Sprite2D = $SpriteButton/WalkingSprite
+@onready var sprite_index_spinbox: SpinBox = $SpriteButton/SpriteIndexSpinbox
+@onready var sprite_file_dialog: FileDialog = $SpriteFileDialog
+
 
 const JSON_SAVE_PATH = "res://data/actors.json"
 
@@ -31,11 +36,18 @@ func _ready() -> void:
 	initial_level_edit.value_changed.connect(_start_level)
 	max_level_edit.value_changed.connect(_max_level)
 	profile_edit.text_changed.connect(_profile)
+	
 	face_file_dialog.file_selected.connect(face_selected)
 	face_file_dialog.close_requested.connect(face_file_dialog.hide)
 	face_button.pressed.connect(face_file_dialog.show)
 	clear_face_button.pressed.connect(clear_actor_face)
 	face_index_spinbox.value_changed.connect(face_index)
+	
+	sprite_button.pressed.connect(sprite_file_dialog.show)
+	sprite_file_dialog.file_selected.connect(sprite_selected)
+	sprite_file_dialog.close_requested.connect(sprite_file_dialog.hide)
+	sprite_index_spinbox.value_changed.connect(_sprite_index)
+	
 	_load_actor(0)
 	
 	
@@ -79,7 +91,7 @@ func _load_json(file:FileAccess):
 		
 		new_button.pressed.connect(_load_actor.bind(index))
 		index += 1
-	
+#region load actor
 func _load_actor(index:int):
 	print("Actor " + str(index) + " selected")
 	cur_actor_index = index
@@ -125,6 +137,20 @@ func _load_actor(index:int):
 		actor["face"] = ""
 		face_index(0)
 		face_index_spinbox.value = 0
+		
+		
+#endregion
+
+func _save_json():
+	var save_data:Dictionary = {
+		"max_actors" : actor_container.get_child_count(),
+		"actors": actors
+	}
+	var json_string = JSON.stringify(save_data)
+	var file:FileAccess = FileAccess.open(JSON_SAVE_PATH,FileAccess.WRITE)
+	file.store_string(json_string)
+	
+	
 func _update_name(text):
 	actors[cur_actor_index]["name"] = text
 	actor_container.get_child(cur_actor_index).text = text
@@ -141,14 +167,7 @@ func _profile():
 	actors[cur_actor_index]["profile"] = profile_edit.text
 	
 	
-func _save_json():
-	var save_data:Dictionary = {
-		"max_actors" : actor_container.get_child_count(),
-		"actors": actors
-	}
-	var json_string = JSON.stringify(save_data)
-	var file:FileAccess = FileAccess.open(JSON_SAVE_PATH,FileAccess.WRITE)
-	file.store_string(json_string)
+
 
 func face_selected(face_path):
 	var new_face = load(face_path)
@@ -160,3 +179,23 @@ func clear_actor_face():
 func face_index(index:int):
 	actors[cur_actor_index]["face_index"] = index
 	face_sprite.frame = index
+
+func sprite_selected(sprite_path:String):
+	var new_sprite = load(sprite_path)
+	walking_sprite.texture = new_sprite
+	var file_name = sprite_path.get_file()
+	if file_name.begins_with("$"):
+		walking_sprite.hframes = 3
+		walking_sprite.vframes = 4
+		walking_sprite.frame = 0
+	
+	actors[cur_actor_index]["walking_sprite"] = sprite_path
+	
+func clear_walking_sprite():
+	walking_sprite.texture = null
+	actors[cur_actor_index]["walking_sprite"] = ""
+	sprite_index_spinbox.value = 0
+func _sprite_index(index):
+	actors[cur_actor_index]["walk_index"] = index
+	walking_sprite.frame = index
+	

@@ -152,6 +152,9 @@ func _load_actor(index:int):
 			if actor.has("walk_index"):
 				_sprite_index(actor["walk_index"])
 				sprite_index_spinbox.value = actor["walk_index"]
+	else:
+		walking_sprite.texture = null
+		sprite_index_spinbox.hide()
 		
 #endregion
 

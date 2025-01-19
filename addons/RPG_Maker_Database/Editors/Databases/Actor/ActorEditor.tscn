@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://1btl6oul0k7i"]
+[gd_scene load_steps=6 format=3 uid="uid://1btl6oul0k7i"]
 
 [ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/Actor/actor_editor.gd" id="1_3yu4n"]
 [ext_resource type="Texture2D" uid="uid://bptw84ct7fe68" path="res://assets/sprites/debug/halloween_10.2022/witch/3x_RMMV/$witch2_3.png" id="1_ltq4p"]
+[ext_resource type="Texture2D" uid="uid://dw74xvxm20hil" path="res://assets/fcp-dragon-knight/faces/F-chara Dragon-knight.png" id="2_8bgpi"]
+[ext_resource type="Texture2D" uid="uid://qxe5wk5wvfh0" path="res://assets/occ01-timefantasy/time-fantasy-1st-occ-winner-pack/sheet_winnersa_1.png" id="3_jmlb5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yb4wf"]
 line_spacing = 0.0
@@ -77,7 +79,7 @@ layout_mode = 0
 offset_top = 25.0
 offset_right = 153.0
 offset_bottom = 56.0
-text = "Actor 0"
+text = "Suzy"
 
 [node name="NicknameLabel" type="Label" parent="."]
 layout_mode = 1
@@ -94,6 +96,7 @@ layout_mode = 0
 offset_top = 25.0
 offset_right = 153.0
 offset_bottom = 56.0
+text = "The Dragon"
 
 [node name="InitialLevelLabel" type="Label" parent="."]
 layout_mode = 1
@@ -112,7 +115,7 @@ offset_top = 25.0
 offset_right = 80.0625
 offset_bottom = 56.0
 max_value = 9999.0
-value = 1.0
+value = 15.0
 
 [node name="MaxLevelLabel" type="Label" parent="."]
 layout_mode = 1
@@ -150,6 +153,7 @@ offset_top = 4.0
 offset_right = 305.0
 offset_bottom = 51.0
 theme_override_font_sizes/font_size = 10
+text = "Suzy is a dragon from albany. "
 placeholder_text = "Character description goes here!"
 wrap_mode = 1
 
@@ -172,8 +176,10 @@ text = "Bust"
 [node name="FaceSprite" type="Sprite2D" parent="FaceButton"]
 position = Vector2(49, 70)
 scale = Vector2(0.493323, 0.493323)
+texture = ExtResource("2_8bgpi")
 hframes = 4
 vframes = 2
+frame = 4
 
 [node name="ClearFaceButton" type="Button" parent="FaceButton"]
 layout_mode = 0
@@ -190,6 +196,7 @@ offset_top = 105.0
 offset_right = 95.0625
 offset_bottom = 136.0
 max_value = 7.0
+value = 4.0
 
 [node name="SpriteButton" type="Button" parent="."]
 layout_mode = 0
@@ -202,9 +209,10 @@ text = "Set Sprite"
 [node name="WalkingSprite" type="Sprite2D" parent="SpriteButton"]
 position = Vector2(43, 81.08)
 scale = Vector2(0.52, 0.52)
-texture = ExtResource("1_ltq4p")
-hframes = 3
-vframes = 4
+texture = ExtResource("3_jmlb5")
+hframes = 12
+vframes = 8
+frame = 10
 
 [node name="SpriteIndexSpinbox" type="SpinBox" parent="SpriteButton"]
 layout_mode = 0
@@ -213,7 +221,7 @@ offset_top = 105.0
 offset_right = 95.0625
 offset_bottom = 136.0
 max_value = 7.0
-value = 1.0
+value = 3.0
 
 [node name="FaceButton3" type="Button" parent="."]
 layout_mode = 0

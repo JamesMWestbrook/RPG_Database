@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://1btl6oul0k7i"]
+[gd_scene load_steps=4 format=3 uid="uid://1btl6oul0k7i"]
 
 [ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/Actor/actor_editor.gd" id="1_3yu4n"]
 [ext_resource type="Texture2D" uid="uid://bptw84ct7fe68" path="res://assets/sprites/debug/halloween_10.2022/witch/3x_RMMV/$witch2_3.png" id="1_ltq4p"]
-[ext_resource type="Texture2D" uid="uid://dw74xvxm20hil" path="res://assets/fcp-dragon-knight/faces/F-chara Dragon-knight.png" id="2_o72lw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yb4wf"]
 line_spacing = 0.0
@@ -78,7 +77,7 @@ layout_mode = 0
 offset_top = 25.0
 offset_right = 153.0
 offset_bottom = 56.0
-text = "Lana Del Ray"
+text = "Actor 0"
 
 [node name="NicknameLabel" type="Label" parent="."]
 layout_mode = 1
@@ -173,10 +172,8 @@ text = "Bust"
 [node name="FaceSprite" type="Sprite2D" parent="FaceButton"]
 position = Vector2(49, 70)
 scale = Vector2(0.493323, 0.493323)
-texture = ExtResource("2_o72lw")
 hframes = 4
 vframes = 2
-frame = 1
 
 [node name="ClearFaceButton" type="Button" parent="FaceButton"]
 layout_mode = 0
@@ -193,7 +190,6 @@ offset_top = 105.0
 offset_right = 95.0625
 offset_bottom = 136.0
 max_value = 7.0
-value = 1.0
 
 [node name="SpriteButton" type="Button" parent="."]
 layout_mode = 0
@@ -216,7 +212,7 @@ offset_left = 12.0
 offset_top = 105.0
 offset_right = 95.0625
 offset_bottom = 136.0
-max_value = 11.0
+max_value = 7.0
 value = 1.0
 
 [node name="FaceButton3" type="Button" parent="."]

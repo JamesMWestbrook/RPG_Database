@@ -146,7 +146,12 @@ func _load_actor(index:int):
 		else:
 			#full sprite sheet
 			sprite_index_spinbox.show()
-			
+			walking_sprite.hframes = 12
+			walking_sprite.vframes = 8
+			walking_sprite.frame = 1
+			if actor.has("walk_index"):
+				_sprite_index(actor["walk_index"])
+				sprite_index_spinbox.value = actor["walk_index"]
 		
 #endregion
 
@@ -215,5 +220,8 @@ func clear_walking_sprite():
 	sprite_index_spinbox.value = 0
 func _sprite_index(index):
 	actors[cur_actor_index]["walk_index"] = index
-	walking_sprite.frame = index
+	if index < 4:
+		walking_sprite.frame = 1 + 3 * index
+	elif index > 3:
+		walking_sprite.frame = 1 * 3  * index + (12 * 3)
 	

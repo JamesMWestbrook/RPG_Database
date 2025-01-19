@@ -102,6 +102,7 @@ func _load_actor(index:int):
 			
 func _update_name(text):
 	actors[cur_actor_index]["name"] = text
+	actor_container.get_child(cur_actor_index).text = text
 	
 func _update_nickname(text):
 	actors[cur_actor_index]["nickname"] = text

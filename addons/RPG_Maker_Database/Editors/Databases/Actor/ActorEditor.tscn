@@ -77,7 +77,7 @@ layout_mode = 0
 offset_top = 25.0
 offset_right = 153.0
 offset_bottom = 56.0
-text = "John"
+text = "Actor 0"
 
 [node name="NicknameLabel" type="Label" parent="."]
 layout_mode = 1
@@ -94,7 +94,6 @@ layout_mode = 0
 offset_top = 25.0
 offset_right = 153.0
 offset_bottom = 56.0
-text = "F######"
 
 [node name="InitialLevelLabel" type="Label" parent="."]
 layout_mode = 1

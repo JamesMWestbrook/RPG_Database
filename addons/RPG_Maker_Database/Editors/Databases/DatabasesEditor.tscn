@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcqbtahnsdr2v"]
+[gd_scene load_steps=5 format=3 uid="uid://dcqbtahnsdr2v"]
 
 [ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/databases_editor.gd" id="1_o5pce"]
 [ext_resource type="PackedScene" uid="uid://1btl6oul0k7i" path="res://addons/RPG_Maker_Database/Editors/Databases/Actor/ActorEditor.tscn" id="2_o8jcg"]
+[ext_resource type="PackedScene" uid="uid://c3tfeu2e5yqq2" path="res://addons/RPG_Maker_Database/Editors/Databases/Class/classes_editor.tscn" id="3_6di2n"]
+[ext_resource type="PackedScene" uid="uid://crb6650jht0oh" path="res://addons/RPG_Maker_Database/Editors/Databases/Parameters/parameters_editor.tscn" id="4_m3tsm"]
 
 [node name="Databases" type="TabContainer"]
 anchors_preset = 15
@@ -25,10 +27,9 @@ current_tab = 0
 [node name="Actors" parent="Characters/TabContainer" instance=ExtResource("2_o8jcg")]
 layout_mode = 2
 
-[node name="Classes" type="Control" parent="Characters/TabContainer"]
+[node name="Classes" parent="Characters/TabContainer" instance=ExtResource("3_6di2n")]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 1
 
 [node name="Enemies" type="Control" parent="Characters/TabContainer"]
 visible = false
@@ -125,7 +126,11 @@ visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
+[node name="Parameters" parent="System/TabContainer" instance=ExtResource("4_m3tsm")]
+visible = false
+layout_mode = 2
+
 [node name="Terms" type="Control" parent="System/TabContainer"]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 2
+metadata/_tab_index = 3

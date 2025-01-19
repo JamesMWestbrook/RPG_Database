@@ -2,6 +2,18 @@
 extends Control
 class_name ActorEditor
 
+@export var mybutton: bool:
+	set(value):
+		name_edit.text = ""
+		nickname_edit.text = ""
+		initial_level_edit.value = 0
+		max_level_edit.value = 0
+		profile_edit.text = ""
+		face_sprite.texture = null
+		walking_sprite.texture = null
+		battler_sprite.texture = null
+		
+#region Onreadys
 @onready var save_button: Button = $SaveButton
 @onready var actor_container:VBoxContainer = $ScrollContainer/ActorsVBox
 @onready var name_edit:LineEdit = $NameLabel/NameEdit
@@ -21,6 +33,11 @@ class_name ActorEditor
 @onready var sprite_index_spinbox: SpinBox = $SpriteButton/SpriteIndexSpinbox
 @onready var sprite_file_dialog: FileDialog = $SpriteFileDialog
 
+@onready var battler_button: Button = $BattlerButton
+@onready var battler_sprite: Sprite2D = $BattlerButton/BattlerSprite
+@onready var battler_file_dialog: FileDialog = $BattlerFileDialog
+
+#endregion
 
 const JSON_SAVE_PATH = "res://data/actors.json"
 
@@ -30,22 +47,6 @@ var actors = []
 func _ready() -> void:
 	_check_json()
 	
-	save_button.pressed.connect(_save_json)
-	name_edit.text_changed.connect(_update_name)
-	nickname_edit.text_changed.connect(_update_nickname)
-	initial_level_edit.value_changed.connect(_start_level)
-	max_level_edit.value_changed.connect(_max_level)
-	profile_edit.text_changed.connect(_profile)
-	
-	face_file_dialog.file_selected.connect(face_selected)
-	face_file_dialog.close_requested.connect(face_file_dialog.hide)
-	face_button.pressed.connect(face_file_dialog.show)
-	clear_face_button.pressed.connect(clear_actor_face)
-	face_index_spinbox.value_changed.connect(face_index)
-	
-	sprite_button.pressed.connect(sprite_file_dialog.show)
-	sprite_file_dialog.file_selected.connect(sprite_selected)
-	sprite_file_dialog.close_requested.connect(sprite_file_dialog.hide)
 	sprite_index_spinbox.value_changed.connect(_sprite_index)
 	
 	_load_actor(0)
@@ -155,7 +156,13 @@ func _load_actor(index:int):
 	else:
 		walking_sprite.texture = null
 		sprite_index_spinbox.hide()
-		
+	if actor.has("battler"):
+		var path:String = actor["battler"]
+		if FileAccess.file_exists(path):
+			battler_sprite.texture = load(actor["battler"])
+	else:
+		battler_sprite.texture = null
+		actor["battler"] = ""
 #endregion
 
 func _save_json():
@@ -186,7 +193,7 @@ func _profile():
 	
 
 
-func face_selected(face_path):
+func face_selected(face_path:String):
 	var new_face = load(face_path)
 	face_sprite.texture = new_face
 	actors[cur_actor_index]["face"] = face_path
@@ -227,4 +234,12 @@ func _sprite_index(index):
 		walking_sprite.frame = 1 + 3 * index
 	elif index > 3:
 		walking_sprite.frame = 1 * 3  * index + (12 * 3)
+	
+func _battler_selected(path:String):
+	actors[cur_actor_index]["battler"] = path
+	battler_sprite.texture = load(path)
+	
+func _clear_battler():
+	actors[cur_actor_index]["battler"] = ""
+	battler_sprite.texture = null
 	

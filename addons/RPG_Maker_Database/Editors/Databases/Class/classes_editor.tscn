@@ -1,0 +1,399 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3tfeu2e5yqq2"]
+
+[ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/Class/classes_editor.gd" id="1_013nu"]
+
+[node name="Classes" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -2.0
+offset_right = 25.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_013nu")
+metadata/_tab_index = 1
+metadata/_edit_horizontal_guides_ = [422.0]
+metadata/_edit_vertical_guides_ = [545.0]
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 9.0
+offset_right = 53.0
+offset_bottom = 32.0
+text = "Classes"
+
+[node name="ClassCountSpinbox" type="SpinBox" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.032
+anchor_top = 0.552
+anchor_right = 0.032
+anchor_bottom = 0.552
+offset_left = 0.0239983
+offset_top = 0.303955
+offset_right = 83.0865
+offset_bottom = 31.304
+min_value = 1.0
+max_value = 9999.0
+value = 1.0
+alignment = 1
+
+[node name="ChangeActorMaxButton" type="Button" parent="ClassCountSpinbox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.015
+anchor_top = 0.603
+anchor_right = 0.015
+anchor_bottom = 0.603
+offset_left = -13.2459
+offset_top = 14.307
+offset_right = 89.7541
+offset_bottom = 45.307
+text = "Change Max"
+
+[node name="SaveButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 7.0
+offset_right = 111.0
+offset_bottom = 38.0
+text = "Save"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.066
+anchor_right = 0.174
+anchor_bottom = 0.704
+offset_top = 0.231998
+offset_right = 0.0680008
+offset_bottom = -99.192
+grow_vertical = 2
+
+[node name="ActorsVBox" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Button" type="Button" parent="ScrollContainer/ActorsVBox"]
+layout_mode = 2
+text = "ClassName"
+
+[node name="Button2" type="Button" parent="ScrollContainer/ActorsVBox"]
+layout_mode = 2
+text = "ClassName"
+
+[node name="Button3" type="Button" parent="ScrollContainer/ActorsVBox"]
+layout_mode = 2
+text = "ClassName"
+
+[node name="Button4" type="Button" parent="ScrollContainer/ActorsVBox"]
+layout_mode = 2
+text = "ClassName"
+
+[node name="Button5" type="Button" parent="ScrollContainer/ActorsVBox"]
+layout_mode = 2
+text = "ClassName"
+
+[node name="Button6" type="Button" parent="ScrollContainer/ActorsVBox"]
+layout_mode = 2
+text = "ClassName"
+
+[node name="Button7" type="Button" parent="ScrollContainer/ActorsVBox"]
+layout_mode = 2
+text = "ClassName"
+
+[node name="Button8" type="Button" parent="ScrollContainer/ActorsVBox"]
+layout_mode = 2
+text = "ClassName"
+
+[node name="Button9" type="Button" parent="ScrollContainer/ActorsVBox"]
+layout_mode = 2
+text = "ClassName"
+
+[node name="Button10" type="Button" parent="ScrollContainer/ActorsVBox"]
+layout_mode = 2
+text = "ClassName"
+
+[node name="Button11" type="Button" parent="ScrollContainer/ActorsVBox"]
+layout_mode = 2
+text = "ClassName"
+
+[node name="NameLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.256
+anchor_right = 0.256
+offset_left = -51.808
+offset_right = -0.808014
+offset_bottom = 23.0
+text = "Name:"
+
+[node name="NameEdit" type="LineEdit" parent="NameLabel"]
+layout_mode = 0
+offset_top = 25.0
+offset_right = 302.0
+offset_bottom = 56.0
+text = "Holy Queen o Scotts"
+
+[node name="TraitsLabel" type="Label" parent="."]
+offset_left = 458.0
+offset_top = 6.0
+offset_right = 502.0
+offset_bottom = 29.0
+text = "Traits"
+
+[node name="Button" type="Button" parent="TraitsLabel"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = -3.0
+offset_right = 64.0
+offset_bottom = 28.0
+text = "+"
+
+[node name="Panel" type="Panel" parent="TraitsLabel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.25
+anchor_top = 1.304
+anchor_right = -0.25
+anchor_bottom = 1.304
+offset_left = -5.0
+offset_top = 0.00799942
+offset_right = 98.0
+offset_bottom = 339.008
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TraitsLabel/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TraitsLabel/Panel/ScrollContainer"]
+layout_mode = 2
+
+[node name="StatsPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.18
+anchor_top = 0.1
+anchor_right = 0.18
+anchor_bottom = 0.1
+offset_left = -0.240005
+offset_top = 0.199997
+offset_right = 287.76
+offset_bottom = 205.2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StatsPanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -294.0
+offset_bottom = 276.0
+grow_horizontal = 0
+
+[node name="HPBox" type="HBoxContainer" parent="StatsPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="StatsPanel/VBoxContainer/HPBox"]
+layout_mode = 2
+text = "Max HP"
+
+[node name="SpinBox" type="SpinBox" parent="StatsPanel/VBoxContainer/HPBox"]
+custom_minimum_size = Vector2(102.685, 0)
+layout_mode = 2
+min_value = 1.0
+max_value = 99999.0
+value = 99.0
+prefix = "Lvl 1:"
+
+[node name="SpinBox2" type="SpinBox" parent="StatsPanel/VBoxContainer/HPBox"]
+custom_minimum_size = Vector2(116.26, 0)
+layout_mode = 2
+min_value = 1.0
+max_value = 99999.0
+value = 1.0
+prefix = "Lvl 99:"
+
+[node name="MPBox" type="HBoxContainer" parent="StatsPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="StatsPanel/VBoxContainer/MPBox"]
+layout_mode = 2
+text = "Max MP"
+
+[node name="SpinBox" type="SpinBox" parent="StatsPanel/VBoxContainer/MPBox"]
+custom_minimum_size = Vector2(102.685, 0)
+layout_mode = 2
+min_value = 1.0
+max_value = 99999.0
+value = 1.0
+prefix = "Lvl 1:"
+
+[node name="SpinBox2" type="SpinBox" parent="StatsPanel/VBoxContainer/MPBox"]
+custom_minimum_size = Vector2(116.26, 0)
+layout_mode = 2
+min_value = 1.0
+max_value = 99999.0
+value = 1.0
+prefix = "Lvl 99:"
+
+[node name="AttackBox" type="HBoxContainer" parent="StatsPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="StatsPanel/VBoxContainer/AttackBox"]
+layout_mode = 2
+text = "Attack"
+
+[node name="SpinBox" type="SpinBox" parent="StatsPanel/VBoxContainer/AttackBox"]
+custom_minimum_size = Vector2(102.685, 0)
+layout_mode = 2
+min_value = 1.0
+max_value = 99999.0
+value = 1.0
+prefix = "Lvl 1:"
+
+[node name="SpinBox2" type="SpinBox" parent="StatsPanel/VBoxContainer/AttackBox"]
+custom_minimum_size = Vector2(116.26, 0)
+layout_mode = 2
+min_value = 1.0
+max_value = 99999.0
+value = 1.0
+prefix = "Lvl 99:"
+
+[node name="DefenseBox" type="HBoxContainer" parent="StatsPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="StatsPanel/VBoxContainer/DefenseBox"]
+layout_mode = 2
+text = "Defense"
+
+[node name="SpinBox" type="SpinBox" parent="StatsPanel/VBoxContainer/DefenseBox"]
+custom_minimum_size = Vector2(102.685, 0)
+layout_mode = 2
+min_value = 1.0
+max_value = 99999.0
+value = 1.0
+prefix = "Lvl 1:"
+
+[node name="SpinBox2" type="SpinBox" parent="StatsPanel/VBoxContainer/DefenseBox"]
+custom_minimum_size = Vector2(116.26, 0)
+layout_mode = 2
+min_value = 1.0
+max_value = 99999.0
+value = 1.0
+prefix = "Lvl 99:"
+
+[node name="MAttackBox" type="HBoxContainer" parent="StatsPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="StatsPanel/VBoxContainer/MAttackBox"]
+layout_mode = 2
+text = "M. Attack"
+
+[node name="SpinBox" type="SpinBox" parent="StatsPanel/VBoxContainer/MAttackBox"]
+custom_minimum_size = Vector2(102.685, 0)
+layout_mode = 2
+min_value = 1.0
+max_value = 99999.0
+value = 1.0
+prefix = "Lvl 1:"
+
+[node name="SpinBox2" type="SpinBox" parent="StatsPanel/VBoxContainer/MAttackBox"]
+custom_minimum_size = Vector2(116.26, 0)
+layout_mode = 2
+min_value = 1.0
+max_value = 99999.0
+value = 1.0
+prefix = "Lvl 99:"
+
+[node name="MDefenseBox" type="HBoxContainer" parent="StatsPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="StatsPanel/VBoxContainer/MDefenseBox"]
+layout_mode = 2
+text = "M. Defense"
+
+[node name="SpinBox" type="SpinBox" parent="StatsPanel/VBoxContainer/MDefenseBox"]
+custom_minimum_size = Vector2(102.685, 0)
+layout_mode = 2
+min_value = 1.0
+max_value = 99999.0
+value = 1.0
+prefix = "Lvl 1:"
+
+[node name="SpinBox2" type="SpinBox" parent="StatsPanel/VBoxContainer/MDefenseBox"]
+custom_minimum_size = Vector2(116.26, 0)
+layout_mode = 2
+min_value = 1.0
+max_value = 99999.0
+value = 1.0
+prefix = "Lvl 99:"
+
+[node name="AgilityBox" type="HBoxContainer" parent="StatsPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="StatsPanel/VBoxContainer/AgilityBox"]
+layout_mode = 2
+text = "Agility"
+
+[node name="SpinBox" type="SpinBox" parent="StatsPanel/VBoxContainer/AgilityBox"]
+custom_minimum_size = Vector2(102.685, 0)
+layout_mode = 2
+min_value = 1.0
+max_value = 99999.0
+value = 1.0
+prefix = "Lvl 1:"
+
+[node name="SpinBox2" type="SpinBox" parent="StatsPanel/VBoxContainer/AgilityBox"]
+custom_minimum_size = Vector2(116.26, 0)
+layout_mode = 2
+min_value = 1.0
+max_value = 99999.0
+value = 1.0
+prefix = "Lvl 99:"
+
+[node name="LuckBox" type="HBoxContainer" parent="StatsPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="StatsPanel/VBoxContainer/LuckBox"]
+layout_mode = 2
+text = "Luck"
+
+[node name="SpinBox" type="SpinBox" parent="StatsPanel/VBoxContainer/LuckBox"]
+custom_minimum_size = Vector2(102.685, 0)
+layout_mode = 2
+min_value = 1.0
+max_value = 99999.0
+value = 1.0
+prefix = "Lvl 1:"
+
+[node name="SpinBox2" type="SpinBox" parent="StatsPanel/VBoxContainer/LuckBox"]
+custom_minimum_size = Vector2(116.26, 0)
+layout_mode = 2
+min_value = 1.0
+max_value = 99999.0
+value = 1.0
+prefix = "Lvl 99:"
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 131.0
+offset_top = 274.0
+offset_right = 440.0
+offset_bottom = 375.0

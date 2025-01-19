@@ -1,9 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://1btl6oul0k7i"]
+[gd_scene load_steps=3 format=3 uid="uid://1btl6oul0k7i"]
 
 [ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/Actor/actor_editor.gd" id="1_3yu4n"]
-[ext_resource type="Texture2D" uid="uid://bptw84ct7fe68" path="res://assets/sprites/debug/halloween_10.2022/witch/3x_RMMV/$witch2_3.png" id="1_ltq4p"]
-[ext_resource type="Texture2D" uid="uid://dw74xvxm20hil" path="res://assets/fcp-dragon-knight/faces/F-chara Dragon-knight.png" id="2_8bgpi"]
-[ext_resource type="Texture2D" uid="uid://qxe5wk5wvfh0" path="res://assets/occ01-timefantasy/time-fantasy-1st-occ-winner-pack/sheet_winnersa_1.png" id="3_jmlb5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yb4wf"]
 line_spacing = 0.0
@@ -18,6 +15,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3yu4n")
 metadata/_tab_index = 0
+metadata/_edit_horizontal_guides_ = [424.0]
+metadata/_edit_vertical_guides_ = [546.0]
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -79,7 +78,6 @@ layout_mode = 0
 offset_top = 25.0
 offset_right = 153.0
 offset_bottom = 56.0
-text = "Suzy"
 
 [node name="NicknameLabel" type="Label" parent="."]
 layout_mode = 1
@@ -96,7 +94,6 @@ layout_mode = 0
 offset_top = 25.0
 offset_right = 153.0
 offset_bottom = 56.0
-text = "The Dragon"
 
 [node name="InitialLevelLabel" type="Label" parent="."]
 layout_mode = 1
@@ -114,8 +111,9 @@ offset_left = -3.0
 offset_top = 25.0
 offset_right = 80.0625
 offset_bottom = 56.0
+min_value = 1.0
 max_value = 9999.0
-value = 15.0
+value = 1.0
 
 [node name="MaxLevelLabel" type="Label" parent="."]
 layout_mode = 1
@@ -136,7 +134,7 @@ offset_right = 80.0625
 offset_bottom = 56.0
 min_value = 1.0
 max_value = 9999.0
-value = 99.0
+value = 1.0
 
 [node name="ProfileLabel" type="Label" parent="."]
 layout_mode = 0
@@ -153,7 +151,6 @@ offset_top = 4.0
 offset_right = 305.0
 offset_bottom = 51.0
 theme_override_font_sizes/font_size = 10
-text = "Suzy is a dragon from albany. "
 placeholder_text = "Character description goes here!"
 wrap_mode = 1
 
@@ -176,7 +173,6 @@ text = "Bust"
 [node name="FaceSprite" type="Sprite2D" parent="FaceButton"]
 position = Vector2(49, 70)
 scale = Vector2(0.493323, 0.493323)
-texture = ExtResource("2_8bgpi")
 hframes = 4
 vframes = 2
 frame = 4
@@ -209,7 +205,6 @@ text = "Set Sprite"
 [node name="WalkingSprite" type="Sprite2D" parent="SpriteButton"]
 position = Vector2(43, 81.08)
 scale = Vector2(0.52, 0.52)
-texture = ExtResource("3_jmlb5")
 hframes = 12
 vframes = 8
 frame = 10
@@ -223,7 +218,15 @@ offset_bottom = 136.0
 max_value = 7.0
 value = 3.0
 
-[node name="FaceButton3" type="Button" parent="."]
+[node name="ClearSpriteButton" type="Button" parent="SpriteButton"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 32.0
+offset_right = 86.0
+offset_bottom = 63.0
+text = "X"
+
+[node name="BattlerButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 324.0
 offset_top = 119.0
@@ -231,12 +234,19 @@ offset_right = 414.0
 offset_bottom = 150.0
 text = "Set Battler"
 
-[node name="Sprite2D" type="Sprite2D" parent="FaceButton3"]
+[node name="BattlerSprite" type="Sprite2D" parent="BattlerButton"]
 position = Vector2(43, 81.08)
 scale = Vector2(0.52, 0.52)
-texture = ExtResource("1_ltq4p")
-hframes = 3
-vframes = 4
+hframes = 9
+vframes = 6
+
+[node name="ClearBattlerButton" type="Button" parent="BattlerButton"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 32.0
+offset_right = 88.0
+offset_bottom = 63.0
+text = "X"
 
 [node name="InitialEquipmentLabel" type="Label" parent="."]
 layout_mode = 0
@@ -329,3 +339,32 @@ always_on_top = true
 ok_button_text = "Open"
 file_mode = 0
 filters = PackedStringArray("*.png")
+
+[node name="BattlerFileDialog" type="FileDialog" parent="."]
+auto_translate_mode = 1
+title = "Open a File"
+initial_position = 4
+size = Vector2i(303, 405)
+always_on_top = true
+ok_button_text = "Open"
+file_mode = 0
+filters = PackedStringArray("*.png")
+
+[connection signal="button_down" from="SaveButton" to="." method="_save_json"]
+[connection signal="text_changed" from="NameLabel/NameEdit" to="." method="_update_name"]
+[connection signal="text_changed" from="NicknameLabel/NicknameEdit" to="." method="_update_nickname"]
+[connection signal="value_changed" from="InitialLevelLabel/InitialLevelEdit" to="." method="_start_level"]
+[connection signal="value_changed" from="MaxLevelLabel/MaxLevelEdit" to="." method="_max_level"]
+[connection signal="text_changed" from="ProfileLabel/ProfileEdit" to="." method="_profile"]
+[connection signal="button_down" from="FaceButton" to="FaceFileDialog" method="show"]
+[connection signal="button_down" from="FaceButton/ClearFaceButton" to="." method="clear_actor_face"]
+[connection signal="value_changed" from="FaceButton/FaceIndexSpinbox" to="." method="face_index"]
+[connection signal="button_down" from="SpriteButton" to="SpriteFileDialog" method="show"]
+[connection signal="button_down" from="SpriteButton/ClearSpriteButton" to="." method="clear_walking_sprite"]
+[connection signal="button_down" from="BattlerButton" to="BattlerFileDialog" method="show"]
+[connection signal="button_down" from="BattlerButton/ClearBattlerButton" to="." method="_clear_battler"]
+[connection signal="close_requested" from="FaceFileDialog" to="FaceFileDialog" method="hide"]
+[connection signal="file_selected" from="FaceFileDialog" to="." method="face_selected"]
+[connection signal="close_requested" from="SpriteFileDialog" to="SpriteFileDialog" method="hide"]
+[connection signal="file_selected" from="SpriteFileDialog" to="." method="sprite_selected"]
+[connection signal="file_selected" from="BattlerFileDialog" to="." method="_battler_selected"]

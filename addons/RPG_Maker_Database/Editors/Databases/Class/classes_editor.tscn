@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3tfeu2e5yqq2"]
+[gd_scene load_steps=3 format=3 uid="uid://c3tfeu2e5yqq2"]
 
 [ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/Class/classes_editor.gd" id="1_013nu"]
+[ext_resource type="PackedScene" uid="uid://0o7cxqncf2l2" path="res://addons/RPG_Maker_Database/Editors/Databases/trait_container.tscn" id="2_b31ui"]
 
 [node name="Classes" type="Control"]
 layout_mode = 3
@@ -328,9 +329,5 @@ custom_minimum_size = Vector2(239.425, 390.295)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer/3rd Column/ScrollContainer"]
+[node name="TraitContainer" parent="BoxContainer/3rd Column/ScrollContainer" instance=ExtResource("2_b31ui")]
 layout_mode = 2
-
-[node name="Button" type="Button" parent="BoxContainer/3rd Column/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-text = "Element Rate | Physical * 100"

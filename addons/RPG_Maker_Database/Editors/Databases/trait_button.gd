@@ -1,13 +1,12 @@
 @tool
-extends Control
+extends Button
+class_name TraitButton
 
-@export var mybutton: bool:
-	set(value):
-		pass
-		
-		
-@onready var traits_window: TraitsWindow = $"../../../TraitsWindow"
-
+var rpg_trait = {
+	"trait": "", #example, "ex-parameter"
+	"argument":"", #example, 0 which means max_HP
+	"modifier":"" #example, 120 means times 120%
+}
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

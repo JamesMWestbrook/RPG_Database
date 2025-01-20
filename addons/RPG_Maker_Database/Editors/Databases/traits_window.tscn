@@ -15,9 +15,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 0
+current_tab = 1
 
 [node name="Rate" type="Control" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -29,17 +30,17 @@ offset_bottom = 40.0
 [node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Rate/VBoxContainer"]
 layout_mode = 2
 
-[node name="CheckBox" type="CheckBox" parent="TabContainer/Rate/VBoxContainer/HBoxContainer"]
+[node name="ELementRateCheckBox" type="CheckBox" parent="TabContainer/Rate/VBoxContainer/HBoxContainer" groups=["checkbox"]]
 layout_mode = 2
 text = "Element Rate"
 
-[node name="MenuButton" type="MenuButton" parent="TabContainer/Rate/VBoxContainer/HBoxContainer"]
+[node name="ElementRateMenuButton" type="MenuButton" parent="TabContainer/Rate/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Physical"
 item_count = 1
 popup/item_0/text = "Physical"
 
-[node name="SpinBox" type="SpinBox" parent="TabContainer/Rate/VBoxContainer"]
+[node name="ElementRateSpinBox" type="SpinBox" parent="TabContainer/Rate/VBoxContainer"]
 layout_mode = 2
 prefix = "*"
 suffix = "%"
@@ -47,17 +48,17 @@ suffix = "%"
 [node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Rate/VBoxContainer"]
 layout_mode = 2
 
-[node name="CheckBox" type="CheckBox" parent="TabContainer/Rate/VBoxContainer/HBoxContainer2"]
+[node name="DebuffRateCheckBox" type="CheckBox" parent="TabContainer/Rate/VBoxContainer/HBoxContainer2" groups=["checkbox"]]
 layout_mode = 2
 text = "Debuff Rate"
 
-[node name="MenuButton" type="MenuButton" parent="TabContainer/Rate/VBoxContainer/HBoxContainer2"]
+[node name="DebuffRateMenuButton" type="MenuButton" parent="TabContainer/Rate/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 text = "Max HP"
 item_count = 1
 popup/item_0/text = "Physical"
 
-[node name="SpinBox2" type="SpinBox" parent="TabContainer/Rate/VBoxContainer"]
+[node name="DebuffRateSpinBox2" type="SpinBox" parent="TabContainer/Rate/VBoxContainer"]
 layout_mode = 2
 prefix = "*"
 suffix = "%"
@@ -65,17 +66,17 @@ suffix = "%"
 [node name="HBoxContainer3" type="HBoxContainer" parent="TabContainer/Rate/VBoxContainer"]
 layout_mode = 2
 
-[node name="CheckBox" type="CheckBox" parent="TabContainer/Rate/VBoxContainer/HBoxContainer3"]
+[node name="StateRateCheckBox" type="CheckBox" parent="TabContainer/Rate/VBoxContainer/HBoxContainer3" groups=["checkbox"]]
 layout_mode = 2
 text = "State Rate"
 
-[node name="MenuButton" type="MenuButton" parent="TabContainer/Rate/VBoxContainer/HBoxContainer3"]
+[node name="StateRateMenuButton" type="MenuButton" parent="TabContainer/Rate/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 text = "Knockout"
 item_count = 1
 popup/item_0/text = "Physical"
 
-[node name="SpinBox3" type="SpinBox" parent="TabContainer/Rate/VBoxContainer"]
+[node name="StateRateSpinBox3" type="SpinBox" parent="TabContainer/Rate/VBoxContainer"]
 layout_mode = 2
 prefix = "*"
 suffix = "%"
@@ -83,20 +84,78 @@ suffix = "%"
 [node name="HBoxContainer4" type="HBoxContainer" parent="TabContainer/Rate/VBoxContainer"]
 layout_mode = 2
 
-[node name="CheckBox" type="CheckBox" parent="TabContainer/Rate/VBoxContainer/HBoxContainer4"]
+[node name="StateResistCheckBox" type="CheckBox" parent="TabContainer/Rate/VBoxContainer/HBoxContainer4" groups=["checkbox"]]
 layout_mode = 2
 text = "State Resist"
 
-[node name="MenuButton" type="MenuButton" parent="TabContainer/Rate/VBoxContainer/HBoxContainer4"]
+[node name="StateResistMenuButton" type="MenuButton" parent="TabContainer/Rate/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 text = "Knockout"
 item_count = 1
 popup/item_0/text = "Physical"
 
 [node name="Param" type="Control" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/Param"]
+layout_mode = 0
+offset_right = 206.0
+offset_bottom = 241.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Param/VBoxContainer2"]
+layout_mode = 2
+
+[node name="ParameterCheckBox" type="CheckBox" parent="TabContainer/Param/VBoxContainer2/HBoxContainer" groups=["checkbox"]]
+layout_mode = 2
+text = "Parameter"
+
+[node name="ParameterMenuButton" type="MenuButton" parent="TabContainer/Param/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Physical"
+item_count = 1
+popup/item_0/text = "Physical"
+
+[node name="ParameterSpinBox" type="SpinBox" parent="TabContainer/Param/VBoxContainer2"]
+layout_mode = 2
+prefix = "*"
+suffix = "%"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="TabContainer/Param/VBoxContainer2"]
+layout_mode = 2
+
+[node name="ExParameterCheckBox" type="CheckBox" parent="TabContainer/Param/VBoxContainer2/HBoxContainer3" groups=["checkbox"]]
+layout_mode = 2
+text = "Ex-Parameter"
+
+[node name="ExParameterMenuButton" type="MenuButton" parent="TabContainer/Param/VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+text = "Knockout"
+item_count = 1
+popup/item_0/text = "Physical"
+
+[node name="StateRateSpinBox3" type="SpinBox" parent="TabContainer/Param/VBoxContainer2"]
+layout_mode = 2
+prefix = "*"
+suffix = "%"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Param/VBoxContainer2"]
+layout_mode = 2
+
+[node name="SpParameterCheckBox" type="CheckBox" parent="TabContainer/Param/VBoxContainer2/HBoxContainer2" groups=["checkbox"]]
+layout_mode = 2
+text = "Sp-Parameter"
+
+[node name="SpParameterMenuButton" type="MenuButton" parent="TabContainer/Param/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+text = "Max HP"
+item_count = 1
+popup/item_0/text = "Physical"
+
+[node name="SpParameterSpinBox2" type="SpinBox" parent="TabContainer/Param/VBoxContainer2"]
+layout_mode = 2
+prefix = "*"
+suffix = "%"
 
 [node name="Attack" type="Control" parent="TabContainer"]
 visible = false

@@ -32,6 +32,9 @@ class_name ActorEditor
 @onready var battler_button: Button = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/BattlerButton
 @onready var battler_sprite: Sprite2D = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/BattlerButton/BattlerSprite
 
+@onready var traits_window: TraitsWindow = $"../../../TraitsWindow"
+
+
 #endregion
 
 const JSON_SAVE_PATH = "res://data/actors.json"
@@ -151,7 +154,7 @@ func _load_actor(index:int):
 	else:
 		walking_sprite.texture = null
 		sprite_index_spinbox.hide()
-	if actor.has("battler"):
+	if actor.has("battler") and actor["battler"] != "":
 		var path:String = actor["battler"]
 		if FileAccess.file_exists(path):
 			battler_sprite.texture = load(actor["battler"])

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://1btl6oul0k7i"]
+[gd_scene load_steps=7 format=3 uid="uid://1btl6oul0k7i"]
 
 [ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/Actor/actor_editor.gd" id="1_3yu4n"]
 [ext_resource type="Texture2D" uid="uid://dw74xvxm20hil" path="res://assets/fcp-dragon-knight/faces/F-chara Dragon-knight.png" id="2_0437t"]
 [ext_resource type="Texture2D" uid="uid://qxe5wk5wvfh0" path="res://assets/occ01-timefantasy/time-fantasy-1st-occ-winner-pack/sheet_winnersa_1.png" id="3_6f34h"]
+[ext_resource type="Texture2D" uid="uid://bebm8n2g5evks" path="res://assets/fcp-dragon-knight/sv_actors/SV_F-chara Dragon-knight1.png" id="4_rekaq"]
 [ext_resource type="Script" path="res://addons/eranot.resizable/resizable.gd" id="4_rsfhn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yb4wf"]
@@ -98,6 +99,7 @@ text = "Profile:"
 custom_minimum_size = Vector2(274.665, 56.515)
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
+text = "Suzy is a dragon from albany. "
 placeholder_text = "Character description goes here!"
 wrap_mode = 1
 
@@ -123,7 +125,7 @@ scale = Vector2(0.493323, 0.493323)
 texture = ExtResource("2_0437t")
 hframes = 4
 vframes = 2
-frame = 4
+frame = 5
 
 [node name="SpriteButton" type="Button" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer3"]
 layout_mode = 2
@@ -144,6 +146,7 @@ text = "Set Battler"
 [node name="BattlerSprite" type="Sprite2D" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/BattlerButton"]
 position = Vector2(58, 81.08)
 scale = Vector2(0.52, 0.52)
+texture = ExtResource("4_rekaq")
 hframes = 9
 vframes = 6
 
@@ -162,7 +165,7 @@ alignment = 1
 [node name="FaceIndexSpinbox" type="SpinBox" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer4"]
 layout_mode = 2
 max_value = 7.0
-value = 4.0
+value = 5.0
 
 [node name="SpriteIndexSpinbox" type="SpinBox" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer4"]
 layout_mode = 2

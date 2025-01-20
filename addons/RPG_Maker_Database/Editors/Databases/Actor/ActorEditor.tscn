@@ -118,7 +118,7 @@ offset_bottom = 31.0
 text = "Bust"
 
 [node name="FaceSprite" type="Sprite2D" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/FaceButton"]
-position = Vector2(37, 70)
+position = Vector2(12, 70)
 scale = Vector2(0.493323, 0.493323)
 texture = ExtResource("2_0437t")
 hframes = 4
@@ -142,7 +142,7 @@ layout_mode = 2
 text = "Set Battler"
 
 [node name="BattlerSprite" type="Sprite2D" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/BattlerButton"]
-position = Vector2(43, 81.08)
+position = Vector2(58, 81.08)
 scale = Vector2(0.52, 0.52)
 hframes = 9
 vframes = 6
@@ -293,7 +293,7 @@ text = "Element Rate | Physical * 100"
 
 [node name="Button2" type="Button" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer3/VBoxContainer2"]
 layout_mode = 2
-text = "Element Rate | Physical * 100"
+text = "Ex Parameer | Magic Reflection + 999%"
 
 [node name="Button3" type="Button" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer3/VBoxContainer2"]
 layout_mode = 2

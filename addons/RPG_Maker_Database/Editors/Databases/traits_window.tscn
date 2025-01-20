@@ -1,0 +1,138 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqteh31ksim5"]
+
+[ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/traits_window.gd" id="1_rodhp"]
+
+[node name="TraitsWindow" type="Window"]
+auto_translate_mode = 1
+title = "Traits"
+initial_position = 4
+size = Vector2i(390, 335)
+script = ExtResource("1_rodhp")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="Rate" type="Control" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Rate"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Rate/VBoxContainer"]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="TabContainer/Rate/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Element Rate"
+
+[node name="MenuButton" type="MenuButton" parent="TabContainer/Rate/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Physical"
+item_count = 1
+popup/item_0/text = "Physical"
+
+[node name="SpinBox" type="SpinBox" parent="TabContainer/Rate/VBoxContainer"]
+layout_mode = 2
+prefix = "*"
+suffix = "%"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Rate/VBoxContainer"]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="TabContainer/Rate/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Debuff Rate"
+
+[node name="MenuButton" type="MenuButton" parent="TabContainer/Rate/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Max HP"
+item_count = 1
+popup/item_0/text = "Physical"
+
+[node name="SpinBox2" type="SpinBox" parent="TabContainer/Rate/VBoxContainer"]
+layout_mode = 2
+prefix = "*"
+suffix = "%"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="TabContainer/Rate/VBoxContainer"]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="TabContainer/Rate/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "State Rate"
+
+[node name="MenuButton" type="MenuButton" parent="TabContainer/Rate/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Knockout"
+item_count = 1
+popup/item_0/text = "Physical"
+
+[node name="SpinBox3" type="SpinBox" parent="TabContainer/Rate/VBoxContainer"]
+layout_mode = 2
+prefix = "*"
+suffix = "%"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="TabContainer/Rate/VBoxContainer"]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="TabContainer/Rate/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "State Resist"
+
+[node name="MenuButton" type="MenuButton" parent="TabContainer/Rate/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Knockout"
+item_count = 1
+popup/item_0/text = "Physical"
+
+[node name="Param" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Attack" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Skill" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="Equip" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4
+
+[node name="Other" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -95.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="OKButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "OK"
+
+[node name="CancelButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Cancel"

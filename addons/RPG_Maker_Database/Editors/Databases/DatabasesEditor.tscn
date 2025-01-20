@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcqbtahnsdr2v"]
+[gd_scene load_steps=6 format=3 uid="uid://dcqbtahnsdr2v"]
 
 [ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/databases_editor.gd" id="1_o5pce"]
 [ext_resource type="PackedScene" uid="uid://1btl6oul0k7i" path="res://addons/RPG_Maker_Database/Editors/Databases/Actor/ActorEditor.tscn" id="2_o8jcg"]
 [ext_resource type="PackedScene" uid="uid://c3tfeu2e5yqq2" path="res://addons/RPG_Maker_Database/Editors/Databases/Class/classes_editor.tscn" id="3_6di2n"]
 [ext_resource type="PackedScene" uid="uid://crb6650jht0oh" path="res://addons/RPG_Maker_Database/Editors/Databases/Parameters/parameters_editor.tscn" id="4_m3tsm"]
+[ext_resource type="PackedScene" uid="uid://cqteh31ksim5" path="res://addons/RPG_Maker_Database/Editors/Databases/traits_window.tscn" id="5_duimv"]
 
 [node name="Databases" type="TabContainer"]
 anchors_preset = 15
@@ -134,3 +135,6 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 metadata/_tab_index = 3
+
+[node name="TraitsWindow" parent="." instance=ExtResource("5_duimv")]
+visible = false

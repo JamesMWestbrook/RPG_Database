@@ -14,28 +14,26 @@ class_name ActorEditor
 		battler_sprite.texture = null
 		
 #region Onreadys
-@onready var save_button: Button = $SaveButton
-@onready var actor_container:VBoxContainer = $ScrollContainer/ActorsVBox
-@onready var name_edit:LineEdit = $NameLabel/NameEdit
-@onready var nickname_edit: LineEdit = $NicknameLabel/NicknameEdit
-@onready var initial_level_edit: SpinBox = $InitialLevelLabel/InitialLevelEdit
-@onready var max_level_edit: SpinBox = $MaxLevelLabel/MaxLevelEdit
-@onready var profile_edit: TextEdit = $ProfileLabel/ProfileEdit
+@export var actor_container:VBoxContainer = $ScrollContainer/ActorsVBox
+@export var name_edit:LineEdit = $NameLabel/NameEdit
+@export var nickname_edit: LineEdit = $NicknameLabel/NicknameEdit
+@export var initial_level_edit: SpinBox = $InitialLevelLabel/InitialLevelEdit
+@export var max_level_edit: SpinBox = $MaxLevelLabel/MaxLevelEdit
+@export var profile_edit: TextEdit = $ProfileLabel/ProfileEdit
 
-@onready var face_file_dialog: FileDialog = $FaceFileDialog
-@onready var face_sprite: Sprite2D = $FaceButton/FaceSprite
-@onready var face_button: Button = $FaceButton
-@onready var clear_face_button: Button = $FaceButton/ClearFaceButton
-@onready var face_index_spinbox: SpinBox = $FaceButton/FaceIndexSpinbox
+@export var face_file_dialog: FileDialog = $FaceFileDialog
+@export var face_sprite: Sprite2D = $FaceButton/FaceSprite
+@export var face_button: Button = $FaceButton
+@export var clear_face_button: Button = $FaceButton/ClearFaceButton
+@export var face_index_spinbox: SpinBox = $FaceButton/FaceIndexSpinbox
 
-@onready var sprite_button: Button = $SpriteButton
-@onready var walking_sprite: Sprite2D = $SpriteButton/WalkingSprite
-@onready var sprite_index_spinbox: SpinBox = $SpriteButton/SpriteIndexSpinbox
-@onready var sprite_file_dialog: FileDialog = $SpriteFileDialog
+@export var sprite_button: Button = $SpriteButton
+@export var walking_sprite: Sprite2D = $SpriteButton/WalkingSprite
+@export var sprite_index_spinbox: SpinBox = $SpriteButton/SpriteIndexSpinbox
+@export var sprite_file_dialog: FileDialog = $SpriteFileDialog
 
-@onready var battler_button: Button = $BattlerButton
-@onready var battler_sprite: Sprite2D = $BattlerButton/BattlerSprite
-@onready var battler_file_dialog: FileDialog = $BattlerFileDialog
+@export var battler_button: Button = $BattlerButton
+@export var battler_sprite: Sprite2D = $BattlerButton/BattlerSprite
 
 #endregion
 

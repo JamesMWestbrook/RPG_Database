@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://1btl6oul0k7i"]
+[gd_scene load_steps=5 format=3 uid="uid://1btl6oul0k7i"]
 
 [ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/Actor/actor_editor.gd" id="1_3yu4n"]
+[ext_resource type="Texture2D" uid="uid://dw74xvxm20hil" path="res://assets/fcp-dragon-knight/faces/F-chara Dragon-knight.png" id="2_0437t"]
+[ext_resource type="Texture2D" uid="uid://qxe5wk5wvfh0" path="res://assets/occ01-timefantasy/time-fantasy-1st-occ-winner-pack/sheet_winnersa_1.png" id="3_6f34h"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yb4wf"]
 line_spacing = 0.0
 font_size = 12
 
-[node name="Actors" type="Control"]
+[node name="Actors" type="Control" node_paths=PackedStringArray("actor_container", "name_edit", "nickname_edit", "initial_level_edit", "max_level_edit", "profile_edit", "face_file_dialog", "face_sprite", "face_button", "clear_face_button", "face_index_spinbox", "sprite_button", "walking_sprite", "sprite_index_spinbox", "sprite_file_dialog", "battler_button", "battler_sprite", "battler_file_dialog")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,287 +16,29 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3yu4n")
+actor_container = NodePath("BoxContainer/Column1/ScrollContainer/ActorsVBox")
+name_edit = NodePath("BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer2/NameEdit")
+nickname_edit = NodePath("BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer2/NicknameEdit")
+initial_level_edit = NodePath("BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column3/InitialLevelEdit")
+max_level_edit = NodePath("BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column3/MaxLevelEdit")
+profile_edit = NodePath("BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/ProfileEdit")
+face_file_dialog = NodePath("FaceFileDialog")
+face_sprite = NodePath("BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/FaceButton/FaceSprite")
+face_button = NodePath("BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/FaceButton")
+clear_face_button = NodePath("BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer5/ClearFaceButton")
+face_index_spinbox = NodePath("BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer4/FaceIndexSpinbox")
+sprite_button = NodePath("BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/SpriteButton")
+walking_sprite = NodePath("BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/SpriteButton/WalkingSprite")
+sprite_index_spinbox = NodePath("BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer4/SpriteIndexSpinbox")
+sprite_file_dialog = NodePath("SpriteFileDialog")
+battler_button = NodePath("BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/BattlerButton")
+battler_sprite = NodePath("BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/BattlerButton/BattlerSprite")
+battler_file_dialog = NodePath("BattlerFileDialog")
 metadata/_tab_index = 0
 metadata/_edit_horizontal_guides_ = [424.0]
 metadata/_edit_vertical_guides_ = [546.0]
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 9.0
-offset_right = 53.0
-offset_bottom = 32.0
-text = "Actors"
-
-[node name="SaveButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 67.0
-offset_top = 7.0
-offset_right = 111.0
-offset_bottom = 38.0
-text = "Save"
-
-[node name="ChangeActorMaxButton" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.015
-anchor_top = 0.603
-anchor_right = 0.015
-anchor_bottom = 0.603
-offset_left = 0.23
-offset_top = 0.255981
-offset_right = 103.23
-offset_bottom = 31.256
-text = "Change Max"
-
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.066
-anchor_right = 0.174
-anchor_bottom = 0.704
-offset_top = 0.231998
-offset_right = 0.0679932
-offset_bottom = -72.192
-grow_vertical = 2
-
-[node name="ActorsVBox" type="VBoxContainer" parent="ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-
-[node name="NameLabel" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.256
-anchor_right = 0.256
-offset_left = -51.808
-offset_right = -0.808014
-offset_bottom = 23.0
-text = "Name:"
-
-[node name="NameEdit" type="LineEdit" parent="NameLabel"]
-layout_mode = 0
-offset_top = 25.0
-offset_right = 153.0
-offset_bottom = 56.0
-
-[node name="NicknameLabel" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.256
-anchor_right = 0.256
-offset_left = 110.192
-offset_right = 193.192
-offset_bottom = 23.0
-text = "Nickname:"
-
-[node name="NicknameEdit" type="LineEdit" parent="NicknameLabel"]
-layout_mode = 0
-offset_top = 25.0
-offset_right = 153.0
-offset_bottom = 56.0
-
-[node name="InitialLevelLabel" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.256
-anchor_right = 0.256
-offset_left = 268.192
-offset_right = 351.192
-offset_bottom = 23.0
-text = "Initial Lvl:"
-
-[node name="InitialLevelEdit" type="SpinBox" parent="InitialLevelLabel"]
-layout_mode = 0
-offset_left = -3.0
-offset_top = 25.0
-offset_right = 80.0625
-offset_bottom = 56.0
-min_value = 1.0
-max_value = 9999.0
-value = 1.0
-
-[node name="MaxLevelLabel" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.256
-anchor_right = 0.256
-offset_left = 268.192
-offset_top = 57.0
-offset_right = 351.192
-offset_bottom = 80.0
-text = "Max Lvl:"
-
-[node name="MaxLevelEdit" type="SpinBox" parent="MaxLevelLabel"]
-layout_mode = 0
-offset_left = -3.0
-offset_top = 25.0
-offset_right = 80.0625
-offset_bottom = 56.0
-min_value = 1.0
-max_value = 9999.0
-value = 1.0
-
-[node name="ProfileLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 137.0
-offset_top = 60.0
-offset_right = 192.0
-offset_bottom = 83.0
-text = "Profile:"
-
-[node name="ProfileEdit" type="TextEdit" parent="ProfileLabel"]
-layout_mode = 0
-offset_left = 57.0
-offset_top = 4.0
-offset_right = 305.0
-offset_bottom = 51.0
-theme_override_font_sizes/font_size = 10
-placeholder_text = "Character description goes here!"
-wrap_mode = 1
-
-[node name="FaceButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 134.0
-offset_top = 119.0
-offset_right = 227.0
-offset_bottom = 150.0
-text = "Set Face"
-
-[node name="BustButton" type="Button" parent="FaceButton"]
-visible = false
-layout_mode = 0
-offset_left = 48.0
-offset_right = 91.0
-offset_bottom = 31.0
-text = "Bust"
-
-[node name="FaceSprite" type="Sprite2D" parent="FaceButton"]
-position = Vector2(49, 70)
-scale = Vector2(0.493323, 0.493323)
-hframes = 4
-vframes = 2
-frame = 4
-
-[node name="ClearFaceButton" type="Button" parent="FaceButton"]
-layout_mode = 0
-offset_left = 76.0
-offset_top = 32.0
-offset_right = 99.0
-offset_bottom = 63.0
-text = "X"
-
-[node name="FaceIndexSpinbox" type="SpinBox" parent="FaceButton"]
-layout_mode = 0
-offset_left = 12.0
-offset_top = 105.0
-offset_right = 95.0625
-offset_bottom = 136.0
-max_value = 7.0
-value = 4.0
-
-[node name="SpriteButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 234.0
-offset_top = 119.0
-offset_right = 320.0
-offset_bottom = 150.0
-text = "Set Sprite"
-
-[node name="WalkingSprite" type="Sprite2D" parent="SpriteButton"]
-position = Vector2(43, 81.08)
-scale = Vector2(0.52, 0.52)
-hframes = 12
-vframes = 8
-frame = 10
-
-[node name="SpriteIndexSpinbox" type="SpinBox" parent="SpriteButton"]
-layout_mode = 0
-offset_left = 12.0
-offset_top = 105.0
-offset_right = 95.0625
-offset_bottom = 136.0
-max_value = 7.0
-value = 3.0
-
-[node name="ClearSpriteButton" type="Button" parent="SpriteButton"]
-layout_mode = 0
-offset_left = 63.0
-offset_top = 32.0
-offset_right = 86.0
-offset_bottom = 63.0
-text = "X"
-
-[node name="BattlerButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 324.0
-offset_top = 119.0
-offset_right = 414.0
-offset_bottom = 150.0
-text = "Set Battler"
-
-[node name="BattlerSprite" type="Sprite2D" parent="BattlerButton"]
-position = Vector2(43, 81.08)
-scale = Vector2(0.52, 0.52)
-hframes = 9
-vframes = 6
-
-[node name="ClearBattlerButton" type="Button" parent="BattlerButton"]
-layout_mode = 0
-offset_left = 65.0
-offset_top = 32.0
-offset_right = 88.0
-offset_bottom = 63.0
-text = "X"
-
-[node name="InitialEquipmentLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 448.0
-offset_top = 108.0
-offset_right = 533.0
-offset_bottom = 157.0
-text = "Initial 
-Equipment"
-label_settings = SubResource("LabelSettings_yb4wf")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Panel" type="Panel" parent="InitialEquipmentLabel"]
-layout_mode = 0
-offset_top = 51.0
-offset_right = 92.0
-offset_bottom = 277.0
-
-[node name="TraitsLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 149.0
-offset_top = 282.0
-offset_right = 193.0
-offset_bottom = 305.0
-text = "Traits"
-
-[node name="Button" type="Button" parent="TraitsLabel"]
-layout_mode = 0
-offset_left = 46.0
-offset_top = -3.0
-offset_right = 64.0
-offset_bottom = 28.0
-text = "+"
-
-[node name="Panel" type="Panel" parent="TraitsLabel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.25
-anchor_top = 1.304
-anchor_right = -0.25
-anchor_bottom = 1.304
-offset_left = -5.0
-offset_top = 0.00799942
-offset_right = 97.0
-offset_bottom = 108.008
-
-[node name="ScrollContainer" type="ScrollContainer" parent="TraitsLabel/Panel"]
+[node name="BoxContainer" type="BoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -302,24 +46,280 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TraitsLabel/Panel/ScrollContainer"]
+[node name="Column1" type="VBoxContainer" parent="BoxContainer"]
 layout_mode = 2
 
-[node name="ClassesLabel" type="Label" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="BoxContainer/Column1"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BoxContainer/Column1/HBoxContainer"]
+layout_mode = 2
+text = "Actors"
+
+[node name="SaveButton" type="Button" parent="BoxContainer/Column1/HBoxContainer"]
+layout_mode = 2
+text = "Save"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BoxContainer/Column1"]
+custom_minimum_size = Vector2(0, 313.78)
+layout_mode = 2
+
+[node name="ActorsVBox" type="VBoxContainer" parent="BoxContainer/Column1/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="ActorCountSpinbox" type="SpinBox" parent="BoxContainer/Column1"]
+layout_mode = 2
+
+[node name="ChangeActorMaxButton" type="Button" parent="BoxContainer/Column1"]
+layout_mode = 2
+text = "Change Max"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BoxContainer"]
+custom_minimum_size = Vector2(451.79, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Column2" type="VBoxContainer" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer"]
+layout_mode = 2
+text = "Name:"
+
+[node name="NicknameLabel" type="Label" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer"]
+layout_mode = 2
+text = "Nickname:"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2"]
+layout_mode = 2
+
+[node name="NameEdit" type="LineEdit" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer2"]
+custom_minimum_size = Vector2(165.86, 0)
+layout_mode = 2
+text = "Suzy"
+
+[node name="NicknameEdit" type="LineEdit" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer2"]
+custom_minimum_size = Vector2(165.86, 0)
+layout_mode = 2
+text = "The Dragon"
+
+[node name="ProfileLabel" type="Label" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2"]
+layout_mode = 2
+text = "Profile:"
+
+[node name="ProfileEdit" type="TextEdit" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2"]
+custom_minimum_size = Vector2(274.665, 56.515)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+placeholder_text = "Character description goes here!"
+wrap_mode = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2"]
+layout_mode = 2
+alignment = 1
+
+[node name="FaceButton" type="Button" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer3"]
+layout_mode = 2
+text = "Set Face"
+
+[node name="BustButton" type="Button" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/FaceButton"]
+visible = false
 layout_mode = 0
-offset_left = 263.0
-offset_top = 238.0
-offset_right = 348.0
-offset_bottom = 287.0
+offset_left = 48.0
+offset_right = 91.0
+offset_bottom = 31.0
+text = "Bust"
+
+[node name="FaceSprite" type="Sprite2D" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/FaceButton"]
+position = Vector2(37, 70)
+scale = Vector2(0.493323, 0.493323)
+texture = ExtResource("2_0437t")
+hframes = 4
+vframes = 2
+frame = 4
+
+[node name="SpriteButton" type="Button" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer3"]
+layout_mode = 2
+text = "Set Sprite"
+
+[node name="WalkingSprite" type="Sprite2D" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/SpriteButton"]
+position = Vector2(43, 81.08)
+scale = Vector2(0.52, 0.52)
+texture = ExtResource("3_6f34h")
+hframes = 12
+vframes = 8
+frame = 10
+
+[node name="BattlerButton" type="Button" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer3"]
+layout_mode = 2
+text = "Set Battler"
+
+[node name="BattlerSprite" type="Sprite2D" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/BattlerButton"]
+position = Vector2(43, 81.08)
+scale = Vector2(0.52, 0.52)
+hframes = 9
+vframes = 6
+
+[node name="HSeparator" type="HSeparator" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer3"]
+custom_minimum_size = Vector2(0, 30.88)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2"]
+custom_minimum_size = Vector2(0, 72.61)
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2"]
+layout_mode = 2
+
+[node name="FaceIndexSpinbox" type="SpinBox" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer4"]
+layout_mode = 2
+max_value = 7.0
+value = 4.0
+
+[node name="SpriteIndexSpinbox" type="SpinBox" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer4"]
+layout_mode = 2
+max_value = 7.0
+value = 3.0
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2"]
+layout_mode = 2
+alignment = 1
+
+[node name="ClearFaceButton" type="Button" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer5"]
+layout_mode = 2
+text = "Clear Face"
+
+[node name="ClearSpriteButton" type="Button" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer5"]
+layout_mode = 2
+text = "Clear Sprite"
+
+[node name="ClearBattlerButton" type="Button" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer5"]
+layout_mode = 2
+text = "Clear Battler"
+
+[node name="Column3" type="VBoxContainer" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="InitialLevelLabel" type="Label" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column3"]
+layout_mode = 2
+text = "Initial Lvl:"
+
+[node name="InitialLevelEdit" type="SpinBox" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column3"]
+layout_mode = 2
+min_value = 1.0
+max_value = 9999.0
+value = 15.0
+
+[node name="MaxLevelLabel" type="Label" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column3"]
+layout_mode = 2
+text = "Max Lvl:"
+
+[node name="MaxLevelEdit" type="SpinBox" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column3"]
+layout_mode = 2
+min_value = 1.0
+max_value = 9999.0
+value = 100.0
+
+[node name="InitialEquipmentLabel" type="Label" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column3"]
+layout_mode = 2
+text = "Initial 
+Equipment"
+label_settings = SubResource("LabelSettings_yb4wf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column3"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ClassesLabel" type="Label" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
 text = "Classes"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel" type="Panel" parent="ClassesLabel"]
-layout_mode = 0
-offset_top = 37.0
-offset_right = 181.0
-offset_bottom = 146.0
+[node name="VSeparator" type="VSeparator" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="TraitsLabel" type="Label" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Traits"
+
+[node name="Button" type="Button" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "+"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="BoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(209.335, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Primary Class:"
+
+[node name="MenuButton" type="MenuButton" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Pyromancer"
+item_count = 2
+popup/item_0/text = "Pyromancer"
+popup/item_1/text = "Cryomancer"
+popup/item_1/id = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Secondary Class:"
+
+[node name="MenuButton" type="MenuButton" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Pyromancer"
+item_count = 3
+popup/item_0/text = "None"
+popup/item_1/text = "Pyromancer"
+popup/item_1/id = 1
+popup/item_2/text = "Cryomancer"
+popup/item_2/id = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(239.35, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+text = "Element Rate | Physical * 100"
+
+[node name="Button2" type="Button" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+text = "Element Rate | Physical * 100"
+
+[node name="Button3" type="Button" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+text = "Element Rate | Physical * 100"
+
+[node name="Button4" type="Button" parent="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+text = "Element Rate | Physical * 100"
 
 [node name="FaceFileDialog" type="FileDialog" parent="."]
 title = "Open a File"
@@ -350,19 +350,19 @@ ok_button_text = "Open"
 file_mode = 0
 filters = PackedStringArray("*.png")
 
-[connection signal="button_down" from="SaveButton" to="." method="_save_json"]
-[connection signal="text_changed" from="NameLabel/NameEdit" to="." method="_update_name"]
-[connection signal="text_changed" from="NicknameLabel/NicknameEdit" to="." method="_update_nickname"]
-[connection signal="value_changed" from="InitialLevelLabel/InitialLevelEdit" to="." method="_start_level"]
-[connection signal="value_changed" from="MaxLevelLabel/MaxLevelEdit" to="." method="_max_level"]
-[connection signal="text_changed" from="ProfileLabel/ProfileEdit" to="." method="_profile"]
-[connection signal="button_down" from="FaceButton" to="FaceFileDialog" method="show"]
-[connection signal="button_down" from="FaceButton/ClearFaceButton" to="." method="clear_actor_face"]
-[connection signal="value_changed" from="FaceButton/FaceIndexSpinbox" to="." method="face_index"]
-[connection signal="button_down" from="SpriteButton" to="SpriteFileDialog" method="show"]
-[connection signal="button_down" from="SpriteButton/ClearSpriteButton" to="." method="clear_walking_sprite"]
-[connection signal="button_down" from="BattlerButton" to="BattlerFileDialog" method="show"]
-[connection signal="button_down" from="BattlerButton/ClearBattlerButton" to="." method="_clear_battler"]
+[connection signal="button_down" from="BoxContainer/Column1/HBoxContainer/SaveButton" to="." method="_save_json"]
+[connection signal="text_changed" from="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer2/NameEdit" to="." method="_update_name"]
+[connection signal="text_changed" from="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer2/NicknameEdit" to="." method="_update_nickname"]
+[connection signal="text_changed" from="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/ProfileEdit" to="." method="_profile"]
+[connection signal="button_down" from="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/FaceButton" to="FaceFileDialog" method="show"]
+[connection signal="button_down" from="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/SpriteButton" to="SpriteFileDialog" method="show"]
+[connection signal="button_down" from="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/BattlerButton" to="BattlerFileDialog" method="show"]
+[connection signal="value_changed" from="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer4/FaceIndexSpinbox" to="." method="face_index"]
+[connection signal="button_down" from="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer5/ClearFaceButton" to="." method="clear_actor_face"]
+[connection signal="button_down" from="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer5/ClearSpriteButton" to="." method="clear_walking_sprite"]
+[connection signal="button_down" from="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer5/ClearBattlerButton" to="." method="_clear_battler"]
+[connection signal="value_changed" from="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column3/InitialLevelEdit" to="." method="_start_level"]
+[connection signal="value_changed" from="BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column3/MaxLevelEdit" to="." method="_max_level"]
 [connection signal="close_requested" from="FaceFileDialog" to="FaceFileDialog" method="hide"]
 [connection signal="file_selected" from="FaceFileDialog" to="." method="face_selected"]
 [connection signal="close_requested" from="SpriteFileDialog" to="SpriteFileDialog" method="hide"]

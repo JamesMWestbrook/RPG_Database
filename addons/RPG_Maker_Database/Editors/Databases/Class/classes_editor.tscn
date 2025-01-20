@@ -15,6 +15,7 @@ offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_013nu")
+clear_textures = null
 metadata/_tab_index = 1
 metadata/_edit_horizontal_guides_ = [422.0]
 metadata/_edit_vertical_guides_ = [545.0]
@@ -42,54 +43,10 @@ text = "Save"
 custom_minimum_size = Vector2(0, 289.655)
 layout_mode = 2
 
-[node name="ActorsVBox" type="VBoxContainer" parent="BoxContainer/1st Column/ScrollContainer"]
+[node name="ClassesVBox" type="VBoxContainer" parent="BoxContainer/1st Column/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-
-[node name="Button" type="Button" parent="BoxContainer/1st Column/ScrollContainer/ActorsVBox"]
-layout_mode = 2
-text = "ClassName"
-
-[node name="Button2" type="Button" parent="BoxContainer/1st Column/ScrollContainer/ActorsVBox"]
-layout_mode = 2
-text = "ClassName"
-
-[node name="Button3" type="Button" parent="BoxContainer/1st Column/ScrollContainer/ActorsVBox"]
-layout_mode = 2
-text = "ClassName"
-
-[node name="Button4" type="Button" parent="BoxContainer/1st Column/ScrollContainer/ActorsVBox"]
-layout_mode = 2
-text = "ClassName"
-
-[node name="Button5" type="Button" parent="BoxContainer/1st Column/ScrollContainer/ActorsVBox"]
-layout_mode = 2
-text = "ClassName"
-
-[node name="Button6" type="Button" parent="BoxContainer/1st Column/ScrollContainer/ActorsVBox"]
-layout_mode = 2
-text = "ClassName"
-
-[node name="Button7" type="Button" parent="BoxContainer/1st Column/ScrollContainer/ActorsVBox"]
-layout_mode = 2
-text = "ClassName"
-
-[node name="Button8" type="Button" parent="BoxContainer/1st Column/ScrollContainer/ActorsVBox"]
-layout_mode = 2
-text = "ClassName"
-
-[node name="Button9" type="Button" parent="BoxContainer/1st Column/ScrollContainer/ActorsVBox"]
-layout_mode = 2
-text = "ClassName"
-
-[node name="Button10" type="Button" parent="BoxContainer/1st Column/ScrollContainer/ActorsVBox"]
-layout_mode = 2
-text = "ClassName"
-
-[node name="Button11" type="Button" parent="BoxContainer/1st Column/ScrollContainer/ActorsVBox"]
-layout_mode = 2
-text = "ClassName"
 
 [node name="ClassCountSpinbox" type="SpinBox" parent="BoxContainer/1st Column"]
 layout_mode = 2
@@ -331,3 +288,6 @@ size_flags_vertical = 3
 
 [node name="TraitContainer" parent="BoxContainer/3rd Column/ScrollContainer" instance=ExtResource("2_b31ui")]
 layout_mode = 2
+
+[connection signal="button_down" from="BoxContainer/1st Column/HBoxContainer/SaveButton" to="." method="_save_json"]
+[connection signal="text_changed" from="BoxContainer/2nd Column/NameEdit" to="." method="_update_name"]

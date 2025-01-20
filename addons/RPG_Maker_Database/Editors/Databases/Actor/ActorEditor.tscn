@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://1btl6oul0k7i"]
+[gd_scene load_steps=8 format=3 uid="uid://1btl6oul0k7i"]
 
 [ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/Actor/actor_editor.gd" id="1_3yu4n"]
 [ext_resource type="Texture2D" uid="uid://dw74xvxm20hil" path="res://assets/fcp-dragon-knight/faces/F-chara Dragon-knight.png" id="2_0437t"]
 [ext_resource type="Texture2D" uid="uid://qxe5wk5wvfh0" path="res://assets/occ01-timefantasy/time-fantasy-1st-occ-winner-pack/sheet_winnersa_1.png" id="3_6f34h"]
 [ext_resource type="Texture2D" uid="uid://bebm8n2g5evks" path="res://assets/fcp-dragon-knight/sv_actors/SV_F-chara Dragon-knight1.png" id="4_rekaq"]
 [ext_resource type="Script" path="res://addons/eranot.resizable/resizable.gd" id="4_rsfhn"]
+[ext_resource type="PackedScene" uid="uid://0o7cxqncf2l2" path="res://addons/RPG_Maker_Database/Editors/Databases/trait_container.tscn" id="5_31y7y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yb4wf"]
 line_spacing = 0.0
@@ -243,7 +244,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Traits"
 
-[node name="Button" type="Button" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer2"]
+[node name="AddTraitButton" type="Button" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 text = "+"
 
@@ -286,25 +287,8 @@ popup/item_1/id = 1
 popup/item_2/text = "Cryomancer"
 popup/item_2/id = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer3"]
-custom_minimum_size = Vector2(239.35, 0)
+[node name="TraitContainer" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer3" instance=ExtResource("5_31y7y")]
 layout_mode = 2
-
-[node name="Button" type="Button" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer3/VBoxContainer2"]
-layout_mode = 2
-text = "Element Rate | Physical * 100"
-
-[node name="Button2" type="Button" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer3/VBoxContainer2"]
-layout_mode = 2
-text = "Ex Parameer | Magic Reflection + 999%"
-
-[node name="Button3" type="Button" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer3/VBoxContainer2"]
-layout_mode = 2
-text = "Element Rate | Physical * 100"
-
-[node name="Button4" type="Button" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer3/VBoxContainer2"]
-layout_mode = 2
-text = "Element Rate | Physical * 100"
 
 [node name="Resizable" type="Control" parent="BoxContainer"]
 layout_mode = 2
@@ -353,6 +337,7 @@ filters = PackedStringArray("*.png")
 [connection signal="button_down" from="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer5/ClearBattlerButton" to="." method="_clear_battler"]
 [connection signal="value_changed" from="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column3/InitialLevelEdit" to="." method="_start_level"]
 [connection signal="value_changed" from="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column3/MaxLevelEdit" to="." method="_max_level"]
+[connection signal="button_down" from="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer2/AddTraitButton" to="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer3/TraitContainer" method="_add_new"]
 [connection signal="close_requested" from="FaceFileDialog" to="FaceFileDialog" method="hide"]
 [connection signal="file_selected" from="FaceFileDialog" to="." method="face_selected"]
 [connection signal="close_requested" from="SpriteFileDialog" to="SpriteFileDialog" method="hide"]

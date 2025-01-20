@@ -4,15 +4,12 @@ class_name TraitsWindow
 var current_trait: TraitButton #Current trait button
 								#being modified
 
-# Called when the node enters the Control4scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
-func _clear_all_signals():
-	pass
+func _on_option_button_item_selected(index: int) -> void:
+	match index:
+		0:#element rate
+			pass
+		1: #debuff rate
+			pass
+		2:
+			pass

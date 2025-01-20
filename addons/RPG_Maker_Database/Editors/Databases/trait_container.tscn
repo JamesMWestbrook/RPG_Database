@@ -1,23 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://0o7cxqncf2l2"]
 
-[ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/trait_button.gd" id="1_2lb4i"]
+[ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/trait_container.gd" id="1_piafw"]
 
 [node name="TraitContainer" type="VBoxContainer"]
 custom_minimum_size = Vector2(239.35, 0)
-
-[node name="Button" type="Button" parent="."]
-layout_mode = 2
-text = "Element Rate | Physical * 100"
-script = ExtResource("1_2lb4i")
-
-[node name="Button2" type="Button" parent="."]
-layout_mode = 2
-text = "Ex Parameer | Magic Reflection + 999%"
-
-[node name="Button3" type="Button" parent="."]
-layout_mode = 2
-text = "Element Rate | Physical * 100"
-
-[node name="Button4" type="Button" parent="."]
-layout_mode = 2
-text = "Element Rate | Physical * 100"
+script = ExtResource("1_piafw")

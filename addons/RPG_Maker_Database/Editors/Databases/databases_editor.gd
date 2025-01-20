@@ -1,12 +1,16 @@
 @tool
 extends TabContainer
 
+@onready var traits_window: TraitsWindow = $TraitsWindow
+@onready var actors: ActorEditor = $Characters/TabContainer/Actors
 
-# Called when the node enters the scene tree for the first time.
+
+
 func _ready() -> void:
-	pass # Replace with function body.
-
-
+	#actors.trait_container.traits_window = traits_window
+	#actors.trait_container.ConnectButton.connect(traits_window._set_trait)
+	pass
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

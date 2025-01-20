@@ -2,7 +2,7 @@
 extends Control
 class_name ActorEditor
 
-@export var mybutton: bool:
+@export var clear_textures: bool:
 	set(value):
 		name_edit.text = ""
 		nickname_edit.text = ""
@@ -32,7 +32,7 @@ class_name ActorEditor
 @onready var battler_button: Button = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/BattlerButton
 @onready var battler_sprite: Sprite2D = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/BattlerButton/BattlerSprite
 
-@onready var traits_window: TraitsWindow = $"../../../TraitsWindow"
+@onready var trait_container: TraitContainer = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer3/TraitContainer
 
 
 #endregion
@@ -40,13 +40,11 @@ class_name ActorEditor
 const JSON_SAVE_PATH = "res://data/actors.json"
 
 var cur_actor_index:int
-var actors = []
+var actors:Array = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_check_json()
-	
 	sprite_index_spinbox.value_changed.connect(_sprite_index)
-	
 	_load_actor(0)
 	
 	

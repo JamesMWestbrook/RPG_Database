@@ -3,7 +3,7 @@ extends Button
 class_name TraitButton
 
 var rpg_trait = {
-	"trait": "", #example, "ex-parameter"
+	"trait": "element_rate", #example, "ex-parameter"
 	"argument":"", #example, 0 which means max_HP
 	"modifier":"" #example, 120 means times 120%
 }

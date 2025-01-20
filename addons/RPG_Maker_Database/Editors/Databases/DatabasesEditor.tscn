@@ -31,6 +31,7 @@ layout_mode = 2
 [node name="Classes" parent="Characters/TabContainer" instance=ExtResource("3_6di2n")]
 visible = false
 layout_mode = 2
+clear_textures = false
 
 [node name="Enemies" type="Control" parent="Characters/TabContainer"]
 visible = false

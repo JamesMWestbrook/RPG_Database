@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://q1vnvqfnak3w"]
+
+[ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/trait_button.gd" id="1_atuk7"]
+
+[node name="TraitButton" type="Button"]
+text = "Element Rate | Physical * 100"
+script = ExtResource("1_atuk7")

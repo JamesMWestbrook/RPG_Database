@@ -15,22 +15,22 @@ class_name ActorEditor
 		
 #region Onreadys
 @onready var actor_container:VBoxContainer = $BoxContainer/Column1/ScrollContainer/ActorsVBox
-@onready var name_edit:LineEdit = $BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer2/NameEdit
-@onready var nickname_edit: LineEdit =$BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer2/NicknameEdit
-@onready var initial_level_edit: SpinBox = $BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column3/InitialLevelEdit
-@onready var max_level_edit: SpinBox = $BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column3/MaxLevelEdit
-@onready var profile_edit: TextEdit = $BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/ProfileEdit
+@onready var name_edit:LineEdit = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer2/NameEdit
+@onready var nickname_edit: LineEdit =$BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer2/NicknameEdit
+@onready var initial_level_edit: SpinBox = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column3/InitialLevelEdit
+@onready var max_level_edit: SpinBox = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column3/MaxLevelEdit
+@onready var profile_edit: TextEdit = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/ProfileEdit
 
-@onready var face_sprite: Sprite2D = $BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/FaceButton/FaceSprite
-@onready var face_button: Button = $BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/FaceButton
-@onready var face_index_spinbox: SpinBox = $BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer4/FaceIndexSpinbox
+@onready var face_sprite: Sprite2D = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/FaceButton/FaceSprite
+@onready var face_button: Button = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/FaceButton
+@onready var face_index_spinbox: SpinBox = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer4/FaceIndexSpinbox
 
-@onready var sprite_button: Button = $BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/SpriteButton
-@onready var walking_sprite: Sprite2D = $BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/SpriteButton/WalkingSprite
-@onready var sprite_index_spinbox: SpinBox = $BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer4/SpriteIndexSpinbox
+@onready var sprite_button: Button = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/SpriteButton
+@onready var walking_sprite: Sprite2D = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/SpriteButton/WalkingSprite
+@onready var sprite_index_spinbox: SpinBox = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer4/SpriteIndexSpinbox
 
-@onready var battler_button: Button = $BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/BattlerButton
-@onready var battler_sprite: Sprite2D = $BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/BattlerButton/BattlerSprite
+@onready var battler_button: Button = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/BattlerButton
+@onready var battler_sprite: Sprite2D = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/BattlerButton/BattlerSprite
 
 #endregion
 

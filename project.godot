@@ -21,4 +21,4 @@ window/size/viewport_width=718
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/RPG_Maker_Database/plugin.cfg")
+enabled=PackedStringArray("res://addons/RPG_Maker_Database/plugin.cfg", "res://addons/eranot.resizable/plugin.cfg", "res://addons/script-ide/plugin.cfg")

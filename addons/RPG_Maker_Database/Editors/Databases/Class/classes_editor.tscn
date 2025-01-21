@@ -15,7 +15,6 @@ offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_013nu")
-clear_textures = null
 metadata/_tab_index = 1
 metadata/_edit_horizontal_guides_ = [422.0]
 metadata/_edit_vertical_guides_ = [545.0]
@@ -69,7 +68,7 @@ text = "Name:"
 [node name="NameEdit" type="LineEdit" parent="BoxContainer/2nd Column"]
 custom_minimum_size = Vector2(307.09, 0)
 layout_mode = 2
-text = "Holy Queen o Scotts"
+text = "Pyromancer"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer/2nd Column"]
 layout_mode = 2
@@ -82,7 +81,7 @@ alignment = 2
 layout_mode = 2
 text = "Max HP"
 
-[node name="SpinBox" type="SpinBox" parent="BoxContainer/2nd Column/VBoxContainer/HPBox"]
+[node name="HPStartSpinBox" type="SpinBox" parent="BoxContainer/2nd Column/VBoxContainer/HPBox"]
 custom_minimum_size = Vector2(102.685, 0)
 layout_mode = 2
 min_value = 1.0
@@ -90,7 +89,7 @@ max_value = 99999.0
 value = 99.0
 prefix = "Lvl 1:"
 
-[node name="SpinBox2" type="SpinBox" parent="BoxContainer/2nd Column/VBoxContainer/HPBox"]
+[node name="HPEndSpinBox" type="SpinBox" parent="BoxContainer/2nd Column/VBoxContainer/HPBox"]
 custom_minimum_size = Vector2(116.26, 0)
 layout_mode = 2
 min_value = 1.0
@@ -106,7 +105,7 @@ alignment = 2
 layout_mode = 2
 text = "Max MP"
 
-[node name="SpinBox" type="SpinBox" parent="BoxContainer/2nd Column/VBoxContainer/MPBox"]
+[node name="MPStartSpinBox" type="SpinBox" parent="BoxContainer/2nd Column/VBoxContainer/MPBox"]
 custom_minimum_size = Vector2(102.685, 0)
 layout_mode = 2
 min_value = 1.0
@@ -114,7 +113,7 @@ max_value = 99999.0
 value = 1.0
 prefix = "Lvl 1:"
 
-[node name="SpinBox2" type="SpinBox" parent="BoxContainer/2nd Column/VBoxContainer/MPBox"]
+[node name="MPEndSpinBox" type="SpinBox" parent="BoxContainer/2nd Column/VBoxContainer/MPBox"]
 custom_minimum_size = Vector2(116.26, 0)
 layout_mode = 2
 min_value = 1.0
@@ -130,7 +129,7 @@ alignment = 2
 layout_mode = 2
 text = "Attack"
 
-[node name="SpinBox" type="SpinBox" parent="BoxContainer/2nd Column/VBoxContainer/AttackBox"]
+[node name="AtkStartSpinBox" type="SpinBox" parent="BoxContainer/2nd Column/VBoxContainer/AttackBox"]
 custom_minimum_size = Vector2(102.685, 0)
 layout_mode = 2
 min_value = 1.0
@@ -138,7 +137,7 @@ max_value = 99999.0
 value = 1.0
 prefix = "Lvl 1:"
 
-[node name="SpinBox2" type="SpinBox" parent="BoxContainer/2nd Column/VBoxContainer/AttackBox"]
+[node name="AtkEndSpinBox" type="SpinBox" parent="BoxContainer/2nd Column/VBoxContainer/AttackBox"]
 custom_minimum_size = Vector2(116.26, 0)
 layout_mode = 2
 min_value = 1.0
@@ -154,7 +153,7 @@ alignment = 2
 layout_mode = 2
 text = "Defense"
 
-[node name="SpinBox" type="SpinBox" parent="BoxContainer/2nd Column/VBoxContainer/DefenseBox"]
+[node name="DefStartSpinBox" type="SpinBox" parent="BoxContainer/2nd Column/VBoxContainer/DefenseBox"]
 custom_minimum_size = Vector2(102.685, 0)
 layout_mode = 2
 min_value = 1.0
@@ -162,7 +161,7 @@ max_value = 99999.0
 value = 1.0
 prefix = "Lvl 1:"
 
-[node name="SpinBox2" type="SpinBox" parent="BoxContainer/2nd Column/VBoxContainer/DefenseBox"]
+[node name="DefEndSpinBox" type="SpinBox" parent="BoxContainer/2nd Column/VBoxContainer/DefenseBox"]
 custom_minimum_size = Vector2(116.26, 0)
 layout_mode = 2
 min_value = 1.0
@@ -178,7 +177,7 @@ alignment = 2
 layout_mode = 2
 text = "M. Attack"
 
-[node name="SpinBox" type="SpinBox" parent="BoxContainer/2nd Column/VBoxContainer/MAttackBox"]
+[node name="MatStartSpinBox" type="SpinBox" parent="BoxContainer/2nd Column/VBoxContainer/MAttackBox"]
 custom_minimum_size = Vector2(102.685, 0)
 layout_mode = 2
 min_value = 1.0
@@ -186,7 +185,7 @@ max_value = 99999.0
 value = 1.0
 prefix = "Lvl 1:"
 
-[node name="SpinBox2" type="SpinBox" parent="BoxContainer/2nd Column/VBoxContainer/MAttackBox"]
+[node name="MatEndSpinBox" type="SpinBox" parent="BoxContainer/2nd Column/VBoxContainer/MAttackBox"]
 custom_minimum_size = Vector2(116.26, 0)
 layout_mode = 2
 min_value = 1.0
@@ -202,7 +201,7 @@ alignment = 2
 layout_mode = 2
 text = "M. Defense"
 
-[node name="SpinBox" type="SpinBox" parent="BoxContainer/2nd Column/VBoxContainer/MDefenseBox"]
+[node name="MDefStartSpinBox" type="SpinBox" parent="BoxContainer/2nd Column/VBoxContainer/MDefenseBox"]
 custom_minimum_size = Vector2(102.685, 0)
 layout_mode = 2
 min_value = 1.0
@@ -210,7 +209,7 @@ max_value = 99999.0
 value = 1.0
 prefix = "Lvl 1:"
 
-[node name="SpinBox2" type="SpinBox" parent="BoxContainer/2nd Column/VBoxContainer/MDefenseBox"]
+[node name="MDefEnddSpinBox" type="SpinBox" parent="BoxContainer/2nd Column/VBoxContainer/MDefenseBox"]
 custom_minimum_size = Vector2(116.26, 0)
 layout_mode = 2
 min_value = 1.0
@@ -226,7 +225,7 @@ alignment = 2
 layout_mode = 2
 text = "Agility"
 
-[node name="SpinBox" type="SpinBox" parent="BoxContainer/2nd Column/VBoxContainer/AgilityBox"]
+[node name="AgiStartSpinBox" type="SpinBox" parent="BoxContainer/2nd Column/VBoxContainer/AgilityBox"]
 custom_minimum_size = Vector2(102.685, 0)
 layout_mode = 2
 min_value = 1.0
@@ -234,7 +233,7 @@ max_value = 99999.0
 value = 1.0
 prefix = "Lvl 1:"
 
-[node name="SpinBox2" type="SpinBox" parent="BoxContainer/2nd Column/VBoxContainer/AgilityBox"]
+[node name="AgiEndSpinBox" type="SpinBox" parent="BoxContainer/2nd Column/VBoxContainer/AgilityBox"]
 custom_minimum_size = Vector2(116.26, 0)
 layout_mode = 2
 min_value = 1.0
@@ -250,7 +249,7 @@ alignment = 2
 layout_mode = 2
 text = "Luck"
 
-[node name="SpinBox" type="SpinBox" parent="BoxContainer/2nd Column/VBoxContainer/LuckBox"]
+[node name="LckStartSpinBox" type="SpinBox" parent="BoxContainer/2nd Column/VBoxContainer/LuckBox"]
 custom_minimum_size = Vector2(102.685, 0)
 layout_mode = 2
 min_value = 1.0
@@ -258,7 +257,7 @@ max_value = 99999.0
 value = 1.0
 prefix = "Lvl 1:"
 
-[node name="SpinBox2" type="SpinBox" parent="BoxContainer/2nd Column/VBoxContainer/LuckBox"]
+[node name="LckEndSpinBox" type="SpinBox" parent="BoxContainer/2nd Column/VBoxContainer/LuckBox"]
 custom_minimum_size = Vector2(116.26, 0)
 layout_mode = 2
 min_value = 1.0
@@ -291,3 +290,19 @@ layout_mode = 2
 
 [connection signal="button_down" from="BoxContainer/1st Column/HBoxContainer/SaveButton" to="." method="_save_json"]
 [connection signal="text_changed" from="BoxContainer/2nd Column/NameEdit" to="." method="_update_name"]
+[connection signal="value_changed" from="BoxContainer/2nd Column/VBoxContainer/HPBox/HPStartSpinBox" to="." method="_on_hp_start_spin_box_value_changed"]
+[connection signal="value_changed" from="BoxContainer/2nd Column/VBoxContainer/HPBox/HPEndSpinBox" to="." method="_on_hp_end_spin_box_value_changed"]
+[connection signal="value_changed" from="BoxContainer/2nd Column/VBoxContainer/MPBox/MPStartSpinBox" to="." method="_on_mp_start_spin_box_value_changed"]
+[connection signal="value_changed" from="BoxContainer/2nd Column/VBoxContainer/MPBox/MPEndSpinBox" to="." method="_on_mp_end_spin_box_value_changed"]
+[connection signal="value_changed" from="BoxContainer/2nd Column/VBoxContainer/AttackBox/AtkStartSpinBox" to="." method="_on_atk_start_spin_box_value_changed"]
+[connection signal="value_changed" from="BoxContainer/2nd Column/VBoxContainer/AttackBox/AtkEndSpinBox" to="." method="_on_atk_end_spin_box_value_changed"]
+[connection signal="value_changed" from="BoxContainer/2nd Column/VBoxContainer/DefenseBox/DefStartSpinBox" to="." method="_on_def_start_spin_box_value_changed"]
+[connection signal="value_changed" from="BoxContainer/2nd Column/VBoxContainer/DefenseBox/DefEndSpinBox" to="." method="_on_def_end_spin_box_value_changed"]
+[connection signal="value_changed" from="BoxContainer/2nd Column/VBoxContainer/MAttackBox/MatStartSpinBox" to="." method="_on_mat_start_spin_box_value_changed"]
+[connection signal="value_changed" from="BoxContainer/2nd Column/VBoxContainer/MAttackBox/MatEndSpinBox" to="." method="_on_mat_end_spin_box_value_changed"]
+[connection signal="value_changed" from="BoxContainer/2nd Column/VBoxContainer/MDefenseBox/MDefStartSpinBox" to="." method="_on_m_def_start_spin_box_value_changed"]
+[connection signal="value_changed" from="BoxContainer/2nd Column/VBoxContainer/MDefenseBox/MDefEnddSpinBox" to="." method="_on_m_def_endd_spin_box_value_changed"]
+[connection signal="value_changed" from="BoxContainer/2nd Column/VBoxContainer/AgilityBox/AgiStartSpinBox" to="." method="_on_agi_start_spin_box_value_changed"]
+[connection signal="value_changed" from="BoxContainer/2nd Column/VBoxContainer/AgilityBox/AgiEndSpinBox" to="." method="_on_agi_end_spin_box_value_changed"]
+[connection signal="value_changed" from="BoxContainer/2nd Column/VBoxContainer/LuckBox/LckStartSpinBox" to="." method="_on_lck_start_spin_box_value_changed"]
+[connection signal="value_changed" from="BoxContainer/2nd Column/VBoxContainer/LuckBox/LckEndSpinBox" to="." method="_on_lck_end_spin_box_value_changed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dcqbtahnsdr2v"]
+[gd_scene load_steps=8 format=3 uid="uid://dcqbtahnsdr2v"]
 
 [ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/databases_editor.gd" id="1_o5pce"]
 [ext_resource type="PackedScene" uid="uid://1btl6oul0k7i" path="res://addons/RPG_Maker_Database/Editors/Databases/Actor/ActorEditor.tscn" id="2_o8jcg"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://pbet3fqmss2s" path="res://addons/RPG_Maker_Database/Editors/Databases/Skill/skill_editor.tscn" id="4_bqmk1"]
 [ext_resource type="PackedScene" uid="uid://crb6650jht0oh" path="res://addons/RPG_Maker_Database/Editors/Databases/Parameters/parameters_editor.tscn" id="4_m3tsm"]
 [ext_resource type="PackedScene" uid="uid://cqteh31ksim5" path="res://addons/RPG_Maker_Database/Editors/Databases/traits_window.tscn" id="5_duimv"]
+[ext_resource type="PackedScene" uid="uid://i7goleddyc4f" path="res://addons/RPG_Maker_Database/Editors/Databases/Variables/switches.tscn" id="5_vyqpw"]
 
 [node name="Databases" type="TabContainer"]
 anchors_preset = 15
@@ -13,7 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 1
+current_tab = 3
 script = ExtResource("1_o5pce")
 
 [node name="Characters" type="Control" parent="."]
@@ -45,6 +46,7 @@ layout_mode = 2
 metadata/_tab_index = 3
 
 [node name="Objects" type="Control" parent="."]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -98,9 +100,25 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Variables" type="Control" parent="."]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 3
+
+[node name="TabContainer" type="TabContainer" parent="Variables"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 1
+
+[node name="Switches" parent="Variables/TabContainer" instance=ExtResource("5_vyqpw")]
+visible = false
+layout_mode = 2
+
+[node name="Variables" type="Control" parent="Variables/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="Common Events" type="Control" parent="."]
 visible = false

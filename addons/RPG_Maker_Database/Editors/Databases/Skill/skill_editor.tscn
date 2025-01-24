@@ -40,7 +40,7 @@ text = "Change Max"
 custom_minimum_size = Vector2(0, 289.655)
 layout_mode = 2
 
-[node name="ClassesVBox" type="VBoxContainer" parent="ScrollContainer/BoxContainer/1st Column/ScrollContainer"]
+[node name="SkillsBox" type="VBoxContainer" parent="ScrollContainer/BoxContainer/1st Column/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -403,3 +403,5 @@ text = "Add Debuff / Attack 5 Turns"
 layout_mode = 2
 mouse_filter = 2
 script = ExtResource("3_n1oje")
+
+[connection signal="text_changed" from="ScrollContainer/BoxContainer/2nd Column/NameEdit" to="." method="_update_name"]

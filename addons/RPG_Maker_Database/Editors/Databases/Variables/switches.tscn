@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://i7goleddyc4f"]
+[gd_scene load_steps=3 format=3 uid="uid://i7goleddyc4f"]
 
 [ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/Variables/switches_editor.gd" id="1_nugxt"]
+[ext_resource type="PackedScene" uid="uid://d1lsbq8foyyi2" path="res://addons/RPG_Maker_Database/Editors/Databases/Variables/switch.tscn" id="2_b3k2n"]
 
 [node name="Switches" type="Control"]
 layout_mode = 3
@@ -10,6 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nugxt")
+switch_scene = ExtResource("2_b3k2n")
 metadata/_tab_index = 0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
@@ -17,45 +19,56 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 11.0
+offset_bottom = 149.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="BoxContainer" type="BoxContainer" parent="ScrollContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="ScrollContainer/BoxContainer"]
+custom_minimum_size = Vector2(154.89, 447.555)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer"]
+[node name="Column1" type="VBoxContainer" parent="ScrollContainer/BoxContainer/ScrollContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/BoxContainer/ScrollContainer/Column1"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/ScrollContainer/Column1/HBoxContainer"]
 layout_mode = 2
 text = "Switches"
 
-[node name="SaveButton" type="Button" parent="ScrollContainer/BoxContainer/VBoxContainer/HBoxContainer"]
+[node name="SaveButton" type="Button" parent="ScrollContainer/BoxContainer/ScrollContainer/Column1/HBoxContainer"]
 layout_mode = 2
 text = "Save"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/BoxContainer/ScrollContainer/Column1"]
 layout_mode = 2
 
-[node name="SpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/VBoxContainer/HBoxContainer2"]
+[node name="SpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/ScrollContainer/Column1/HBoxContainer2"]
 layout_mode = 2
 min_value = 1.0
 max_value = 9999.0
 value = 1.0
 
-[node name="ResizeButton" type="Button" parent="ScrollContainer/BoxContainer/VBoxContainer/HBoxContainer2"]
+[node name="ResizeButton" type="Button" parent="ScrollContainer/BoxContainer/ScrollContainer/Column1/HBoxContainer2"]
 layout_mode = 2
 text = "Resize"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer"]
+[node name="SwitchSetContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/ScrollContainer/Column1"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="ScrollContainer/BoxContainer/VBoxContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="ScrollContainer/BoxContainer/ScrollContainer/Column1/SwitchSetContainer"]
 layout_mode = 2
-text = "0-20"
+text = "1-20"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer"]
+[node name="ScrollContainer2" type="ScrollContainer" parent="ScrollContainer/BoxContainer"]
+custom_minimum_size = Vector2(344.455, 701.98)
 layout_mode = 2
+
+[node name="SwitchContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/ScrollContainer2"]
+layout_mode = 2
+alignment = 1

@@ -49,7 +49,7 @@ text = "Save"
 [node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/BoxContainer/ScrollContainer/Column1"]
 layout_mode = 2
 
-[node name="SpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/ScrollContainer/Column1/HBoxContainer2"]
+[node name="MaxSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/ScrollContainer/Column1/HBoxContainer2"]
 layout_mode = 2
 min_value = 1.0
 max_value = 9999.0
@@ -74,3 +74,5 @@ alignment = 1
 layout_mode = 2
 mouse_filter = 2
 script = ExtResource("3_draa7")
+
+[connection signal="button_down" from="ScrollContainer/BoxContainer/ScrollContainer/Column1/HBoxContainer2/ResizeButton" to="." method="_on_resize_button_button_down"]

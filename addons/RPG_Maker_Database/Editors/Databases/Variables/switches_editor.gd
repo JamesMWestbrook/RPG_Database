@@ -12,7 +12,7 @@ func _ready() -> void:
 	if FileAccess.file_exists(SAVE_PATH):
 		_load_json()
 	else: #init data
-		var max_amount = 20
+		var max_amount = 40
 		switch_default_values.resize(max_amount)
 		switch_names.resize(max_amount)
 		for i in max_amount:
@@ -40,9 +40,11 @@ func _load_set(index:int):
 		
 	var i = 0
 	for switch:Switch in switch_container.get_children(): 
-		switch.label.text = str(20 * index + i + 1)
-		switch.line_edit.text_changed.connect(_update_name.bind(i))
-		switch.check_button.toggled.connect(_update_bool.bind(i))
+		var face_index = 20 * index + i + 1
+		switch.label.text = str(face_index)
+		print("Index: " + str(index) + " Value Index: " + str(face_index))
+		switch.line_edit.text_changed.connect(_update_name.bind(face_index - 1))
+		switch.check_button.toggled.connect(_update_bool.bind(face_index - 1))
 		i += 1
 
 func _update_bool(value:bool,index):

@@ -37,7 +37,7 @@ func _spawn_section_button():
 	var loop = true
 	var i = 0
 	while loop:
-		if i * 20 > max_amount:
+		if i * 20 > max_amount - 1:
 			loop = false
 		else:
 			var new_button = Button.new()
@@ -84,6 +84,7 @@ func _load_json():
 	max_amount = data.max
 	max_spin_box.value = max_amount
 	_spawn_section_button()
+	_load_set(0)
 	
 	
 func _save_json():
@@ -101,3 +102,17 @@ func _on_resize_button_button_down() -> void:
 	max_amount = value
 	_spawn_section_button()
 	_load_set(0)
+	switch_default_values.resize(max_amount)
+	switch_names.resize(max_amount)
+	_check_arrays()
+	
+func _check_arrays():
+	for i in max_amount:
+		var value = switch_default_values[i]
+		if value == null:
+			switch_default_values[i] = false
+		var switch_name = switch_names[i]
+		if switch_name == null:
+			switch_names[i] = ""
+		
+		

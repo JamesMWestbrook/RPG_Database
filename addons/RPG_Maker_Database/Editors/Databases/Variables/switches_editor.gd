@@ -1,13 +1,13 @@
 extends Control
 
-const SAVE_PATH = "res://data/switches"
+const SAVE_PATH = "res://data/switches.json"
 @export var switch_scene:PackedScene
 @onready var switch_set_container: VBoxContainer = $ScrollContainer/BoxContainer/ScrollContainer/Column1/SwitchSetContainer
 @onready var switch_container: VBoxContainer = $ScrollContainer/BoxContainer/ScrollContainer2/SwitchContainer
 @onready var max_spin_box: SpinBox = $ScrollContainer/BoxContainer/ScrollContainer/Column1/HBoxContainer2/MaxSpinBox
 
 
-var max_amount = 41
+var max_amount = 20
 var switch_default_values = []
 var switch_names = []
 # Called when the node enters the scene tree for the first time.
@@ -22,6 +22,8 @@ func _ready() -> void:
 			switch_names[i] = ""
 		_load_set(0)
 		_spawn_section_button()
+		max_spin_box.value = max_amount
+		
 		
 
 func _clear_switch_buttons():
@@ -57,6 +59,9 @@ func _load_set(index:int):
 	for switch:Switch in switch_container.get_children(): 
 		var face_index = 20 * index + i + 1
 		var code_index = 20 * index + i
+		switch.check_button.button_pressed = switch_default_values[code_index]
+		switch.line_edit.text = switch_names[code_index]
+		
 		switch.label.text = str(face_index)
 		print("Index: " + str(index) + " Value Index: " + str(face_index))
 		switch.line_edit.text_changed.connect(_update_name.bind(face_index - 1))
@@ -71,11 +76,24 @@ func _get_number(index:int):
 	var number = index * 21
 	
 func _load_json():
-	pass
+	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
+	var data = JSON.parse_string(file.get_as_text())
+	max_amount = data.max
+	switch_names = data.switch_names
+	switch_default_values = data.switch_defaults
+	max_amount = data.max
+	max_spin_box.value = max_amount
+	_spawn_section_button()
+	
 	
 func _save_json():
-	pass
-
+	var file = FileAccess.open(SAVE_PATH,FileAccess.WRITE)
+	var data = JSON.stringify({
+		"max" : max_amount,
+		"switch_names" : switch_names,
+		"switch_defaults" : switch_default_values
+	})
+	file.store_string(data)
 
 func _on_resize_button_button_down() -> void:
 	await get_tree().process_frame

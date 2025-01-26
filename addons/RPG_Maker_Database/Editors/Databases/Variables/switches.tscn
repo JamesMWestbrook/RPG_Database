@@ -75,4 +75,5 @@ layout_mode = 2
 mouse_filter = 2
 script = ExtResource("3_draa7")
 
+[connection signal="button_down" from="ScrollContainer/BoxContainer/ScrollContainer/Column1/HBoxContainer/SaveButton" to="." method="_save_json"]
 [connection signal="button_down" from="ScrollContainer/BoxContainer/ScrollContainer/Column1/HBoxContainer2/ResizeButton" to="." method="_on_resize_button_button_down"]

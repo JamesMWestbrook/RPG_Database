@@ -12,16 +12,22 @@ func _ready() -> void:
 	if FileAccess.file_exists(SAVE_PATH):
 		_load_json()
 	else: #init data
-		switch_default_values.resize(20)
-		switch_names.resize(20)
-		for i in 20:
+		var max_amount = 20
+		switch_default_values.resize(max_amount)
+		switch_names.resize(max_amount)
+		for i in max_amount:
 			switch_default_values[i] = false
 			switch_names[i] = ""
 		_load_set(0)
-
+		for i in 2:
+			var new_button = Button.new()
+			new_button.text = str(i * 20 + 1) + "-" + str(i * 20 + 20)
+			switch_set_container.add_child(new_button)
+			new_button.button_down.connect(_load_set.bind(i))
 
 func _clear_switch_buttons():
 	for i in switch_container.get_children():
+		switch_container.remove_child(i)
 		i.queue_free()
 		
 func _load_set(index:int):
@@ -34,7 +40,7 @@ func _load_set(index:int):
 		
 	var i = 0
 	for switch:Switch in switch_container.get_children(): 
-		switch.label.text = str(i + 1)
+		switch.label.text = str(20 * index + i + 1)
 		switch.line_edit.text_changed.connect(_update_name.bind(i))
 		switch.check_button.toggled.connect(_update_bool.bind(i))
 		i += 1

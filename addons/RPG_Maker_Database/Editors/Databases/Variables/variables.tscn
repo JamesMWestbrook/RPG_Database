@@ -1,0 +1,79 @@
+[gd_scene load_steps=4 format=3 uid="uid://ct028egsh2ibo"]
+
+[ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/Variables/variables_editor.gd" id="1_q8swn"]
+[ext_resource type="PackedScene" uid="uid://bvoa5jjun5bgj" path="res://addons/RPG_Maker_Database/Editors/Databases/Variables/variable.tscn" id="2_7kkrp"]
+[ext_resource type="Script" path="res://addons/eranot.resizable/resizable.gd" id="3_fepgs"]
+
+[node name="Variables" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q8swn")
+variable_scene = ExtResource("2_7kkrp")
+metadata/_tab_index = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 11.0
+offset_bottom = 149.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ScrollContainer/BoxContainer"]
+custom_minimum_size = Vector2(154.89, 447.555)
+layout_mode = 2
+
+[node name="Column1" type="VBoxContainer" parent="ScrollContainer/BoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/BoxContainer/ScrollContainer/Column1"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/ScrollContainer/Column1/HBoxContainer"]
+layout_mode = 2
+text = "Switches"
+
+[node name="SaveButton" type="Button" parent="ScrollContainer/BoxContainer/ScrollContainer/Column1/HBoxContainer"]
+layout_mode = 2
+text = "Save"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/BoxContainer/ScrollContainer/Column1"]
+layout_mode = 2
+
+[node name="MaxSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/ScrollContainer/Column1/HBoxContainer2"]
+layout_mode = 2
+min_value = 1.0
+max_value = 9999.0
+value = 1.0
+
+[node name="ResizeButton" type="Button" parent="ScrollContainer/BoxContainer/ScrollContainer/Column1/HBoxContainer2"]
+layout_mode = 2
+text = "Resize"
+
+[node name="SwitchSetContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/ScrollContainer/Column1"]
+layout_mode = 2
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="ScrollContainer/BoxContainer"]
+custom_minimum_size = Vector2(344.455, 590.81)
+layout_mode = 2
+
+[node name="SwitchContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/ScrollContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="Resizable" type="Control" parent="ScrollContainer/BoxContainer/ScrollContainer2"]
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("3_fepgs")
+
+[connection signal="button_down" from="ScrollContainer/BoxContainer/ScrollContainer/Column1/HBoxContainer/SaveButton" to="." method="_save_json"]
+[connection signal="button_down" from="ScrollContainer/BoxContainer/ScrollContainer/Column1/HBoxContainer2/ResizeButton" to="." method="_on_resize_button_button_down"]

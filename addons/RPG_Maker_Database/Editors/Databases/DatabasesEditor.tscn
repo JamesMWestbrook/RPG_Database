@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dcqbtahnsdr2v"]
+[gd_scene load_steps=9 format=3 uid="uid://dcqbtahnsdr2v"]
 
 [ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/databases_editor.gd" id="1_o5pce"]
 [ext_resource type="PackedScene" uid="uid://1btl6oul0k7i" path="res://addons/RPG_Maker_Database/Editors/Databases/Actor/ActorEditor.tscn" id="2_o8jcg"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://crb6650jht0oh" path="res://addons/RPG_Maker_Database/Editors/Databases/Parameters/parameters_editor.tscn" id="4_m3tsm"]
 [ext_resource type="PackedScene" uid="uid://cqteh31ksim5" path="res://addons/RPG_Maker_Database/Editors/Databases/traits_window.tscn" id="5_duimv"]
 [ext_resource type="PackedScene" uid="uid://i7goleddyc4f" path="res://addons/RPG_Maker_Database/Editors/Databases/Variables/switches.tscn" id="5_vyqpw"]
+[ext_resource type="PackedScene" uid="uid://ct028egsh2ibo" path="res://addons/RPG_Maker_Database/Editors/Databases/Variables/variables.tscn" id="6_xg6gf"]
 
 [node name="Databases" type="TabContainer"]
 anchors_preset = 15
@@ -112,7 +113,7 @@ current_tab = 0
 [node name="Switches" parent="Variables/TabContainer" instance=ExtResource("5_vyqpw")]
 layout_mode = 2
 
-[node name="Variables" type="Control" parent="Variables/TabContainer"]
+[node name="Variables" parent="Variables/TabContainer" instance=ExtResource("6_xg6gf")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1

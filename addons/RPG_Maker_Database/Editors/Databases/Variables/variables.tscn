@@ -40,7 +40,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="ScrollContainer/BoxContainer/ScrollContainer/Column1/HBoxContainer"]
 layout_mode = 2
-text = "Switches"
+text = "Variables"
 
 [node name="SaveButton" type="Button" parent="ScrollContainer/BoxContainer/ScrollContainer/Column1/HBoxContainer"]
 layout_mode = 2
@@ -66,7 +66,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(344.455, 590.81)
 layout_mode = 2
 
-[node name="SwitchContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/ScrollContainer2"]
+[node name="VarContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/ScrollContainer2"]
 layout_mode = 2
 alignment = 1
 

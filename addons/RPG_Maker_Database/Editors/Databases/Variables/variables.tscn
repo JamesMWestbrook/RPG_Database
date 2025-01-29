@@ -59,7 +59,10 @@ value = 1.0
 layout_mode = 2
 text = "Resize"
 
-[node name="SwitchSetContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/ScrollContainer/Column1"]
+[node name="VarSetContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/ScrollContainer/Column1"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="ScrollContainer/BoxContainer/ScrollContainer/Column1/VarSetContainer"]
 layout_mode = 2
 
 [node name="ScrollContainer2" type="ScrollContainer" parent="ScrollContainer/BoxContainer"]
@@ -69,6 +72,9 @@ layout_mode = 2
 [node name="VarContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/ScrollContainer2"]
 layout_mode = 2
 alignment = 1
+
+[node name="Button" type="Button" parent="ScrollContainer/BoxContainer/ScrollContainer2/VarContainer"]
+layout_mode = 2
 
 [node name="Resizable" type="Control" parent="ScrollContainer/BoxContainer/ScrollContainer2"]
 layout_mode = 2

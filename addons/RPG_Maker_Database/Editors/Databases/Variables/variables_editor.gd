@@ -5,6 +5,7 @@ const SAVE_PATH = "res://data/variables.json"
 @onready var max_spin_box: SpinBox = $ScrollContainer/BoxContainer/ScrollContainer/Column1/HBoxContainer2/MaxSpinBox
 @onready var resize_button: Button = $ScrollContainer/BoxContainer/ScrollContainer/Column1/HBoxContainer2/ResizeButton
 @onready var var_container: VBoxContainer = $ScrollContainer/BoxContainer/ScrollContainer2/VarContainer
+@onready var var_set_container: VBoxContainer = $ScrollContainer/BoxContainer/ScrollContainer/Column1/VarSetContainer
 
 var max_amount = 20
 var var_default_values = []
@@ -48,7 +49,7 @@ func _load_set(index:int):
 		var_container.remove_child(i)
 		i.queue_free()
 	for i in 20:
-		var code_index = 20 * index + 1
+		var code_index = 20 * index + i
 		if code_index >= max_amount:
 			break
 		var new_var:Variable = variable_scene.instantiate()
@@ -68,11 +69,44 @@ func _load_set(index:int):
 		i += 1
 		
 func _spawn_section_buttons():
-	pass
+	for i in var_set_container.get_children():
+		var_set_container.remove_child(i)
+		i.queue_free()
+	var loop = true
+	var i = 0
+	while loop:
+		if i * 20 > max_amount - 1:
+			loop = false
+		else:
+			var new_button:Button = Button.new()
+			new_button.text = str(i * 20 + 1) + "-" + str(i * 20 + 20)
+			var_set_container.add_child(new_button)
+			new_button.button_down.connect(_load_set.bind(i))
+			i += 1
+func _on_resize_button_button_down() -> void:
+	await get_tree().process_frame
+	var value = max_spin_box.value
+	max_amount = value
+	var_default_values.resize(max_amount)
+	var_names.resize(max_amount)
+	_check_arrays()
+	
+	_spawn_section_buttons()
+	_load_set(0)
+	
 
 func _update_name(text:String, index:int):
 	var_names[index] = text
 	
 func _update_value(text:String, index:int):
 	var_default_values[index] = text
+	
+func _check_arrays():
+	for i in max_amount:
+		var value = var_default_values[i]
+		if value == null:
+			var_default_values[i] = 0
+		var var_name = var_names[i]
+		if var_name == null:
+			var_names[i] = ""
 	

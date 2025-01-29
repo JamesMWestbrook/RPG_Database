@@ -47,7 +47,6 @@ func _spawn_section_button():
 			i += 1
 func _load_set(index:int):
 	_clear_switch_buttons()
-	var max = _get_number(index)
 	for i in 20:
 		var code_index = 20 * index + i
 		if code_index >= max_amount:

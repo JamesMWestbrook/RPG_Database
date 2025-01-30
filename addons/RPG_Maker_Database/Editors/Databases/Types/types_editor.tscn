@@ -1,0 +1,92 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc8vankfv6efh"]
+
+[ext_resource type="PackedScene" uid="uid://jecs43mw58qa" path="res://addons/RPG_Maker_Database/Editors/Databases/Types/type.tscn" id="1_8h86l"]
+[ext_resource type="Script" path="res://addons/eranot.resizable/resizable.gd" id="2_tt2pi"]
+
+[node name="Types" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+metadata/_tab_index = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_right = 433.0
+offset_bottom = 516.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Elements"
+horizontal_alignment = 1
+
+[node name="ElementContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Type" parent="ScrollContainer/HBoxContainer/VBoxContainer/ElementContainer" instance=ExtResource("1_8h86l")]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Elements"
+horizontal_alignment = 1
+
+[node name="ElementContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Type" parent="ScrollContainer/HBoxContainer/VBoxContainer2/ElementContainer" instance=ExtResource("1_8h86l")]
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "Elements"
+horizontal_alignment = 1
+
+[node name="ElementContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Type" parent="ScrollContainer/HBoxContainer/VBoxContainer3/ElementContainer" instance=ExtResource("1_8h86l")]
+layout_mode = 2
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+text = "Elements"
+horizontal_alignment = 1
+
+[node name="ElementContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+
+[node name="Type" parent="ScrollContainer/HBoxContainer/VBoxContainer4/ElementContainer" instance=ExtResource("1_8h86l")]
+layout_mode = 2
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer5"]
+layout_mode = 2
+text = "Elements"
+horizontal_alignment = 1
+
+[node name="ElementContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer5"]
+layout_mode = 2
+
+[node name="Type" parent="ScrollContainer/HBoxContainer/VBoxContainer5/ElementContainer" instance=ExtResource("1_8h86l")]
+layout_mode = 2
+
+[node name="Resizable" type="Control" parent="ScrollContainer"]
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("2_tt2pi")

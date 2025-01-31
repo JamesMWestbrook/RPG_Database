@@ -1,92 +1,81 @@
-[gd_scene load_steps=3 format=3 uid="uid://dc8vankfv6efh"]
+[gd_scene load_steps=4 format=3 uid="uid://dc8vankfv6efh"]
 
-[ext_resource type="PackedScene" uid="uid://jecs43mw58qa" path="res://addons/RPG_Maker_Database/Editors/Databases/Types/type.tscn" id="1_8h86l"]
+[ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/Types/types_editor.gd" id="1_m7bmw"]
+[ext_resource type="PackedScene" uid="uid://cchfdse30p26r" path="res://addons/RPG_Maker_Database/Editors/Databases/Types/type_column.tscn" id="1_nxovw"]
 [ext_resource type="Script" path="res://addons/eranot.resizable/resizable.gd" id="2_tt2pi"]
 
-[node name="Types" type="Control"]
+[node name="TypesEditor" type="Control" node_paths=PackedStringArray("types")]
 layout_mode = 3
-anchors_preset = 0
+anchor_right = 0.576
+anchor_bottom = 0.5
+offset_right = -413.568
+offset_bottom = -324.0
+script = ExtResource("1_m7bmw")
+types = [NodePath("ScrollContainer/VBoxContainer/TypeContainers/Elements"), NodePath("ScrollContainer/VBoxContainer/TypeContainers/SkillTypes"), NodePath("ScrollContainer/VBoxContainer/TypeContainers/WeaponTypes"), NodePath("ScrollContainer/VBoxContainer/TypeContainers/ArmorTypes"), NodePath("ScrollContainer/VBoxContainer/TypeContainers/EquipTypes")]
 metadata/_tab_index = 1
+metadata/_edit_vertical_guides_ = [-90.0]
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 0
 offset_right = 433.0
 offset_bottom = 516.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "Elements"
-horizontal_alignment = 1
-
-[node name="ElementContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Type" parent="ScrollContainer/HBoxContainer/VBoxContainer/ElementContainer" instance=ExtResource("1_8h86l")]
-layout_mode = 2
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-text = "Elements"
-horizontal_alignment = 1
-
-[node name="ElementContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-
-[node name="Type" parent="ScrollContainer/HBoxContainer/VBoxContainer2/ElementContainer" instance=ExtResource("1_8h86l")]
-layout_mode = 2
-
-[node name="VBoxContainer3" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer3"]
-layout_mode = 2
-text = "Elements"
-horizontal_alignment = 1
-
-[node name="ElementContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer3"]
-layout_mode = 2
-
-[node name="Type" parent="ScrollContainer/HBoxContainer/VBoxContainer3/ElementContainer" instance=ExtResource("1_8h86l")]
-layout_mode = 2
-
-[node name="VBoxContainer4" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer4"]
-layout_mode = 2
-text = "Elements"
-horizontal_alignment = 1
-
-[node name="ElementContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer4"]
-layout_mode = 2
-
-[node name="Type" parent="ScrollContainer/HBoxContainer/VBoxContainer4/ElementContainer" instance=ExtResource("1_8h86l")]
-layout_mode = 2
-
-[node name="VBoxContainer5" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/VBoxContainer5"]
-layout_mode = 2
-text = "Elements"
-horizontal_alignment = 1
-
-[node name="ElementContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/VBoxContainer5"]
-layout_mode = 2
-
-[node name="Type" parent="ScrollContainer/HBoxContainer/VBoxContainer5/ElementContainer" instance=ExtResource("1_8h86l")]
-layout_mode = 2
-
 [node name="Resizable" type="Control" parent="ScrollContainer"]
 layout_mode = 2
 mouse_filter = 2
 script = ExtResource("2_tt2pi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="Save" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Save"
+
+[node name="TypeContainers" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Elements" parent="ScrollContainer/VBoxContainer/TypeContainers" instance=ExtResource("1_nxovw")]
+layout_mode = 2
+category = "Elements"
+category_index = null
+
+[node name="VSeparator" type="VSeparator" parent="ScrollContainer/VBoxContainer/TypeContainers"]
+layout_mode = 2
+
+[node name="SkillTypes" parent="ScrollContainer/VBoxContainer/TypeContainers" instance=ExtResource("1_nxovw")]
+layout_mode = 2
+category = "Skill Types"
+category_index = null
+
+[node name="VSeparator2" type="VSeparator" parent="ScrollContainer/VBoxContainer/TypeContainers"]
+layout_mode = 2
+
+[node name="WeaponTypes" parent="ScrollContainer/VBoxContainer/TypeContainers" instance=ExtResource("1_nxovw")]
+layout_mode = 2
+category = "Weapon Types"
+category_index = null
+
+[node name="VSeparator4" type="VSeparator" parent="ScrollContainer/VBoxContainer/TypeContainers"]
+layout_mode = 2
+
+[node name="ArmorTypes" parent="ScrollContainer/VBoxContainer/TypeContainers" instance=ExtResource("1_nxovw")]
+layout_mode = 2
+category = "Armor Types"
+category_index = null
+
+[node name="VSeparator3" type="VSeparator" parent="ScrollContainer/VBoxContainer/TypeContainers"]
+layout_mode = 2
+
+[node name="EquipTypes" parent="ScrollContainer/VBoxContainer/TypeContainers" instance=ExtResource("1_nxovw")]
+layout_mode = 2
+category = "Equipment Types"
+category_index = null
+
+[connection signal="button_down" from="ScrollContainer/VBoxContainer/Save" to="." method="_save_json"]
+[connection signal="DataChanged" from="ScrollContainer/VBoxContainer/TypeContainers/Elements" to="." method="_on_elements_data_changed"]
+[connection signal="DataChanged" from="ScrollContainer/VBoxContainer/TypeContainers/SkillTypes" to="." method="_on_elements_data_changed"]
+[connection signal="DataChanged" from="ScrollContainer/VBoxContainer/TypeContainers/WeaponTypes" to="." method="_on_elements_data_changed"]
+[connection signal="DataChanged" from="ScrollContainer/VBoxContainer/TypeContainers/ArmorTypes" to="." method="_on_elements_data_changed"]
+[connection signal="DataChanged" from="ScrollContainer/VBoxContainer/TypeContainers/EquipTypes" to="." method="_on_elements_data_changed"]

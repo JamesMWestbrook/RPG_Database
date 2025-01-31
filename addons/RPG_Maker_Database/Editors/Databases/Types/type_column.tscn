@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://cchfdse30p26r"]
+
+[ext_resource type="PackedScene" uid="uid://jecs43mw58qa" path="res://addons/RPG_Maker_Database/Editors/Databases/Types/type.tscn" id="1_weq2x"]
+[ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/Types/type_column.gd" id="1_y0tvi"]
+
+[node name="TypeColumn" type="VBoxContainer"]
+script = ExtResource("1_y0tvi")
+type_row_scene = ExtResource("1_weq2x")
+category_index = null
+
+[node name="TypeLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Elements"
+horizontal_alignment = 1
+
+[node name="ElementContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MaxEdit" type="SpinBox" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="SetMaxButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Set Max"
+
+[connection signal="button_down" from="HBoxContainer/SetMaxButton" to="." method="_on_set_max_button_down"]

@@ -12,5 +12,4 @@ text = "01"
 [node name="LineEdit" type="LineEdit" parent="."]
 custom_minimum_size = Vector2(109.85, 0)
 layout_mode = 2
-text = "Physical"
 expand_to_text_length = true

@@ -1,3 +1,4 @@
+@tool
 extends HBoxContainer
 class_name Variable
 @onready var label: Label = $Label

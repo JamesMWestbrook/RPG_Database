@@ -42,7 +42,8 @@ func _ready() -> void:
 	_check_json()
 	
 	_load_class(0)
-
+	for c in classes:
+		_check_class(c)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -60,7 +61,10 @@ func _check_json():
 			
 			new_button.text = "Class " + str(i)
 			new_button.button_down.connect(_load_class.bind(i))
-			classes.append({})
+			var new_class = {}
+			classes.append(new_class)
+			_check_class(new_class)
+		_save_json()
 			
 func _load_json(file:FileAccess):
 	var json_string:String = file.get_as_text()
@@ -110,6 +114,7 @@ func _check_class(c:Dictionary):
 	if c.has("start_hp"):
 		pass
 	else:
+		c.name = "Class " + str(classes.find(c))
 		c.start_hp = 15
 		c.end_hp = 999
 		c.start_mp = 20

@@ -47,11 +47,12 @@ var classes
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	await get_tree().process_frame
+	_load_classes()
 	_check_json()
 	sprite_index_spinbox.value_changed.connect(_sprite_index)
 	_load_actor(0)
 	menu_button.get_popup().index_pressed.connect(_select_class)
-	_load_classes()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -129,6 +130,12 @@ func _load_actor(index:int):
 	else:
 		profile_edit.text = ""
 		_profile()
+	if actor.has("class"):
+		menu_button.text = classes[actor.class].name
+	else:
+		actor.class = 0
+		menu_button.text = classes[actor.class].name
+		
 	if actor.has("face") and actor["face"] != "":
 		if FileAccess.file_exists(actor["face"]):
 			face_sprite.texture = load(actor["face"])

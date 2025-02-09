@@ -4,6 +4,10 @@ extends TabContainer
 @onready var traits_window: TraitsWindow = $TraitsWindow
 @onready var actors: ActorEditor = $Characters/TabContainer/Actors
 
+@onready var actors: ActorEditor = $Characters/TabContainer/Actors
+@onready var classes: ClassEditor = $Characters/TabContainer/Classes
+@onready var enemies: Control = $Characters/TabContainer/Enemies
+@onready var troops: Control = $Characters/TabContainer/Troops
 
 
 func _ready() -> void:
@@ -14,3 +18,12 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_tab_container_tab_clicked(tab: int) -> void:
+	print(str(tab))
+	match tab:
+		0:
+			actors._load_classes()
+		1:
+			pass

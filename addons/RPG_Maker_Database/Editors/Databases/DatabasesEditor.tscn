@@ -156,3 +156,5 @@ metadata/_tab_index = 3
 
 [node name="TraitsWindow" parent="." instance=ExtResource("5_duimv")]
 visible = false
+
+[connection signal="tab_clicked" from="Characters/TabContainer" to="." method="_on_tab_container_tab_clicked"]

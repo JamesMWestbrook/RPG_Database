@@ -34,6 +34,7 @@ class_name ActorEditor
 
 @onready var trait_container: TraitContainer = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer3/TraitContainer
 
+@onready var menu_button: MenuButton = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer/MenuButton
 
 #endregion
 
@@ -41,12 +42,16 @@ const JSON_SAVE_PATH = "res://data/actors.json"
 
 var cur_actor_index:int
 var actors:Array = []
+
+var classes
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_check_json()
 	sprite_index_spinbox.value_changed.connect(_sprite_index)
 	_load_actor(0)
-	
+	menu_button.get_popup().index_pressed.connect(_select_class)
+	_load_classes()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -69,7 +74,6 @@ func _check_json():
 			new_button.pressed.connect(_load_actor.bind(index))
 			actors.append({})
 			index += 1
-	
 		
 func _load_json(file:FileAccess):
 	var save_data:Dictionary
@@ -88,6 +92,12 @@ func _load_json(file:FileAccess):
 		
 		new_button.pressed.connect(_load_actor.bind(index))
 		index += 1
+func _load_classes():
+	var class_path = ClassEditor.JSON_SAVE_PATH
+	if !FileAccess.file_exists(class_path):
+		return
+	var file = FileAccess.open(class_path,FileAccess.READ)
+	classes = JSON.parse_string(file.get_as_text()).classes
 #region load actor
 func _load_actor(index:int):
 	print("Actor " + str(index) + " selected")
@@ -239,3 +249,16 @@ func _clear_battler():
 	actors[cur_actor_index]["battler"] = ""
 	battler_sprite.texture = null
 	
+func _load_class_list():
+	pass
+	
+func _select_class(index:int):
+	print(str(index) + " Selected")
+	menu_button.text = classes[index].name
+	actors[cur_actor_index].class = index
+
+
+func _on_menu_button_button_down() -> void:
+	menu_button.get_popup().clear()
+	for c in classes:
+		menu_button.get_popup().add_item(c.name)

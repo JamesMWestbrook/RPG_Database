@@ -28,9 +28,11 @@ func _load_json():
 	var json_string =  file.get_file_as_string(SAVE_PATH)
 	type_data = JSON.parse_string(json_string)
 	for i in 5:
-		types[i].sub_types = type_data[i]
-		types[i].max_edit.value = type_data[i].size()
-		types[i]._on_set_max_button_down()
+		var data = type_data[i]
+		if data != null:
+			types[i].sub_types = type_data[i]
+			types[i].max_edit.value = type_data[i].size()
+			types[i]._on_set_max_button_down()
 
 
 func _save_json():

@@ -47,7 +47,7 @@ layout_mode = 2
 [node name="SkillTypes" parent="ScrollContainer/VBoxContainer/TypeContainers" instance=ExtResource("1_nxovw")]
 layout_mode = 2
 category = "Skill Types"
-category_index = 0
+category_index = 1
 
 [node name="VSeparator2" type="VSeparator" parent="ScrollContainer/VBoxContainer/TypeContainers"]
 layout_mode = 2
@@ -55,7 +55,7 @@ layout_mode = 2
 [node name="WeaponTypes" parent="ScrollContainer/VBoxContainer/TypeContainers" instance=ExtResource("1_nxovw")]
 layout_mode = 2
 category = "Weapon Types"
-category_index = 0
+category_index = 2
 
 [node name="VSeparator4" type="VSeparator" parent="ScrollContainer/VBoxContainer/TypeContainers"]
 layout_mode = 2
@@ -63,7 +63,7 @@ layout_mode = 2
 [node name="ArmorTypes" parent="ScrollContainer/VBoxContainer/TypeContainers" instance=ExtResource("1_nxovw")]
 layout_mode = 2
 category = "Armor Types"
-category_index = 0
+category_index = 3
 
 [node name="VSeparator3" type="VSeparator" parent="ScrollContainer/VBoxContainer/TypeContainers"]
 layout_mode = 2
@@ -71,7 +71,7 @@ layout_mode = 2
 [node name="EquipTypes" parent="ScrollContainer/VBoxContainer/TypeContainers" instance=ExtResource("1_nxovw")]
 layout_mode = 2
 category = "Equipment Types"
-category_index = 0
+category_index = 4
 
 [connection signal="button_down" from="ScrollContainer/VBoxContainer/Save" to="." method="_save_json"]
 [connection signal="DataChanged" from="ScrollContainer/VBoxContainer/TypeContainers/Elements" to="." method="_on_elements_data_changed"]

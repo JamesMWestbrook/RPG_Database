@@ -4,7 +4,6 @@ extends TabContainer
 @onready var traits_window: TraitsWindow = $TraitsWindow
 @onready var actors: ActorEditor = $Characters/TabContainer/Actors
 
-@onready var actors: ActorEditor = $Characters/TabContainer/Actors
 @onready var classes: ClassEditor = $Characters/TabContainer/Classes
 @onready var enemies: Control = $Characters/TabContainer/Enemies
 @onready var troops: Control = $Characters/TabContainer/Troops

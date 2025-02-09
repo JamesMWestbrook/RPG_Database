@@ -53,16 +53,13 @@ layout_mode = 2
 layout_mode = 2
 min_value = 1.0
 max_value = 9999.0
-value = 1.0
+value = 20.0
 
 [node name="ResizeButton" type="Button" parent="ScrollContainer/BoxContainer/ScrollContainer/Column1/HBoxContainer2"]
 layout_mode = 2
 text = "Resize"
 
 [node name="VarSetContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/ScrollContainer/Column1"]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="ScrollContainer/BoxContainer/ScrollContainer/Column1/VarSetContainer"]
 layout_mode = 2
 
 [node name="ScrollContainer2" type="ScrollContainer" parent="ScrollContainer/BoxContainer"]
@@ -72,9 +69,6 @@ layout_mode = 2
 [node name="VarContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/ScrollContainer2"]
 layout_mode = 2
 alignment = 1
-
-[node name="Button" type="Button" parent="ScrollContainer/BoxContainer/ScrollContainer2/VarContainer"]
-layout_mode = 2
 
 [node name="Resizable" type="Control" parent="ScrollContainer/BoxContainer/ScrollContainer2"]
 layout_mode = 2

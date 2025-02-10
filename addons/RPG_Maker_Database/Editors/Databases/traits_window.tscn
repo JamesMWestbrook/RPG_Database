@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqteh31ksim5"]
+[gd_scene load_steps=3 format=3 uid="uid://cqteh31ksim5"]
 
 [ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/traits_window.gd" id="1_rodhp"]
+[ext_resource type="PackedScene" uid="uid://diqphdn4ib5q8" path="res://addons/RPG_Maker_Database/Editors/Databases/trait_row.tscn" id="2_gmexd"]
 
 [node name="TraitsWindow" type="Window"]
 auto_translate_mode = 1
@@ -44,169 +45,8 @@ popup/item_10/text = "Action Times +"
 popup/item_10/id = 10
 popup/item_11/id = 11
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+[node name="TraitRow" parent="VBoxContainer" instance=ExtResource("2_gmexd")]
 layout_mode = 2
-
-[node name="FunctionOptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer3"]
-layout_mode = 2
-selected = 0
-item_count = 24
-popup/item_0/text = "Element Rate"
-popup/item_1/text = "Debuff Rate"
-popup/item_1/id = 1
-popup/item_2/text = "State Rate"
-popup/item_2/id = 2
-popup/item_3/text = "State Resist"
-popup/item_3/id = 3
-popup/item_4/text = "Parameter"
-popup/item_4/id = 4
-popup/item_5/text = "Ex-Parameter"
-popup/item_5/id = 5
-popup/item_6/text = "Sp-Parameter"
-popup/item_6/id = 6
-popup/item_7/text = "Attack Element"
-popup/item_7/id = 7
-popup/item_8/text = "Attack State"
-popup/item_8/id = 8
-popup/item_9/text = "Attack Speed"
-popup/item_9/id = 9
-popup/item_10/text = "Attack Times +"
-popup/item_10/id = 10
-popup/item_11/text = "Add Skill Type"
-popup/item_11/id = 11
-popup/item_12/text = "Seal Skill Type"
-popup/item_12/id = 12
-popup/item_13/text = "Add Skill"
-popup/item_13/id = 13
-popup/item_14/text = "Seal Skill"
-popup/item_14/id = 14
-popup/item_15/text = "Equip Weapon"
-popup/item_15/id = 15
-popup/item_16/text = "Equip Armor"
-popup/item_16/id = 16
-popup/item_17/text = "Lock Equip"
-popup/item_17/id = 17
-popup/item_18/text = "Seal Equip"
-popup/item_18/id = 18
-popup/item_19/text = "Slot Type"
-popup/item_19/id = 19
-popup/item_20/text = "Action Times +"
-popup/item_20/id = 20
-popup/item_21/text = "Special Flag"
-popup/item_21/id = 21
-popup/item_22/text = "Collaspe Effect"
-popup/item_22/id = 22
-popup/item_23/text = "Party Ability"
-popup/item_23/id = 23
-
-[node name="ElementOptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer3"]
-visible = false
-layout_mode = 2
-selected = 0
-item_count = 1
-popup/item_0/text = "Physical"
-
-[node name="StatOptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer3"]
-visible = false
-layout_mode = 2
-selected = 0
-item_count = 1
-popup/item_0/text = "Max HP"
-
-[node name="StatusOptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer3"]
-visible = false
-layout_mode = 2
-selected = 0
-item_count = 1
-popup/item_0/text = "000 Knockout"
-
-[node name="Ex-ParameterOptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer3"]
-visible = false
-layout_mode = 2
-selected = 0
-item_count = 1
-popup/item_0/text = "Hit Rate"
-
-[node name="Sp-ParameterOptionButton2" type="OptionButton" parent="VBoxContainer/HBoxContainer3"]
-visible = false
-layout_mode = 2
-selected = 0
-item_count = 1
-popup/item_0/text = "Target Rate"
-
-[node name="SkillTypesOptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer3"]
-visible = false
-layout_mode = 2
-selected = 0
-item_count = 1
-popup/item_0/text = "Special"
-
-[node name="SkillOptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer3"]
-visible = false
-layout_mode = 2
-selected = 0
-item_count = 1
-popup/item_0/text = "Attack"
-
-[node name="WeaponOptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer3"]
-visible = false
-layout_mode = 2
-selected = 0
-item_count = 1
-popup/item_0/text = "Attack"
-
-[node name="ArmorOptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer3"]
-visible = false
-layout_mode = 2
-selected = 0
-item_count = 1
-popup/item_0/text = "Attack"
-
-[node name="LockEquipOptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer3"]
-visible = false
-layout_mode = 2
-selected = 0
-item_count = 1
-popup/item_0/text = "Attack"
-
-[node name="SlotTypeOptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer3"]
-visible = false
-layout_mode = 2
-selected = 0
-item_count = 1
-popup/item_0/text = "Attack"
-
-[node name="SpecialFlagOptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer3"]
-visible = false
-layout_mode = 2
-selected = 0
-item_count = 1
-popup/item_0/text = "Attack"
-
-[node name="CollaspeEffectOptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer3"]
-visible = false
-layout_mode = 2
-selected = 0
-item_count = 1
-popup/item_0/text = "Attack"
-
-[node name="PartyAbility" type="OptionButton" parent="VBoxContainer/HBoxContainer3"]
-visible = false
-layout_mode = 2
-selected = 0
-item_count = 1
-popup/item_0/text = "Attack"
-
-[node name="PercentMultiplierSpinBox" type="SpinBox" parent="VBoxContainer/HBoxContainer3"]
-visible = false
-layout_mode = 2
-value = 100.0
-prefix = "*"
-suffix = "%"
-
-[node name="AdditiveSpinBox" type="SpinBox" parent="VBoxContainer/HBoxContainer3"]
-layout_mode = 2
-value = 100.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchors_preset = 3
@@ -228,4 +68,3 @@ layout_mode = 2
 text = "Cancel"
 
 [connection signal="close_requested" from="." to="." method="hide"]
-[connection signal="item_selected" from="VBoxContainer/HBoxContainer3/FunctionOptionButton" to="." method="_on_option_button_item_selected"]

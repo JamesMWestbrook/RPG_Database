@@ -2,7 +2,7 @@
 extends VBoxContainer
 class_name TraitContainer
 
-const TRAIT_BUTTON_SCENE = preload("res://addons/RPG_Maker_Database/Editors/Databases/trait_button.tscn")
+const TRAIT_ROW = preload("res://addons/RPG_Maker_Database/Editors/Databases/trait_row.tscn")
 var traits_window:TraitsWindow
 
 var traits:Array=[]
@@ -18,10 +18,10 @@ func _process(delta: float) -> void:
 	pass
 
 func _add_new():
-	var new_button = TRAIT_BUTTON_SCENE.instantiate()
-	add_child(new_button)
-	ConnectButton.emit(new_button)
-	new_button.button_down.connect(traits_window._set_trait.bind(new_button))
+	var new_trait = TRAIT_ROW.instantiate()
+	add_child(new_trait)
+	ConnectButton.emit(new_trait)
+	#new_trait.button_down.connect(traits_window._set_trait.bind(new_button))
 	
 func _update_list():
 	traits.clear()

@@ -5,6 +5,8 @@ var state:int #Example- 0 = element rate, 1 = debuff rate
 var argument:int #Example, physical/fire, state knockout
 var argument_value:int
 
+signal changed(state, argument, arg_value, node)
+
 #region Onreadys
 @onready var function_option: OptionButton = $FunctionOption
 @onready var element_option_button: OptionButton = $ElementOptionButton

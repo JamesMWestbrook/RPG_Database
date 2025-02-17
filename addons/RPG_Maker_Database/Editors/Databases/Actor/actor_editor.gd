@@ -32,7 +32,7 @@ class_name ActorEditor
 @onready var battler_button: Button = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/BattlerButton
 @onready var battler_sprite: Sprite2D = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/BattlerButton/BattlerSprite
 
-@onready var trait_container: TraitContainer = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer3/TraitContainer
+@onready var trait_container: TraitContainer = $BoxContainer/ScrollColumn2/VBoxContainer/TraitContainer
 
 @onready var menu_button: MenuButton = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer/MenuButton
 

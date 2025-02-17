@@ -54,6 +54,7 @@ size_flags_vertical = 4
 [node name="ScrollColumn2" type="ScrollContainer" parent="BoxContainer"]
 custom_minimum_size = Vector2(498.285, 0)
 layout_mode = 2
+follow_focus = true
 vertical_scroll_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer/ScrollColumn2"]
@@ -231,14 +232,6 @@ vertical_alignment = 1
 [node name="VSeparator" type="VSeparator" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 
-[node name="TraitsLabel" type="Label" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-text = "Traits"
-
-[node name="AddTraitButton" type="Button" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-text = "+"
-
 [node name="HBoxContainer3" type="HBoxContainer" parent="BoxContainer/ScrollColumn2/VBoxContainer"]
 layout_mode = 2
 
@@ -280,6 +273,18 @@ popup/item_1/text = "Pyromancer"
 popup/item_1/id = 1
 popup/item_2/text = "Cryomancer"
 popup/item_2/id = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="BoxContainer/ScrollColumn2/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TraitsLabel" type="Label" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Traits"
+
+[node name="AddTraitButton" type="Button" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "+"
 
 [node name="TraitContainer" parent="BoxContainer/ScrollColumn2/VBoxContainer" instance=ExtResource("5_31y7y")]
 layout_mode = 2
@@ -331,8 +336,8 @@ filters = PackedStringArray("*.png")
 [connection signal="button_down" from="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer5/ClearBattlerButton" to="." method="_clear_battler"]
 [connection signal="value_changed" from="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column3/InitialLevelEdit" to="." method="_start_level"]
 [connection signal="value_changed" from="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column3/MaxLevelEdit" to="." method="_max_level"]
-[connection signal="button_down" from="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer2/AddTraitButton" to="BoxContainer/ScrollColumn2/VBoxContainer/TraitContainer" method="_add_new"]
 [connection signal="button_down" from="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer/MenuButton" to="." method="_on_menu_button_button_down"]
+[connection signal="button_down" from="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer4/AddTraitButton" to="BoxContainer/ScrollColumn2/VBoxContainer/TraitContainer" method="_add_new"]
 [connection signal="close_requested" from="FaceFileDialog" to="FaceFileDialog" method="hide"]
 [connection signal="file_selected" from="FaceFileDialog" to="." method="face_selected"]
 [connection signal="close_requested" from="SpriteFileDialog" to="SpriteFileDialog" method="hide"]

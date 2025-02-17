@@ -1,7 +1,12 @@
 extends HBoxContainer
 
 
-var state:int #Example- 0 = element rate, 1 = debuff rate
+
+enum STATE{
+	ELEMENT_RATE,
+	DEBUFF_RATE
+}
+var state: STATE = STATE.ELEMENT_RATE
 var argument:int #Example, physical/fire, state knockout
 var argument_value:int
 
@@ -44,7 +49,6 @@ func set_normal():
 	percent_multiplier_spin_box.show()
 	
 func _on_function_option_item_selected(index: int) -> void:
-	state = index
 	hide_all()
 	function_option.show()
 	
@@ -52,6 +56,7 @@ func _on_function_option_item_selected(index: int) -> void:
 	percent_multiplier_spin_box.value = 100
 	match index:
 		0: #element rate
+			state = STATE.ELEMENT_RATE
 			element_option_button.show()
 			percent_multiplier_spin_box.show()
 			var elements = _get_types()[0] #elements list
@@ -60,6 +65,7 @@ func _on_function_option_item_selected(index: int) -> void:
 				element_option_button.get_popup().add_item(e)
 			
 		1: #debuff rate
+			state = STATE.DEBUFF_RATE
 			status_option_button.show()
 			percent_multiplier_spin_box.show()
 

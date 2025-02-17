@@ -48,7 +48,7 @@ func set_normal():
 	element_option_button.show()
 	percent_multiplier_spin_box.show()
 	
-func _on_function_option_item_selected(index: int) -> void:
+func _on_function_option_item_selected(index: int, sec_index:int = 0) -> void:
 	hide_all()
 	function_option.show()
 	
@@ -63,12 +63,15 @@ func _on_function_option_item_selected(index: int) -> void:
 			element_option_button.get_popup().clear()
 			for e in elements:
 				element_option_button.get_popup().add_item(e)
-			
+			element_option_button.text = element_option_button.get_popup().get_item_text(sec_index)
+
+
 		1: #debuff rate
 			state = STATE.DEBUFF_RATE
-			status_option_button.show()
+			stat_option_button.show()
 			percent_multiplier_spin_box.show()
-
+			#get list of states
+			
 func _on_argument_option_selected(index:int) -> void:
 	argument = index
 	

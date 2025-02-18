@@ -18,12 +18,13 @@ func _process(delta: float) -> void:
 	pass
 
 func _add_new():
-	var new_trait = TRAIT_ROW.instantiate()
+	var new_trait:Trait = TRAIT_ROW.instantiate()
 	add_child(new_trait)
 	ConnectButton.emit(new_trait)
+	new_trait.changed.connect(_update_list)
 	#new_trait.button_down.connect(traits_window._set_trait.bind(new_button))
 	
 func _update_list():
 	traits.clear()
-	for t:TraitButton in get_children():
-		traits.append(t.rpg_trait)
+	for t:Trait in get_children():
+		traits.append(t)

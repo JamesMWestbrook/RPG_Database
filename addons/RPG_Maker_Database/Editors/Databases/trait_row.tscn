@@ -59,16 +59,38 @@ popup/item_23/id = 23
 
 [node name="ElementOptionButton" type="OptionButton" parent="."]
 layout_mode = 2
+alignment = 1
 selected = 0
-item_count = 1
-popup/item_0/text = "Physical"
+item_count = 4
+popup/item_0/text = "Normal"
+popup/item_1/text = "Water"
+popup/item_1/id = 1
+popup/item_2/text = "Ice"
+popup/item_2/id = 2
+popup/item_3/text = "Fire"
+popup/item_3/id = 3
 
 [node name="StatOptionButton" type="OptionButton" parent="."]
 visible = false
 layout_mode = 2
+alignment = 1
 selected = 0
-item_count = 1
+item_count = 8
 popup/item_0/text = "Max HP"
+popup/item_1/text = "Max MP"
+popup/item_1/id = 1
+popup/item_2/text = "Attack"
+popup/item_2/id = 2
+popup/item_3/text = "Defense"
+popup/item_3/id = 3
+popup/item_4/text = "M. Attack"
+popup/item_4/id = 4
+popup/item_5/text = "M. Defense"
+popup/item_5/id = 5
+popup/item_6/text = "Agility"
+popup/item_6/id = 6
+popup/item_7/text = "Luck"
+popup/item_7/id = 7
 
 [node name="StatusOptionButton" type="OptionButton" parent="."]
 visible = false
@@ -155,11 +177,13 @@ layout_mode = 2
 value = 100.0
 
 [node name="Button" type="Button" parent="."]
+visible = false
 layout_mode = 2
 text = "X"
 
 [connection signal="item_selected" from="FunctionOption" to="." method="_on_function_option_item_selected"]
 [connection signal="item_selected" from="ElementOptionButton" to="." method="_on_argument_option_selected"]
+[connection signal="item_selected" from="StatOptionButton" to="." method="_on_stat_option_button_item_selected"]
 [connection signal="value_changed" from="PercentMultiplierSpinBox" to="." method="on_value_changed"]
 [connection signal="value_changed" from="AdditiveSpinBox" to="." method="on_value_changed"]
 [connection signal="button_down" from="Button" to="." method="queue_free"]

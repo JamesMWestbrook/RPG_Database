@@ -1,5 +1,6 @@
+@tool
 extends HBoxContainer
-
+class_name Trait
 
 
 enum STATE{
@@ -7,10 +8,17 @@ enum STATE{
 	DEBUFF_RATE
 }
 var state: STATE = STATE.ELEMENT_RATE
-var argument:int #Example, physical/fire, state knockout
-var argument_value:int
+var argument:int: #Example, physical/fire, state knockout
+	set(value):
+		argument = value
+		changed.emit()
+var argument_value:int:
+	set(value):
+		argument_value = value
+		changed.emit()
+		
 
-signal changed(state, argument, arg_value, node)
+signal changed()
 
 #region Onreadys
 @onready var function_option: OptionButton = $FunctionOption
@@ -48,10 +56,10 @@ func set_normal():
 	element_option_button.show()
 	percent_multiplier_spin_box.show()
 	
-func _on_function_option_item_selected(index: int, sec_index:int = 0) -> void:
+func _on_function_option_item_selected(index: int, arg_index:int = 0) -> void:
 	hide_all()
 	function_option.show()
-	
+	argument = arg_index
 	argument_value = 100
 	percent_multiplier_spin_box.value = 100
 	match index:
@@ -63,14 +71,19 @@ func _on_function_option_item_selected(index: int, sec_index:int = 0) -> void:
 			element_option_button.get_popup().clear()
 			for e in elements:
 				element_option_button.get_popup().add_item(e)
-			element_option_button.text = element_option_button.get_popup().get_item_text(sec_index)
-
+			element_option_button.select(arg_index)
+			
+			percent_multiplier_spin_box.value = 100
+			on_value_changed(100)
 
 		1: #debuff rate
 			state = STATE.DEBUFF_RATE
 			stat_option_button.show()
 			percent_multiplier_spin_box.show()
-			#get list of states
+			
+			stat_option_button.select(arg_index)
+			percent_multiplier_spin_box.value = 100
+			on_value_changed(100)
 			
 func _on_argument_option_selected(index:int) -> void:
 	argument = index
@@ -83,3 +96,8 @@ func _get_types():
 
 func on_value_changed(value: float) -> void:
 	argument_value = value
+
+
+func _on_stat_option_button_item_selected(index: int) -> void:
+	argument = index
+	

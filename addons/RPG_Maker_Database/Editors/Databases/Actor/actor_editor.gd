@@ -269,3 +269,7 @@ func _on_menu_button_button_down() -> void:
 	menu_button.get_popup().clear()
 	for c in classes:
 		menu_button.get_popup().add_item(c.name)
+
+
+func _on_trait_container_updated_traits(list: Variant) -> void:
+	actors[cur_actor_index].traits = list

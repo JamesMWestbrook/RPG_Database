@@ -347,6 +347,7 @@ filters = PackedStringArray("*.png")
 [connection signal="value_changed" from="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column3/MaxLevelEdit" to="." method="_max_level"]
 [connection signal="button_down" from="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer/MenuButton" to="." method="_on_menu_button_button_down"]
 [connection signal="button_down" from="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer4/AddTraitButton" to="BoxContainer/ScrollColumn2/VBoxContainer/TraitContainer" method="_add_new"]
+[connection signal="UpdatedTraits" from="BoxContainer/ScrollColumn2/VBoxContainer/TraitContainer" to="." method="_on_trait_container_updated_traits"]
 [connection signal="close_requested" from="FaceFileDialog" to="FaceFileDialog" method="hide"]
 [connection signal="file_selected" from="FaceFileDialog" to="." method="face_selected"]
 [connection signal="close_requested" from="SpriteFileDialog" to="SpriteFileDialog" method="hide"]

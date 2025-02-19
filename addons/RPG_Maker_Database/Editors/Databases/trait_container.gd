@@ -5,9 +5,9 @@ class_name TraitContainer
 const TRAIT_ROW = preload("res://addons/RPG_Maker_Database/Editors/Databases/trait_row.tscn")
 var traits_window:TraitsWindow
 
-var traits:Array=[]
 
 signal ConnectButton(button) 
+signal UpdatedTraits(list)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -25,6 +25,11 @@ func _add_new():
 	#new_trait.button_down.connect(traits_window._set_trait.bind(new_button))
 	
 func _update_list():
-	traits.clear()
+	var traits:Array=[]
 	for t:Trait in get_children():
-		traits.append(t)
+		traits.append({
+			"state":t.state,
+			"argument":t.argument,
+			"arg_value":t.argument_value
+		})
+	UpdatedTraits.emit(traits)

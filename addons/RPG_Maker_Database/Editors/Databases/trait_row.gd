@@ -76,7 +76,7 @@ func _on_function_option_item_selected(index: int, arg_index:int = 0, arg_value:
 			percent_multiplier_spin_box.value = arg_value
 			on_value_changed(arg_value)
 
-		1: #debuff rate
+		1: #debuff rate not yet complete
 			state = STATE.DEBUFF_RATE
 			stat_option_button.show()
 			percent_multiplier_spin_box.show()

@@ -102,6 +102,9 @@ func _load_classes():
 	classes = JSON.parse_string(file.get_as_text()).classes
 #region load actor
 func _load_actor(index:int):
+	for child in trait_container.get_children():
+		trait_container.remove_child(child)
+		child.queue_free()
 	print("Actor " + str(index) + " selected")
 	cur_actor_index = index
 	var actor:Dictionary = actors[cur_actor_index]
@@ -178,11 +181,15 @@ func _load_actor(index:int):
 		battler_sprite.texture = null
 		actor["battler"] = ""
 	if actor.has("traits"):
+		var i = 0
+		var trait_set:Trait
 		for t in actor.traits:
 			var new_trait:Trait = trait_container._add_new(true)
 			new_trait._on_function_option_item_selected(t.state, t.argument,t.arg_value)
-			
-			new_trait.changed.emit()
+			if i == 0:
+				trait_set = new_trait
+			i += 1
+		trait_set.changed.emit()
 #endregion
 
 func _save_json():

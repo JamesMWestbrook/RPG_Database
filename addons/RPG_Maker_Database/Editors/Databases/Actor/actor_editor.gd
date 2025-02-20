@@ -93,6 +93,7 @@ func _load_json(file:FileAccess):
 		
 		new_button.pressed.connect(_load_actor.bind(index))
 		index += 1
+	
 func _load_classes():
 	var class_path = ClassEditor.JSON_SAVE_PATH
 	if !FileAccess.file_exists(class_path):
@@ -176,6 +177,12 @@ func _load_actor(index:int):
 	else:
 		battler_sprite.texture = null
 		actor["battler"] = ""
+	if actor.has("traits"):
+		for t in actor.traits:
+			var new_trait:Trait = trait_container._add_new(true)
+			new_trait._on_function_option_item_selected(t.state, t.argument,t.arg_value)
+			
+			new_trait.changed.emit()
 #endregion
 
 func _save_json():

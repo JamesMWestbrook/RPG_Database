@@ -12,7 +12,7 @@ var argument:int: #Example, physical/fire, state knockout
 	set(value):
 		argument = value
 		changed.emit()
-var argument_value:int:
+var argument_value:int = 100:
 	set(value):
 		argument_value = value
 		changed.emit()
@@ -43,7 +43,7 @@ signal changed()
 func _ready() -> void:
 	hide_all()
 	set_normal()
-	_on_function_option_item_selected(0)
+	#_on_function_option_item_selected(0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -56,7 +56,7 @@ func set_normal():
 	element_option_button.show()
 	percent_multiplier_spin_box.show()
 	
-func _on_function_option_item_selected(index: int, arg_index:int = 0) -> void:
+func _on_function_option_item_selected(index: int, arg_index:int = 0, arg_value:int = 100) -> void:
 	hide_all()
 	function_option.show()
 	argument = arg_index
@@ -73,8 +73,8 @@ func _on_function_option_item_selected(index: int, arg_index:int = 0) -> void:
 				element_option_button.get_popup().add_item(e)
 			element_option_button.select(arg_index)
 			
-			percent_multiplier_spin_box.value = 100
-			on_value_changed(100)
+			percent_multiplier_spin_box.value = arg_value
+			on_value_changed(arg_value)
 
 		1: #debuff rate
 			state = STATE.DEBUFF_RATE
@@ -82,8 +82,8 @@ func _on_function_option_item_selected(index: int, arg_index:int = 0) -> void:
 			percent_multiplier_spin_box.show()
 			
 			stat_option_button.select(arg_index)
-			percent_multiplier_spin_box.value = 100
-			on_value_changed(100)
+			percent_multiplier_spin_box.value = arg_value
+			on_value_changed(arg_value)
 			
 func _on_argument_option_selected(index:int) -> void:
 	argument = index

@@ -17,11 +17,14 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _add_new():
+func _add_new(loading:bool = false) -> Trait:
 	var new_trait:Trait = TRAIT_ROW.instantiate()
 	add_child(new_trait)
 	ConnectButton.emit(new_trait)
 	new_trait.changed.connect(_update_list)
+	if not loading:
+		new_trait.changed.emit()
+	return new_trait
 	#new_trait.button_down.connect(traits_window._set_trait.bind(new_button))
 	
 func _update_list():

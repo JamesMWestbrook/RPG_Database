@@ -17,6 +17,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -217.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -274,7 +275,20 @@ text = "If the state is removed:"
 [node name="EnemyInflictedEdit3" type="LineEdit" parent="BoxContainer/Column2Scroll/VBox"]
 layout_mode = 2
 
+[node name="HBoxContainer4" type="HBoxContainer" parent="BoxContainer/Column2Scroll/VBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="TraitsLabel" type="Label" parent="BoxContainer/Column2Scroll/VBox/HBoxContainer4"]
+layout_mode = 2
+text = "Traits"
+
+[node name="AddTraitButton" type="Button" parent="BoxContainer/Column2Scroll/VBox/HBoxContainer4"]
+layout_mode = 2
+text = "+"
+
 [node name="TraitContainer" parent="BoxContainer/Column2Scroll/VBox" instance=ExtResource("1_vhlb7")]
 layout_mode = 2
 
+[connection signal="button_down" from="BoxContainer/Column2Scroll/VBox/HBoxContainer4/AddTraitButton" to="BoxContainer/Column2Scroll/VBox/TraitContainer" method="_add_new"]
 [connection signal="UpdatedTraits" from="BoxContainer/Column2Scroll/VBox/TraitContainer" to="." method="_on_trait_container_updated_traits"]

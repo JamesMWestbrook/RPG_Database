@@ -333,6 +333,7 @@ file_mode = 0
 filters = PackedStringArray("*.png")
 
 [connection signal="button_down" from="BoxContainer/Column1/HBoxContainer/SaveButton" to="." method="_save_json"]
+[connection signal="button_down" from="BoxContainer/Column1/ChangeActorMaxButton" to="." method="_on_change_actor_max_button_button_down"]
 [connection signal="text_changed" from="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer2/NameEdit" to="." method="_update_name"]
 [connection signal="text_changed" from="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer2/NicknameEdit" to="." method="_update_nickname"]
 [connection signal="text_changed" from="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/ProfileEdit" to="." method="_profile"]

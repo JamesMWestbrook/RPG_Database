@@ -125,6 +125,7 @@ layout_mode = 2
 
 [node name="PrioritySpinBox" type="SpinBox" parent="BoxContainer/Column2Scroll/VBox/HBox4"]
 layout_mode = 2
+value = 100.0
 
 [node name="HBox5" type="HBoxContainer" parent="BoxContainer/Column2Scroll/VBox"]
 layout_mode = 2
@@ -160,6 +161,7 @@ popup/item_4/id = 4
 
 [node name="SvOverlayButton" type="OptionButton" parent="BoxContainer/Column2Scroll/VBox/HBox6"]
 layout_mode = 2
+selected = 0
 item_count = 1
 popup/item_0/text = "list of bubble icons"
 
@@ -227,6 +229,7 @@ text = "Remove by Damage"
 
 [node name="DamageSpinBox" type="SpinBox" parent="BoxContainer/Column2Scroll/VBox/HBox10"]
 layout_mode = 2
+editable = false
 
 [node name="HBox11" type="HBoxContainer" parent="BoxContainer/Column2Scroll/VBox"]
 layout_mode = 2
@@ -237,6 +240,7 @@ text = "Remove by Walking"
 
 [node name="WalkingSpinBox" type="SpinBox" parent="BoxContainer/Column2Scroll/VBox/HBox11"]
 layout_mode = 2
+editable = false
 
 [node name="Label" type="Label" parent="BoxContainer/Column2Scroll/VBox/HBox11"]
 layout_mode = 2
@@ -294,5 +298,23 @@ layout_mode = 2
 
 [connection signal="button_down" from="BoxContainer/Column1/HBoxContainer/SaveButton" to="." method="_save_json"]
 [connection signal="button_down" from="BoxContainer/Column1/ChangeActorMaxButton" to="." method="_on_change_actor_max_button_button_down"]
+[connection signal="text_changed" from="BoxContainer/Column2Scroll/VBox/HBox2/NameLineEdit" to="." method="_on_name_line_edit_text_changed"]
+[connection signal="item_selected" from="BoxContainer/Column2Scroll/VBox/HBox4/RestrictionButton" to="." method="_on_restriction_button_item_selected"]
+[connection signal="value_changed" from="BoxContainer/Column2Scroll/VBox/HBox4/PrioritySpinBox" to="." method="_on_priority_spin_box_value_changed"]
+[connection signal="item_selected" from="BoxContainer/Column2Scroll/VBox/HBox6/SvMotionButton" to="." method="_on_sv_motion_button_item_selected"]
+[connection signal="item_selected" from="BoxContainer/Column2Scroll/VBox/HBox6/SvOverlayButton" to="." method="_on_sv_overlay_button_item_selected"]
+[connection signal="toggled" from="BoxContainer/Column2Scroll/VBox/HBox7/BattleEndCheckbox" to="." method="_on_battle_end_checkbox_toggled"]
+[connection signal="toggled" from="BoxContainer/Column2Scroll/VBox/HBox7/RestrictionCheckbox" to="." method="_on_restriction_checkbox_toggled"]
+[connection signal="item_selected" from="BoxContainer/Column2Scroll/VBox/HBox8/AutoRemovalButton" to="." method="_on_auto_removal_button_item_selected"]
+[connection signal="value_changed" from="BoxContainer/Column2Scroll/VBox/HBox9/LowerTurnSpin" to="." method="_on_lower_turn_spin_value_changed"]
+[connection signal="value_changed" from="BoxContainer/Column2Scroll/VBox/HBox9/MaxTurnSpin" to="." method="_on_max_turn_spin_value_changed"]
+[connection signal="toggled" from="BoxContainer/Column2Scroll/VBox/HBox10/ViaDamageCheckbox" to="." method="_on_via_damage_checkbox_toggled"]
+[connection signal="value_changed" from="BoxContainer/Column2Scroll/VBox/HBox10/DamageSpinBox" to="." method="_on_damage_spin_box_value_changed"]
+[connection signal="toggled" from="BoxContainer/Column2Scroll/VBox/HBox11/ViaWalkingCheckbox" to="." method="_on_via_walking_checkbox_toggled"]
+[connection signal="value_changed" from="BoxContainer/Column2Scroll/VBox/HBox11/WalkingSpinBox" to="." method="_on_walking_spin_box_value_changed"]
+[connection signal="text_changed" from="BoxContainer/Column2Scroll/VBox/ActorInflictedEdit" to="." method="_on_actor_inflicted_edit_text_changed"]
+[connection signal="text_changed" from="BoxContainer/Column2Scroll/VBox/EnemyInflictedEdit" to="." method="_on_enemy_inflicted_edit_text_changed"]
+[connection signal="text_changed" from="BoxContainer/Column2Scroll/VBox/StatePersistEdit" to="." method="_on_state_persist_edit_text_changed"]
+[connection signal="text_changed" from="BoxContainer/Column2Scroll/VBox/StateRemovedEdit" to="." method="_on_state_removed_edit_text_changed"]
 [connection signal="button_down" from="BoxContainer/Column2Scroll/VBox/HBoxContainer4/AddTraitButton" to="BoxContainer/Column2Scroll/VBox/TraitContainer" method="_add_new"]
 [connection signal="UpdatedTraits" from="BoxContainer/Column2Scroll/VBox/TraitContainer" to="." method="_on_trait_container_updated_traits"]

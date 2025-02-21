@@ -59,7 +59,7 @@ func _ready() -> void:
 	else:
 		actor_count_spinbox.value = 5
 		_on_change_actor_max_button_button_down()
-		
+	_load_state(0)
 		
 
 
@@ -86,13 +86,32 @@ func _load_state(index:int):
 	priority_spin_box.value = state.priority
 	sv_motion_button.select(state.sv_motion)
 	sv_overlay_button.select(state.sv_overlay)
-	battle_end_checkbox.toggle_mode = state.remove_at_battle_end
+	battle_end_checkbox.button_pressed = state.remove_at_battle_end
+	restriction_checkbox.button_pressed = state.remove_by_restriction
 	if state.remove_at_battle_end:
 		auto_removal_button.select(state.auto_removal_timing)
 		lower_turn_spin.value = state.duration_min
 		max_turn_spin.value = state.duration_max
-	
-	
+	if state.remove_by_damage:
+		via_damage_checkbox.button_pressed = true
+		damage_spin_box.value = state.damage_required
+		damage_spin_box.editable = true
+	else:
+		damage_spin_box.editable = false
+		
+	if state.remove_by_walking:
+		via_walking_checkbox.button_pressed = true
+		walking_spin_box.value = state.steps_required
+		walking_spin_box.editable = true
+	else:
+		walking_spin_box.editable = false
+		
+		
+	actor_inflicted_edit.text = state.actor_inflicted_message
+	enemy_inflicted_edit.text = state.enemy_inflicted_message
+	state_persist_edit.text = state.persist_message
+	state_removed_edit.text = state.removed_message
+	#Put in trait loading logic
 
 func _check_state(index:int):
 	var state:Dictionary = states[index]
@@ -105,6 +124,7 @@ func _check_state(index:int):
 		state.sv_motion = SV_MOTION.NORMAL
 		state.sv_overlay = 0
 		state.remove_at_battle_end = false
+		state.remove_by_restriction = false
 		state.auto_removal_timing = AUTO_REMOVAL_TIMING.NONE
 		state.duration_min = 0
 		state.duration_max = 0
@@ -146,3 +166,74 @@ func _state_buttons():
 		
 		states_v_box.add_child(new_button)
 		index += 1
+
+
+func _on_name_line_edit_text_changed(new_text: String) -> void:
+	states[cur_state_index].name = new_text
+
+
+func _on_restriction_button_item_selected(index: int) -> void:
+	states[cur_state_index].restriction = index
+
+
+func _on_priority_spin_box_value_changed(value: float) -> void:
+	states[cur_state_index].priority = value
+
+
+func _on_sv_motion_button_item_selected(index: int) -> void:
+	states[cur_state_index].sv_motion = index
+	
+
+func _on_sv_overlay_button_item_selected(index: int) -> void:
+	states[cur_state_index].sv_overlay = index
+
+
+func _on_battle_end_checkbox_toggled(toggled_on: bool) -> void:
+	states[cur_state_index].remove_at_battle_end = toggled_on
+
+func _on_restriction_checkbox_toggled(toggled_on: bool) -> void:
+	states[cur_state_index].remove_by_restriction = toggled_on
+
+
+func _on_auto_removal_button_item_selected(index: int) -> void:
+	states[cur_state_index].auto_removal_timing = index
+
+
+func _on_lower_turn_spin_value_changed(value: float) -> void:
+	states[cur_state_index].duration_min = value
+
+
+func _on_max_turn_spin_value_changed(value: float) -> void:
+	states[cur_state_index].duration_max = value
+
+
+func _on_via_damage_checkbox_toggled(toggled_on: bool) -> void:
+	states[cur_state_index].remove_by_damage = toggled_on
+	damage_spin_box.editable = toggled_on
+
+func _on_damage_spin_box_value_changed(value: float) -> void:
+	states[cur_state_index].damage_required = value
+
+
+func _on_via_walking_checkbox_toggled(toggled_on: bool) -> void:
+	states[cur_state_index].remove_by_walking = toggled_on 
+	walking_spin_box.editable = toggled_on
+
+func _on_walking_spin_box_value_changed(value: float) -> void:
+	states[cur_state_index].steps_required = value
+
+
+func _on_actor_inflicted_edit_text_changed(new_text: String) -> void:
+	states[cur_state_index].actor_inflicted_message = new_text
+
+
+func _on_enemy_inflicted_edit_text_changed(new_text: String) -> void:
+	states[cur_state_index].enemy_inflicted_message = new_text
+
+
+func _on_state_persist_edit_text_changed(new_text: String) -> void:
+	states[cur_state_index].persist_message = new_text
+
+
+func _on_state_removed_edit_text_changed(new_text: String) -> void:
+	states[cur_state_index].removed_message = new_text

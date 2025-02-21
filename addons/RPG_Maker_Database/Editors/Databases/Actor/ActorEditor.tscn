@@ -37,6 +37,7 @@ text = "Save"
 
 [node name="ActorCountSpinbox" type="SpinBox" parent="BoxContainer/Column1"]
 layout_mode = 2
+value = 6.0
 update_on_text_changed = true
 
 [node name="ChangeActorMaxButton" type="Button" parent="BoxContainer/Column1"]
@@ -84,7 +85,7 @@ layout_mode = 2
 [node name="NameEdit" type="LineEdit" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer2"]
 custom_minimum_size = Vector2(165.86, 0)
 layout_mode = 2
-text = "Actor 0"
+text = "John"
 
 [node name="NicknameEdit" type="LineEdit" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer2"]
 custom_minimum_size = Vector2(165.86, 0)

@@ -37,6 +37,7 @@ text = "Save"
 
 [node name="ActorCountSpinbox" type="SpinBox" parent="BoxContainer/Column1"]
 layout_mode = 2
+update_on_text_changed = true
 
 [node name="ChangeActorMaxButton" type="Button" parent="BoxContainer/Column1"]
 layout_mode = 2
@@ -46,7 +47,7 @@ text = "Change Max"
 custom_minimum_size = Vector2(0, 268.33)
 layout_mode = 2
 
-[node name="ActorsVBox" type="VBoxContainer" parent="BoxContainer/Column1/ScrollContainer"]
+[node name="StatesVBox" type="VBoxContainer" parent="BoxContainer/Column1/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -290,5 +291,6 @@ text = "+"
 [node name="TraitContainer" parent="BoxContainer/Column2Scroll/VBox" instance=ExtResource("1_vhlb7")]
 layout_mode = 2
 
+[connection signal="button_down" from="BoxContainer/Column1/ChangeActorMaxButton" to="." method="_on_change_actor_max_button_button_down"]
 [connection signal="button_down" from="BoxContainer/Column2Scroll/VBox/HBoxContainer4/AddTraitButton" to="BoxContainer/Column2Scroll/VBox/TraitContainer" method="_add_new"]
 [connection signal="UpdatedTraits" from="BoxContainer/Column2Scroll/VBox/TraitContainer" to="." method="_on_trait_container_updated_traits"]

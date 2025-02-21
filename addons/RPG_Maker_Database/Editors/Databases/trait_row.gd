@@ -84,7 +84,19 @@ func _on_function_option_item_selected(index: int, arg_index:int = 0, arg_value:
 			stat_option_button.select(arg_index)
 			percent_multiplier_spin_box.value = arg_value
 			on_value_changed(arg_value)
-			
+		2: #State Rate
+			pass
+		3: #State Resist
+			pass
+		4: #Parameter
+			pass
+		5: #Ex. Parameter
+			pass
+		6: #SP Parameter
+			pass
+		
+		
+		
 func _on_argument_option_selected(index:int) -> void:
 	argument = index
 	

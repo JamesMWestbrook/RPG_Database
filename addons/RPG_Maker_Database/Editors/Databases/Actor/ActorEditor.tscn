@@ -1,9 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://1btl6oul0k7i"]
+[gd_scene load_steps=5 format=3 uid="uid://1btl6oul0k7i"]
 
 [ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/Actor/actor_editor.gd" id="1_3yu4n"]
-[ext_resource type="Texture2D" uid="uid://dw74xvxm20hil" path="res://assets/fcp-dragon-knight/faces/F-chara Dragon-knight.png" id="2_rsxho"]
-[ext_resource type="Texture2D" uid="uid://qxe5wk5wvfh0" path="res://assets/occ01-timefantasy/time-fantasy-1st-occ-winner-pack/sheet_winnersa_1.png" id="3_twq77"]
-[ext_resource type="Texture2D" uid="uid://bebm8n2g5evks" path="res://assets/fcp-dragon-knight/sv_actors/SV_F-chara Dragon-knight1.png" id="4_hkjyq"]
 [ext_resource type="Script" path="res://addons/eranot.resizable/resizable.gd" id="4_rsfhn"]
 [ext_resource type="PackedScene" uid="uid://0o7cxqncf2l2" path="res://addons/RPG_Maker_Database/Editors/Databases/trait_container.tscn" id="5_31y7y"]
 
@@ -40,6 +37,7 @@ text = "Save"
 
 [node name="ActorCountSpinbox" type="SpinBox" parent="BoxContainer/Column1"]
 layout_mode = 2
+update_on_text_changed = true
 
 [node name="ChangeActorMaxButton" type="Button" parent="BoxContainer/Column1"]
 layout_mode = 2
@@ -86,12 +84,11 @@ layout_mode = 2
 [node name="NameEdit" type="LineEdit" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer2"]
 custom_minimum_size = Vector2(165.86, 0)
 layout_mode = 2
-text = "Suzy"
+text = "Actor 0"
 
 [node name="NicknameEdit" type="LineEdit" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer2"]
 custom_minimum_size = Vector2(165.86, 0)
 layout_mode = 2
-text = "The Dragon"
 
 [node name="ProfileLabel" type="Label" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2"]
 layout_mode = 2
@@ -101,7 +98,6 @@ text = "Profile:"
 custom_minimum_size = Vector2(274.665, 56.515)
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
-text = "Suzy is a dragon from albany. "
 placeholder_text = "Character description goes here!"
 wrap_mode = 1
 
@@ -124,10 +120,8 @@ text = "Bust"
 [node name="FaceSprite" type="Sprite2D" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/FaceButton"]
 position = Vector2(12, 70)
 scale = Vector2(0.493323, 0.493323)
-texture = ExtResource("2_rsxho")
 hframes = 4
 vframes = 2
-frame = 5
 
 [node name="SpriteButton" type="Button" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer3"]
 layout_mode = 2
@@ -136,7 +130,6 @@ text = "Set Sprite"
 [node name="WalkingSprite" type="Sprite2D" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/SpriteButton"]
 position = Vector2(43, 81.08)
 scale = Vector2(0.52, 0.52)
-texture = ExtResource("3_twq77")
 hframes = 12
 vframes = 8
 frame = 10
@@ -148,7 +141,6 @@ text = "Set Battler"
 [node name="BattlerSprite" type="Sprite2D" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/BattlerButton"]
 position = Vector2(58, 81.08)
 scale = Vector2(0.52, 0.52)
-texture = ExtResource("4_hkjyq")
 hframes = 9
 vframes = 6
 
@@ -167,9 +159,9 @@ alignment = 1
 [node name="FaceIndexSpinbox" type="SpinBox" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer4"]
 layout_mode = 2
 max_value = 7.0
-value = 5.0
 
 [node name="SpriteIndexSpinbox" type="SpinBox" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer4"]
+visible = false
 layout_mode = 2
 max_value = 7.0
 value = 3.0
@@ -205,7 +197,7 @@ text = "Initial Lvl:"
 layout_mode = 2
 min_value = 1.0
 max_value = 9999.0
-value = 15.0
+value = 1.0
 
 [node name="MaxLevelLabel" type="Label" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column3"]
 layout_mode = 2
@@ -215,7 +207,7 @@ text = "Max Lvl:"
 layout_mode = 2
 min_value = 1.0
 max_value = 9999.0
-value = 100.0
+value = 99.0
 
 [node name="InitialEquipmentLabel" type="Label" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column3"]
 layout_mode = 2
@@ -257,7 +249,7 @@ text = "Primary Class:"
 
 [node name="MenuButton" type="MenuButton" parent="BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "Thundomancer"
+text = "Pyromancer"
 item_count = 2
 popup/item_0/text = "Pyromancer"
 popup/item_1/text = "Cryomancer"

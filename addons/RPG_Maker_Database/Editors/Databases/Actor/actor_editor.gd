@@ -14,6 +14,8 @@ class_name ActorEditor
 		battler_sprite.texture = null
 		
 #region Onreadys
+@onready var actor_count_spinbox: SpinBox = $BoxContainer/Column1/ActorCountSpinbox
+
 @onready var actor_container:VBoxContainer = $BoxContainer/Column1/ScrollContainer/ActorsVBox
 @onready var name_edit:LineEdit = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer2/NameEdit
 @onready var nickname_edit: LineEdit =$BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer2/NicknameEdit
@@ -62,18 +64,17 @@ func _check_json():
 		var file = FileAccess.open(JSON_SAVE_PATH,FileAccess.READ)
 		_load_json(file)
 	else:
-		var start_data = {
-			actor_count = 5,
-			actors = []
-		}
+		actors.resize(5)
+		for i in actors.size():
+			actors[i] = {}
 		var index:int = 0
-		for actor in start_data.actor_count:
+		for actor in actors:
 			var new_button:Button = Button.new()
 			actor_container.add_child(new_button)
 			
 			new_button.text = "Actor " + str(index)
 			new_button.pressed.connect(_load_actor.bind(index))
-			actors.append({})
+			#actors.append({})
 			index += 1
 		
 func _load_json(file:FileAccess):
@@ -81,6 +82,14 @@ func _load_json(file:FileAccess):
 	var json_string:String = file.get_as_text()
 	save_data = JSON.parse_string(json_string)
 	actors = save_data["actors"]
+	actor_count_spinbox.value = actors.size()
+	_actor_buttons()
+	
+func _actor_buttons():
+	for i in actor_container.get_children():
+		actor_container.remove_child(i)
+		i.queue_free()
+	await get_tree().process_frame
 	var index:int = 0
 	for actor:Dictionary in actors:
 		var new_button:Button = Button.new()
@@ -93,7 +102,6 @@ func _load_json(file:FileAccess):
 		
 		new_button.pressed.connect(_load_actor.bind(index))
 		index += 1
-	
 func _load_classes():
 	var class_path = ClassEditor.JSON_SAVE_PATH
 	if !FileAccess.file_exists(class_path):
@@ -287,3 +295,14 @@ func _on_menu_button_button_down() -> void:
 
 func _on_trait_container_updated_traits(list: Variant) -> void:
 	actors[cur_actor_index].traits = list
+	
+
+func _on_change_actor_max_button_button_down() -> void:
+	actors.resize(actor_count_spinbox.value)
+	_init_actors()
+	_actor_buttons()
+			
+func _init_actors():
+	for i in actors.size():
+		if actors[i] == null:
+			actors[i]  = {}

@@ -54,8 +54,9 @@ min_value = 1.0
 max_value = 9999.0
 value = 1.0
 alignment = 1
+update_on_text_changed = true
 
-[node name="ChangeActorMaxButton" type="Button" parent="BoxContainer/1st Column"]
+[node name="ChangeMaxButton" type="Button" parent="BoxContainer/1st Column"]
 layout_mode = 2
 text = "Change Max"
 
@@ -290,6 +291,7 @@ size_flags_vertical = 3
 layout_mode = 2
 
 [connection signal="button_down" from="BoxContainer/1st Column/HBoxContainer/SaveButton" to="." method="_save_json"]
+[connection signal="button_down" from="BoxContainer/1st Column/ChangeMaxButton" to="." method="_on_change_max_button_button_down"]
 [connection signal="text_changed" from="BoxContainer/2nd Column/NameEdit" to="." method="_update_name"]
 [connection signal="value_changed" from="BoxContainer/2nd Column/VBoxContainer/HPBox/HPStartSpinBox" to="." method="_on_hp_start_spin_box_value_changed"]
 [connection signal="value_changed" from="BoxContainer/2nd Column/VBoxContainer/HPBox/HPEndSpinBox" to="." method="_on_hp_end_spin_box_value_changed"]

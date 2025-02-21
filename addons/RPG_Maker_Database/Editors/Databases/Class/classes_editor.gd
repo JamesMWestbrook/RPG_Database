@@ -5,6 +5,8 @@ class_name  ClassEditor
 	set(value):
 		pass
 		
+@onready var class_count_spinbox: SpinBox = $"BoxContainer/1st Column/ClassCountSpinbox"
+		
 		
 @onready var traits_window: TraitsWindow 
 @onready var classes_v_box: VBoxContainer = $"BoxContainer/1st Column/ScrollContainer/ClassesVBox"
@@ -70,6 +72,15 @@ func _load_json(file:FileAccess):
 	var json_string:String = file.get_as_text()
 	var save_data:Dictionary = JSON.parse_string(json_string)
 	classes = save_data["classes"]
+	_class_buttons()
+	_load_class_stats(classes[cur_class_index])
+	
+	
+func _class_buttons():
+	for i in classes_v_box.get_children():
+		classes_v_box.remove_child(i)
+		i.queue_free()
+	
 	var index:int = 0
 	for c in classes:
 		var new_button:Button=Button.new()
@@ -82,8 +93,6 @@ func _load_json(file:FileAccess):
 		
 		new_button.button_down.connect(_load_class.bind(index))
 		index += 1
-	_load_class_stats(classes[cur_class_index])
-	
 	
 func _load_class(index:int):
 	cur_class_index = index
@@ -216,3 +225,15 @@ func _on_lck_start_spin_box_value_changed(value: float) -> void:
 
 func _on_lck_end_spin_box_value_changed(value: float) -> void:
 	classes[cur_class_index].end_lck = value
+
+
+func _on_change_max_button_button_down() -> void:
+	classes.resize(class_count_spinbox.value)
+	_init_classes()
+	_class_buttons()
+
+func _init_classes():
+	for i in classes.size():
+		if classes[i] == null:
+			classes[i] = {}
+		

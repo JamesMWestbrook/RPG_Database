@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://jecs43mw58qa"]
 
-[ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/Types/type.gd" id="1_vpvpg"]
+[ext_resource type="Script" uid="uid://qdr26s66kex8" path="res://addons/RPG_Maker_Database/Editors/Databases/Types/type.gd" id="1_vpvpg"]
 
 [node name="Type" type="HBoxContainer"]
 script = ExtResource("1_vpvpg")

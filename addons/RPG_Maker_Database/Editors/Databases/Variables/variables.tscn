@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://ct028egsh2ibo"]
 
-[ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/Variables/variables_editor.gd" id="1_q8swn"]
+[ext_resource type="Script" uid="uid://cw30tknidr0rt" path="res://addons/RPG_Maker_Database/Editors/Databases/Variables/variables_editor.gd" id="1_q8swn"]
 [ext_resource type="PackedScene" uid="uid://bvoa5jjun5bgj" path="res://addons/RPG_Maker_Database/Editors/Databases/Variables/variable.tscn" id="2_7kkrp"]
-[ext_resource type="Script" path="res://addons/eranot.resizable/resizable.gd" id="3_fepgs"]
+[ext_resource type="Script" uid="uid://dvi3pm07wa58f" path="res://addons/eranot.resizable/resizable.gd" id="3_fepgs"]
 
 [node name="Variables" type="Control"]
 layout_mode = 3

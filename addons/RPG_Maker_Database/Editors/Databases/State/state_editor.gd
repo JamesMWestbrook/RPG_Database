@@ -76,6 +76,7 @@ func _load_json():
 
 
 func _load_state(index:int):
+	await get_tree().process_frame
 	_check_state(index)
 	cur_state_index = index
 	var state = states[cur_state_index]
@@ -88,10 +89,16 @@ func _load_state(index:int):
 	sv_overlay_button.select(state.sv_overlay)
 	battle_end_checkbox.button_pressed = state.remove_at_battle_end
 	restriction_checkbox.button_pressed = state.remove_by_restriction
-	if state.remove_at_battle_end:
-		auto_removal_button.select(state.auto_removal_timing)
-		lower_turn_spin.value = state.duration_min
-		max_turn_spin.value = state.duration_max
+	auto_removal_button.select(state.auto_removal_timing)
+	lower_turn_spin.value = state.duration_min
+	max_turn_spin.value = state.duration_max
+	
+	if state.auto_removal_timing > 0:
+		lower_turn_spin.editable = true
+		max_turn_spin.editable = true
+	else:
+		lower_turn_spin.editable = false
+		max_turn_spin.editable = false
 	if state.remove_by_damage:
 		via_damage_checkbox.button_pressed = true
 		damage_spin_box.value = state.damage_required
@@ -197,7 +204,12 @@ func _on_restriction_checkbox_toggled(toggled_on: bool) -> void:
 
 func _on_auto_removal_button_item_selected(index: int) -> void:
 	states[cur_state_index].auto_removal_timing = index
-
+	if index > 0:
+		lower_turn_spin.editable = true
+		max_turn_spin.editable = true
+	else:
+		lower_turn_spin.editable = false
+		max_turn_spin.editable = false
 
 func _on_lower_turn_spin_value_changed(value: float) -> void:
 	states[cur_state_index].duration_min = value

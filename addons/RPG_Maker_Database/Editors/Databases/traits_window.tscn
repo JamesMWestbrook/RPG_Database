@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cqteh31ksim5"]
 
-[ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/traits_window.gd" id="1_rodhp"]
+[ext_resource type="Script" uid="uid://bl1uq5cyftv1a" path="res://addons/RPG_Maker_Database/Editors/Databases/traits_window.gd" id="1_rodhp"]
 [ext_resource type="PackedScene" uid="uid://diqphdn4ib5q8" path="res://addons/RPG_Maker_Database/Editors/Databases/trait_row.tscn" id="2_gmexd"]
 
 [node name="TraitsWindow" type="Window"]

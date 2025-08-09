@@ -288,6 +288,8 @@ func _select_class(index:int):
 
 
 func _on_menu_button_button_down() -> void:
+	_load_classes()
+	await get_tree().process_frame
 	menu_button.get_popup().clear()
 	for c in classes:
 		menu_button.get_popup().add_item(c.name)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bvoa5jjun5bgj"]
 
-[ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/Variables/variable.gd" id="1_jno01"]
+[ext_resource type="Script" uid="uid://c6fii2bstwwqf" path="res://addons/RPG_Maker_Database/Editors/Databases/Variables/variable.gd" id="1_jno01"]
 
 [node name="Variable" type="HBoxContainer"]
 script = ExtResource("1_jno01")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://crb6650jht0oh"]
 
-[ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/Parameters/parameters_editor.gd" id="1_au2q5"]
+[ext_resource type="Script" uid="uid://cg30aspakax1y" path="res://addons/RPG_Maker_Database/Editors/Databases/Parameters/parameters_editor.gd" id="1_au2q5"]
 
 [node name="Parameters" type="Control"]
 layout_mode = 3

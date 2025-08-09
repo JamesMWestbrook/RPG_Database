@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://diqphdn4ib5q8"]
 
-[ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/trait_row.gd" id="1_4q5m7"]
+[ext_resource type="Script" uid="uid://7sv7j6hb04ya" path="res://addons/RPG_Maker_Database/Editors/Databases/trait_row.gd" id="1_4q5m7"]
 
 [node name="TraitRow" type="HBoxContainer"]
 script = ExtResource("1_4q5m7")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cp07x41iwvg5c"]
 
 [ext_resource type="PackedScene" uid="uid://0o7cxqncf2l2" path="res://addons/RPG_Maker_Database/Editors/Databases/trait_container.tscn" id="1_vhlb7"]
-[ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/State/state_editor.gd" id="1_x83wl"]
+[ext_resource type="Script" uid="uid://cf8k7x0uyvoh4" path="res://addons/RPG_Maker_Database/Editors/Databases/State/state_editor.gd" id="1_x83wl"]
 
 [node name="StateEditor" type="Control"]
 layout_mode = 3
@@ -110,6 +110,7 @@ layout_mode = 2
 selected = 0
 item_count = 5
 popup/item_0/text = "None"
+popup/item_0/id = 0
 popup/item_1/text = "Attack an enemy"
 popup/item_1/id = 1
 popup/item_2/text = "Attack anyone"
@@ -150,6 +151,7 @@ layout_mode = 2
 selected = 0
 item_count = 5
 popup/item_0/text = "Normal"
+popup/item_0/id = 0
 popup/item_1/text = "Abnormal"
 popup/item_1/id = 1
 popup/item_2/text = "Sleep"
@@ -164,6 +166,7 @@ layout_mode = 2
 selected = 0
 item_count = 1
 popup/item_0/text = "list of bubble icons"
+popup/item_0/id = 0
 
 [node name="HSeparator" type="HSeparator" parent="BoxContainer/Column2Scroll/VBox"]
 layout_mode = 2
@@ -196,6 +199,7 @@ layout_mode = 2
 selected = 0
 item_count = 3
 popup/item_0/text = "None"
+popup/item_0/id = 0
 popup/item_1/text = "Action End"
 popup/item_1/id = 1
 popup/item_2/text = "Turn End"
@@ -211,6 +215,7 @@ text = "Duration in Turns:"
 [node name="LowerTurnSpin" type="SpinBox" parent="BoxContainer/Column2Scroll/VBox/HBox9"]
 layout_mode = 2
 editable = false
+update_on_text_changed = true
 
 [node name="Label2" type="Label" parent="BoxContainer/Column2Scroll/VBox/HBox9"]
 layout_mode = 2
@@ -219,6 +224,7 @@ text = "~"
 [node name="MaxTurnSpin" type="SpinBox" parent="BoxContainer/Column2Scroll/VBox/HBox9"]
 layout_mode = 2
 editable = false
+update_on_text_changed = true
 
 [node name="HBox10" type="HBoxContainer" parent="BoxContainer/Column2Scroll/VBox"]
 layout_mode = 2

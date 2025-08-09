@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c3tfeu2e5yqq2"]
 
-[ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/Class/classes_editor.gd" id="1_013nu"]
+[ext_resource type="Script" uid="uid://6vndh6crawjr" path="res://addons/RPG_Maker_Database/Editors/Databases/Class/classes_editor.gd" id="1_013nu"]
 [ext_resource type="PackedScene" uid="uid://0o7cxqncf2l2" path="res://addons/RPG_Maker_Database/Editors/Databases/trait_container.tscn" id="2_b31ui"]
 
 [node name="Classes" type="Control"]

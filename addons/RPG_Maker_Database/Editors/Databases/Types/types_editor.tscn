@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dc8vankfv6efh"]
 
-[ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/Types/types_editor.gd" id="1_m7bmw"]
+[ext_resource type="Script" uid="uid://cgbxwuw2srhq4" path="res://addons/RPG_Maker_Database/Editors/Databases/Types/types_editor.gd" id="1_m7bmw"]
 [ext_resource type="PackedScene" uid="uid://cchfdse30p26r" path="res://addons/RPG_Maker_Database/Editors/Databases/Types/type_column.tscn" id="1_nxovw"]
-[ext_resource type="Script" path="res://addons/eranot.resizable/resizable.gd" id="2_tt2pi"]
+[ext_resource type="Script" uid="uid://dvi3pm07wa58f" path="res://addons/eranot.resizable/resizable.gd" id="2_tt2pi"]
 
 [node name="TypesEditor" type="Control" node_paths=PackedStringArray("types")]
 layout_mode = 3

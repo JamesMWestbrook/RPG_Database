@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cchfdse30p26r"]
 
 [ext_resource type="PackedScene" uid="uid://jecs43mw58qa" path="res://addons/RPG_Maker_Database/Editors/Databases/Types/type.tscn" id="1_weq2x"]
-[ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/Types/type_column.gd" id="1_y0tvi"]
+[ext_resource type="Script" uid="uid://dqiqffjg4fam" path="res://addons/RPG_Maker_Database/Editors/Databases/Types/type_column.gd" id="1_y0tvi"]
 
 [node name="TypeColumn" type="VBoxContainer"]
 script = ExtResource("1_y0tvi")

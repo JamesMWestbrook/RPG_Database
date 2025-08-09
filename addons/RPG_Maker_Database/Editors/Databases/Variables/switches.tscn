@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://i7goleddyc4f"]
 
-[ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/Variables/switches_editor.gd" id="1_nugxt"]
+[ext_resource type="Script" uid="uid://d0f6d4hoqrmnp" path="res://addons/RPG_Maker_Database/Editors/Databases/Variables/switches_editor.gd" id="1_nugxt"]
 [ext_resource type="PackedScene" uid="uid://d1lsbq8foyyi2" path="res://addons/RPG_Maker_Database/Editors/Databases/Variables/switch.tscn" id="2_b3k2n"]
-[ext_resource type="Script" path="res://addons/eranot.resizable/resizable.gd" id="3_draa7"]
+[ext_resource type="Script" uid="uid://dvi3pm07wa58f" path="res://addons/eranot.resizable/resizable.gd" id="3_draa7"]
 
 [node name="Switches" type="Control"]
 layout_mode = 3

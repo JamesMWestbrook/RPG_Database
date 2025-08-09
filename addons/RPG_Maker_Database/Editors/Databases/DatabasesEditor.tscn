@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dcqbtahnsdr2v"]
 
-[ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/databases_editor.gd" id="1_o5pce"]
+[ext_resource type="Script" uid="uid://dq7fer6h7gpa7" path="res://addons/RPG_Maker_Database/Editors/Databases/databases_editor.gd" id="1_o5pce"]
 [ext_resource type="PackedScene" uid="uid://1btl6oul0k7i" path="res://addons/RPG_Maker_Database/Editors/Databases/Actor/ActorEditor.tscn" id="2_o8jcg"]
 [ext_resource type="PackedScene" uid="uid://c3tfeu2e5yqq2" path="res://addons/RPG_Maker_Database/Editors/Databases/Class/classes_editor.tscn" id="3_6di2n"]
 [ext_resource type="PackedScene" uid="uid://pbet3fqmss2s" path="res://addons/RPG_Maker_Database/Editors/Databases/Skill/skill_editor.tscn" id="4_bqmk1"]

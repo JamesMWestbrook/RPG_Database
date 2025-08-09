@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://0o7cxqncf2l2"]
 
-[ext_resource type="Script" path="res://addons/RPG_Maker_Database/Editors/Databases/trait_container.gd" id="1_piafw"]
+[ext_resource type="Script" uid="uid://cpjw2loh86d6" path="res://addons/RPG_Maker_Database/Editors/Databases/trait_container.gd" id="1_piafw"]
 
 [node name="TraitContainer" type="VBoxContainer"]
 custom_minimum_size = Vector2(239.35, 0)

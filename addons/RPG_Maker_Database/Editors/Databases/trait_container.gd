@@ -41,3 +41,14 @@ func _update_list():
 			"arg_value":t.argument_value
 		})
 	UpdatedTraits.emit(traits)
+
+func _load_traits(traits:Array):
+	var i = 0
+	var trait_set:Trait
+	for t in traits:
+		var new_trait:Trait = _add_new(true)
+		new_trait._on_function_option_item_selected(t.state, t.argument,t.arg_value)
+		if i == 0:
+			trait_set = new_trait
+		i += 1
+	trait_set.changed.emit()

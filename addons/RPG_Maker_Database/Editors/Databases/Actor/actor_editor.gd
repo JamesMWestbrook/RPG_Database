@@ -187,15 +187,8 @@ func _load_actor(index:int):
 		battler_sprite.texture = null
 		actor["battler"] = ""
 	if actor.has("traits"):
-		var i = 0
-		var trait_set:Trait
-		for t in actor.traits:
-			var new_trait:Trait = trait_container._add_new(true)
-			new_trait._on_function_option_item_selected(t.state, t.argument,t.arg_value)
-			if i == 0:
-				trait_set = new_trait
-			i += 1
-		trait_set.changed.emit()
+		trait_container._load_traits(actor.traits)
+		
 #endregion
 
 func _save_json():

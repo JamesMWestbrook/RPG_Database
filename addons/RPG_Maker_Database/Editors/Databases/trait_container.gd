@@ -35,6 +35,8 @@ func _add_new(loading:bool = false) -> Trait:
 func _update_list():
 	var traits:Array=[]
 	for t:Trait in get_children():
+		if t.do_not_count_me:
+			continue
 		traits.append({
 			"state":t.state,
 			"argument":t.argument,
@@ -44,11 +46,11 @@ func _update_list():
 
 func _load_traits(traits:Array):
 	var i = 0
-	var trait_set:Trait
 	for t in traits:
 		var new_trait:Trait = _add_new(true)
 		new_trait._on_function_option_item_selected(t.state, t.argument,t.arg_value)
-		if i == 0:
-			trait_set = new_trait
-		i += 1
-	trait_set.changed.emit()
+	_update_list()
+
+
+func _on_traits_help_button_down() -> void:
+	OS.shell_open("https://www.rpgmakerweb.com/blog/a-primer-on-database-traits-and-effects")

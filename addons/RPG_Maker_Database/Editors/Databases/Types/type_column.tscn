@@ -6,11 +6,9 @@
 [node name="TypeColumn" type="VBoxContainer"]
 script = ExtResource("1_y0tvi")
 type_row_scene = ExtResource("1_weq2x")
-category_index = null
 
 [node name="TypeLabel" type="Label" parent="."]
 layout_mode = 2
-text = "Elements"
 horizontal_alignment = 1
 
 [node name="ElementContainer" type="VBoxContainer" parent="."]

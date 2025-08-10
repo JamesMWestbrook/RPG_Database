@@ -39,7 +39,6 @@ layout_mode = 2
 [node name="Elements" parent="ScrollContainer/VBoxContainer/TypeContainers" instance=ExtResource("1_nxovw")]
 layout_mode = 2
 category = "Elements"
-category_index = 0
 
 [node name="VSeparator" type="VSeparator" parent="ScrollContainer/VBoxContainer/TypeContainers"]
 layout_mode = 2

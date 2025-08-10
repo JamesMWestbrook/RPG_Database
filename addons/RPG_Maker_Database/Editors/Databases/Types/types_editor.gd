@@ -1,11 +1,11 @@
 @tool
 extends Control
-
+class_name TypesEditor
 const SAVE_PATH = "res://data/types.json"
 
 @export var types:Array[TypeColumn]
 
-var type_data:Array
+static var type_data:Array
 
 
 

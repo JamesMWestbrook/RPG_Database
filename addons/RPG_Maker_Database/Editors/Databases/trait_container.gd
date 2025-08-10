@@ -3,7 +3,7 @@ extends VBoxContainer
 class_name TraitContainer
 
 const TRAIT_ROW = preload("res://addons/RPG_Maker_Database/Editors/Databases/trait_row.tscn")
-var traits_window:TraitsWindow
+# var traits_window:TraitsWindow
 
 
 signal ConnectButton(button) 
@@ -16,7 +16,12 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
+	
+func _clear():
+	for child in get_children():
+		remove_child(child)
+		child.queue_free()
+		
 func _add_new(loading:bool = false) -> Trait:
 	var new_trait:Trait = TRAIT_ROW.instantiate()
 	add_child(new_trait)

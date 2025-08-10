@@ -109,9 +109,8 @@ func _actor_buttons():
 
 #region load actor
 func _load_actor(index:int):
-	for child in trait_container.get_children():
-		trait_container.remove_child(child)
-		child.queue_free()
+	trait_container._clear()
+
 	print("Actor " + str(index) + " selected")
 	cur_actor_index = index
 	var actor:Dictionary = actors[cur_actor_index]

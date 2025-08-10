@@ -12,7 +12,7 @@ metadata/_tab_index = 0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 0
-offset_right = 624.0
+offset_right = 940.0
 offset_bottom = 660.0
 
 [node name="BoxContainer" type="BoxContainer" parent="ScrollContainer"]

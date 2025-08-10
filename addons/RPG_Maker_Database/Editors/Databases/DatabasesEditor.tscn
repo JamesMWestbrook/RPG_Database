@@ -159,3 +159,4 @@ metadata/_tab_index = 3
 visible = false
 
 [connection signal="tab_clicked" from="Characters/TabContainer" to="." method="_on_tab_container_tab_clicked"]
+[connection signal="ClassesUpdated" from="Characters/TabContainer/Classes" to="Characters/TabContainer/Actors" method="_classes_updated"]

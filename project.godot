@@ -17,8 +17,10 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=718
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/initial_position_type=3
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/RPG_Maker_Database/plugin.cfg", "res://addons/eranot.resizable/plugin.cfg", "res://addons/script-ide/plugin.cfg")
+enabled=PackedStringArray("res://addons/eranot.resizable/plugin.cfg", "res://addons/script-ide/plugin.cfg")

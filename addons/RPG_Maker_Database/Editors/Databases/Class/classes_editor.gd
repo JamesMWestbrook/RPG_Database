@@ -39,6 +39,8 @@ var cur_class_index:int
 var classes:Array
 var class_count:int
 
+signal ClassesUpdated(classes:Array)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_check_json()
@@ -74,6 +76,7 @@ func _load_json(file:FileAccess):
 	classes = save_data["classes"]
 	_class_buttons()
 	_load_class_stats(classes[cur_class_index])
+	ClassesUpdated.emit(classes)
 	
 	
 func _class_buttons():
@@ -93,7 +96,17 @@ func _class_buttons():
 		
 		new_button.button_down.connect(_load_class.bind(index))
 		index += 1
-	
+
+func _save_json():
+	var save_data:Dictionary = {
+		"class_count": classes_v_box.get_child_count(),
+		"classes": classes
+	}
+	var json_string = JSON.stringify(save_data)
+	var file:FileAccess = FileAccess.open(JSON_SAVE_PATH, FileAccess.WRITE)
+	file.store_string(json_string)
+	ClassesUpdated.emit(classes)
+
 func _load_class(index:int):
 	cur_class_index = index
 	var rpg_class:Dictionary = classes[cur_class_index]
@@ -110,14 +123,7 @@ func _load_class(index:int):
 func _update_name(text:String):
 	classes[cur_class_index]["name"] = text
 	classes_v_box.get_child(cur_class_index).text = text
-func _save_json():
-	var save_data:Dictionary = {
-		"class_count": classes_v_box.get_child_count(),
-		"classes": classes
-	}
-	var json_string = JSON.stringify(save_data)
-	var file:FileAccess = FileAccess.open(JSON_SAVE_PATH, FileAccess.WRITE)
-	file.store_string(json_string)
+
 	
 func _check_class(c:Dictionary):
 	if c.has("start_hp"):

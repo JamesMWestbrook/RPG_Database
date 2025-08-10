@@ -1,4 +1,3 @@
-@tool
 extends Control
 class_name ActorEditor
 
@@ -36,7 +35,7 @@ class_name ActorEditor
 
 @onready var trait_container: TraitContainer = $BoxContainer/ScrollColumn2/VBoxContainer/TraitContainer
 
-@onready var menu_button: MenuButton = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer/MenuButton
+@onready var class_button: MenuButton = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer/ClassButton
 
 #endregion
 
@@ -45,16 +44,15 @@ const JSON_SAVE_PATH = "res://data/actors.json"
 var cur_actor_index:int
 var actors:Array = []
 
-var classes
+var classes:Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	await get_tree().process_frame
-	_load_classes()
+	await get_tree().process_frame #to let classes and other dependencies load first
 	_check_json()
 	sprite_index_spinbox.value_changed.connect(_sprite_index)
 	_load_actor(0)
-	menu_button.get_popup().index_pressed.connect(_select_class)
+	class_button.get_popup().index_pressed.connect(_select_class)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -102,12 +100,7 @@ func _actor_buttons():
 		
 		new_button.pressed.connect(_load_actor.bind(index))
 		index += 1
-func _load_classes():
-	var class_path = ClassEditor.JSON_SAVE_PATH
-	if !FileAccess.file_exists(class_path):
-		return
-	var file = FileAccess.open(class_path,FileAccess.READ)
-	classes = JSON.parse_string(file.get_as_text()).classes
+
 #region load actor
 func _load_actor(index:int):
 	for child in trait_container.get_children():
@@ -143,10 +136,10 @@ func _load_actor(index:int):
 		profile_edit.text = ""
 		_profile()
 	if actor.has("class"):
-		menu_button.text = classes[actor.class].name
+		class_button.text = classes[actor.class].name
 	else:
 		actor.class = 0
-		menu_button.text = classes[actor.class].name
+		class_button.text = classes[actor.class].name
 		
 	if actor.has("face") and actor["face"] != "":
 		if FileAccess.file_exists(actor["face"]):
@@ -278,21 +271,22 @@ func _clear_battler():
 	actors[cur_actor_index]["battler"] = ""
 	battler_sprite.texture = null
 	
-func _load_class_list():
-	pass
-	
 func _select_class(index:int):
 	print(str(index) + " Selected")
-	menu_button.text = classes[index].name
+	class_button.text = classes[index].name
 	actors[cur_actor_index].class = index
 
+func _classes_updated(new_classes:Array): #called via signal from Classes editor
+	classes = new_classes
+	_populate_class_list()
 
-func _on_menu_button_button_down() -> void:
-	_load_classes()
-	await get_tree().process_frame
-	menu_button.get_popup().clear()
+
+
+#populates the class list
+func _populate_class_list() -> void:
+	class_button.get_popup().clear()
 	for c in classes:
-		menu_button.get_popup().add_item(c.name)
+		class_button.get_popup().add_item(c.name)
 
 
 func _on_trait_container_updated_traits(list: Variant) -> void:
@@ -308,3 +302,7 @@ func _init_actors():
 	for i in actors.size():
 		if actors[i] == null:
 			actors[i]  = {}
+
+
+func _on_classes_classes_saved() -> void:
+	pass # Replace with function body.

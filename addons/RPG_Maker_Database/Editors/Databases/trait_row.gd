@@ -100,7 +100,7 @@ func _on_function_option_item_selected(index: int, arg_index:int = 0, arg_value:
 		6: #SP Parameter
 			pass
 		
-		
+	changed.emit()
 		
 func _on_argument_option_selected(index:int) -> void:
 	argument = index

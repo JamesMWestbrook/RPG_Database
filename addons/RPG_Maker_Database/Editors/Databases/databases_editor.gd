@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 func _on_tab_container_tab_clicked(tab: int) -> void:
 	print(str(tab))
 	match tab:
-		0:
-			actors._load_classes()
+		0: #load actor
+			actors._load_actor(actors.cur_actor_index)
 		1:
 			pass

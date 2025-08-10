@@ -1,8 +1,12 @@
 extends Control
+class_name SkillEditor
 
 #region onreadys
 @onready var name_edit: LineEdit = $"ScrollContainer/BoxContainer/2nd Column/NameEdit"
 @onready var skills_box: VBoxContainer = $"ScrollContainer/BoxContainer/1st Column/ScrollContainer/SkillsBox"
+
+@onready var skill_type: OptionButton = $"ScrollContainer/BoxContainer/2nd Column/Row2/SkillTypeContainer/SkillType"
+
 
 #endregion
 
@@ -10,10 +14,11 @@ extends Control
 
 var cur_skill_index:int
 var skill_count:int
-var skills=[]
+var skills:Array
 const JSON_SAVE_PATH = "res://data/skills.json"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	await get_tree().process_frame
 	_check_json()
 	var button:Button = skills_box.get_child(0)
 	button.button_down.emit()
@@ -34,12 +39,12 @@ func _check_json():
 			
 			new_button.text = "Skill " + str(i)
 			skills.append({})
-			new_button.button_down.connect(_load_class.bind(i))
+			new_button.button_down.connect(_load_skill.bind(i))
 			
 func _load_json(index:int):
 	pass
 	
-func _load_class(index:int):
+func _load_skill(index:int):
 	cur_skill_index = index
 	var skill = skills[index]
 	
@@ -48,6 +53,14 @@ func _load_class(index:int):
 	else:
 		name_edit.text = "Skill " + str(index)
 		_update_name(name_edit.text)
+		
+	#skill type
+	skill_type.clear()
+	skill_type.add_item("None")
+	for type:String in TypesEditor.type_data[1]:
+		skill_type.add_item(type)
+	
+		
 	_check_skill(skills[cur_skill_index])
 	_load_skill_stats(skills[cur_skill_index])
 	

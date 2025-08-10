@@ -55,36 +55,36 @@ visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="TabContainer" type="TabContainer" parent="Objects"]
+[node name="ObjTabContainer" type="TabContainer" parent="Objects"]
 layout_mode = 1
 offset_right = 710.0
 offset_bottom = 619.0
 current_tab = 0
 
-[node name="Skills" parent="Objects/TabContainer" instance=ExtResource("4_bqmk1")]
+[node name="Skills" parent="Objects/ObjTabContainer" instance=ExtResource("4_bqmk1")]
 layout_mode = 2
 
-[node name="Items" type="Control" parent="Objects/TabContainer"]
+[node name="Items" type="Control" parent="Objects/ObjTabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="Weapons" type="Control" parent="Objects/TabContainer"]
+[node name="Weapons" type="Control" parent="Objects/ObjTabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="Armors" type="Control" parent="Objects/TabContainer"]
+[node name="Armors" type="Control" parent="Objects/ObjTabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 3
 
-[node name="States" parent="Objects/TabContainer" instance=ExtResource("5_42xru")]
+[node name="States" parent="Objects/ObjTabContainer" instance=ExtResource("5_42xru")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 4
 
-[node name="Animations" type="Control" parent="Objects/TabContainer"]
+[node name="Animations" type="Control" parent="Objects/ObjTabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 5
@@ -163,3 +163,4 @@ visible = false
 
 [connection signal="tab_clicked" from="Characters/CharTabContainer" to="." method="_on_character_tab_container_tab_clicked"]
 [connection signal="ClassesUpdated" from="Characters/CharTabContainer/Classes" to="Characters/CharTabContainer/Actors" method="_classes_updated"]
+[connection signal="tab_clicked" from="Objects/ObjTabContainer" to="." method="_on_obj_tab_container_tab_clicked"]

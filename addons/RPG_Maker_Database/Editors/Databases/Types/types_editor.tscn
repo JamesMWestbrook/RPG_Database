@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dc8vankfv6efh"]
+[gd_scene load_steps=3 format=3 uid="uid://dc8vankfv6efh"]
 
 [ext_resource type="Script" uid="uid://cgbxwuw2srhq4" path="res://addons/RPG_Maker_Database/Editors/Databases/Types/types_editor.gd" id="1_m7bmw"]
 [ext_resource type="PackedScene" uid="uid://cchfdse30p26r" path="res://addons/RPG_Maker_Database/Editors/Databases/Types/type_column.tscn" id="1_nxovw"]
-[ext_resource type="Script" uid="uid://dvi3pm07wa58f" path="res://addons/eranot.resizable/resizable.gd" id="2_tt2pi"]
 
 [node name="TypesEditor" type="Control" node_paths=PackedStringArray("types")]
 layout_mode = 3
@@ -17,13 +16,8 @@ metadata/_edit_vertical_guides_ = [-90.0]
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 0
-offset_right = 433.0
+offset_right = 513.0
 offset_bottom = 516.0
-
-[node name="Resizable" type="Control" parent="ScrollContainer"]
-layout_mode = 2
-mouse_filter = 2
-script = ExtResource("2_tt2pi")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
@@ -69,7 +63,15 @@ layout_mode = 2
 
 [node name="EquipTypes" parent="ScrollContainer/VBoxContainer/TypeContainers" instance=ExtResource("1_nxovw")]
 layout_mode = 2
-category = "Equipment Types"
+category = "Equipment Slots"
+category_index = 4
+
+[node name="VSeparator5" type="VSeparator" parent="ScrollContainer/VBoxContainer/TypeContainers"]
+layout_mode = 2
+
+[node name="Slots" parent="ScrollContainer/VBoxContainer/TypeContainers" instance=ExtResource("1_nxovw")]
+layout_mode = 2
+category = "Slots"
 category_index = 4
 
 [connection signal="button_down" from="ScrollContainer/VBoxContainer/Save" to="." method="_save_json"]
@@ -78,3 +80,4 @@ category_index = 4
 [connection signal="DataChanged" from="ScrollContainer/VBoxContainer/TypeContainers/WeaponTypes" to="." method="_on_elements_data_changed"]
 [connection signal="DataChanged" from="ScrollContainer/VBoxContainer/TypeContainers/ArmorTypes" to="." method="_on_elements_data_changed"]
 [connection signal="DataChanged" from="ScrollContainer/VBoxContainer/TypeContainers/EquipTypes" to="." method="_on_elements_data_changed"]
+[connection signal="DataChanged" from="ScrollContainer/VBoxContainer/TypeContainers/Slots" to="." method="_on_elements_data_changed"]

@@ -94,10 +94,11 @@ layout_mode = 2
 layout_mode = 2
 text = "Skill Type:"
 
-[node name="SkillTypeOptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Row2/SkillTypeContainer"]
+[node name="SkillType" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Row2/SkillTypeContainer"]
 layout_mode = 2
 item_count = 1
 popup/item_0/text = "Physical Attack"
+popup/item_0/id = 0
 
 [node name="ScopeContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Row2"]
 layout_mode = 2
@@ -110,6 +111,7 @@ text = "Scope:"
 layout_mode = 2
 item_count = 1
 popup/item_0/text = "All Enemies & Allies"
+popup/item_0/id = 0
 
 [node name="OccasionContainer3" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Row2"]
 layout_mode = 2
@@ -122,6 +124,7 @@ text = "Occasion"
 layout_mode = 2
 item_count = 1
 popup/item_0/text = "Battle Screen"
+popup/item_0/id = 0
 
 [node name="CostsRow" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
 layout_mode = 2
@@ -192,6 +195,7 @@ text = "Type:"
 layout_mode = 2
 item_count = 1
 popup/item_0/text = "HP Damage"
+popup/item_0/id = 0
 
 [node name="Box2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Row9"]
 layout_mode = 2
@@ -204,6 +208,7 @@ text = "Element:"
 layout_mode = 2
 item_count = 1
 popup/item_0/text = "Normal Attack"
+popup/item_0/id = 0
 
 [node name="Label5" type="Label" parent="ScrollContainer/BoxContainer/2nd Column"]
 layout_mode = 2
@@ -290,6 +295,7 @@ text = "Hit Type:"
 layout_mode = 2
 item_count = 1
 popup/item_0/text = "Physical Attack"
+popup/item_0/id = 0
 
 [node name="Container2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Row5"]
 layout_mode = 2
@@ -302,6 +308,7 @@ text = "Animation:"
 layout_mode = 2
 item_count = 1
 popup/item_0/text = "Normal Attack"
+popup/item_0/id = 0
 
 [node name="HSeparator2" type="HSeparator" parent="ScrollContainer/BoxContainer/2nd Column"]
 layout_mode = 2
@@ -361,12 +368,14 @@ custom_minimum_size = Vector2(235.745, 0)
 layout_mode = 2
 item_count = 1
 popup/item_0/text = "CrossBow"
+popup/item_0/id = 0
 
 [node name="OptionButton2" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Row8"]
 custom_minimum_size = Vector2(235.745, 0)
 layout_mode = 2
 item_count = 1
 popup/item_0/text = "CrossBow"
+popup/item_0/id = 0
 
 [node name="HSeparator4" type="HSeparator" parent="ScrollContainer/BoxContainer/2nd Column"]
 layout_mode = 2

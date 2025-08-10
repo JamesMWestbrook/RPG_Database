@@ -8,6 +8,8 @@ extends TabContainer
 @onready var enemies: Control = $Characters/CharTabContainer/Enemies
 @onready var troops: Control = $Characters/CharTabContainer/Troops
 
+@onready var skills: SkillEditor = $Objects/ObjTabContainer/Skills
+
 
 func _ready() -> void:
 	#actors.trait_container.traits_window = traits_window
@@ -30,3 +32,9 @@ func _on_character_tab_container_tab_clicked(tab: int) -> void:
 			pass
 		3: #troops
 			pass
+
+
+func _on_obj_tab_container_tab_clicked(tab: int) -> void:
+	match tab:
+		0: #Skills
+			skills._load_skill(skills.cur_skill_index)

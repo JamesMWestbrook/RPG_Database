@@ -2,11 +2,11 @@
 extends TabContainer
 
 @onready var traits_window: TraitsWindow = $TraitsWindow
-@onready var actors: ActorEditor = $Characters/TabContainer/Actors
 
-@onready var classes: ClassEditor = $Characters/TabContainer/Classes
-@onready var enemies: Control = $Characters/TabContainer/Enemies
-@onready var troops: Control = $Characters/TabContainer/Troops
+@onready var actors: ActorEditor = $Characters/CharTabContainer/Actors
+@onready var classes: ClassEditor = $Characters/CharTabContainer/Classes
+@onready var enemies: Control = $Characters/CharTabContainer/Enemies
+@onready var troops: Control = $Characters/CharTabContainer/Troops
 
 
 func _ready() -> void:
@@ -19,10 +19,14 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_tab_container_tab_clicked(tab: int) -> void:
+func _on_character_tab_container_tab_clicked(tab: int) -> void:
 	print(str(tab))
 	match tab:
 		0: #load actor
 			actors._load_actor(actors.cur_actor_index)
-		1:
+		1: #classes
+			pass
+		2: #enemies
+			pass
+		3: #troops
 			pass

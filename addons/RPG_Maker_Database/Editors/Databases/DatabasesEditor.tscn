@@ -24,25 +24,28 @@ script = ExtResource("1_o5pce")
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="TabContainer" type="TabContainer" parent="Characters"]
+[node name="CharTabContainer" type="TabContainer" parent="Characters"]
 layout_mode = 1
-offset_right = 721.0
-offset_bottom = 614.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 current_tab = 0
 
-[node name="Actors" parent="Characters/TabContainer" instance=ExtResource("2_o8jcg")]
+[node name="Actors" parent="Characters/CharTabContainer" instance=ExtResource("2_o8jcg")]
 layout_mode = 2
 
-[node name="Classes" parent="Characters/TabContainer" instance=ExtResource("3_6di2n")]
+[node name="Classes" parent="Characters/CharTabContainer" instance=ExtResource("3_6di2n")]
 visible = false
 layout_mode = 2
 
-[node name="Enemies" type="Control" parent="Characters/TabContainer"]
+[node name="Enemies" type="Control" parent="Characters/CharTabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="Troops" type="Control" parent="Characters/TabContainer"]
+[node name="Troops" type="Control" parent="Characters/CharTabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 3
@@ -158,5 +161,5 @@ metadata/_tab_index = 3
 [node name="TraitsWindow" parent="." instance=ExtResource("5_duimv")]
 visible = false
 
-[connection signal="tab_clicked" from="Characters/TabContainer" to="." method="_on_tab_container_tab_clicked"]
-[connection signal="ClassesUpdated" from="Characters/TabContainer/Classes" to="Characters/TabContainer/Actors" method="_classes_updated"]
+[connection signal="tab_clicked" from="Characters/CharTabContainer" to="." method="_on_character_tab_container_tab_clicked"]
+[connection signal="ClassesUpdated" from="Characters/CharTabContainer/Classes" to="Characters/CharTabContainer/Actors" method="_classes_updated"]

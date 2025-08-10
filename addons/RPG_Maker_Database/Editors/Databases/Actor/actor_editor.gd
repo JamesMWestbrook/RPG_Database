@@ -43,6 +43,7 @@ const JSON_SAVE_PATH = "res://data/actors.json"
 
 var cur_actor_index:int
 var actors:Array = []
+var small_mode:bool = false
 
 var classes:Array
 
@@ -54,9 +55,14 @@ func _ready() -> void:
 	_load_actor(0)
 	class_button.get_popup().index_pressed.connect(_select_class)
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if Input.is_action_just_pressed("height_mode"):
+		small_mode = !small_mode
+		if small_mode:
+			$BoxContainer.size.y = 373
+		else:
+			$BoxContainer.size.y = 657
+		
 func _check_json():
 	if FileAccess.file_exists(JSON_SAVE_PATH):
 		var file = FileAccess.open(JSON_SAVE_PATH,FileAccess.READ)

@@ -32,7 +32,7 @@ class_name SkillEditor
 #endregion
 
 var cur_skill_index:int
-var skills:Array
+static var skills:Array
 const JSON_SAVE_PATH = "res://data/skills.json"
 
 signal SkillsUpdated(skills)
@@ -299,12 +299,12 @@ func _on_formula_editor_text_changed() -> void:
 
 func _on_casts_button_button_down() -> void:
 	message_edit.text = "%1 casts %2!"
-	message_edit.text_changed.emit()
+	message_edit.text_changed.emit(message_edit.text)
 
 func _on_does_button_button_down() -> void:
 	message_edit.text = "%1 does %2!"
-	message_edit.text_changed.emit()
+	message_edit.text_changed.emit(message_edit.text)
 
 func _on_uses_button_button_down() -> void:
 	message_edit.text = "%1 uses %2!"
-	message_edit.text_changed.emit()
+	message_edit.text_changed.emit(message_edit.text)

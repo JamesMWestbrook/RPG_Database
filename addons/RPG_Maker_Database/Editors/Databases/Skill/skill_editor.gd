@@ -4,6 +4,7 @@ class_name SkillEditor
 #region onreadys
 @onready var name_edit: LineEdit = $"ScrollContainer/BoxContainer/2nd Column/NameEdit"
 @onready var skills_box: VBoxContainer = $"ScrollContainer/BoxContainer/1st Column/ScrollContainer/SkillsBox"
+@onready var skill_count_spinbox: SpinBox = $"ScrollContainer/BoxContainer/1st Column/HBoxContainer2/SkillCountSpinbox"
 
 @onready var skill_type: OptionButton = $"ScrollContainer/BoxContainer/2nd Column/Type&Cost/SkillTypeContainer/SkillType"
 
@@ -38,7 +39,7 @@ func _check_json():
 		for i in skill_count:
 			var new_skill:Dictionary = {}
 			skills.append(new_skill)
-			_check_skill(new_skill)
+			_check_skill(i)
 		_skill_buttons()
 		_save_json()
 		
@@ -57,6 +58,11 @@ func _load_json(file:FileAccess):
 	var json_string:String = file.get_as_text()
 	var save_data:Dictionary = JSON.parse_string(json_string)
 	skills = save_data["skills"]
+	skill_count_spinbox.value = skills.size()
+	
+	for index in range(skills.size()):
+		_check_skill(index)
+	
 	_skill_buttons()
 	_load_skill(0)
 	SkillsUpdated.emit()
@@ -64,7 +70,6 @@ func _load_json(file:FileAccess):
 func _load_skill(index:int):
 	cur_skill_index = index
 	var skill = skills[index]
-	_check_skill(skills[cur_skill_index])
 	
 	if skill.has("name"):
 		name_edit.text = skill.name
@@ -79,38 +84,41 @@ func _load_skill(index:int):
 	
 	
 	
-func _check_skill(skill:Dictionary):
-	if skill.has("name"):
+func _check_skill(index:int): #Not assigning Dictionary as type since null is sometimes its type/value
+	if skills[index] == null:
+		skills[index] = {}
+		
+	if skills[index].has("name"):
 		return
 	else:
-		skill.name = "Skill " + str(skills.find(skill))
-		skill.description = ""
-		skill.type = 0
-		skill.mp_cost = 0
-		skill.tp_cost = 0
-		skill.hp_cost = 0
-		skill.gold_cost = 0
+		skills[index].name = "Skill " + str(index)
+		skills[index].description = ""
+		skills[index].type = 0
+		skills[index].mp_cost = 0
+		skills[index].tp_cost = 0
+		skills[index].hp_cost = 0
+		skills[index].gold_cost = 0
 		
-		skill.scope_side = 0
-		skill.scope_number = 0
-		skill.random_count = 0
-		skill.occasion = 0
+		skills[index].scope_side = 0
+		skills[index].scope_number = 0
+		skills[index].random_count = 0
+		skills[index].occasion = 0
 		
-		skill.speed = 0
-		skill.success_rate = 100
-		skill.repeat = 1
-		skill.tp_gain = 0
-		skill.hit_type = 0
-		skill.animation = 0
+		skills[index].speed = 0
+		skills[index].success_rate = 100
+		skills[index].repeat = 1
+		skills[index].tp_gain = 0
+		skills[index].hit_type = 0
+		skills[index].animation = 0
 		
-		skill.message = ""
+		skills[index].message = ""
 		
-		skill.weapon_type_one = -1
-		skill.weapon_type_two = -1
+		skills[index].weapon_type_one = -1
+		skills[index].weapon_type_two = -1
 		
-		skill.type = 0
-		skill.element = 0
-		skill.damage_formula = ""
+		skills[index].type = 0
+		skills[index].element = 0
+		skills[index].damage_formula = ""
 		
 		#effects are not yet implemented
 	
@@ -140,10 +148,17 @@ func _skill_buttons():
 			new_button.text = s.name
 		else:
 			new_button.text = "Skill " + str(index)
-		_check_skill(s)
+		_check_skill(index)
 		new_button.button_down.connect(_load_skill.bind(index))
 		index += 1
 	
 func _update_name(text:String):
 	skills[cur_skill_index].name = text
 	skills_box.get_child(cur_skill_index).text = text
+
+
+func _on_change_actor_max_button_down() -> void:
+	skills.resize(skill_count_spinbox.value)
+	for index in range(skills.size()):
+		_check_skill(index)
+	_skill_buttons()

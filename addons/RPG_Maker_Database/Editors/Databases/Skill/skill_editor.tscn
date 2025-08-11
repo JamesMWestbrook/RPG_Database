@@ -35,7 +35,7 @@ text = "Save"
 [node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/BoxContainer/1st Column"]
 layout_mode = 2
 
-[node name="ClassCountSpinbox" type="SpinBox" parent="ScrollContainer/BoxContainer/1st Column/HBoxContainer2"]
+[node name="SkillCountSpinbox" type="SpinBox" parent="ScrollContainer/BoxContainer/1st Column/HBoxContainer2"]
 layout_mode = 2
 min_value = 1.0
 max_value = 9999.0
@@ -475,4 +475,5 @@ mouse_filter = 2
 script = ExtResource("3_n1oje")
 
 [connection signal="button_down" from="ScrollContainer/BoxContainer/1st Column/HBoxContainer/SaveButton" to="." method="_save_json"]
+[connection signal="button_down" from="ScrollContainer/BoxContainer/1st Column/HBoxContainer2/ChangeActorMaxButton" to="." method="_on_change_actor_max_button_down"]
 [connection signal="text_changed" from="ScrollContainer/BoxContainer/2nd Column/NameEdit" to="." method="_update_name"]

@@ -29,7 +29,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="ScrollContainer/BoxContainer/1st Column/HBoxContainer"]
 layout_mode = 2
-text = "Skills"
+text = "Items"
 
 [node name="SaveButton" type="Button" parent="ScrollContainer/BoxContainer/1st Column/HBoxContainer"]
 layout_mode = 2
@@ -53,7 +53,7 @@ text = "Change Max"
 custom_minimum_size = Vector2(0, 289.655)
 layout_mode = 2
 
-[node name="SkillsBox" type="VBoxContainer" parent="ScrollContainer/BoxContainer/1st Column/ScrollContainer"]
+[node name="ItemsBox" type="VBoxContainer" parent="ScrollContainer/BoxContainer/1st Column/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4

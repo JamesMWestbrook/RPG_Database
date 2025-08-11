@@ -1,0 +1,234 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt3xjpi7u8hxf"]
+
+[ext_resource type="Texture2D" uid="uid://dtmg6im6vp32p" path="res://icon.svg" id="1_xqlhu"]
+
+[node name="Weapons" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_tab_index = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="1st Column" type="VBoxContainer" parent="ScrollContainer/BoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/BoxContainer/1st Column"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/1st Column/HBoxContainer"]
+layout_mode = 2
+text = "Weapons"
+
+[node name="SaveButton" type="Button" parent="ScrollContainer/BoxContainer/1st Column/HBoxContainer"]
+layout_mode = 2
+text = "Save"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/BoxContainer/1st Column"]
+layout_mode = 2
+
+[node name="SkillCountSpinbox" type="SpinBox" parent="ScrollContainer/BoxContainer/1st Column/HBoxContainer2"]
+layout_mode = 2
+min_value = 1.0
+max_value = 9999.0
+value = 1.0
+alignment = 1
+
+[node name="ChangeActorMaxButton" type="Button" parent="ScrollContainer/BoxContainer/1st Column/HBoxContainer2"]
+layout_mode = 2
+text = "Change Max"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ScrollContainer/BoxContainer/1st Column"]
+custom_minimum_size = Vector2(0, 289.655)
+layout_mode = 2
+
+[node name="ItemsBox" type="VBoxContainer" parent="ScrollContainer/BoxContainer/1st Column/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="2nd Column" type="VBoxContainer" parent="ScrollContainer/BoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column"]
+layout_mode = 2
+text = "General Settings"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer"]
+layout_mode = 2
+text = "Name:                    "
+
+[node name="IconTexture" type="TextureRect" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_xqlhu")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer"]
+layout_mode = 2
+text = "Set Icon"
+
+[node name="NameEdit" type="LineEdit" parent="ScrollContainer/BoxContainer/2nd Column"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="ScrollContainer/BoxContainer/2nd Column"]
+layout_mode = 2
+text = "Description:"
+
+[node name="DescEdit" type="TextEdit" parent="ScrollContainer/BoxContainer/2nd Column"]
+custom_minimum_size = Vector2(445.875, 61.88)
+layout_mode = 2
+text = "Room for multiple sentences please. Yes please. Multiple sentences should fit here. "
+wrap_mode = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Weapon Type:"
+
+[node name="WeaponTypeButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+selected = 0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+text = "Price:      "
+
+[node name="PriceBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2/VBoxContainer3"]
+layout_mode = 2
+text = "Animation:"
+
+[node name="AnimationButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2/VBoxContainer3"]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/BoxContainer/2nd Column"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="ScrollContainer/BoxContainer/2nd Column"]
+layout_mode = 2
+text = "Parameter Changes"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
+layout_mode = 2
+
+[node name="StatRow1" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/StatRow1"]
+layout_mode = 2
+text = "Attack:"
+
+[node name="AttackSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/StatRow1"]
+layout_mode = 2
+
+[node name="StatRow2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/StatRow2"]
+layout_mode = 2
+text = "Defense:"
+
+[node name="DefenseSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/StatRow2"]
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/VBoxContainer3"]
+layout_mode = 2
+text = "M. Attack:"
+
+[node name="MAttack SpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/VBoxContainer3"]
+layout_mode = 2
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/VBoxContainer4"]
+layout_mode = 2
+text = "M. Defense:"
+
+[node name="MDefenseSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/VBoxContainer4"]
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer"]
+layout_mode = 2
+text = "Agility:"
+
+[node name="SpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer2"]
+layout_mode = 2
+text = "Luck:"
+
+[node name="SpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer3"]
+layout_mode = 2
+text = "Max HP:"
+
+[node name="SpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer3"]
+layout_mode = 2
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer4"]
+layout_mode = 2
+text = "Max MP:"
+
+[node name="SpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer4"]
+layout_mode = 2
+
+[node name="3rd Column" type="VBoxContainer" parent="ScrollContainer/BoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/3rd Column"]
+layout_mode = 2
+text = "Note"
+
+[node name="TextEdit" type="TextEdit" parent="ScrollContainer/BoxContainer/3rd Column"]
+custom_minimum_size = Vector2(273, 206.295)
+layout_mode = 2

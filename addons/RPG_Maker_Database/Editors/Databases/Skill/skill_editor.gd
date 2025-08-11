@@ -121,8 +121,21 @@ func _skill_buttons():
 	
 	var index:int = 0
 	for s:Dictionary in skills:
+		var hbox:HBoxContainer = HBoxContainer.new()
+		var index_label:Label = Label.new()
 		var new_button:Button = Button.new()
-		skills_box.add_child(new_button)
+		
+		
+		hbox.add_child(index_label)
+		hbox.add_child(new_button)
+		
+		skills_box.add_child(hbox)
+		
+		index_label.text = str(index)
+		index_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		index_label.custom_minimum_size.x = 13
+		
+		new_button.custom_minimum_size.x = 176.0
 		if s.has("name"):
 			new_button.text = s.name
 		else:

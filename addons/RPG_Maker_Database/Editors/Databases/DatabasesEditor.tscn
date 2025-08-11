@@ -57,8 +57,11 @@ metadata/_tab_index = 1
 
 [node name="ObjTabContainer" type="TabContainer" parent="Objects"]
 layout_mode = 1
-offset_right = 710.0
-offset_bottom = 619.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 current_tab = 0
 
 [node name="Skills" parent="Objects/ObjTabContainer" instance=ExtResource("4_bqmk1")]

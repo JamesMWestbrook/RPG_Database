@@ -295,3 +295,16 @@ func _on_element_type_option_button_item_selected(index: int) -> void:
 
 func _on_formula_editor_text_changed() -> void:
 	skills[cur_skill_index].damage_formula = formula_editor.text
+
+
+func _on_casts_button_button_down() -> void:
+	message_edit.text = "%1 casts %2!"
+	message_edit.text_changed.emit()
+
+func _on_does_button_button_down() -> void:
+	message_edit.text = "%1 does %2!"
+	message_edit.text_changed.emit()
+
+func _on_uses_button_button_down() -> void:
+	message_edit.text = "%1 uses %2!"
+	message_edit.text_changed.emit()

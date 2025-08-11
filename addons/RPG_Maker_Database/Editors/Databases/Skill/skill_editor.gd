@@ -5,6 +5,11 @@ class_name SkillEditor
 @onready var name_edit: LineEdit = $"ScrollContainer/BoxContainer/2nd Column/NameEdit"
 @onready var skills_box: VBoxContainer = $"ScrollContainer/BoxContainer/1st Column/ScrollContainer/SkillsBox"
 @onready var skill_count_spinbox: SpinBox = $"ScrollContainer/BoxContainer/1st Column/HBoxContainer2/SkillCountSpinbox"
+@onready var description_edit: TextEdit = $"ScrollContainer/BoxContainer/2nd Column/DescriptionEdit"
+@onready var number_option: OptionButton = $"ScrollContainer/BoxContainer/2nd Column/Scope Row/NumberColumn/NumberOption"
+@onready var random_spin_box: SpinBox = $"ScrollContainer/BoxContainer/2nd Column/Scope Row/NumberColumn/RandomSpinBox"
+@onready var message_edit: LineEdit = $"ScrollContainer/BoxContainer/2nd Column/MessageEdit"
+@onready var formula_editor: CodeEdit = $"ScrollContainer/BoxContainer/3rd Column/FormulaEditor"
 
 @onready var skill_type: OptionButton = $"ScrollContainer/BoxContainer/2nd Column/Type&Cost/SkillTypeContainer/SkillType"
 
@@ -119,7 +124,7 @@ func _check_skill(index:int): #Not assigning Dictionary as type since null is so
 		
 		skills[index].type = 0
 		skills[index].element = 0
-		skills[index].damage_formula = ""
+		skills[index].damage_formula = "a.atk * 4 - b.def * 2"
 		
 		#effects are not yet implemented
 	
@@ -152,14 +157,87 @@ func _skill_buttons():
 		_check_skill(index)
 		new_button.button_down.connect(_load_skill.bind(index))
 		index += 1
-	
-func _update_name(text:String):
-	skills[cur_skill_index].name = text
-	skills_box.get_child(cur_skill_index).get_child(1).text = text
-
 
 func _on_change_actor_max_button_down() -> void:
 	skills.resize(skill_count_spinbox.value)
 	for index in range(skills.size()):
 		_check_skill(index)
 	_skill_buttons()
+
+func _update_name(text:String):
+	skills[cur_skill_index].name = text
+	skills_box.get_child(cur_skill_index).get_child(1).text = text
+
+func _on_description_edit_text_changed() -> void:
+	skills[cur_skill_index].description = description_edit.text
+
+func _on_skill_type_item_selected(index: int) -> void:
+	skills[cur_skill_index].type = index
+
+func _on_mp_cost_spin_box_value_changed(value: float) -> void:
+	skills[cur_skill_index].mp_cost = value
+
+func _on_tp_cost_spin_box_value_changed(value: float) -> void:
+	skills[cur_skill_index].tp_cost = value
+
+
+func _on_hp_cost_spin_box_value_changed(value: float) -> void:
+	skills[cur_skill_index].hp_cost = value
+
+func _on_gold_cost_spin_box_value_changed(value: float) -> void:
+	skills[cur_skill_index].gold_cost = value
+
+
+func _on_scope_option_button_item_selected(index: int) -> void:
+	skills[cur_skill_index].scope_side = index
+
+func _on_number_option_item_selected(index: int) -> void:
+	skills[cur_skill_index].scope_number = 0
+	
+	random_spin_box.editable = false
+	if index == 2:
+		random_spin_box.editable = true
+
+func _on_random_spin_box_value_changed(value: float) -> void:
+	skills[cur_skill_index].random_count = value
+
+func _on_occaison_spin_box_item_selected(index: int) -> void:
+	skills[cur_skill_index].occaison = index
+
+#these subtract 1 bc there is an extra item inserted at start to account for "None"
+#Loading this will add 1 to counteract it
+func _on_weapon_one_option_button_item_selected(index: int) -> void:
+	skills[cur_skill_index].weapon_type_one = index - 1
+
+func _on_weapon_two_option_button_item_selected(index: int) -> void:
+	skills[cur_skill_index].weapon_type_two = index - 1
+
+func _on_speed_spin_box_value_changed(value: float) -> void:
+	skills[cur_skill_index].speed = value
+
+func _on_success_rate_spin_box_value_changed(value: float) -> void:
+	skills[cur_skill_index].success_rate = value
+
+func _on_repeat_spin_box_value_changed(value: float) -> void:
+	skills[cur_skill_index].repeat = value
+
+func _on_tp_gain_spin_box_value_changed(value: float) -> void:
+	skills[cur_skill_index].tp_gain = value
+
+func _on_hit_type_option_button_item_selected(index: int) -> void:
+	skills[cur_skill_index].hit_type = index
+
+func _on_animation_option_button_item_selected(index: int) -> void:
+	skills[cur_skill_index].animation = index
+
+func _on_message_edit_text_changed(new_text: String) -> void:
+	skills[cur_skill_index].message = new_text
+
+func _on_damage_type_option_button_item_selected(index: int) -> void:
+	skills[cur_skill_index].type = index
+
+func _on_element_type_option_button_item_selected(index: int) -> void:
+	skills[cur_skill_index].element = index
+
+func _on_formula_editor_text_changed() -> void:
+	skills[cur_skill_index].damage_formula = formula_editor.text

@@ -83,6 +83,10 @@ layout_mode = 2
 texture = ExtResource("2_sfnwi")
 expand_mode = 2
 
+[node name="SetIconButton" type="Button" parent="ScrollContainer/BoxContainer/2nd Column/Name&Icon"]
+layout_mode = 2
+text = "Set Icon"
+
 [node name="NameEdit" type="LineEdit" parent="ScrollContainer/BoxContainer/2nd Column"]
 custom_minimum_size = Vector2(233.62, 0)
 layout_mode = 2
@@ -258,14 +262,14 @@ layout_mode = 2
 [node name="Row8" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
 
-[node name="OptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/VBoxContainer/VBoxContainer2/Row8"]
+[node name="WeaponOneOptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/VBoxContainer/VBoxContainer2/Row8"]
 custom_minimum_size = Vector2(190, 0)
 layout_mode = 2
 item_count = 1
 popup/item_0/text = "CrossBow"
 popup/item_0/id = 0
 
-[node name="OptionButton2" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/VBoxContainer/VBoxContainer2/Row8"]
+[node name="WeaponTwoOptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/VBoxContainer/VBoxContainer2/Row8"]
 custom_minimum_size = Vector2(190, 0)
 layout_mode = 2
 item_count = 1
@@ -352,7 +356,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Animation:"
 
-[node name="HitTypeOptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row/AnimationContainer"]
+[node name="AnimationOptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row/AnimationContainer"]
 layout_mode = 2
 item_count = 1
 popup/item_0/text = "Normal Attack"
@@ -388,12 +392,6 @@ text = "\"does *!\""
 [node name="UsesButton" type="Button" parent="ScrollContainer/BoxContainer/2nd Column/Row6"]
 layout_mode = 2
 text = "\"uses *!\""
-
-[node name="HSeparator3" type="HSeparator" parent="ScrollContainer/BoxContainer/2nd Column"]
-layout_mode = 2
-
-[node name="HSeparator4" type="HSeparator" parent="ScrollContainer/BoxContainer/2nd Column"]
-layout_mode = 2
 
 [node name="3rd Column" type="VBoxContainer" parent="ScrollContainer/BoxContainer"]
 layout_mode = 2
@@ -439,7 +437,9 @@ text = "Damage Formula:"
 [node name="FormulaEditor" type="CodeEdit" parent="ScrollContainer/BoxContainer/3rd Column"]
 custom_minimum_size = Vector2(0, 80.395)
 layout_mode = 2
+tooltip_text = "Currently there is no autocomplete support due to a bug that started with Godot version 4.3. "
 text = "a.atk * 4 - b.def * 2"
+code_completion_enabled = true
 
 [node name="Label6" type="Label" parent="ScrollContainer/BoxContainer/3rd Column"]
 layout_mode = 2
@@ -477,3 +477,25 @@ script = ExtResource("3_n1oje")
 [connection signal="button_down" from="ScrollContainer/BoxContainer/1st Column/HBoxContainer/SaveButton" to="." method="_save_json"]
 [connection signal="button_down" from="ScrollContainer/BoxContainer/1st Column/HBoxContainer2/ChangeActorMaxButton" to="." method="_on_change_actor_max_button_down"]
 [connection signal="text_changed" from="ScrollContainer/BoxContainer/2nd Column/NameEdit" to="." method="_update_name"]
+[connection signal="text_changed" from="ScrollContainer/BoxContainer/2nd Column/DescriptionEdit" to="." method="_on_description_edit_text_changed"]
+[connection signal="item_selected" from="ScrollContainer/BoxContainer/2nd Column/Type&Cost/SkillTypeContainer/SkillType" to="." method="_on_skill_type_item_selected"]
+[connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/Type&Cost/MPCostContainer/MPCostSpinBox" to="." method="_on_mp_cost_spin_box_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/Type&Cost/TPCostContainer/TPCostSpinBox" to="." method="_on_tp_cost_spin_box_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/Type&Cost/HPCostContainer2/HPCostSpinBox" to="." method="_on_hp_cost_spin_box_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/Type&Cost/GoldCostContainer2/GoldCostSpinBox" to="." method="_on_gold_cost_spin_box_value_changed"]
+[connection signal="item_selected" from="ScrollContainer/BoxContainer/2nd Column/Scope Row/ScopeContainer/ScopeOptionButton" to="." method="_on_scope_option_button_item_selected"]
+[connection signal="item_selected" from="ScrollContainer/BoxContainer/2nd Column/Scope Row/NumberColumn/NumberOption" to="." method="_on_number_option_item_selected"]
+[connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/Scope Row/NumberColumn/RandomSpinBox" to="." method="_on_random_spin_box_value_changed"]
+[connection signal="item_selected" from="ScrollContainer/BoxContainer/2nd Column/Scope Row/OccasionContainer/OccaisonSpinBox" to="." method="_on_occaison_spin_box_item_selected"]
+[connection signal="item_selected" from="ScrollContainer/BoxContainer/2nd Column/Scope Row/VBoxContainer/VBoxContainer2/Row8/WeaponOneOptionButton" to="." method="_on_weapon_one_option_button_item_selected"]
+[connection signal="item_selected" from="ScrollContainer/BoxContainer/2nd Column/Scope Row/VBoxContainer/VBoxContainer2/Row8/WeaponTwoOptionButton" to="." method="_on_weapon_two_option_button_item_selected"]
+[connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container/SpeedSpinBox" to="." method="_on_speed_spin_box_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container2/SuccessRateSpinBox" to="." method="_on_success_rate_spin_box_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container3/RepeatSpinBox" to="." method="_on_repeat_spin_box_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container4/TPGainSpinBox" to="." method="_on_tp_gain_spin_box_value_changed"]
+[connection signal="item_selected" from="ScrollContainer/BoxContainer/2nd Column/Invocation Row/HitTypeContainer/HitTypeOptionButton" to="." method="_on_hit_type_option_button_item_selected"]
+[connection signal="item_selected" from="ScrollContainer/BoxContainer/2nd Column/Invocation Row/AnimationContainer/AnimationOptionButton" to="." method="_on_animation_option_button_item_selected"]
+[connection signal="text_changed" from="ScrollContainer/BoxContainer/2nd Column/MessageEdit" to="." method="_on_message_edit_text_changed"]
+[connection signal="item_selected" from="ScrollContainer/BoxContainer/3rd Column/Row9/Box/DamageTypeOptionButton" to="." method="_on_damage_type_option_button_item_selected"]
+[connection signal="item_selected" from="ScrollContainer/BoxContainer/3rd Column/Row9/Box2/ElementTypeOptionButton" to="." method="_on_element_type_option_button_item_selected"]
+[connection signal="text_changed" from="ScrollContainer/BoxContainer/3rd Column/FormulaEditor" to="." method="_on_formula_editor_text_changed"]

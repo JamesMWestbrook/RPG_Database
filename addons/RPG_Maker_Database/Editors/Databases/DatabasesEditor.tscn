@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dcqbtahnsdr2v"]
+[gd_scene load_steps=14 format=3 uid="uid://dcqbtahnsdr2v"]
 
 [ext_resource type="Script" uid="uid://dq7fer6h7gpa7" path="res://addons/RPG_Maker_Database/Editors/Databases/databases_editor.gd" id="1_o5pce"]
 [ext_resource type="PackedScene" uid="uid://1btl6oul0k7i" path="res://addons/RPG_Maker_Database/Editors/Databases/Actor/ActorEditor.tscn" id="2_o8jcg"]
@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://cqteh31ksim5" path="res://addons/RPG_Maker_Database/Editors/Databases/traits_window.tscn" id="5_duimv"]
 [ext_resource type="PackedScene" uid="uid://bcmcgtkjwv2w1" path="res://addons/RPG_Maker_Database/Editors/Databases/Item/ItemDatabase.tscn" id="5_p7gfg"]
 [ext_resource type="PackedScene" uid="uid://i7goleddyc4f" path="res://addons/RPG_Maker_Database/Editors/Databases/Variables/switches.tscn" id="5_vyqpw"]
+[ext_resource type="PackedScene" uid="uid://dt3xjpi7u8hxf" path="res://addons/RPG_Maker_Database/Editors/Databases/Weapon/WeaponsEditor.tscn" id="6_k6y1p"]
 [ext_resource type="PackedScene" uid="uid://ct028egsh2ibo" path="res://addons/RPG_Maker_Database/Editors/Databases/Variables/variables.tscn" id="6_xg6gf"]
+[ext_resource type="PackedScene" uid="uid://cir1qqyfqrxnx" path="res://addons/RPG_Maker_Database/Editors/Databases/Armor/ArmorEditor.tscn" id="7_8plf8"]
 [ext_resource type="PackedScene" uid="uid://dc8vankfv6efh" path="res://addons/RPG_Maker_Database/Editors/Databases/Types/types_editor.tscn" id="8_mp56p"]
 
 [node name="Databases" type="TabContainer"]
@@ -63,22 +65,21 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 0
+current_tab = 1
 
 [node name="Skills" parent="Objects/ObjTabContainer" instance=ExtResource("4_bqmk1")]
+visible = false
 layout_mode = 2
 
 [node name="Items" parent="Objects/ObjTabContainer" instance=ExtResource("5_p7gfg")]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="Weapons" type="Control" parent="Objects/ObjTabContainer"]
+[node name="Weapons" parent="Objects/ObjTabContainer" instance=ExtResource("6_k6y1p")]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 2
 
-[node name="Armors" type="Control" parent="Objects/ObjTabContainer"]
+[node name="Armors" parent="Objects/ObjTabContainer" instance=ExtResource("7_8plf8")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 3

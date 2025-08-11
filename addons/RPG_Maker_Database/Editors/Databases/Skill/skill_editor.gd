@@ -103,6 +103,14 @@ func _load_skill(index:int):
 	for type:String in TypesEditor.type_data[0]:
 		element_type_option_button.add_item(type)
 
+	weapon_one_option_button.clear()
+	weapon_one_option_button.add_item("None")
+	for type:String in TypesEditor.type_data[2]:
+		weapon_one_option_button.add_item(type)
+	weapon_two_option_button.clear()
+	weapon_two_option_button.add_item("None")
+	for type:String in TypesEditor.type_data[2]:
+		weapon_two_option_button.add_item(type)
 	#loading skill
 	if skill.has("name"):
 		name_edit.text = skill.name

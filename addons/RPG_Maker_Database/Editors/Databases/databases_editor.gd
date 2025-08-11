@@ -27,7 +27,7 @@ func _on_character_tab_container_tab_clicked(tab: int) -> void:
 		0: #load actor
 			actors._load_actor(actors.cur_actor_index)
 		1: #classes
-			pass
+			classes._load_class(classes.cur_class_index)
 		2: #enemies
 			pass
 		3: #troops

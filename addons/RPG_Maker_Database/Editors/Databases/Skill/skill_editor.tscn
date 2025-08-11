@@ -32,7 +32,17 @@ text = "Skills"
 layout_mode = 2
 text = "Save"
 
-[node name="ChangeActorMaxButton" type="Button" parent="ScrollContainer/BoxContainer/1st Column"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/BoxContainer/1st Column"]
+layout_mode = 2
+
+[node name="ClassCountSpinbox" type="SpinBox" parent="ScrollContainer/BoxContainer/1st Column/HBoxContainer2"]
+layout_mode = 2
+min_value = 1.0
+max_value = 9999.0
+value = 1.0
+alignment = 1
+
+[node name="ChangeActorMaxButton" type="Button" parent="ScrollContainer/BoxContainer/1st Column/HBoxContainer2"]
 layout_mode = 2
 text = "Change Max"
 
@@ -45,37 +55,30 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
-[node name="ClassCountSpinbox" type="SpinBox" parent="ScrollContainer/BoxContainer/1st Column"]
-layout_mode = 2
-min_value = 1.0
-max_value = 9999.0
-value = 1.0
-alignment = 1
-
 [node name="2nd Column" type="VBoxContainer" parent="ScrollContainer/BoxContainer"]
 layout_mode = 2
 
-[node name="Row1" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
+[node name="Name&Icon" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Row1"]
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Name&Icon"]
 layout_mode = 2
 text = "Name:"
 
-[node name="TextureRect2" type="TextureRect" parent="ScrollContainer/BoxContainer/2nd Column/Row1"]
+[node name="TextureRect2" type="TextureRect" parent="ScrollContainer/BoxContainer/2nd Column/Name&Icon"]
 custom_minimum_size = Vector2(84.25, 0)
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Row1"]
+[node name="Label2" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Name&Icon"]
 layout_mode = 2
 text = "Icon "
 
-[node name="IconLabel" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Row1"]
+[node name="IconLabel" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Name&Icon"]
 layout_mode = 2
 text = "37
 "
 
-[node name="TextureRect" type="TextureRect" parent="ScrollContainer/BoxContainer/2nd Column/Row1"]
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/BoxContainer/2nd Column/Name&Icon"]
 layout_mode = 2
 texture = ExtResource("2_sfnwi")
 expand_mode = 2
@@ -84,143 +87,147 @@ expand_mode = 2
 custom_minimum_size = Vector2(233.62, 0)
 layout_mode = 2
 
-[node name="Row2" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
+[node name="DescLabel" type="Label" parent="ScrollContainer/BoxContainer/2nd Column"]
+layout_mode = 2
+text = "Description:"
+
+[node name="DescriptionEdit" type="TextEdit" parent="ScrollContainer/BoxContainer/2nd Column"]
+custom_minimum_size = Vector2(0, 64.46)
+layout_mode = 2
+wrap_mode = 1
+
+[node name="Type&Cost" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
 layout_mode = 2
 
-[node name="SkillTypeContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Row2"]
+[node name="SkillTypeContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Type&Cost"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Row2/SkillTypeContainer"]
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Type&Cost/SkillTypeContainer"]
 layout_mode = 2
 text = "Skill Type:"
 
-[node name="SkillType" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Row2/SkillTypeContainer"]
+[node name="SkillType" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Type&Cost/SkillTypeContainer"]
 layout_mode = 2
 item_count = 1
 popup/item_0/text = "Physical Attack"
 popup/item_0/id = 0
 
-[node name="ScopeContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Row2"]
+[node name="MPCostContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Type&Cost"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Row2/ScopeContainer2"]
-layout_mode = 2
-text = "Scope:"
-
-[node name="ScopeOptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Row2/ScopeContainer2"]
-layout_mode = 2
-item_count = 1
-popup/item_0/text = "All Enemies & Allies"
-popup/item_0/id = 0
-
-[node name="OccasionContainer3" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Row2"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Row2/OccasionContainer3"]
-layout_mode = 2
-text = "Occasion"
-
-[node name="OccaisonSpinBox" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Row2/OccasionContainer3"]
-layout_mode = 2
-item_count = 1
-popup/item_0/text = "Battle Screen"
-popup/item_0/id = 0
-
-[node name="CostsRow" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
-layout_mode = 2
-
-[node name="MPCostContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/CostsRow"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/CostsRow/MPCostContainer"]
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Type&Cost/MPCostContainer"]
 layout_mode = 2
 text = "MP Cost:"
 
-[node name="MPCostSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/CostsRow/MPCostContainer"]
+[node name="MPCostSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/Type&Cost/MPCostContainer"]
 layout_mode = 2
 max_value = 9999.0
 
-[node name="TPCostContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/CostsRow"]
+[node name="TPCostContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Type&Cost"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/CostsRow/TPCostContainer"]
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Type&Cost/TPCostContainer"]
 layout_mode = 2
 text = "TP Cost:"
 
-[node name="TPCostSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/CostsRow/TPCostContainer"]
+[node name="TPCostSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/Type&Cost/TPCostContainer"]
 layout_mode = 2
 max_value = 9999.0
 
-[node name="HPCostContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/CostsRow"]
+[node name="HPCostContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Type&Cost"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/CostsRow/HPCostContainer2"]
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Type&Cost/HPCostContainer2"]
 layout_mode = 2
 text = "HP Cost:"
 
-[node name="HPCostSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/CostsRow/HPCostContainer2"]
+[node name="HPCostSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/Type&Cost/HPCostContainer2"]
 layout_mode = 2
 max_value = 9999.0
 
-[node name="GoldCostContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/CostsRow"]
+[node name="GoldCostContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Type&Cost"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/CostsRow/GoldCostContainer2"]
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Type&Cost/GoldCostContainer2"]
 layout_mode = 2
 text = "Gold Cost:"
 
-[node name="GoldCostSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/CostsRow/GoldCostContainer2"]
+[node name="GoldCostSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/Type&Cost/GoldCostContainer2"]
 layout_mode = 2
 max_value = 9999.0
 
-[node name="Damage" type="HSeparator" parent="ScrollContainer/BoxContainer/2nd Column"]
+[node name="Scope" type="HSeparator" parent="ScrollContainer/BoxContainer/2nd Column"]
 layout_mode = 2
 
-[node name="Label4" type="Label" parent="ScrollContainer/BoxContainer/2nd Column"]
+[node name="Label7" type="Label" parent="ScrollContainer/BoxContainer/2nd Column"]
 layout_mode = 2
-text = "Damage"
-horizontal_alignment = 1
+text = "Scope:"
 
-[node name="Row9" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
-layout_mode = 2
-
-[node name="Box" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Row9"]
+[node name="Scope Row" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Row9/Box"]
+[node name="ScopeContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row"]
 layout_mode = 2
-text = "Type:"
 
-[node name="DamageTypeOptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Row9/Box"]
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/ScopeContainer"]
 layout_mode = 2
-item_count = 1
-popup/item_0/text = "HP Damage"
+text = "Side"
+
+[node name="ScopeOptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/ScopeContainer"]
+layout_mode = 2
+selected = 0
+item_count = 5
+popup/item_0/text = "None"
 popup/item_0/id = 0
+popup/item_1/text = "Enemy"
+popup/item_1/id = 1
+popup/item_2/text = "Ally"
+popup/item_2/id = 2
+popup/item_3/text = "Enemy & Ally"
+popup/item_3/id = 3
+popup/item_4/text = "User"
+popup/item_4/id = 4
 
-[node name="Box2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Row9"]
+[node name="NumberColumn" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row"]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Row9/Box2"]
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/NumberColumn"]
 layout_mode = 2
-text = "Element:"
+text = "Number"
 
-[node name="ElementTypeOptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Row9/Box2"]
+[node name="NumberOption" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/NumberColumn"]
 layout_mode = 2
-item_count = 1
-popup/item_0/text = "Normal Attack"
+item_count = 3
+popup/item_0/text = "One"
 popup/item_0/id = 0
+popup/item_1/text = "All"
+popup/item_1/id = 1
+popup/item_2/text = "Random"
+popup/item_2/id = 2
 
-[node name="Label5" type="Label" parent="ScrollContainer/BoxContainer/2nd Column"]
+[node name="RandomSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/NumberColumn"]
 layout_mode = 2
-text = "Damage Formula:"
+value = 1.0
 
-[node name="FormulaEditor" type="CodeEdit" parent="ScrollContainer/BoxContainer/2nd Column"]
-custom_minimum_size = Vector2(0, 80.395)
+[node name="OccasionContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row"]
 layout_mode = 2
-text = "a.atk * 4 - b.def * 2"
 
-[node name="Row10" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/OccasionContainer"]
 layout_mode = 2
+text = "Occasion"
+
+[node name="OccaisonSpinBox" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/OccasionContainer"]
+layout_mode = 2
+selected = 0
+item_count = 4
+popup/item_0/text = "Battle Screen"
+popup/item_0/id = 0
+popup/item_1/text = "Menu Screen"
+popup/item_1/id = 1
+popup/item_2/text = "Always"
+popup/item_2/id = 2
+popup/item_3/text = "Never"
+popup/item_3/id = 3
 
 [node name="Invocation" type="HSeparator" parent="ScrollContainer/BoxContainer/2nd Column"]
 layout_mode = 2
@@ -230,85 +237,86 @@ layout_mode = 2
 text = "Invocation"
 horizontal_alignment = 1
 
-[node name="Row4" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
+[node name="Invocation Row" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
 layout_mode = 2
 
-[node name="Container" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Row4"]
+[node name="Container" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Row4/Container"]
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container"]
 layout_mode = 2
 text = "Speed:"
 
-[node name="SpeedSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/Row4/Container"]
+[node name="SpeedSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container"]
 layout_mode = 2
 max_value = 9999.0
 
-[node name="Container2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Row4"]
+[node name="Container2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Row4/Container2"]
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container2"]
 layout_mode = 2
 text = "Success:"
 
-[node name="SuccessRateSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/Row4/Container2"]
+[node name="SuccessRateSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container2"]
 layout_mode = 2
 value = 100.0
 suffix = "%"
 
-[node name="Container3" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Row4"]
+[node name="Container3" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Row4/Container3"]
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container3"]
 layout_mode = 2
 text = "Repeat:"
 
-[node name="RepeatSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/Row4/Container3"]
+[node name="RepeatSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container3"]
 layout_mode = 2
 min_value = 1.0
 max_value = 99.0
 value = 1.0
 update_on_text_changed = true
 
-[node name="Container4" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Row4"]
+[node name="Container4" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Row4/Container4"]
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container4"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.365264, 1, 0.335952, 1)
 text = "TP Gain:"
 
-[node name="TPGainSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/Row4/Container4"]
+[node name="TPGainSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container4"]
 layout_mode = 2
 max_value = 9999.0
 
-[node name="Row5" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
+[node name="HitTypeContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row"]
 layout_mode = 2
 
-[node name="Container" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Row5"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Row5/Container"]
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row/HitTypeContainer"]
 layout_mode = 2
 text = "Hit Type:"
 
-[node name="HitTypeOptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Row5/Container"]
+[node name="HitTypeOptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row/HitTypeContainer"]
 layout_mode = 2
 item_count = 1
 popup/item_0/text = "Physical Attack"
 popup/item_0/id = 0
 
-[node name="Container2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Row5"]
+[node name="AnimationContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Row5/Container2"]
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row/AnimationContainer"]
 layout_mode = 2
 text = "Animation:"
 
-[node name="HitTypeOptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Row5/Container2"]
+[node name="HitTypeOptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row/AnimationContainer"]
 layout_mode = 2
 item_count = 1
 popup/item_0/text = "Normal Attack"
 popup/item_0/id = 0
+
+[node name="Row5" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
+layout_mode = 2
 
 [node name="HSeparator2" type="HSeparator" parent="ScrollContainer/BoxContainer/2nd Column"]
 layout_mode = 2
@@ -319,9 +327,7 @@ text = "Message"
 horizontal_alignment = 1
 
 [node name="MessageEdit" type="LineEdit" parent="ScrollContainer/BoxContainer/2nd Column"]
-layout_mode = 2
-
-[node name="MessageEditTwo" type="LineEdit" parent="ScrollContainer/BoxContainer/2nd Column"]
+custom_minimum_size = Vector2(0, 64.46)
 layout_mode = 2
 
 [node name="Row6" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
@@ -408,9 +414,56 @@ text = "Add State / Normal Attack"
 layout_mode = 2
 text = "Add Debuff / Attack 5 Turns"
 
+[node name="3rd Column" type="VBoxContainer" parent="ScrollContainer/BoxContainer"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="ScrollContainer/BoxContainer/3rd Column"]
+layout_mode = 2
+text = "Damage"
+horizontal_alignment = 1
+
+[node name="Row9" type="HBoxContainer" parent="ScrollContainer/BoxContainer/3rd Column"]
+layout_mode = 2
+
+[node name="Box" type="VBoxContainer" parent="ScrollContainer/BoxContainer/3rd Column/Row9"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/3rd Column/Row9/Box"]
+layout_mode = 2
+text = "Type:"
+
+[node name="DamageTypeOptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/3rd Column/Row9/Box"]
+layout_mode = 2
+item_count = 1
+popup/item_0/text = "HP Damage"
+popup/item_0/id = 0
+
+[node name="Box2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/3rd Column/Row9"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="ScrollContainer/BoxContainer/3rd Column/Row9/Box2"]
+layout_mode = 2
+text = "Element:"
+
+[node name="ElementTypeOptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/3rd Column/Row9/Box2"]
+layout_mode = 2
+item_count = 1
+popup/item_0/text = "Normal Attack"
+popup/item_0/id = 0
+
+[node name="Label5" type="Label" parent="ScrollContainer/BoxContainer/3rd Column"]
+layout_mode = 2
+text = "Damage Formula:"
+
+[node name="FormulaEditor" type="CodeEdit" parent="ScrollContainer/BoxContainer/3rd Column"]
+custom_minimum_size = Vector2(0, 80.395)
+layout_mode = 2
+text = "a.atk * 4 - b.def * 2"
+
 [node name="Resizable" type="Control" parent="ScrollContainer"]
 layout_mode = 2
 mouse_filter = 2
 script = ExtResource("3_n1oje")
 
+[connection signal="button_down" from="ScrollContainer/BoxContainer/1st Column/HBoxContainer/SaveButton" to="." method="_save_json"]
 [connection signal="text_changed" from="ScrollContainer/BoxContainer/2nd Column/NameEdit" to="." method="_update_name"]

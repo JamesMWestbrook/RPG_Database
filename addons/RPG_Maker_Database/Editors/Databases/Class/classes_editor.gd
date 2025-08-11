@@ -101,7 +101,7 @@ func _save_json():
 		"class_count": classes_v_box.get_child_count(),
 		"classes": classes
 	}
-	var json_string = JSON.stringify(save_data)
+	var json_string:String = JSON.stringify(save_data)
 	var file:FileAccess = FileAccess.open(JSON_SAVE_PATH, FileAccess.WRITE)
 	file.store_string(json_string)
 	ClassesUpdated.emit(classes)

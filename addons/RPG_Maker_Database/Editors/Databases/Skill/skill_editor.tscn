@@ -12,7 +12,7 @@ metadata/_tab_index = 0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 0
-offset_right = 940.0
+offset_right = 1279.0
 offset_bottom = 660.0
 
 [node name="BoxContainer" type="BoxContainer" parent="ScrollContainer"]
@@ -229,6 +229,49 @@ popup/item_2/id = 2
 popup/item_3/text = "Never"
 popup/item_3/id = 3
 
+[node name="VSeparator" type="VSeparator" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/VBoxContainer"]
+layout_mode = 2
+text = "Required Weapon"
+horizontal_alignment = 1
+
+[node name="Row7" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/VBoxContainer/Row7"]
+custom_minimum_size = Vector2(237.84, 0)
+layout_mode = 2
+text = "Weapon Type 1"
+
+[node name="Label2" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/VBoxContainer/Row7"]
+layout_mode = 2
+text = "Weapon Type 2"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/VBoxContainer"]
+layout_mode = 2
+
+[node name="Row8" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/VBoxContainer/VBoxContainer2/Row8"]
+custom_minimum_size = Vector2(190, 0)
+layout_mode = 2
+item_count = 1
+popup/item_0/text = "CrossBow"
+popup/item_0/id = 0
+
+[node name="OptionButton2" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/VBoxContainer/VBoxContainer2/Row8"]
+custom_minimum_size = Vector2(190, 0)
+layout_mode = 2
+item_count = 1
+popup/item_0/text = "CrossBow"
+popup/item_0/id = 0
+
 [node name="Invocation" type="HSeparator" parent="ScrollContainer/BoxContainer/2nd Column"]
 layout_mode = 2
 
@@ -349,70 +392,8 @@ text = "\"uses *!\""
 [node name="HSeparator3" type="HSeparator" parent="ScrollContainer/BoxContainer/2nd Column"]
 layout_mode = 2
 
-[node name="Label3" type="Label" parent="ScrollContainer/BoxContainer/2nd Column"]
-layout_mode = 2
-text = "Required Weapon"
-horizontal_alignment = 1
-
-[node name="Row7" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Row7"]
-custom_minimum_size = Vector2(237.84, 0)
-layout_mode = 2
-text = "Weapon Type 1"
-
-[node name="Label2" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Row7"]
-layout_mode = 2
-text = "Weapon Type 2"
-
-[node name="Row8" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
-layout_mode = 2
-
-[node name="OptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Row8"]
-custom_minimum_size = Vector2(235.745, 0)
-layout_mode = 2
-item_count = 1
-popup/item_0/text = "CrossBow"
-popup/item_0/id = 0
-
-[node name="OptionButton2" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Row8"]
-custom_minimum_size = Vector2(235.745, 0)
-layout_mode = 2
-item_count = 1
-popup/item_0/text = "CrossBow"
-popup/item_0/id = 0
-
 [node name="HSeparator4" type="HSeparator" parent="ScrollContainer/BoxContainer/2nd Column"]
 layout_mode = 2
-
-[node name="Label6" type="Label" parent="ScrollContainer/BoxContainer/2nd Column"]
-layout_mode = 2
-text = "Effects"
-horizontal_alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
-layout_mode = 2
-alignment = 1
-
-[node name="Label7" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer"]
-layout_mode = 2
-text = "Type/Content"
-
-[node name="Button" type="Button" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer"]
-layout_mode = 2
-text = "Add"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="ScrollContainer/BoxContainer/2nd Column/VBoxContainer"]
-layout_mode = 2
-text = "Add State / Normal Attack"
-
-[node name="Button2" type="Button" parent="ScrollContainer/BoxContainer/2nd Column/VBoxContainer"]
-layout_mode = 2
-text = "Add Debuff / Attack 5 Turns"
 
 [node name="3rd Column" type="VBoxContainer" parent="ScrollContainer/BoxContainer"]
 layout_mode = 2
@@ -459,6 +440,34 @@ text = "Damage Formula:"
 custom_minimum_size = Vector2(0, 80.395)
 layout_mode = 2
 text = "a.atk * 4 - b.def * 2"
+
+[node name="Label6" type="Label" parent="ScrollContainer/BoxContainer/3rd Column"]
+layout_mode = 2
+text = "Effects"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/BoxContainer/3rd Column"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label7" type="Label" parent="ScrollContainer/BoxContainer/3rd Column/HBoxContainer"]
+layout_mode = 2
+text = "Type/Content"
+
+[node name="Button" type="Button" parent="ScrollContainer/BoxContainer/3rd Column/HBoxContainer"]
+layout_mode = 2
+text = "Add"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/3rd Column"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="ScrollContainer/BoxContainer/3rd Column/VBoxContainer"]
+layout_mode = 2
+text = "Add State / Normal Attack"
+
+[node name="Button2" type="Button" parent="ScrollContainer/BoxContainer/3rd Column/VBoxContainer"]
+layout_mode = 2
+text = "Add Debuff / Attack 5 Turns"
 
 [node name="Resizable" type="Control" parent="ScrollContainer"]
 layout_mode = 2

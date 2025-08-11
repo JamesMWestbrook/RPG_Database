@@ -6,17 +6,30 @@ class_name SkillEditor
 @onready var skills_box: VBoxContainer = $"ScrollContainer/BoxContainer/1st Column/ScrollContainer/SkillsBox"
 @onready var skill_count_spinbox: SpinBox = $"ScrollContainer/BoxContainer/1st Column/HBoxContainer2/SkillCountSpinbox"
 @onready var description_edit: TextEdit = $"ScrollContainer/BoxContainer/2nd Column/DescriptionEdit"
-@onready var number_option: OptionButton = $"ScrollContainer/BoxContainer/2nd Column/Scope Row/NumberColumn/NumberOption"
-@onready var random_spin_box: SpinBox = $"ScrollContainer/BoxContainer/2nd Column/Scope Row/NumberColumn/RandomSpinBox"
 @onready var message_edit: LineEdit = $"ScrollContainer/BoxContainer/2nd Column/MessageEdit"
 @onready var formula_editor: CodeEdit = $"ScrollContainer/BoxContainer/3rd Column/FormulaEditor"
-
+@onready var skill_icon: TextureRect = $"ScrollContainer/BoxContainer/2nd Column/Name&Icon/SkillIcon"
 @onready var skill_type: OptionButton = $"ScrollContainer/BoxContainer/2nd Column/Type&Cost/SkillTypeContainer/SkillType"
-
+@onready var mp_cost_spin_box: SpinBox = $"ScrollContainer/BoxContainer/2nd Column/Type&Cost/MPCostContainer/MPCostSpinBox"
+@onready var tp_cost_spin_box: SpinBox = $"ScrollContainer/BoxContainer/2nd Column/Type&Cost/TPCostContainer/TPCostSpinBox"
+@onready var hp_cost_spin_box: SpinBox = $"ScrollContainer/BoxContainer/2nd Column/Type&Cost/HPCostContainer2/HPCostSpinBox"
+@onready var gold_cost_spin_box: SpinBox = $"ScrollContainer/BoxContainer/2nd Column/Type&Cost/GoldCostContainer2/GoldCostSpinBox"
+@onready var scope_option_button: OptionButton = $"ScrollContainer/BoxContainer/2nd Column/Scope Row/ScopeContainer/ScopeOptionButton"
+@onready var number_option: OptionButton = $"ScrollContainer/BoxContainer/2nd Column/Scope Row/NumberColumn/NumberOption"
+@onready var random_spin_box: SpinBox = $"ScrollContainer/BoxContainer/2nd Column/Scope Row/NumberColumn/RandomSpinBox"
+@onready var occaison_spin_box: OptionButton = $"ScrollContainer/BoxContainer/2nd Column/Scope Row/OccasionContainer/OccaisonSpinBox"
+@onready var weapon_one_option_button: OptionButton = $"ScrollContainer/BoxContainer/2nd Column/Scope Row/VBoxContainer/VBoxContainer2/Row8/WeaponOneOptionButton"
+@onready var weapon_two_option_button: OptionButton = $"ScrollContainer/BoxContainer/2nd Column/Scope Row/VBoxContainer/VBoxContainer2/Row8/WeaponTwoOptionButton"
+@onready var speed_spin_box: SpinBox = $"ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container/SpeedSpinBox"
+@onready var success_rate_spin_box: SpinBox = $"ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container2/SuccessRateSpinBox"
+@onready var repeat_spin_box: SpinBox = $"ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container3/RepeatSpinBox"
+@onready var tp_gain_spin_box: SpinBox = $"ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container4/TPGainSpinBox"
+@onready var hit_type_option_button: OptionButton = $"ScrollContainer/BoxContainer/2nd Column/Invocation Row/HitTypeContainer/HitTypeOptionButton"
+@onready var animation_option_button: OptionButton = $"ScrollContainer/BoxContainer/2nd Column/Invocation Row/AnimationContainer/AnimationOptionButton"
+@onready var damage_type_option_button: OptionButton = $"ScrollContainer/BoxContainer/3rd Column/Row9/Box/DamageTypeOptionButton"
+@onready var element_type_option_button: OptionButton = $"ScrollContainer/BoxContainer/3rd Column/Row9/Box2/ElementTypeOptionButton"
 
 #endregion
-
-
 
 var cur_skill_index:int
 var skills:Array
@@ -74,19 +87,60 @@ func _load_json(file:FileAccess):
 	
 func _load_skill(index:int):
 	cur_skill_index = index
-	var skill = skills[index]
+	var skill:Dictionary = skills[index]
 	
-	if skill.has("name"):
-		name_edit.text = skill.name
-	else:
-		printerr("Skill has no info")
-		
+
+	#Everything that should be loaded before loading the skill
 	#skill type
 	skill_type.clear()
 	skill_type.add_item("None")
 	for type:String in TypesEditor.type_data[1]:
 		skill_type.add_item(type)
+		
+	element_type_option_button.clear()
+	element_type_option_button.add_item("Normal")
+	element_type_option_button.add_item("None")
+	for type:String in TypesEditor.type_data[0]:
+		element_type_option_button.add_item(type)
+
+	#loading skill
+	if skill.has("name"):
+		name_edit.text = skill.name
+	else:
+		printerr("Skill has no info")
 	
+	if skill.icon != "":
+		skill_icon.texture = load(skill.icon)
+	description_edit.text = skill.description
+	skill_type.select(skill.type)
+	mp_cost_spin_box.value = skill.mp_cost
+	tp_cost_spin_box.value = skill.tp_cost
+	hp_cost_spin_box.value = skill.hp_cost
+	gold_cost_spin_box.value = skill.gold_cost
+	
+	scope_option_button.select(skill.scope_side)
+	number_option.select(skill.scope_number)
+	if skill.scope_number == 2:
+		random_spin_box.value = skill.random_count
+	else:
+		random_spin_box.value = 1
+	occaison_spin_box.select(skill.occasion)
+	
+	weapon_one_option_button.select(skill.weapon_type_one + 1)
+	weapon_two_option_button.select(skill.weapon_type_two + 1)
+	
+	speed_spin_box.value = skill.speed
+	success_rate_spin_box.value = skill.success_rate
+	repeat_spin_box.value = skill.repeat
+	tp_gain_spin_box.value = skill.tp_gain
+	hit_type_option_button.select(skill.hit_type)
+	animation_option_button.select(skill.animation)
+	
+	message_edit.text = skill.message
+	
+	damage_type_option_button.select(skill.damage_type)
+	element_type_option_button.select(skill.element + 2)
+	formula_editor.text = skill.damage_formula
 	
 	
 func _check_skill(index:int): #Not assigning Dictionary as type since null is sometimes its type/value
@@ -122,7 +176,7 @@ func _check_skill(index:int): #Not assigning Dictionary as type since null is so
 		skills[index].weapon_type_one = -1
 		skills[index].weapon_type_two = -1
 		
-		skills[index].type = 0
+		skills[index].damage_type = 0
 		skills[index].element = 0
 		skills[index].damage_formula = "a.atk * 4 - b.def * 2"
 		
@@ -234,10 +288,10 @@ func _on_message_edit_text_changed(new_text: String) -> void:
 	skills[cur_skill_index].message = new_text
 
 func _on_damage_type_option_button_item_selected(index: int) -> void:
-	skills[cur_skill_index].type = index
+	skills[cur_skill_index].damage_type = index
 
 func _on_element_type_option_button_item_selected(index: int) -> void:
-	skills[cur_skill_index].element = index
+	skills[cur_skill_index].element = index - 2
 
 func _on_formula_editor_text_changed() -> void:
 	skills[cur_skill_index].damage_formula = formula_editor.text

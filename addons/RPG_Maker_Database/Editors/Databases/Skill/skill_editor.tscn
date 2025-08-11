@@ -78,7 +78,7 @@ layout_mode = 2
 text = "37
 "
 
-[node name="TextureRect" type="TextureRect" parent="ScrollContainer/BoxContainer/2nd Column/Name&Icon"]
+[node name="SkillIcon" type="TextureRect" parent="ScrollContainer/BoxContainer/2nd Column/Name&Icon"]
 layout_mode = 2
 texture = ExtResource("2_sfnwi")
 expand_mode = 2
@@ -296,6 +296,7 @@ text = "Speed:"
 
 [node name="SpeedSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container"]
 layout_mode = 2
+min_value = -9999.0
 max_value = 9999.0
 
 [node name="Container2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row"]
@@ -413,9 +414,22 @@ text = "Type:"
 
 [node name="DamageTypeOptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/3rd Column/Row9/Box"]
 layout_mode = 2
-item_count = 1
-popup/item_0/text = "HP Damage"
+selected = 0
+item_count = 7
+popup/item_0/text = "None"
 popup/item_0/id = 0
+popup/item_1/text = "HP Damage"
+popup/item_1/id = 1
+popup/item_2/text = "MP Damage"
+popup/item_2/id = 2
+popup/item_3/text = "HP Recover"
+popup/item_3/id = 3
+popup/item_4/text = "MP Recover"
+popup/item_4/id = 4
+popup/item_5/text = "HP Drain"
+popup/item_5/id = 5
+popup/item_6/text = "MP Drain"
+popup/item_6/id = 6
 
 [node name="Box2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/3rd Column/Row9"]
 layout_mode = 2
@@ -426,6 +440,7 @@ text = "Element:"
 
 [node name="ElementTypeOptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/3rd Column/Row9/Box2"]
 layout_mode = 2
+tooltip_text = "Normal = whatever element the user is attuned to. "
 item_count = 1
 popup/item_0/text = "Normal Attack"
 popup/item_0/id = 0

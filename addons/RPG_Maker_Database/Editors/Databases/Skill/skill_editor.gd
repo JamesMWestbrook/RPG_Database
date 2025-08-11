@@ -92,6 +92,7 @@ func _check_skill(index:int): #Not assigning Dictionary as type since null is so
 		return
 	else:
 		skills[index].name = "Skill " + str(index)
+		skills[index].icon = ""
 		skills[index].description = ""
 		skills[index].type = 0
 		skills[index].mp_cost = 0
@@ -154,7 +155,7 @@ func _skill_buttons():
 	
 func _update_name(text:String):
 	skills[cur_skill_index].name = text
-	skills_box.get_child(cur_skill_index).text = text
+	skills_box.get_child(cur_skill_index).get_child(1).text = text
 
 
 func _on_change_actor_max_button_down() -> void:

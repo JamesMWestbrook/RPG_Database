@@ -483,6 +483,14 @@ text = "Add State / Normal Attack"
 layout_mode = 2
 text = "Add Debuff / Attack 5 Turns"
 
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/3rd Column"]
+layout_mode = 2
+text = "Note"
+
+[node name="TextEdit" type="TextEdit" parent="ScrollContainer/BoxContainer/3rd Column"]
+custom_minimum_size = Vector2(0, 206.295)
+layout_mode = 2
+
 [connection signal="button_down" from="ScrollContainer/BoxContainer/1st Column/HBoxContainer/SaveButton" to="." method="_save_json"]
 [connection signal="button_down" from="ScrollContainer/BoxContainer/1st Column/HBoxContainer2/ChangeActorMaxButton" to="." method="_on_change_actor_max_button_down"]
 [connection signal="text_changed" from="ScrollContainer/BoxContainer/2nd Column/NameEdit" to="." method="_update_name"]

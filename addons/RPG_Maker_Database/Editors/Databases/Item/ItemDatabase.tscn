@@ -1,6 +1,8 @@
-[gd_scene format=3 uid="uid://bcmcgtkjwv2w1"]
+[gd_scene load_steps=2 format=3 uid="uid://bcmcgtkjwv2w1"]
 
-[node name="Control" type="Control"]
+[ext_resource type="Texture2D" uid="uid://dtmg6im6vp32p" path="res://icon.svg" id="1_txkt2"]
+
+[node name="Items" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,3 +17,325 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="1st Column" type="VBoxContainer" parent="ScrollContainer/BoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/BoxContainer/1st Column"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/1st Column/HBoxContainer"]
+layout_mode = 2
+text = "Skills"
+
+[node name="SaveButton" type="Button" parent="ScrollContainer/BoxContainer/1st Column/HBoxContainer"]
+layout_mode = 2
+text = "Save"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/BoxContainer/1st Column"]
+layout_mode = 2
+
+[node name="SkillCountSpinbox" type="SpinBox" parent="ScrollContainer/BoxContainer/1st Column/HBoxContainer2"]
+layout_mode = 2
+min_value = 1.0
+max_value = 9999.0
+value = 1.0
+alignment = 1
+
+[node name="ChangeActorMaxButton" type="Button" parent="ScrollContainer/BoxContainer/1st Column/HBoxContainer2"]
+layout_mode = 2
+text = "Change Max"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ScrollContainer/BoxContainer/1st Column"]
+custom_minimum_size = Vector2(0, 289.655)
+layout_mode = 2
+
+[node name="SkillsBox" type="VBoxContainer" parent="ScrollContainer/BoxContainer/1st Column/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="2nd Column" type="VBoxContainer" parent="ScrollContainer/BoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column"]
+layout_mode = 2
+text = "General Settings"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer"]
+layout_mode = 2
+text = "Name:                    "
+
+[node name="IconTexture" type="TextureRect" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_txkt2")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer"]
+layout_mode = 2
+text = "Set Icon"
+
+[node name="NameEdit" type="LineEdit" parent="ScrollContainer/BoxContainer/2nd Column"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="ScrollContainer/BoxContainer/2nd Column"]
+layout_mode = 2
+text = "Description:"
+
+[node name="DescEdit" type="TextEdit" parent="ScrollContainer/BoxContainer/2nd Column"]
+custom_minimum_size = Vector2(445.875, 61.88)
+layout_mode = 2
+text = "Room for multiple sentences please. Yes please. Multiple sentences should fit here. "
+wrap_mode = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2"]
+layout_mode = 2
+text = "Item Type:               "
+
+[node name="Label2" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2"]
+layout_mode = 2
+text = "Price:      "
+
+[node name="Label3" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2"]
+layout_mode = 2
+text = "Consumable:"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
+layout_mode = 2
+
+[node name="ItemTypeButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3"]
+layout_mode = 2
+selected = 0
+item_count = 4
+popup/item_0/text = "Regular Item"
+popup/item_0/id = 0
+popup/item_1/text = "Key Item"
+popup/item_1/id = 1
+popup/item_2/text = "Hidden Item A"
+popup/item_2/id = 2
+popup/item_3/text = "Hidden Item B"
+popup/item_3/id = 3
+
+[node name="PriceBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3"]
+layout_mode = 2
+
+[node name="ConsumableButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3"]
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "Yes"
+popup/item_0/id = 0
+popup/item_1/text = "NO"
+popup/item_1/id = 1
+
+[node name="Scope Row" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
+layout_mode = 2
+
+[node name="ScopeContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/ScopeContainer"]
+layout_mode = 2
+text = "Side"
+
+[node name="ScopeOptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/ScopeContainer"]
+layout_mode = 2
+selected = 0
+item_count = 5
+popup/item_0/text = "None"
+popup/item_0/id = 0
+popup/item_1/text = "Enemy"
+popup/item_1/id = 1
+popup/item_2/text = "Ally"
+popup/item_2/id = 2
+popup/item_3/text = "Enemy & Ally"
+popup/item_3/id = 3
+popup/item_4/text = "User"
+popup/item_4/id = 4
+
+[node name="NumberColumn" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/NumberColumn"]
+layout_mode = 2
+text = "Number"
+
+[node name="NumberOption" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/NumberColumn"]
+layout_mode = 2
+selected = 0
+item_count = 3
+popup/item_0/text = "One"
+popup/item_0/id = 0
+popup/item_1/text = "All"
+popup/item_1/id = 1
+popup/item_2/text = "Random"
+popup/item_2/id = 2
+
+[node name="RandomSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/NumberColumn"]
+layout_mode = 2
+value = 1.0
+
+[node name="OccasionContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/OccasionContainer"]
+layout_mode = 2
+text = "Occasion"
+
+[node name="OccaisonSpinBox" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/OccasionContainer"]
+layout_mode = 2
+selected = 0
+item_count = 4
+popup/item_0/text = "Battle Screen"
+popup/item_0/id = 0
+popup/item_1/text = "Menu Screen"
+popup/item_1/id = 1
+popup/item_2/text = "Always"
+popup/item_2/id = 2
+popup/item_3/text = "Never"
+popup/item_3/id = 3
+
+[node name="Invocation" type="HSeparator" parent="ScrollContainer/BoxContainer/2nd Column"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="ScrollContainer/BoxContainer/2nd Column"]
+layout_mode = 2
+text = "Invocation"
+horizontal_alignment = 1
+
+[node name="Invocation Row" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
+layout_mode = 2
+
+[node name="Container" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container"]
+layout_mode = 2
+text = "Speed:"
+
+[node name="SpeedSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container"]
+layout_mode = 2
+min_value = -9999.0
+max_value = 9999.0
+
+[node name="Container2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container2"]
+layout_mode = 2
+text = "Success:"
+
+[node name="SuccessRateSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container2"]
+layout_mode = 2
+value = 100.0
+suffix = "%"
+
+[node name="Container3" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container3"]
+layout_mode = 2
+text = "Repeat:"
+
+[node name="RepeatSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container3"]
+layout_mode = 2
+min_value = 1.0
+max_value = 99.0
+value = 1.0
+update_on_text_changed = true
+
+[node name="Container4" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container4"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.365264, 1, 0.335952, 1)
+text = "TP Gain:"
+
+[node name="TPGainSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container4"]
+layout_mode = 2
+max_value = 9999.0
+
+[node name="3rd Column" type="VBoxContainer" parent="ScrollContainer/BoxContainer"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="ScrollContainer/BoxContainer/3rd Column"]
+layout_mode = 2
+text = "Damage"
+horizontal_alignment = 1
+
+[node name="Row9" type="HBoxContainer" parent="ScrollContainer/BoxContainer/3rd Column"]
+layout_mode = 2
+
+[node name="Box" type="VBoxContainer" parent="ScrollContainer/BoxContainer/3rd Column/Row9"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/3rd Column/Row9/Box"]
+layout_mode = 2
+text = "Type:"
+
+[node name="DamageTypeOptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/3rd Column/Row9/Box"]
+layout_mode = 2
+selected = 0
+item_count = 7
+popup/item_0/text = "None"
+popup/item_0/id = 0
+popup/item_1/text = "HP Damage"
+popup/item_1/id = 1
+popup/item_2/text = "MP Damage"
+popup/item_2/id = 2
+popup/item_3/text = "HP Recover"
+popup/item_3/id = 3
+popup/item_4/text = "MP Recover"
+popup/item_4/id = 4
+popup/item_5/text = "HP Drain"
+popup/item_5/id = 5
+popup/item_6/text = "MP Drain"
+popup/item_6/id = 6
+
+[node name="Box2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/3rd Column/Row9"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="ScrollContainer/BoxContainer/3rd Column/Row9/Box2"]
+layout_mode = 2
+text = "Element:"
+
+[node name="ElementTypeOptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/3rd Column/Row9/Box2"]
+layout_mode = 2
+tooltip_text = "Normal = whatever element the user is attuned to. "
+item_count = 1
+popup/item_0/text = "Normal Attack"
+popup/item_0/id = 0
+
+[node name="Label5" type="Label" parent="ScrollContainer/BoxContainer/3rd Column"]
+layout_mode = 2
+text = "Damage Formula:"
+
+[node name="FormulaEditor" type="CodeEdit" parent="ScrollContainer/BoxContainer/3rd Column"]
+custom_minimum_size = Vector2(0, 80.395)
+layout_mode = 2
+tooltip_text = "Currently there is no autocomplete support due to a bug that started with Godot version 4.3. "
+text = "a.atk * 4 - b.def * 2"
+code_completion_enabled = true
+
+[node name="Label6" type="Label" parent="ScrollContainer/BoxContainer/3rd Column"]
+layout_mode = 2
+text = "Effects"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/3rd Column"]
+layout_mode = 2
+text = "Note"
+
+[node name="TextEdit" type="TextEdit" parent="ScrollContainer/BoxContainer/3rd Column"]
+custom_minimum_size = Vector2(0, 206.295)
+layout_mode = 2

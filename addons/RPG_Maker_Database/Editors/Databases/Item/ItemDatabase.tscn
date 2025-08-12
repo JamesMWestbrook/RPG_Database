@@ -1,14 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcmcgtkjwv2w1"]
+[gd_scene load_steps=3 format=3 uid="uid://bcmcgtkjwv2w1"]
 
+[ext_resource type="Script" uid="uid://dasda15uveocx" path="res://addons/RPG_Maker_Database/Editors/Databases/Item/item_database.gd" id="1_n1d3n"]
 [ext_resource type="Texture2D" uid="uid://dtmg6im6vp32p" path="res://icon.svg" id="1_txkt2"]
 
-[node name="Items" type="Control"]
+[node name="Items" type="Control" node_paths=PackedStringArray("name_edit", "desc_edit")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_n1d3n")
+name_edit = NodePath("ScrollContainer/BoxContainer/2nd Column/NameEdit")
+desc_edit = NodePath("ScrollContainer/BoxContainer/2nd Column/DescEdit")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1

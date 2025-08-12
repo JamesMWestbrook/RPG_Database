@@ -135,7 +135,30 @@ func _item_buttons():
 func _load_item(index:int):
 	cur_item_index = index
 	var item:Dictionary = items[index]
+	
 	name_edit.text = item.name
+	desc_edit.text = item.desc
+	if item.icon != "":
+		texture.texture =  load(item.icon)
+	item_type_button.select(item.type)
+	price_box.value = item.price
+	consumable_button.select(item.consumable)
+	
+	scope_option_button.select(item.scope_side)
+	number_option_button.select(item.scope_number)
+	random_spin_box.value = item.scope_random
+	occaision_option_button.select(item.occasion)
+	animation_option_button.select(item.animation)
+	
+	speed_spin_box.value = item.speed
+	success_spin_box.value = item.success_rate
+	repeat_spin_box.value = item.repeat
+	tp_gain_spin_box.value = item.tp_gain
+	
+	damage_type_option_button.select(item.damage_type)
+	element_type_option_button.select(item.element)
+	formula_editor.text = item.formula
+	notes_edit.text = item.note
 
 func _on_change_item_max_button_button_down() -> void:
 	items.resize(item_count_spinbox.value)

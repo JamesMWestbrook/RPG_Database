@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dasda15uveocx" path="res://addons/RPG_Maker_Database/Editors/Databases/Item/item_database.gd" id="1_n1d3n"]
 [ext_resource type="Texture2D" uid="uid://dtmg6im6vp32p" path="res://icon.svg" id="1_txkt2"]
 
-[node name="Items" type="Control" node_paths=PackedStringArray("name_edit", "desc_edit")]
+[node name="Items" type="Control" node_paths=PackedStringArray("name_edit", "desc_edit", "texture", "item_type_button", "price_box", "consumable_button", "scope_option_button", "number_option_button", "random_spin_box", "occaision_option_button", "animation_option_button", "speed_spin_box", "success_spin_box", "repeat_spin_box", "tp_gain_spin_box", "damage_type_option_button", "element_type_option_button", "formula_editor", "notes_edit")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,6 +13,23 @@ grow_vertical = 2
 script = ExtResource("1_n1d3n")
 name_edit = NodePath("ScrollContainer/BoxContainer/2nd Column/NameEdit")
 desc_edit = NodePath("ScrollContainer/BoxContainer/2nd Column/DescEdit")
+texture = NodePath("ScrollContainer/BoxContainer/2nd Column/HBoxContainer/IconTexture")
+item_type_button = NodePath("ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/ItemTypeButton")
+price_box = NodePath("ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/PriceBox")
+consumable_button = NodePath("ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/ConsumableButton")
+scope_option_button = NodePath("ScrollContainer/BoxContainer/2nd Column/Scope Row/ScopeContainer/ScopeOptionButton")
+number_option_button = NodePath("ScrollContainer/BoxContainer/2nd Column/Scope Row/NumberColumn/NumberOption")
+random_spin_box = NodePath("ScrollContainer/BoxContainer/2nd Column/Scope Row/NumberColumn/RandomSpinBox")
+occaision_option_button = NodePath("ScrollContainer/BoxContainer/2nd Column/Scope Row/OccasionContainer/OccaisonOptionButton")
+animation_option_button = NodePath("ScrollContainer/BoxContainer/2nd Column/Scope Row/Container5/AnimationOptionButton")
+speed_spin_box = NodePath("ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container/SpeedSpinBox")
+success_spin_box = NodePath("ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container2/SuccessRateSpinBox")
+repeat_spin_box = NodePath("ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container3/RepeatSpinBox")
+tp_gain_spin_box = NodePath("ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container4/TPGainSpinBox")
+damage_type_option_button = NodePath("ScrollContainer/BoxContainer/3rd Column/Row9/Box/DamageTypeOptionButton")
+element_type_option_button = NodePath("ScrollContainer/BoxContainer/3rd Column/Row9/Box2/ElementTypeOptionButton")
+formula_editor = NodePath("ScrollContainer/BoxContainer/3rd Column/FormulaEditor")
+notes_edit = NodePath("ScrollContainer/BoxContainer/3rd Column/NotesTextEdit")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
@@ -49,7 +66,7 @@ max_value = 9999.0
 value = 1.0
 alignment = 1
 
-[node name="ChangeActorMaxButton" type="Button" parent="ScrollContainer/BoxContainer/1st Column/HBoxContainer2"]
+[node name="ChangeItemMaxButton" type="Button" parent="ScrollContainer/BoxContainer/1st Column/HBoxContainer2"]
 layout_mode = 2
 text = "Change Max"
 
@@ -81,7 +98,7 @@ layout_mode = 2
 texture = ExtResource("1_txkt2")
 expand_mode = 2
 
-[node name="Button" type="Button" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer"]
+[node name="TextureButton" type="Button" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer"]
 layout_mode = 2
 text = "Set Icon"
 
@@ -149,7 +166,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/ScopeContainer"]
 layout_mode = 2
-text = "Side"
+text = "Side:"
 
 [node name="ScopeOptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/ScopeContainer"]
 layout_mode = 2
@@ -171,7 +188,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/NumberColumn"]
 layout_mode = 2
-text = "Number"
+text = "Number:"
 
 [node name="NumberOption" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/NumberColumn"]
 layout_mode = 2
@@ -193,9 +210,9 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/OccasionContainer"]
 layout_mode = 2
-text = "Occasion"
+text = "Occasion:"
 
-[node name="OccaisonSpinBox" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/OccasionContainer"]
+[node name="OccaisonOptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/OccasionContainer"]
 layout_mode = 2
 selected = 0
 item_count = 4
@@ -207,6 +224,20 @@ popup/item_2/text = "Always"
 popup/item_2/id = 2
 popup/item_3/text = "Never"
 popup/item_3/id = 3
+
+[node name="Container5" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/Container5"]
+layout_mode = 2
+text = "Animation:              "
+
+[node name="AnimationOptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/Container5"]
+layout_mode = 2
+selected = 0
+item_count = 1
+popup/item_0/text = "None"
+popup/item_0/id = 0
 
 [node name="Invocation" type="HSeparator" parent="ScrollContainer/BoxContainer/2nd Column"]
 layout_mode = 2
@@ -340,6 +371,28 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "Note"
 
-[node name="TextEdit" type="TextEdit" parent="ScrollContainer/BoxContainer/3rd Column"]
+[node name="NotesTextEdit" type="TextEdit" parent="ScrollContainer/BoxContainer/3rd Column"]
 custom_minimum_size = Vector2(0, 206.295)
 layout_mode = 2
+
+[connection signal="button_down" from="ScrollContainer/BoxContainer/1st Column/HBoxContainer/SaveButton" to="." method="_save_json"]
+[connection signal="button_down" from="ScrollContainer/BoxContainer/1st Column/HBoxContainer2/ChangeItemMaxButton" to="." method="_on_change_item_max_button_button_down"]
+[connection signal="button_down" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer/TextureButton" to="." method="_on_texture_button_button_down"]
+[connection signal="text_changed" from="ScrollContainer/BoxContainer/2nd Column/NameEdit" to="." method="_on_name_edit_text_changed"]
+[connection signal="text_changed" from="ScrollContainer/BoxContainer/2nd Column/DescEdit" to="." method="_on_desc_edit_text_changed"]
+[connection signal="item_selected" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/ItemTypeButton" to="." method="_on_item_type_button_item_selected"]
+[connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/PriceBox" to="." method="_on_price_box_value_changed"]
+[connection signal="item_selected" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/ConsumableButton" to="." method="_on_consumable_button_item_selected"]
+[connection signal="item_selected" from="ScrollContainer/BoxContainer/2nd Column/Scope Row/ScopeContainer/ScopeOptionButton" to="." method="_on_scope_option_button_item_selected"]
+[connection signal="item_selected" from="ScrollContainer/BoxContainer/2nd Column/Scope Row/NumberColumn/NumberOption" to="." method="_on_number_option_item_selected"]
+[connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/Scope Row/NumberColumn/RandomSpinBox" to="." method="_on_random_spin_box_value_changed"]
+[connection signal="item_selected" from="ScrollContainer/BoxContainer/2nd Column/Scope Row/OccasionContainer/OccaisonOptionButton" to="." method="_on_occaison_option_button_item_selected"]
+[connection signal="item_selected" from="ScrollContainer/BoxContainer/2nd Column/Scope Row/Container5/AnimationOptionButton" to="." method="_on_animation_option_button_item_selected"]
+[connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container/SpeedSpinBox" to="." method="_on_speed_spin_box_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container2/SuccessRateSpinBox" to="." method="_on_success_rate_spin_box_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container3/RepeatSpinBox" to="." method="_on_repeat_spin_box_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container4/TPGainSpinBox" to="." method="_on_tp_gain_spin_box_value_changed"]
+[connection signal="item_selected" from="ScrollContainer/BoxContainer/3rd Column/Row9/Box/DamageTypeOptionButton" to="." method="_on_damage_type_option_button_item_selected"]
+[connection signal="item_selected" from="ScrollContainer/BoxContainer/3rd Column/Row9/Box2/ElementTypeOptionButton" to="." method="_on_element_type_option_button_item_selected"]
+[connection signal="text_changed" from="ScrollContainer/BoxContainer/3rd Column/FormulaEditor" to="." method="_on_formula_editor_text_changed"]
+[connection signal="text_changed" from="ScrollContainer/BoxContainer/3rd Column/NotesTextEdit" to="." method="_on_notes_text_edit_text_changed"]

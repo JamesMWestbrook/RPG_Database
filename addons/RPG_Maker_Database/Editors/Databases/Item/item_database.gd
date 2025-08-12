@@ -16,6 +16,7 @@ func _ready() -> void:
 	_check_json()
 	await get_tree().process_frame
 	_item_buttons()
+	_load_item(0)
 	
 func _check_json():
 	if FileAccess.file_exists(JSON_SAVE_PATH):
@@ -27,8 +28,7 @@ func _check_json():
 			var new_item:Dictionary = {}
 			items.append(new_item)
 			_check_item(i)
-		_item_buttons()
-		_save_json()
+		#_save_json()
 		
 func _save_json() -> void:
 	var save_data:Dictionary = {

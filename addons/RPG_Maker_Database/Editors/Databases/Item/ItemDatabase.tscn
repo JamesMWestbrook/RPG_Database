@@ -42,7 +42,7 @@ text = "Save"
 [node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/BoxContainer/1st Column"]
 layout_mode = 2
 
-[node name="SkillCountSpinbox" type="SpinBox" parent="ScrollContainer/BoxContainer/1st Column/HBoxContainer2"]
+[node name="ItemCountSpinbox" type="SpinBox" parent="ScrollContainer/BoxContainer/1st Column/HBoxContainer2"]
 layout_mode = 2
 min_value = 1.0
 max_value = 9999.0

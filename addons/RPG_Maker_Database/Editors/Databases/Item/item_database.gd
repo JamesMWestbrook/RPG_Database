@@ -3,6 +3,8 @@ class_name Items
 
 #region
 @onready var items_box: VBoxContainer = $"ScrollContainer/BoxContainer/1st Column/ScrollContainer/ItemsBox"
+@onready var item_count_spinbox: SpinBox = $"ScrollContainer/BoxContainer/1st Column/HBoxContainer2/ItemCountSpinbox"
+
 @export var name_edit:LineEdit
 @export var desc_edit:TextEdit
 #endregion
@@ -28,7 +30,7 @@ func _check_json():
 			var new_item:Dictionary = {}
 			items.append(new_item)
 			_check_item(i)
-		#_save_json()
+		_save_json()
 		
 func _save_json() -> void:
 	var save_data:Dictionary = {
@@ -40,7 +42,15 @@ func _save_json() -> void:
 	ItemsUpdated.emit(items)
 
 func _load_json(file:FileAccess):
-	pass
+	var json_string:String = file.get_as_text()
+	var save_data:Dictionary = JSON.parse_string(json_string)
+	items = save_data["items"]
+	item_count_spinbox.value = items.size()
+	
+	for index in range(items.size()):
+		_check_item(index)
+	
+	ItemsUpdated.emit()
 	
 func _check_item(index:int):
 	if items[index] == null:

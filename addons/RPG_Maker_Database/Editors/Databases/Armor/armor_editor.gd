@@ -117,6 +117,10 @@ func _load_armor(index:int):
 	cur_armor_index = index
 	var armor:Dictionary = armors[cur_armor_index]
 	
+	armor_type_option_button.clear()
+	for type in TypesEditor.type_data[3]:
+		armor_type_option_button.add_item(type)
+	
 	name_edit.text = armor.name
 	desc_edit.text = armor.desc
 	if armor.icon != "":

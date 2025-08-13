@@ -118,7 +118,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
-text = "Weapon Type:"
+text = "Armor Type:"
 
 [node name="ArmorTypeButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
@@ -268,7 +268,7 @@ layout_mode = 2
 [connection signal="item_selected" from="ScrollContainer/BoxContainer/1st Column/ArmorList" to="." method="_load_armor"]
 [connection signal="text_changed" from="ScrollContainer/BoxContainer/2nd Column/NameEdit" to="." method="_on_name_edit_text_changed"]
 [connection signal="text_changed" from="ScrollContainer/BoxContainer/2nd Column/DescEdit" to="." method="_on_desc_edit_text_changed"]
-[connection signal="item_selected" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2/VBoxContainer/ArmorTypeButton" to="." method="_on_weapon_type_button_item_selected"]
+[connection signal="item_selected" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2/VBoxContainer/ArmorTypeButton" to="." method="_on_armor_type_button_item_selected"]
 [connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2/VBoxContainer2/PriceBox" to="." method="_on_price_box_value_changed"]
 [connection signal="item_selected" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2/VBoxContainer3/AnimationButton" to="." method="_on_animation_button_item_selected"]
 [connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/StatRow1/AttackSpinBox" to="." method="_on_attack_spin_box_value_changed"]

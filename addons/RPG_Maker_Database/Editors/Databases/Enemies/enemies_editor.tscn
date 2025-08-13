@@ -103,8 +103,221 @@ grow_vertical = 2
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/BoxContainer/2nd Column"]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
+layout_mode = 2
+
+[node name="StatRow1" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/StatRow1"]
+layout_mode = 2
+text = "Attack:"
+
+[node name="AttackSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/StatRow1"]
+layout_mode = 2
+min_value = 1.0
+max_value = 9999.0
+value = 1.0
+
+[node name="StatRow2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/StatRow2"]
+layout_mode = 2
+text = "Defense:"
+
+[node name="DefenseSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/StatRow2"]
+layout_mode = 2
+min_value = 1.0
+max_value = 9999.0
+value = 1.0
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/VBoxContainer3"]
+layout_mode = 2
+text = "M. Attack:"
+
+[node name="MAttack SpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/VBoxContainer3"]
+layout_mode = 2
+min_value = 1.0
+max_value = 9999.0
+value = 1.0
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/VBoxContainer4"]
+layout_mode = 2
+text = "M. Defense:"
+
+[node name="MDefenseSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/VBoxContainer4"]
+layout_mode = 2
+min_value = 1.0
+max_value = 9999.0
+value = 1.0
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer"]
+layout_mode = 2
+text = "Agility:"
+
+[node name="AgiSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer"]
+layout_mode = 2
+min_value = 1.0
+max_value = 9999.0
+value = 1.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer2"]
+layout_mode = 2
+text = "Luck:"
+
+[node name="LckSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer2"]
+layout_mode = 2
+min_value = 1.0
+max_value = 9999.0
+value = 1.0
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer3"]
+layout_mode = 2
+text = "Max HP:"
+
+[node name="MhpSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer3"]
+layout_mode = 2
+min_value = 1.0
+max_value = 9999.0
+value = 1.0
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer4"]
+layout_mode = 2
+text = "Max MP:"
+
+[node name="MmpSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer4"]
+layout_mode = 2
+min_value = 1.0
+max_value = 9999.0
+value = 1.0
+
+[node name="Label3" type="Label" parent="ScrollContainer/BoxContainer/2nd Column"]
+layout_mode = 2
+text = "Rewards"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "EXP:"
+vertical_alignment = 1
+
+[node name="SpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Gold:"
+vertical_alignment = 1
+
+[node name="SpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "JP:"
+vertical_alignment = 1
+
+[node name="SpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="ScrollContainer/BoxContainer/2nd Column"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
+custom_minimum_size = Vector2(0, 148.875)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/ScrollContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Drop Items:"
+
+[node name="Button" type="Button" parent="ScrollContainer/BoxContainer/2nd Column/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Add Item"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="3rd Column" type="VBoxContainer" parent="ScrollContainer/BoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/3rd Column"]
+layout_mode = 2
+text = "Action Patterns"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ScrollContainer/BoxContainer/3rd Column"]
+custom_minimum_size = Vector2(435, 311.14)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/3rd Column/ScrollContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="ScrollContainer/BoxContainer/3rd Column/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Add Action"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/3rd Column/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="ScrollContainer/BoxContainer/3rd Column"]
+layout_mode = 2
+text = "Traits"
+
+[node name="4th Column" type="VBoxContainer" parent="ScrollContainer/BoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/4th Column"]
+layout_mode = 2
+text = "Note"
+
+[node name="NoteTextEdit" type="TextEdit" parent="ScrollContainer/BoxContainer/4th Column"]
+custom_minimum_size = Vector2(273, 206.295)
+layout_mode = 2
+
 [node name="TextureFileDialog" type="FileDialog" parent="."]
-title = "Open a PNG or scene"
+title = "Open a File"
 ok_button_text = "Open"
 file_mode = 0
 filters = PackedStringArray("*.tscn", "*.png")

@@ -10,6 +10,7 @@ class_name Armors
 @export var name_edit: LineEdit
 @export var desc_edit:TextEdit
 @export var armor_type_option_button:OptionButton
+@export var body_part_option_button:OptionButton
 @export var price_spin_box:SpinBox
 @export var animation_type_option_button:OptionButton
 
@@ -87,6 +88,7 @@ func _check_armor(index:int):
 	armor.icon = ""
 	armor.desc = ""
 	armor.type = 0
+	armor.body_part = 0
 	armor.price = 0
 	armor.animation = 0
 	
@@ -120,7 +122,10 @@ func _load_armor(index:int):
 	armor_type_option_button.clear()
 	for type in TypesEditor.type_data[3]:
 		armor_type_option_button.add_item(type)
-	
+	body_part_option_button.clear()
+	for type in TypesEditor.type_data[4]:
+		body_part_option_button.add_item(type)
+		
 	name_edit.text = armor.name
 	desc_edit.text = armor.desc
 	if armor.icon != "":
@@ -128,6 +133,7 @@ func _load_armor(index:int):
 	else:
 		texture.texture = placeholder_icon
 	armor_type_option_button.select(armor.type)
+	body_part_option_button.select(armor.body_part)
 	price_spin_box.value = armor.price
 	animation_type_option_button.select(armor.animation)
 	
@@ -198,3 +204,7 @@ func _on_mmp_spin_box_value_changed(value: float) -> void:
 
 func _on_note_text_edit_text_changed() -> void:
 	armors[cur_armor_index].note = note_edit.text
+
+
+func _on_body_part_button_item_selected(index: int) -> void:
+	armors[cur_armor_index].body_part = index

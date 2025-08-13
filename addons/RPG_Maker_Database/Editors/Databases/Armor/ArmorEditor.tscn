@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dtmg6im6vp32p" path="res://icon.svg" id="1_3omru"]
 [ext_resource type="Script" uid="uid://csjlldfqo6ese" path="res://addons/RPG_Maker_Database/Editors/Databases/Armor/armor_editor.gd" id="1_lrdbp"]
 
-[node name="Armors" type="Control" node_paths=PackedStringArray("armor_count_spinbox", "armor_item_list", "texture", "name_edit", "desc_edit", "armor_type_option_button", "price_spin_box", "animation_type_option_button", "atk_spin_box", "def_spin_box", "mat_spin_box", "mdef_spin_box", "agi_spin_box", "lck_spin_box", "mhp_spin_box", "mmp_spin_box", "note_edit")]
+[node name="Armors" type="Control" node_paths=PackedStringArray("armor_count_spinbox", "armor_item_list", "texture", "name_edit", "desc_edit", "armor_type_option_button", "body_part_option_button", "price_spin_box", "animation_type_option_button", "atk_spin_box", "def_spin_box", "mat_spin_box", "mdef_spin_box", "agi_spin_box", "lck_spin_box", "mhp_spin_box", "mmp_spin_box", "note_edit")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,6 +18,7 @@ texture = NodePath("ScrollContainer/BoxContainer/2nd Column/HBoxContainer/IconTe
 name_edit = NodePath("ScrollContainer/BoxContainer/2nd Column/NameEdit")
 desc_edit = NodePath("ScrollContainer/BoxContainer/2nd Column/DescEdit")
 armor_type_option_button = NodePath("ScrollContainer/BoxContainer/2nd Column/HBoxContainer2/VBoxContainer/ArmorTypeButton")
+body_part_option_button = NodePath("ScrollContainer/BoxContainer/2nd Column/HBoxContainer2/VBoxContainer4/BodyPartButton")
 price_spin_box = NodePath("ScrollContainer/BoxContainer/2nd Column/HBoxContainer2/VBoxContainer2/PriceBox")
 animation_type_option_button = NodePath("ScrollContainer/BoxContainer/2nd Column/HBoxContainer2/VBoxContainer3/AnimationButton")
 atk_spin_box = NodePath("ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/StatRow1/AttackSpinBox")
@@ -121,6 +122,16 @@ layout_mode = 2
 text = "Armor Type:"
 
 [node name="ArmorTypeButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2/VBoxContainer4"]
+layout_mode = 2
+text = "Body Part:"
+
+[node name="BodyPartButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2/VBoxContainer4"]
 layout_mode = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2"]
@@ -269,6 +280,7 @@ layout_mode = 2
 [connection signal="text_changed" from="ScrollContainer/BoxContainer/2nd Column/NameEdit" to="." method="_on_name_edit_text_changed"]
 [connection signal="text_changed" from="ScrollContainer/BoxContainer/2nd Column/DescEdit" to="." method="_on_desc_edit_text_changed"]
 [connection signal="item_selected" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2/VBoxContainer/ArmorTypeButton" to="." method="_on_armor_type_button_item_selected"]
+[connection signal="item_selected" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2/VBoxContainer4/BodyPartButton" to="." method="_on_body_part_button_item_selected"]
 [connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2/VBoxContainer2/PriceBox" to="." method="_on_price_box_value_changed"]
 [connection signal="item_selected" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2/VBoxContainer3/AnimationButton" to="." method="_on_animation_button_item_selected"]
 [connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/StatRow1/AttackSpinBox" to="." method="_on_attack_spin_box_value_changed"]

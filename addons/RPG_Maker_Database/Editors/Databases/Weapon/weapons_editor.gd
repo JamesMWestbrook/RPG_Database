@@ -114,6 +114,12 @@ func _weapon_buttons():
 		index += 1
 
 func _load_weapon(index:int):
+	
+	weapon_type_option_button.clear()
+	for type in TypesEditor.type_data[2]:
+		weapon_type_option_button.add_item(type)
+	
+	
 	cur_weapon_index = index
 	var weapon:Dictionary = weapons[cur_weapon_index]
 	

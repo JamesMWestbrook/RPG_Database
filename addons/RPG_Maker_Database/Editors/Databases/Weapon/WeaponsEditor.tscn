@@ -1,14 +1,34 @@
-[gd_scene load_steps=2 format=3 uid="uid://dt3xjpi7u8hxf"]
+[gd_scene load_steps=3 format=3 uid="uid://dt3xjpi7u8hxf"]
 
+[ext_resource type="Script" uid="uid://bbl5gg14fy2p6" path="res://addons/RPG_Maker_Database/Editors/Databases/Weapon/weapons_editor.gd" id="1_8u4tl"]
 [ext_resource type="Texture2D" uid="uid://dtmg6im6vp32p" path="res://icon.svg" id="1_xqlhu"]
 
-[node name="Weapons" type="Control"]
+[node name="Weapons" type="Control" node_paths=PackedStringArray("weapon_count_spinbox", "weapon_item_list", "texture", "name_edit", "desc_edit", "weapon_type_option_button", "price_spin_box", "animation_type_option_button", "atk_spin_box", "def_spin_box", "mat_spin_box", "mdef_spin_box", "agi_spin_box", "lck_spin_box", "mhp_spin_box", "mmp_spin_box", "note_edit")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_8u4tl")
+placeholder_icon = ExtResource("1_xqlhu")
+weapon_count_spinbox = NodePath("ScrollContainer/BoxContainer/1st Column/HBoxContainer2/WeaponCountSpinbox")
+weapon_item_list = NodePath("ScrollContainer/BoxContainer/1st Column/WeaponList")
+texture = NodePath("ScrollContainer/BoxContainer/2nd Column/HBoxContainer/IconTexture")
+name_edit = NodePath("ScrollContainer/BoxContainer/2nd Column/NameEdit")
+desc_edit = NodePath("ScrollContainer/BoxContainer/2nd Column/DescEdit")
+weapon_type_option_button = NodePath("ScrollContainer/BoxContainer/2nd Column/HBoxContainer2/VBoxContainer/WeaponTypeButton")
+price_spin_box = NodePath("ScrollContainer/BoxContainer/2nd Column/HBoxContainer2/VBoxContainer2/PriceBox")
+animation_type_option_button = NodePath("ScrollContainer/BoxContainer/2nd Column/HBoxContainer2/VBoxContainer3/AnimationButton")
+atk_spin_box = NodePath("ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/StatRow1/AttackSpinBox")
+def_spin_box = NodePath("ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/StatRow2/DefenseSpinBox")
+mat_spin_box = NodePath("ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/VBoxContainer3/MAttack SpinBox")
+mdef_spin_box = NodePath("ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/VBoxContainer4/MDefenseSpinBox")
+agi_spin_box = NodePath("ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer/AgiSpinBox")
+lck_spin_box = NodePath("ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer2/LckSpinBox")
+mhp_spin_box = NodePath("ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer3/MhpSpinBox")
+mmp_spin_box = NodePath("ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer4/MmpSpinBox")
+note_edit = NodePath("ScrollContainer/BoxContainer/3rd Column/NoteTextEdit")
 metadata/_tab_index = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
@@ -39,25 +59,20 @@ text = "Save"
 [node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/BoxContainer/1st Column"]
 layout_mode = 2
 
-[node name="SkillCountSpinbox" type="SpinBox" parent="ScrollContainer/BoxContainer/1st Column/HBoxContainer2"]
+[node name="WeaponCountSpinbox" type="SpinBox" parent="ScrollContainer/BoxContainer/1st Column/HBoxContainer2"]
 layout_mode = 2
 min_value = 1.0
 max_value = 9999.0
 value = 1.0
 alignment = 1
 
-[node name="ChangeActorMaxButton" type="Button" parent="ScrollContainer/BoxContainer/1st Column/HBoxContainer2"]
+[node name="ChangeWeaponMaxButton" type="Button" parent="ScrollContainer/BoxContainer/1st Column/HBoxContainer2"]
 layout_mode = 2
 text = "Change Max"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="ScrollContainer/BoxContainer/1st Column"]
-custom_minimum_size = Vector2(0, 289.655)
+[node name="WeaponList" type="ItemList" parent="ScrollContainer/BoxContainer/1st Column"]
+custom_minimum_size = Vector2(0, 638.03)
 layout_mode = 2
-
-[node name="ItemsBox" type="VBoxContainer" parent="ScrollContainer/BoxContainer/1st Column/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
 
 [node name="2nd Column" type="VBoxContainer" parent="ScrollContainer/BoxContainer"]
 layout_mode = 2
@@ -147,6 +162,8 @@ text = "Attack:"
 
 [node name="AttackSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/StatRow1"]
 layout_mode = 2
+min_value = -9999.0
+max_value = 9999.0
 
 [node name="StatRow2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3"]
 layout_mode = 2
@@ -157,6 +174,8 @@ text = "Defense:"
 
 [node name="DefenseSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/StatRow2"]
 layout_mode = 2
+min_value = -9999.0
+max_value = 9999.0
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3"]
 layout_mode = 2
@@ -167,6 +186,8 @@ text = "M. Attack:"
 
 [node name="MAttack SpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/VBoxContainer3"]
 layout_mode = 2
+min_value = -9999.0
+max_value = 9999.0
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3"]
 layout_mode = 2
@@ -177,6 +198,8 @@ text = "M. Defense:"
 
 [node name="MDefenseSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/VBoxContainer4"]
 layout_mode = 2
+min_value = -9999.0
+max_value = 9999.0
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
 layout_mode = 2
@@ -188,8 +211,10 @@ layout_mode = 2
 layout_mode = 2
 text = "Agility:"
 
-[node name="SpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer"]
+[node name="AgiSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer"]
 layout_mode = 2
+min_value = -9999.0
+max_value = 9999.0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4"]
 layout_mode = 2
@@ -198,8 +223,10 @@ layout_mode = 2
 layout_mode = 2
 text = "Luck:"
 
-[node name="SpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer2"]
+[node name="LckSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer2"]
 layout_mode = 2
+min_value = -9999.0
+max_value = 9999.0
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4"]
 layout_mode = 2
@@ -208,8 +235,10 @@ layout_mode = 2
 layout_mode = 2
 text = "Max HP:"
 
-[node name="SpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer3"]
+[node name="MhpSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer3"]
 layout_mode = 2
+min_value = -9999.0
+max_value = 9999.0
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4"]
 layout_mode = 2
@@ -218,8 +247,10 @@ layout_mode = 2
 layout_mode = 2
 text = "Max MP:"
 
-[node name="SpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer4"]
+[node name="MmpSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer4"]
 layout_mode = 2
+min_value = -9999.0
+max_value = 9999.0
 
 [node name="3rd Column" type="VBoxContainer" parent="ScrollContainer/BoxContainer"]
 layout_mode = 2
@@ -228,6 +259,24 @@ layout_mode = 2
 layout_mode = 2
 text = "Note"
 
-[node name="TextEdit" type="TextEdit" parent="ScrollContainer/BoxContainer/3rd Column"]
+[node name="NoteTextEdit" type="TextEdit" parent="ScrollContainer/BoxContainer/3rd Column"]
 custom_minimum_size = Vector2(273, 206.295)
 layout_mode = 2
+
+[connection signal="button_down" from="ScrollContainer/BoxContainer/1st Column/HBoxContainer/SaveButton" to="." method="_save_json"]
+[connection signal="button_down" from="ScrollContainer/BoxContainer/1st Column/HBoxContainer2/ChangeWeaponMaxButton" to="." method="_on_change_actor_max_button_button_down"]
+[connection signal="item_selected" from="ScrollContainer/BoxContainer/1st Column/WeaponList" to="." method="_load_weapon"]
+[connection signal="text_changed" from="ScrollContainer/BoxContainer/2nd Column/NameEdit" to="." method="_on_name_edit_text_changed"]
+[connection signal="text_changed" from="ScrollContainer/BoxContainer/2nd Column/DescEdit" to="." method="_on_desc_edit_text_changed"]
+[connection signal="item_selected" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2/VBoxContainer/WeaponTypeButton" to="." method="_on_weapon_type_button_item_selected"]
+[connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2/VBoxContainer2/PriceBox" to="." method="_on_price_box_value_changed"]
+[connection signal="item_selected" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2/VBoxContainer3/AnimationButton" to="." method="_on_animation_button_item_selected"]
+[connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/StatRow1/AttackSpinBox" to="." method="_on_attack_spin_box_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/StatRow2/DefenseSpinBox" to="." method="_on_defense_spin_box_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/VBoxContainer3/MAttack SpinBox" to="." method="_on_m_attack_spin_box_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/VBoxContainer4/MDefenseSpinBox" to="." method="_on_m_defense_spin_box_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer/AgiSpinBox" to="." method="_on_agi_spin_box_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer2/LckSpinBox" to="." method="_on_lck_spin_box_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer3/MhpSpinBox" to="." method="_on_mhp_spin_box_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer4/MmpSpinBox" to="." method="_on_mmp_spin_box_value_changed"]
+[connection signal="text_changed" from="ScrollContainer/BoxContainer/3rd Column/NoteTextEdit" to="." method="_on_note_text_edit_text_changed"]

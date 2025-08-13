@@ -65,18 +65,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 1
+current_tab = 2
 
 [node name="Skills" parent="Objects/ObjTabContainer" instance=ExtResource("4_bqmk1")]
 visible = false
 layout_mode = 2
 
 [node name="Items" parent="Objects/ObjTabContainer" instance=ExtResource("5_p7gfg")]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
 [node name="Weapons" parent="Objects/ObjTabContainer" instance=ExtResource("6_k6y1p")]
-visible = false
 layout_mode = 2
 
 [node name="Armors" parent="Objects/ObjTabContainer" instance=ExtResource("7_8plf8")]
@@ -140,8 +140,11 @@ metadata/_tab_index = 5
 
 [node name="TabContainer" type="TabContainer" parent="System"]
 layout_mode = 1
-offset_right = 705.0
-offset_bottom = 614.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 current_tab = 2
 
 [node name="Config" type="Control" parent="System/TabContainer"]

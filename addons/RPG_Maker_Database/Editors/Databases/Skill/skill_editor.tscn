@@ -440,6 +440,7 @@ text = "Element:"
 [node name="ElementTypeOptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/3rd Column/Row9/Box2"]
 layout_mode = 2
 tooltip_text = "Normal = whatever element the user is attuned to. "
+selected = 0
 item_count = 1
 popup/item_0/text = "Normal Attack"
 popup/item_0/id = 0

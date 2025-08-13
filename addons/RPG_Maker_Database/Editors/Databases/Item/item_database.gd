@@ -99,7 +99,7 @@ func _check_item(index:int):
 	item.tp_gain = 0
 	
 	item.damage_type = 0
-	item.element = 0
+	item.element = 1
 	item.formula = ""
 	item.note = ""
 	
@@ -135,6 +135,12 @@ func _item_buttons():
 func _load_item(index:int):
 	cur_item_index = index
 	var item:Dictionary = items[index]
+	
+	element_type_option_button.clear()
+	element_type_option_button.add_item("Normal")
+	element_type_option_button.add_item("None")
+	for type:String in TypesEditor.type_data[0]:
+		element_type_option_button.add_item(type)
 	
 	name_edit.text = item.name
 	desc_edit.text = item.desc

@@ -134,8 +134,8 @@ func _load_skill(index:int):
 		random_spin_box.value = 1
 	occaison_spin_box.select(skill.occasion)
 	
-	weapon_one_option_button.select(skill.weapon_type_one + 1)
-	weapon_two_option_button.select(skill.weapon_type_two + 1)
+	weapon_one_option_button.select(skill.weapon_type_one)
+	weapon_two_option_button.select(skill.weapon_type_two)
 	
 	speed_spin_box.value = skill.speed
 	success_rate_spin_box.value = skill.success_rate
@@ -147,7 +147,7 @@ func _load_skill(index:int):
 	message_edit.text = skill.message
 	
 	damage_type_option_button.select(skill.damage_type)
-	element_type_option_button.select(skill.element + 2)
+	element_type_option_button.select(skill.element)
 	formula_editor.text = skill.damage_formula
 	
 	
@@ -185,7 +185,7 @@ func _check_skill(index:int): #Not assigning Dictionary as type since null is so
 		skills[index].weapon_type_two = -1
 		
 		skills[index].damage_type = 0
-		skills[index].element = 0
+		skills[index].element = 1
 		skills[index].damage_formula = "a.atk * 4 - b.def * 2"
 		
 		#effects are not yet implemented
@@ -269,10 +269,10 @@ func _on_occaison_spin_box_item_selected(index: int) -> void:
 #these subtract 1 bc there is an extra item inserted at start to account for "None"
 #Loading this will add 1 to counteract it
 func _on_weapon_one_option_button_item_selected(index: int) -> void:
-	skills[cur_skill_index].weapon_type_one = index - 1
+	skills[cur_skill_index].weapon_type_one = index
 
 func _on_weapon_two_option_button_item_selected(index: int) -> void:
-	skills[cur_skill_index].weapon_type_two = index - 1
+	skills[cur_skill_index].weapon_type_two = index
 
 func _on_speed_spin_box_value_changed(value: float) -> void:
 	skills[cur_skill_index].speed = value
@@ -299,7 +299,7 @@ func _on_damage_type_option_button_item_selected(index: int) -> void:
 	skills[cur_skill_index].damage_type = index
 
 func _on_element_type_option_button_item_selected(index: int) -> void:
-	skills[cur_skill_index].element = index - 2
+	skills[cur_skill_index].element = index
 
 func _on_formula_editor_text_changed() -> void:
 	skills[cur_skill_index].damage_formula = formula_editor.text

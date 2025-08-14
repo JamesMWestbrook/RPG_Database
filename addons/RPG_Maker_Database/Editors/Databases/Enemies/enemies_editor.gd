@@ -86,14 +86,14 @@ func _check_enemy(index:int):
 	enemy.texture = ""
 	enemy.desc = ""
 	
-	enemy.atk = 0
-	enemy.def = 0
-	enemy.mat = 0
-	enemy.mdef = 0
-	enemy.agi = 0
-	enemy.lck = 0
-	enemy.mhp = 0
-	enemy.mmp = 0
+	enemy.atk = 1
+	enemy.def = 1
+	enemy.mat = 1
+	enemy.mdef = 1
+	enemy.agi = 1
+	enemy.lck = 1
+	enemy.mhp = 1
+	enemy.mmp = 1
 	
 	enemy.exp = 0
 	enemy.gold = 0
@@ -209,3 +209,7 @@ func _on_note_text_edit_text_changed() -> void:
 
 func _on_desc_text_edit_text_changed() -> void:
 	enemies[cur_enemy_index].desc = desc_edit.text
+
+
+func _on_action_container_updated_actions(_actions: Variant) -> void:
+	enemies[cur_enemy_index].actions = _actions

@@ -1,4 +1,5 @@
 extends Control
+class_name Switches
 
 const SAVE_PATH = "res://data/switches.json"
 @export var switch_scene:PackedScene
@@ -9,7 +10,7 @@ const SAVE_PATH = "res://data/switches.json"
 
 var max_amount = 20
 var switch_default_values = []
-var switch_names = []
+static var switch_names = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if FileAccess.file_exists(SAVE_PATH):

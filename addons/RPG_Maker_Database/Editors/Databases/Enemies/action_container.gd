@@ -7,15 +7,31 @@ var actions:Array
 
 signal UpdatedActions(actions)
 
+
+func _load(new_actions:Array):
+	actions = new_actions
+	
+	_clear()
+	
+	for a:Dictionary in actions:
+		var new_action:EnemyAction = _on_add_action_button_button_down()
+		new_action._load(a)
+		
+func _clear():
+	for i in action_list.get_children():
+		action_list.remove_child(i)
+		i.queue_free()
+
 func _on_add_action_button_button_down() -> EnemyAction:
 	var new_action = ENEMY_ACTION.instantiate()
 	new_action.action_updated.connect(_update_list)
 	action_list.add_child(new_action)
+	#_update_list()
 	return new_action
 	
 func _update_list():
 	actions.clear()
-	for action:EnemyAction in action_list.get_children():
+	for action in action_list.get_children():
 		var new_action:Dictionary
 		new_action.chosen_skill = action.chosen_skill
 		new_action.rating = action.rating

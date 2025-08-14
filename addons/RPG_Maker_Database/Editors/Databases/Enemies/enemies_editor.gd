@@ -24,6 +24,9 @@ extends Control
 
 @export var note_edit:TextEdit
 @export var desc_edit:TextEdit
+
+@onready var action_container: VBoxContainer = $"ScrollContainer/BoxContainer/3rd Column/ScrollContainer/ActionContainer"
+
 #endregion
 
 const JSON_SAVE_PATH:String = "res://data/enemies.json"
@@ -102,6 +105,8 @@ func _check_enemy(index:int):
 	enemy.note = ""
 	enemy.desc = ""
 	
+	enemy.actions = []
+	
 	enemies[index] = enemy
 
 func _enemy_buttons():
@@ -140,6 +145,8 @@ func _load_enemy(index:int):
 	
 	note_edit.text = enemy.note
 	desc_edit.text = enemy.desc
+
+	action_container._load(enemy.actions)
 
 func _on_name_edit_text_changed(new_text: String) -> void:
 	enemies[cur_enemy_index].name = new_text

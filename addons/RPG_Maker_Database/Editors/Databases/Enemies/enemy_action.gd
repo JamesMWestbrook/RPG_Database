@@ -69,7 +69,7 @@ func _load(action:Dictionary):
 func _load_skills():
 	skill_option.clear()
 	for skill in SkillEditor.skills:
-		skill_option.add_item(skill.name)
+		skill_option.add_item("Skill: " + skill.name)
 func _load_states():
 	pass
 func _on_option_button_item_selected(index: int, loading:bool = false) -> void:

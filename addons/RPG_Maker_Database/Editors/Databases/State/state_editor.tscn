@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://0o7cxqncf2l2" path="res://addons/RPG_Maker_Database/Editors/Databases/trait_container.tscn" id="1_vhlb7"]
 [ext_resource type="Script" uid="uid://cf8k7x0uyvoh4" path="res://addons/RPG_Maker_Database/Editors/Databases/State/state_editor.gd" id="1_x83wl"]
 
-[node name="StateEditor" type="Control"]
+[node name="StateEditor" type="Control" node_paths=PackedStringArray("state_count_spinbox", "states_item_list", "name_line_edit", "restriction_button", "priority_spin_box", "sv_motion_button", "sv_overlay_button", "battle_end_checkbox", "restriction_checkbox", "auto_removal_button", "lower_turn_spin", "max_turn_spin", "via_damage_checkbox", "damage_spin_box", "via_walking_checkbox", "walking_spin_box", "actor_inflicted_edit", "state_persist_edit", "state_removed_edit")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,101 +11,121 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_x83wl")
+state_count_spinbox = NodePath("ScrollContainer/BoxContainer/Column1/StateCountSpinbox")
+states_item_list = NodePath("ScrollContainer/BoxContainer/Column1/StatesItemList")
+name_line_edit = NodePath("ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox2/NameLineEdit")
+restriction_button = NodePath("ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox4/RestrictionButton")
+priority_spin_box = NodePath("ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox4/PrioritySpinBox")
+sv_motion_button = NodePath("ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox6/SvMotionButton")
+sv_overlay_button = NodePath("ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox6/SvOverlayButton")
+battle_end_checkbox = NodePath("ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox7/BattleEndCheckbox")
+restriction_checkbox = NodePath("ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox7/RestrictionCheckbox")
+auto_removal_button = NodePath("ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox8/AutoRemovalButton")
+lower_turn_spin = NodePath("ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox9/LowerTurnSpin")
+max_turn_spin = NodePath("ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox9/MaxTurnSpin")
+via_damage_checkbox = NodePath("ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox10/ViaDamageCheckbox")
+damage_spin_box = NodePath("ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox10/DamageSpinBox")
+via_walking_checkbox = NodePath("ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox11/ViaWalkingCheckbox")
+walking_spin_box = NodePath("ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox11/WalkingSpinBox")
+actor_inflicted_edit = NodePath("ScrollContainer/BoxContainer/Column2Scroll/VBox/ActorInflictedEdit")
+state_persist_edit = NodePath("ScrollContainer/BoxContainer/Column2Scroll/VBox/StatePersistEdit")
+state_removed_edit = NodePath("ScrollContainer/BoxContainer/Column2Scroll/VBox/StateRemovedEdit")
 
-[node name="BoxContainer" type="BoxContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = -217.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Column1" type="VBoxContainer" parent="BoxContainer"]
+[node name="BoxContainer" type="BoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Column1" type="VBoxContainer" parent="ScrollContainer/BoxContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="BoxContainer/Column1"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/BoxContainer/Column1"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="BoxContainer/Column1/HBoxContainer"]
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/Column1/HBoxContainer"]
 layout_mode = 2
 text = "States"
 
-[node name="SaveButton" type="Button" parent="BoxContainer/Column1/HBoxContainer"]
+[node name="SaveButton" type="Button" parent="ScrollContainer/BoxContainer/Column1/HBoxContainer"]
 layout_mode = 2
 text = "Save"
 
-[node name="ActorCountSpinbox" type="SpinBox" parent="BoxContainer/Column1"]
+[node name="StateCountSpinbox" type="SpinBox" parent="ScrollContainer/BoxContainer/Column1"]
 layout_mode = 2
 value = 5.0
 update_on_text_changed = true
 
-[node name="ChangeActorMaxButton" type="Button" parent="BoxContainer/Column1"]
+[node name="ChangeActorMaxButton" type="Button" parent="ScrollContainer/BoxContainer/Column1"]
 layout_mode = 2
 text = "Change Max"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="BoxContainer/Column1"]
-custom_minimum_size = Vector2(0, 268.33)
-layout_mode = 2
-
-[node name="StatesVBox" type="VBoxContainer" parent="BoxContainer/Column1/ScrollContainer"]
+[node name="StatesItemList" type="ItemList" parent="ScrollContainer/BoxContainer/Column1"]
+custom_minimum_size = Vector2(150.725, 601.215)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
-[node name="Column2Scroll" type="ScrollContainer" parent="BoxContainer"]
+[node name="Column2Scroll" type="ScrollContainer" parent="ScrollContainer/BoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBox" type="VBoxContainer" parent="BoxContainer/Column2Scroll"]
+[node name="VBox" type="VBoxContainer" parent="ScrollContainer/BoxContainer/Column2Scroll"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="BoxContainer/Column2Scroll/VBox"]
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox"]
 layout_mode = 2
 text = "General Settings"
 
-[node name="HBox" type="HBoxContainer" parent="BoxContainer/Column2Scroll/VBox"]
+[node name="HBox" type="HBoxContainer" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox"]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="BoxContainer/Column2Scroll/VBox/HBox"]
+[node name="Label2" type="Label" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox"]
 layout_mode = 2
 text = "Name:"
 
-[node name="TextureRect" type="TextureRect" parent="BoxContainer/Column2Scroll/VBox/HBox"]
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox"]
 custom_minimum_size = Vector2(147.125, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="BoxContainer/Column2Scroll/VBox/HBox"]
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox"]
 layout_mode = 2
 text = "Icon:"
 
-[node name="HBox2" type="HBoxContainer" parent="BoxContainer/Column2Scroll/VBox"]
+[node name="HBox2" type="HBoxContainer" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox"]
 layout_mode = 2
 
-[node name="NameLineEdit" type="LineEdit" parent="BoxContainer/Column2Scroll/VBox/HBox2"]
+[node name="NameLineEdit" type="LineEdit" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox2"]
 custom_minimum_size = Vector2(204.935, 0)
 layout_mode = 2
 
-[node name="HBox3" type="HBoxContainer" parent="BoxContainer/Column2Scroll/VBox"]
+[node name="HBox3" type="HBoxContainer" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="BoxContainer/Column2Scroll/VBox/HBox3"]
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox3"]
 layout_mode = 2
 text = "Restriction:"
 
-[node name="TextureRect" type="TextureRect" parent="BoxContainer/Column2Scroll/VBox/HBox3"]
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox3"]
 custom_minimum_size = Vector2(111.285, 0)
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="BoxContainer/Column2Scroll/VBox/HBox3"]
+[node name="Label2" type="Label" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox3"]
 layout_mode = 2
 text = "Priority:"
 
-[node name="HBox4" type="HBoxContainer" parent="BoxContainer/Column2Scroll/VBox"]
+[node name="HBox4" type="HBoxContainer" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox"]
 layout_mode = 2
 
-[node name="RestrictionButton" type="OptionButton" parent="BoxContainer/Column2Scroll/VBox/HBox4"]
+[node name="RestrictionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox4"]
 layout_mode = 2
 selected = 0
 item_count = 5
@@ -120,33 +140,33 @@ popup/item_3/id = 3
 popup/item_4/text = "Cannot move"
 popup/item_4/id = 4
 
-[node name="TextureRect" type="TextureRect" parent="BoxContainer/Column2Scroll/VBox/HBox4"]
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox4"]
 custom_minimum_size = Vector2(34.885, 0)
 layout_mode = 2
 
-[node name="PrioritySpinBox" type="SpinBox" parent="BoxContainer/Column2Scroll/VBox/HBox4"]
+[node name="PrioritySpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox4"]
 layout_mode = 2
 value = 100.0
 
-[node name="HBox5" type="HBoxContainer" parent="BoxContainer/Column2Scroll/VBox"]
+[node name="HBox5" type="HBoxContainer" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="BoxContainer/Column2Scroll/VBox/HBox5"]
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox5"]
 layout_mode = 2
 text = "[SV] Motion:"
 
-[node name="TextureRect" type="TextureRect" parent="BoxContainer/Column2Scroll/VBox/HBox5"]
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox5"]
 custom_minimum_size = Vector2(101.58, 0)
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="BoxContainer/Column2Scroll/VBox/HBox5"]
+[node name="Label2" type="Label" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox5"]
 layout_mode = 2
 text = "[SV] Overlay:"
 
-[node name="HBox6" type="HBoxContainer" parent="BoxContainer/Column2Scroll/VBox"]
+[node name="HBox6" type="HBoxContainer" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox"]
 layout_mode = 2
 
-[node name="SvMotionButton" type="OptionButton" parent="BoxContainer/Column2Scroll/VBox/HBox6"]
+[node name="SvMotionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox6"]
 layout_mode = 2
 selected = 0
 item_count = 5
@@ -161,40 +181,40 @@ popup/item_3/id = 3
 popup/item_4/text = "NOTIMPLEMENTEDYET"
 popup/item_4/id = 4
 
-[node name="SvOverlayButton" type="OptionButton" parent="BoxContainer/Column2Scroll/VBox/HBox6"]
+[node name="SvOverlayButton" type="OptionButton" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox6"]
 layout_mode = 2
 selected = 0
 item_count = 1
 popup/item_0/text = "list of bubble icons"
 popup/item_0/id = 0
 
-[node name="HSeparator" type="HSeparator" parent="BoxContainer/Column2Scroll/VBox"]
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox"]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="BoxContainer/Column2Scroll/VBox"]
+[node name="Label2" type="Label" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox"]
 layout_mode = 2
 text = "Removal Conditions"
 
-[node name="HBox7" type="HBoxContainer" parent="BoxContainer/Column2Scroll/VBox"]
+[node name="HBox7" type="HBoxContainer" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox"]
 layout_mode = 2
 
-[node name="BattleEndCheckbox" type="CheckBox" parent="BoxContainer/Column2Scroll/VBox/HBox7"]
+[node name="BattleEndCheckbox" type="CheckBox" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox7"]
 layout_mode = 2
 text = "Remove at Battle End
 "
 
-[node name="RestrictionCheckbox" type="CheckBox" parent="BoxContainer/Column2Scroll/VBox/HBox7"]
+[node name="RestrictionCheckbox" type="CheckBox" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox7"]
 layout_mode = 2
 text = "Remove by Restriction"
 
-[node name="HBox8" type="HBoxContainer" parent="BoxContainer/Column2Scroll/VBox"]
+[node name="HBox8" type="HBoxContainer" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="BoxContainer/Column2Scroll/VBox/HBox8"]
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox8"]
 layout_mode = 2
 text = "Auto-removal Timing:"
 
-[node name="AutoRemovalButton" type="OptionButton" parent="BoxContainer/Column2Scroll/VBox/HBox8"]
+[node name="AutoRemovalButton" type="OptionButton" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox8"]
 layout_mode = 2
 selected = 0
 item_count = 3
@@ -205,122 +225,123 @@ popup/item_1/id = 1
 popup/item_2/text = "Turn End"
 popup/item_2/id = 2
 
-[node name="HBox9" type="HBoxContainer" parent="BoxContainer/Column2Scroll/VBox"]
+[node name="HBox9" type="HBoxContainer" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="BoxContainer/Column2Scroll/VBox/HBox9"]
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox9"]
 layout_mode = 2
 text = "Duration in Turns:"
 
-[node name="LowerTurnSpin" type="SpinBox" parent="BoxContainer/Column2Scroll/VBox/HBox9"]
+[node name="LowerTurnSpin" type="SpinBox" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox9"]
 layout_mode = 2
 editable = false
 update_on_text_changed = true
 
-[node name="Label2" type="Label" parent="BoxContainer/Column2Scroll/VBox/HBox9"]
+[node name="Label2" type="Label" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox9"]
 layout_mode = 2
 text = "~"
 
-[node name="MaxTurnSpin" type="SpinBox" parent="BoxContainer/Column2Scroll/VBox/HBox9"]
+[node name="MaxTurnSpin" type="SpinBox" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox9"]
 layout_mode = 2
 editable = false
 update_on_text_changed = true
 
-[node name="HBox10" type="HBoxContainer" parent="BoxContainer/Column2Scroll/VBox"]
+[node name="HBox10" type="HBoxContainer" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox"]
 layout_mode = 2
 
-[node name="ViaDamageCheckbox" type="CheckBox" parent="BoxContainer/Column2Scroll/VBox/HBox10"]
+[node name="ViaDamageCheckbox" type="CheckBox" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox10"]
 layout_mode = 2
 text = "Remove by Damage"
 
-[node name="DamageSpinBox" type="SpinBox" parent="BoxContainer/Column2Scroll/VBox/HBox10"]
+[node name="DamageSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox10"]
 layout_mode = 2
 editable = false
 
-[node name="HBox11" type="HBoxContainer" parent="BoxContainer/Column2Scroll/VBox"]
+[node name="HBox11" type="HBoxContainer" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox"]
 layout_mode = 2
 
-[node name="ViaWalkingCheckbox" type="CheckBox" parent="BoxContainer/Column2Scroll/VBox/HBox11"]
+[node name="ViaWalkingCheckbox" type="CheckBox" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox11"]
 layout_mode = 2
 text = "Remove by Walking"
 
-[node name="WalkingSpinBox" type="SpinBox" parent="BoxContainer/Column2Scroll/VBox/HBox11"]
+[node name="WalkingSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox11"]
 layout_mode = 2
 editable = false
 
-[node name="Label" type="Label" parent="BoxContainer/Column2Scroll/VBox/HBox11"]
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox11"]
 layout_mode = 2
 text = "steps"
 
-[node name="HSeparator2" type="HSeparator" parent="BoxContainer/Column2Scroll/VBox"]
+[node name="HSeparator2" type="HSeparator" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox"]
 layout_mode = 2
 
-[node name="Label3" type="Label" parent="BoxContainer/Column2Scroll/VBox"]
+[node name="Label3" type="Label" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox"]
 layout_mode = 2
 text = "Messages"
 
-[node name="Label4" type="Label" parent="BoxContainer/Column2Scroll/VBox"]
+[node name="Label4" type="Label" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox"]
 layout_mode = 2
 text = "If an actor is inflicted with the state:"
 
-[node name="ActorInflictedEdit" type="LineEdit" parent="BoxContainer/Column2Scroll/VBox"]
+[node name="ActorInflictedEdit" type="LineEdit" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox"]
 layout_mode = 2
 
-[node name="Label5" type="Label" parent="BoxContainer/Column2Scroll/VBox"]
+[node name="Label5" type="Label" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox"]
 layout_mode = 2
 text = "If an enemy is inflicted with the state:"
 
-[node name="EnemyInflictedEdit" type="LineEdit" parent="BoxContainer/Column2Scroll/VBox"]
+[node name="EnemyInflictedEdit" type="LineEdit" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox"]
 layout_mode = 2
 
-[node name="Label6" type="Label" parent="BoxContainer/Column2Scroll/VBox"]
+[node name="Label6" type="Label" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox"]
 layout_mode = 2
 text = "If the state persists:"
 
-[node name="StatePersistEdit" type="LineEdit" parent="BoxContainer/Column2Scroll/VBox"]
+[node name="StatePersistEdit" type="LineEdit" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox"]
 layout_mode = 2
 
-[node name="Label7" type="Label" parent="BoxContainer/Column2Scroll/VBox"]
+[node name="Label7" type="Label" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox"]
 layout_mode = 2
 text = "If the state is removed:"
 
-[node name="StateRemovedEdit" type="LineEdit" parent="BoxContainer/Column2Scroll/VBox"]
+[node name="StateRemovedEdit" type="LineEdit" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox"]
 layout_mode = 2
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="BoxContainer/Column2Scroll/VBox"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox"]
 layout_mode = 2
 alignment = 1
 
-[node name="TraitsLabel" type="Label" parent="BoxContainer/Column2Scroll/VBox/HBoxContainer4"]
+[node name="TraitsLabel" type="Label" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBoxContainer4"]
 layout_mode = 2
 text = "Traits"
 
-[node name="AddTraitButton" type="Button" parent="BoxContainer/Column2Scroll/VBox/HBoxContainer4"]
+[node name="AddTraitButton" type="Button" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBoxContainer4"]
 layout_mode = 2
 text = "+"
 
-[node name="TraitContainer" parent="BoxContainer/Column2Scroll/VBox" instance=ExtResource("1_vhlb7")]
+[node name="TraitContainer" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox" instance=ExtResource("1_vhlb7")]
 layout_mode = 2
 
-[connection signal="button_down" from="BoxContainer/Column1/HBoxContainer/SaveButton" to="." method="_save_json"]
-[connection signal="button_down" from="BoxContainer/Column1/ChangeActorMaxButton" to="." method="_on_change_actor_max_button_button_down"]
-[connection signal="text_changed" from="BoxContainer/Column2Scroll/VBox/HBox2/NameLineEdit" to="." method="_on_name_line_edit_text_changed"]
-[connection signal="item_selected" from="BoxContainer/Column2Scroll/VBox/HBox4/RestrictionButton" to="." method="_on_restriction_button_item_selected"]
-[connection signal="value_changed" from="BoxContainer/Column2Scroll/VBox/HBox4/PrioritySpinBox" to="." method="_on_priority_spin_box_value_changed"]
-[connection signal="item_selected" from="BoxContainer/Column2Scroll/VBox/HBox6/SvMotionButton" to="." method="_on_sv_motion_button_item_selected"]
-[connection signal="item_selected" from="BoxContainer/Column2Scroll/VBox/HBox6/SvOverlayButton" to="." method="_on_sv_overlay_button_item_selected"]
-[connection signal="toggled" from="BoxContainer/Column2Scroll/VBox/HBox7/BattleEndCheckbox" to="." method="_on_battle_end_checkbox_toggled"]
-[connection signal="toggled" from="BoxContainer/Column2Scroll/VBox/HBox7/RestrictionCheckbox" to="." method="_on_restriction_checkbox_toggled"]
-[connection signal="item_selected" from="BoxContainer/Column2Scroll/VBox/HBox8/AutoRemovalButton" to="." method="_on_auto_removal_button_item_selected"]
-[connection signal="value_changed" from="BoxContainer/Column2Scroll/VBox/HBox9/LowerTurnSpin" to="." method="_on_lower_turn_spin_value_changed"]
-[connection signal="value_changed" from="BoxContainer/Column2Scroll/VBox/HBox9/MaxTurnSpin" to="." method="_on_max_turn_spin_value_changed"]
-[connection signal="toggled" from="BoxContainer/Column2Scroll/VBox/HBox10/ViaDamageCheckbox" to="." method="_on_via_damage_checkbox_toggled"]
-[connection signal="value_changed" from="BoxContainer/Column2Scroll/VBox/HBox10/DamageSpinBox" to="." method="_on_damage_spin_box_value_changed"]
-[connection signal="toggled" from="BoxContainer/Column2Scroll/VBox/HBox11/ViaWalkingCheckbox" to="." method="_on_via_walking_checkbox_toggled"]
-[connection signal="value_changed" from="BoxContainer/Column2Scroll/VBox/HBox11/WalkingSpinBox" to="." method="_on_walking_spin_box_value_changed"]
-[connection signal="text_changed" from="BoxContainer/Column2Scroll/VBox/ActorInflictedEdit" to="." method="_on_actor_inflicted_edit_text_changed"]
-[connection signal="text_changed" from="BoxContainer/Column2Scroll/VBox/EnemyInflictedEdit" to="." method="_on_enemy_inflicted_edit_text_changed"]
-[connection signal="text_changed" from="BoxContainer/Column2Scroll/VBox/StatePersistEdit" to="." method="_on_state_persist_edit_text_changed"]
-[connection signal="text_changed" from="BoxContainer/Column2Scroll/VBox/StateRemovedEdit" to="." method="_on_state_removed_edit_text_changed"]
-[connection signal="button_down" from="BoxContainer/Column2Scroll/VBox/HBoxContainer4/AddTraitButton" to="BoxContainer/Column2Scroll/VBox/TraitContainer" method="_add_new"]
-[connection signal="UpdatedTraits" from="BoxContainer/Column2Scroll/VBox/TraitContainer" to="." method="_on_trait_container_updated_traits"]
+[connection signal="button_down" from="ScrollContainer/BoxContainer/Column1/HBoxContainer/SaveButton" to="." method="_save_json"]
+[connection signal="button_down" from="ScrollContainer/BoxContainer/Column1/ChangeActorMaxButton" to="." method="_on_change_actor_max_button_button_down"]
+[connection signal="item_selected" from="ScrollContainer/BoxContainer/Column1/StatesItemList" to="." method="_load_state"]
+[connection signal="text_changed" from="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox2/NameLineEdit" to="." method="_on_name_line_edit_text_changed"]
+[connection signal="item_selected" from="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox4/RestrictionButton" to="." method="_on_restriction_button_item_selected"]
+[connection signal="value_changed" from="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox4/PrioritySpinBox" to="." method="_on_priority_spin_box_value_changed"]
+[connection signal="item_selected" from="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox6/SvMotionButton" to="." method="_on_sv_motion_button_item_selected"]
+[connection signal="item_selected" from="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox6/SvOverlayButton" to="." method="_on_sv_overlay_button_item_selected"]
+[connection signal="toggled" from="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox7/BattleEndCheckbox" to="." method="_on_battle_end_checkbox_toggled"]
+[connection signal="toggled" from="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox7/RestrictionCheckbox" to="." method="_on_restriction_checkbox_toggled"]
+[connection signal="item_selected" from="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox8/AutoRemovalButton" to="." method="_on_auto_removal_button_item_selected"]
+[connection signal="value_changed" from="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox9/LowerTurnSpin" to="." method="_on_lower_turn_spin_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox9/MaxTurnSpin" to="." method="_on_max_turn_spin_value_changed"]
+[connection signal="toggled" from="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox10/ViaDamageCheckbox" to="." method="_on_via_damage_checkbox_toggled"]
+[connection signal="value_changed" from="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox10/DamageSpinBox" to="." method="_on_damage_spin_box_value_changed"]
+[connection signal="toggled" from="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox11/ViaWalkingCheckbox" to="." method="_on_via_walking_checkbox_toggled"]
+[connection signal="value_changed" from="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBox11/WalkingSpinBox" to="." method="_on_walking_spin_box_value_changed"]
+[connection signal="text_changed" from="ScrollContainer/BoxContainer/Column2Scroll/VBox/ActorInflictedEdit" to="." method="_on_actor_inflicted_edit_text_changed"]
+[connection signal="text_changed" from="ScrollContainer/BoxContainer/Column2Scroll/VBox/EnemyInflictedEdit" to="." method="_on_enemy_inflicted_edit_text_changed"]
+[connection signal="text_changed" from="ScrollContainer/BoxContainer/Column2Scroll/VBox/StatePersistEdit" to="." method="_on_state_persist_edit_text_changed"]
+[connection signal="text_changed" from="ScrollContainer/BoxContainer/Column2Scroll/VBox/StateRemovedEdit" to="." method="_on_state_removed_edit_text_changed"]
+[connection signal="button_down" from="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBoxContainer4/AddTraitButton" to="ScrollContainer/BoxContainer/Column2Scroll/VBox/TraitContainer" method="_add_new"]
+[connection signal="UpdatedTraits" from="ScrollContainer/BoxContainer/Column2Scroll/VBox/TraitContainer" to="." method="_on_trait_container_updated_traits"]

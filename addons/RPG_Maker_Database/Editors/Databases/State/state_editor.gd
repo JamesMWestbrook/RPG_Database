@@ -1,42 +1,41 @@
-@tool
 extends Control
-
+class_name States
 
 #region #onreadys
-@onready var actor_count_spinbox: SpinBox = $BoxContainer/Column1/ActorCountSpinbox
-@onready var states_v_box: VBoxContainer = $BoxContainer/Column1/ScrollContainer/StatesVBox
+@export var state_count_spinbox: SpinBox
+@export var states_item_list: ItemList
 
-@onready var name_line_edit: LineEdit = $BoxContainer/Column2Scroll/VBox/HBox2/NameLineEdit
-@onready var restriction_button: OptionButton = $BoxContainer/Column2Scroll/VBox/HBox4/RestrictionButton
-@onready var priority_spin_box: SpinBox = $BoxContainer/Column2Scroll/VBox/HBox4/PrioritySpinBox
-@onready var sv_motion_button: OptionButton = $BoxContainer/Column2Scroll/VBox/HBox6/SvMotionButton
-@onready var sv_overlay_button: OptionButton = $BoxContainer/Column2Scroll/VBox/HBox6/SvOverlayButton
-@onready var battle_end_checkbox: CheckBox = $BoxContainer/Column2Scroll/VBox/HBox7/BattleEndCheckbox
-@onready var restriction_checkbox: CheckBox = $BoxContainer/Column2Scroll/VBox/HBox7/RestrictionCheckbox
-@onready var auto_removal_button: OptionButton = $BoxContainer/Column2Scroll/VBox/HBox8/AutoRemovalButton
-@onready var lower_turn_spin: SpinBox = $BoxContainer/Column2Scroll/VBox/HBox9/LowerTurnSpin
-@onready var max_turn_spin: SpinBox = $BoxContainer/Column2Scroll/VBox/HBox9/MaxTurnSpin
-@onready var via_damage_checkbox: CheckBox = $BoxContainer/Column2Scroll/VBox/HBox10/ViaDamageCheckbox
-@onready var damage_spin_box: SpinBox = $BoxContainer/Column2Scroll/VBox/HBox10/DamageSpinBox
-@onready var via_walking_checkbox: CheckBox = $BoxContainer/Column2Scroll/VBox/HBox11/ViaWalkingCheckbox
-@onready var walking_spin_box: SpinBox = $BoxContainer/Column2Scroll/VBox/HBox11/WalkingSpinBox
-@onready var actor_inflicted_edit: LineEdit = $BoxContainer/Column2Scroll/VBox/ActorInflictedEdit
-@onready var enemy_inflicted_edit: LineEdit = $BoxContainer/Column2Scroll/VBox/EnemyInflictedEdit
-@onready var state_persist_edit: LineEdit = $BoxContainer/Column2Scroll/VBox/StatePersistEdit
-@onready var state_removed_edit: LineEdit = $BoxContainer/Column2Scroll/VBox/StateRemovedEdit
-
+@export var name_line_edit:LineEdit
+@export var restriction_button:OptionButton
+@export var priority_spin_box:SpinBox
+@export var sv_motion_button:OptionButton
+@export var sv_overlay_button:OptionButton
+@export var battle_end_checkbox:CheckBox
+@export var restriction_checkbox:CheckBox
+@export var auto_removal_button:OptionButton
+@export var lower_turn_spin:SpinBox
+@export var max_turn_spin:SpinBox
+@export var via_damage_checkbox:CheckBox
+@export var damage_spin_box:SpinBox
+@export var via_walking_checkbox:CheckBox
+@export var walking_spin_box:SpinBox
+@export var actor_inflicted_edit:LineEdit
+@export var state_persist_edit:LineEdit
+@export var state_removed_edit:LineEdit
 
 
 
 #endregion
-const SAVE_PATH = "res://data/states.json"
+const JSON_SAVE_PATH = "res://data/states.json"
 
-var states:Array[Dictionary]
+static var states:Array
 var cur_state_index:int
+
+signal StatesUpdated(states)
 
 enum RESTRICTION{
 	NONE,
-	ATTACK_ENEMY,
+	ATTACK_state,
 	ATTACK_ANYONE,
 	ATTACK_ALLY,
 	CANNOT_MOVE
@@ -54,29 +53,45 @@ enum AUTO_REMOVAL_TIMING{
 }
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if FileAccess.file_exists(SAVE_PATH):
-		_load_json()
-	else:
-		actor_count_spinbox.value = 5
-		_on_change_actor_max_button_button_down()
+	_check_json()
+	await get_tree().process_frame
 	_load_state(0)
+	_state_buttons()
 		
+func _check_json():
+	if FileAccess.file_exists(JSON_SAVE_PATH):
+		var file = FileAccess.open(JSON_SAVE_PATH,FileAccess.READ)
+		_load_json(file)
+	else:
+		var state_count = 5
+		for i in state_count:
+			var new_state:Dictionary = {}
+			states.append(new_state)
+			_check_state(i)
+		_save_json()
+func _save_json() -> void:
+	var save_data:Dictionary = {
+		"states" : states
+	}
+	var json_string:String = JSON.stringify(save_data)
+	var file:FileAccess = FileAccess.open(JSON_SAVE_PATH, FileAccess.WRITE)
+	file.store_string(json_string)
+	StatesUpdated.emit(states)
 
+func _load_json(file:FileAccess):
+	var json_string:String = file.get_as_text()
+	var save_data:Dictionary = JSON.parse_string(json_string)
+	states = save_data["states"]
+	state_count_spinbox.value = states.size()
+	
+	for index in range(states.size()):
+		_check_state(index)
+	
+	StatesUpdated.emit()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-func _save_json():
-	pass
-
-
-func _load_json():
-	pass
 
 
 func _load_state(index:int):
-	await get_tree().process_frame
 	_check_state(index)
 	cur_state_index = index
 	var state = states[cur_state_index]
@@ -115,15 +130,17 @@ func _load_state(index:int):
 		
 		
 	actor_inflicted_edit.text = state.actor_inflicted_message
-	enemy_inflicted_edit.text = state.enemy_inflicted_message
 	state_persist_edit.text = state.persist_message
 	state_removed_edit.text = state.removed_message
 	#Put in trait loading logic
 
 func _check_state(index:int):
+	if states[index] == null:
+		states[index] = {}
+	
 	var state:Dictionary = states[index]
 	if !state.has("name"):
-		state.name = ""
+		state.name =  "State " + str(index)
 		
 		state.icon = ""
 		state.restriction = RESTRICTION.NONE
@@ -140,10 +157,11 @@ func _check_state(index:int):
 		state.remove_by_walking = false
 		state.steps_required = 100
 		state.actor_inflicted_message = ""
-		state.enemy_inflicted_message = ""
+		state.state_inflicted_message = ""
 		state.persist_message = ""
 		state.removed_message = ""
 		state.traits = []
+		states[index] = state
 		
 func _on_trait_container_updated_traits(list: Variant) -> void:
 	pass
@@ -151,33 +169,22 @@ func _on_trait_container_updated_traits(list: Variant) -> void:
 	
 
 func _on_change_actor_max_button_button_down() -> void:
-	states.resize(actor_count_spinbox.value)
+	states.resize(state_count_spinbox.value)
 	_state_buttons()
 
 
 func _state_buttons():
-	for i in states_v_box.get_children():
-		states_v_box.remove_child(i)
-		i.queue_free()
+	states_item_list.clear()
 	
 	var index:int = 0
 	for i:Dictionary in states:
-		var new_button:Button = Button.new()
-		
-		if i.has("name"):
-			new_button.text = str(index) + " " + i.name
-		else:
-			new_button.text = str(index)
-		
-		new_button.button_down.connect(_load_state.bind(index))
-		
-		states_v_box.add_child(new_button)
+		states_item_list.add_item(str(index) + " " + i.name)
 		index += 1
 
 
 func _on_name_line_edit_text_changed(new_text: String) -> void:
 	states[cur_state_index].name = new_text
-
+	states_item_list.set_item_text(cur_state_index,str(cur_state_index) + " " + new_text)
 
 func _on_restriction_button_item_selected(index: int) -> void:
 	states[cur_state_index].restriction = index
@@ -239,8 +246,8 @@ func _on_actor_inflicted_edit_text_changed(new_text: String) -> void:
 	states[cur_state_index].actor_inflicted_message = new_text
 
 
-func _on_enemy_inflicted_edit_text_changed(new_text: String) -> void:
-	states[cur_state_index].enemy_inflicted_message = new_text
+func _on_state_inflicted_edit_text_changed(new_text: String) -> void:
+	states[cur_state_index].state_inflicted_message = new_text
 
 
 func _on_state_persist_edit_text_changed(new_text: String) -> void:

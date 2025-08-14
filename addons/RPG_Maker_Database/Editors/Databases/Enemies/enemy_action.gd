@@ -114,6 +114,7 @@ func _on_option_button_item_selected(index: int, _loading:bool = false) -> void:
 			switch_option_button.select(0)
 	if !loading:
 		action_updated.emit()
+	loading = false
 
 
 func _on_skill_option_button_item_selected(index: int) -> void:

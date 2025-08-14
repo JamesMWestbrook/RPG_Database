@@ -62,6 +62,7 @@ func _load_json(file:FileAccess):
 	var json_string:String = file.get_as_text()
 	var save_data:Dictionary = JSON.parse_string(json_string)
 	enemies = save_data["enemies"]
+	enemy_count_spinbox.value = enemies.size()
 	
 	for index in range(enemies.size()):
 		_check_enemy(index)

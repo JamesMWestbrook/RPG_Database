@@ -350,6 +350,7 @@ use_native_dialog = true
 
 [connection signal="button_down" from="ScrollContainer/BoxContainer/1st Column/HBoxContainer/SaveButton" to="." method="_save_json"]
 [connection signal="button_down" from="ScrollContainer/BoxContainer/1st Column/HBoxContainer2/ChangeEnemyMaxButton" to="." method="_on_change_enemy_max_button_button_down"]
+[connection signal="item_selected" from="ScrollContainer/BoxContainer/1st Column/EnemyList" to="." method="_load_enemy"]
 [connection signal="text_changed" from="ScrollContainer/BoxContainer/2nd Column/NameEdit" to="." method="_on_name_edit_text_changed"]
 [connection signal="button_down" from="ScrollContainer/BoxContainer/2nd Column/ChooseTextureButton" to="TextureFileDialog" method="show"]
 [connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer3/StatRow1/AttackSpinBox" to="." method="_on_attack_spin_box_value_changed"]

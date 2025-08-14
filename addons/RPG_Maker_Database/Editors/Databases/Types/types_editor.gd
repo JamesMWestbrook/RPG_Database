@@ -22,8 +22,11 @@ func _process(delta: float) -> void:
 
 func _load_json():
 	if !FileAccess.file_exists(SAVE_PATH):
+		for i:int in range(type_data.size()):
+			if type_data[i] == null:
+				type_data[i] = []
+		_save_json()
 		return
-		
 	var file = FileAccess.open(SAVE_PATH,FileAccess.READ)
 	var json_string =  file.get_file_as_string(SAVE_PATH)
 	type_data = JSON.parse_string(json_string)

@@ -39,8 +39,10 @@ signal SkillsUpdated(skills)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	await get_tree().process_frame
 	_check_json()
+	await get_tree().process_frame
+	_skill_buttons()
+	_load_skill(0)
 	#var button:Button = skills_box.get_child(0)
 	#button.button_down.emit()
 	
@@ -58,7 +60,6 @@ func _check_json():
 			var new_skill:Dictionary = {}
 			skills.append(new_skill)
 			_check_skill(i)
-		_skill_buttons()
 		_save_json()
 		
 		
@@ -81,8 +82,6 @@ func _load_json(file:FileAccess):
 	for index in range(skills.size()):
 		_check_skill(index)
 	
-	_skill_buttons()
-	_load_skill(0)
 	SkillsUpdated.emit()
 	
 func _load_skill(index:int):

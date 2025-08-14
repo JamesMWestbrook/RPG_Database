@@ -264,6 +264,7 @@ layout_mode = 2
 [node name="WeaponOneOptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/VBoxContainer/VBoxContainer2/Row8"]
 custom_minimum_size = Vector2(190, 0)
 layout_mode = 2
+selected = 0
 item_count = 1
 popup/item_0/text = "CrossBow"
 popup/item_0/id = 0
@@ -271,6 +272,7 @@ popup/item_0/id = 0
 [node name="WeaponTwoOptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/VBoxContainer/VBoxContainer2/Row8"]
 custom_minimum_size = Vector2(190, 0)
 layout_mode = 2
+selected = 0
 item_count = 1
 popup/item_0/text = "CrossBow"
 popup/item_0/id = 0

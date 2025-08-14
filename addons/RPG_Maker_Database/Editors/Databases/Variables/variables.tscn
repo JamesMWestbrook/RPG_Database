@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ct028egsh2ibo"]
+[gd_scene load_steps=3 format=3 uid="uid://ct028egsh2ibo"]
 
 [ext_resource type="Script" uid="uid://cw30tknidr0rt" path="res://addons/RPG_Maker_Database/Editors/Databases/Variables/variables_editor.gd" id="1_q8swn"]
 [ext_resource type="PackedScene" uid="uid://bvoa5jjun5bgj" path="res://addons/RPG_Maker_Database/Editors/Databases/Variables/variable.tscn" id="2_7kkrp"]
-[ext_resource type="Script" uid="uid://dvi3pm07wa58f" path="res://addons/eranot.resizable/resizable.gd" id="3_fepgs"]
 
 [node name="Variables" type="Control"]
 layout_mode = 3
@@ -20,8 +19,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 11.0
-offset_bottom = 149.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -69,11 +66,6 @@ layout_mode = 2
 [node name="VarContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/ScrollContainer2"]
 layout_mode = 2
 alignment = 1
-
-[node name="Resizable" type="Control" parent="ScrollContainer/BoxContainer/ScrollContainer2"]
-layout_mode = 2
-mouse_filter = 2
-script = ExtResource("3_fepgs")
 
 [connection signal="button_down" from="ScrollContainer/BoxContainer/ScrollContainer/Column1/HBoxContainer/SaveButton" to="." method="_save_json"]
 [connection signal="button_down" from="ScrollContainer/BoxContainer/ScrollContainer/Column1/HBoxContainer2/ResizeButton" to="." method="_on_resize_button_button_down"]

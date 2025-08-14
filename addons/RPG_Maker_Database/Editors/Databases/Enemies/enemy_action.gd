@@ -23,6 +23,7 @@ var option_chosen:int
 var arg_1:int
 var arg_2:int
 
+var loading:bool
 
 func _ready() -> void:
 	_hide_all()
@@ -47,7 +48,7 @@ func _load(action:Dictionary):
 	skill_option.select(action.chosen_skill)
 	option_button.select(action.option_chosen)
 	rating_spin_box.value = action.rating
-	match action.option_chosen:
+	match option_chosen:
 		0: #always
 			pass
 		1: #turn
@@ -58,7 +59,7 @@ func _load(action:Dictionary):
 			stat_spin_box_2.value = action.arg_2
 		3:#mp
 			stat_spin_box.value = action.arg_1
-			stat_spin_box_2.value = action.arg_1
+			stat_spin_box_2.value = action.arg_2
 		4: #state
 			state_option.select(action.arg_1)
 		5: #party level
@@ -71,12 +72,15 @@ func _load_skills():
 	for skill in SkillEditor.skills:
 		skill_option.add_item("Skill: " + skill.name)
 func _load_states():
-	pass
-func _on_option_button_item_selected(index: int, loading:bool = false) -> void:
+	state_option.clear()
+	for state in States.states:
+		state_option.add_item("State: " + state.name)
+func _on_option_button_item_selected(index: int, _loading:bool = false) -> void:
 	_hide_all()
 	option_chosen = index
-	arg_1 = 0
-	arg_2 = 0
+	
+	loading = _loading
+	
 	match index:
 		0: #always
 			pass
@@ -99,8 +103,9 @@ func _on_option_button_item_selected(index: int, loading:bool = false) -> void:
 			stat_spin_box_2.show()
 			stat_spin_box_2.value = 0
 		4: #state
+			_load_states()
 			state_option.show()
-			state_option.select(0)
+			#state_option.select(0)
 		5: #party level
 			level_spin_box.show()
 			level_spin_box.value = 1
@@ -113,45 +118,54 @@ func _on_option_button_item_selected(index: int, loading:bool = false) -> void:
 
 func _on_skill_option_button_item_selected(index: int) -> void:
 	chosen_skill = index
-	action_updated.emit()
+	if !loading:
+		action_updated.emit()
 
 func _on_rating_spin_box_value_changed(value: float) -> void:
 	rating = value
-	action_updated.emit()
+	if !loading:
+		action_updated.emit()
 
 
 func _on_turn_spin_box_value_changed(value: float) -> void:
 	arg_1 = value
-	action_updated.emit()
+	if !loading:
+		action_updated.emit()
 
 
 func _on_to_turn_spin_box_value_changed(value: float) -> void:
 	arg_2 = value
-	action_updated.emit()
+	if !loading:
+		action_updated.emit()
 
 
 func _on_stat_spin_box_value_changed(value: float) -> void:
 	arg_1 = value
-	action_updated.emit()
+	if !loading:
+		action_updated.emit()
 
 
 func _on_stat_spin_box_2_value_changed(value: float) -> void:
 	arg_2 = value
-	action_updated.emit()
+	if !loading:
+		action_updated.emit()
 	
 
 
 func _on_state_option_item_selected(index: int) -> void:
 	arg_1 = index
-	action_updated.emit()
+	if !loading:
+		action_updated.emit()
 
 
 func _on_level_spin_box_value_changed(value: float) -> void:
 	arg_1 = value
-	action_updated.emit()
+	if !loading:
+		action_updated.emit()
 
 
 func _on_switch_option_button_item_selected(index: int) -> void:
 	arg_1 = index
-	action_updated.emit()
+	if !loading:
+		action_updated.emit()
 	

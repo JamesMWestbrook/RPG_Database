@@ -36,7 +36,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 4
+current_tab = 3
 
 [node name="Actors" parent="Characters/CharTabContainer" instance=ExtResource("2_o8jcg")]
 visible = false
@@ -51,11 +51,11 @@ visible = false
 layout_mode = 2
 
 [node name="Troops" type="Control" parent="Characters/CharTabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 3
 
 [node name="2D Troop Setup" parent="Characters/CharTabContainer" instance=ExtResource("5_tgnao")]
+visible = false
 layout_mode = 2
 
 [node name="Actor Troop Setup" type="Control" parent="Characters/CharTabContainer"]

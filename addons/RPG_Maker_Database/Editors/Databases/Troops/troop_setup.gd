@@ -7,7 +7,7 @@ class_name TroopSetup
 @export var battlefield:Node2D
 @export var sample_enemy:PackedScene
 
-var slots:Array
+static var slots:Array
 
 const JSON_SAVE_PATH = "res://data/troop_layout.json"
 

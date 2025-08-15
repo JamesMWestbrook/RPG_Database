@@ -81,14 +81,14 @@ func _populate():
 	var index:int = 0
 	for s:Dictionary in slots:
 		var new_slot:TroopLayoutSlot = _on_add_spawn_button_button_down()
+		new_slot.loading = true
 		new_slot.x = s.x
 		new_slot.x_spin_box.value = s.x
 		new_slot.x_spin_box.max_value = DisplayServer.screen_get_size(0).x
 		new_slot.y = s.y
 		new_slot.y_spin_box.value = s.y
 		new_slot.y_spin_box.max_value = DisplayServer.screen_get_size(0).y
-		troop_button_list.add_child(new_slot)
-		
+		new_slot.loading = false
 		var sprite = sample_enemy.instantiate()
 		sprite.texture = load("res://addons/eranot.resizable/icon.svg")
 		battlefield.add_child(sprite)
@@ -100,6 +100,7 @@ func _populate():
 		index += 1
 		
 func _update_slots():
+	await get_tree().process_frame
 	slots.clear()
 	for i:TroopLayoutSlot in troop_button_list.get_children():
 		slots.append({

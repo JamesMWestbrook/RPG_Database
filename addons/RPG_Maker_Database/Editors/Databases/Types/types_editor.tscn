@@ -37,6 +37,7 @@ layout_mode = 2
 [node name="Elements" parent="ScrollContainer/VBoxContainer/TypeContainers" instance=ExtResource("1_nxovw")]
 layout_mode = 2
 category = "Elements"
+is_equip_type = null
 
 [node name="VSeparator" type="VSeparator" parent="ScrollContainer/VBoxContainer/TypeContainers"]
 layout_mode = 2
@@ -45,6 +46,7 @@ layout_mode = 2
 layout_mode = 2
 category = "Skill Types"
 category_index = 1
+is_equip_type = null
 
 [node name="VSeparator2" type="VSeparator" parent="ScrollContainer/VBoxContainer/TypeContainers"]
 layout_mode = 2
@@ -53,6 +55,7 @@ layout_mode = 2
 layout_mode = 2
 category = "Weapon Types"
 category_index = 2
+is_equip_type = null
 
 [node name="VSeparator4" type="VSeparator" parent="ScrollContainer/VBoxContainer/TypeContainers"]
 layout_mode = 2
@@ -61,6 +64,7 @@ layout_mode = 2
 layout_mode = 2
 category = "Armor Types"
 category_index = 3
+is_equip_type = null
 
 [node name="VSeparator3" type="VSeparator" parent="ScrollContainer/VBoxContainer/TypeContainers"]
 layout_mode = 2
@@ -69,19 +73,13 @@ layout_mode = 2
 layout_mode = 2
 category = "Equipment Slots"
 category_index = 4
+is_equip_type = true
 
-[node name="VSeparator5" type="VSeparator" parent="ScrollContainer/VBoxContainer/TypeContainers"]
-layout_mode = 2
-
-[node name="Slots" parent="ScrollContainer/VBoxContainer/TypeContainers" instance=ExtResource("1_nxovw")]
-layout_mode = 2
-category = "Slots"
-category_index = 4
-
+[connection signal="load_quantities" from="." to="ScrollContainer/VBoxContainer/TypeContainers/EquipTypes" method="_on_types_editor_load_quantities"]
 [connection signal="button_down" from="ScrollContainer/VBoxContainer/Save" to="." method="_save_json"]
 [connection signal="DataChanged" from="ScrollContainer/VBoxContainer/TypeContainers/Elements" to="." method="_on_elements_data_changed"]
 [connection signal="DataChanged" from="ScrollContainer/VBoxContainer/TypeContainers/SkillTypes" to="." method="_on_elements_data_changed"]
 [connection signal="DataChanged" from="ScrollContainer/VBoxContainer/TypeContainers/WeaponTypes" to="." method="_on_elements_data_changed"]
 [connection signal="DataChanged" from="ScrollContainer/VBoxContainer/TypeContainers/ArmorTypes" to="." method="_on_elements_data_changed"]
 [connection signal="DataChanged" from="ScrollContainer/VBoxContainer/TypeContainers/EquipTypes" to="." method="_on_elements_data_changed"]
-[connection signal="DataChanged" from="ScrollContainer/VBoxContainer/TypeContainers/Slots" to="." method="_on_elements_data_changed"]
+[connection signal="QuantityChanged" from="ScrollContainer/VBoxContainer/TypeContainers/EquipTypes" to="." method="_on_equip_types_quantity_changed"]

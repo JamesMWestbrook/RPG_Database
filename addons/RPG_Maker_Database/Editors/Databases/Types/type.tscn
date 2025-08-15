@@ -13,3 +13,11 @@ text = "01"
 custom_minimum_size = Vector2(109.85, 0)
 layout_mode = 2
 expand_to_text_length = true
+
+[node name="QuantitySpinBox" type="SpinBox" parent="."]
+visible = false
+custom_minimum_size = Vector2(162.24, 0)
+layout_mode = 2
+min_value = 1.0
+value = 1.0
+prefix = "Slot Quantity"

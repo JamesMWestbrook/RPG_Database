@@ -203,7 +203,7 @@ func _on_exp_spin_box_value_changed(value: float) -> void:
 
 
 func _on_gold_spin_box_value_changed(value: float) -> void:
-	enemies[cur_enemy_index].gold = value
+	enemies[cur_enemy_index].goldindex = value
 
 
 func _on_jp_spin_box_value_changed(value: float) -> void:

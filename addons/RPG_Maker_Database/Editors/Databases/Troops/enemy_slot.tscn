@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://35kk06mmw7wy"]
+
+[ext_resource type="Script" uid="uid://xvowtlkjench" path="res://addons/RPG_Maker_Database/Editors/Databases/Troops/enemy_slot.gd" id="1_2070s"]
+
+[node name="EnemySlot" type="VBoxContainer"]
+alignment = 1
+script = ExtResource("1_2070s")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Slot X: "
+
+[node name="AssignButton" type="Button" parent="."]
+layout_mode = 2
+text = "Assign to slot"

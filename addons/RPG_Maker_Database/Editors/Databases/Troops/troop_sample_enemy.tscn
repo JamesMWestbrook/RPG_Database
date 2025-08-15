@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://lqhe60hbit4w"]
-
-[ext_resource type="Script" uid="uid://ch27n4oubdqqr" path="res://addons/RPG_Maker_Database/Editors/Databases/Troops/troop_sample_enemy.gd" id="1_2ibsh"]
-
-[node name="TroopSampleEnemy" type="Sprite2D"]
-script = ExtResource("1_2ibsh")

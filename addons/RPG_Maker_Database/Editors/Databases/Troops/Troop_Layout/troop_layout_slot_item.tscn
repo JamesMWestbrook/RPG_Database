@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dp0db1bqkwt3l"]
 
-[ext_resource type="Script" uid="uid://bp7esb6334a83" path="res://addons/RPG_Maker_Database/Editors/Databases/Troops/troop_layout_slot_item.gd" id="1_pj7n2"]
+[ext_resource type="Script" uid="uid://bp7esb6334a83" path="res://addons/RPG_Maker_Database/Editors/Databases/Troops/Troop_Layout/troop_layout_slot_item.gd" id="1_pj7n2"]
 
 [node name="TroopLayoutSlotItem" type="VBoxContainer" node_paths=PackedStringArray("x_spin_box", "y_spin_box")]
 script = ExtResource("1_pj7n2")

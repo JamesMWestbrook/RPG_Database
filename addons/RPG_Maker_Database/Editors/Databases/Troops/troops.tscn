@@ -1,0 +1,94 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy8e7rdqqis3a"]
+
+[ext_resource type="Script" uid="uid://b2kj2jw4juik1" path="res://addons/RPG_Maker_Database/Editors/Databases/Troops/troops_editor.gd" id="1_f01xq"]
+[ext_resource type="PackedScene" uid="uid://35kk06mmw7wy" path="res://addons/RPG_Maker_Database/Editors/Databases/Troops/enemy_slot.tscn" id="2_df4l2"]
+
+[node name="Troops" type="Control" node_paths=PackedStringArray("troop_count_spinbox")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f01xq")
+troop_count_spinbox = NodePath("1st Column/HBoxContainer2/TroopCountSpinbox")
+metadata/_tab_index = 3
+
+[node name="1st Column" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.075
+anchor_right = 0.151
+anchor_bottom = 0.861
+offset_top = 0.999996
+offset_right = -0.280014
+offset_bottom = 0.0799561
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="1st Column"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="1st Column/HBoxContainer"]
+layout_mode = 2
+text = "Troops"
+
+[node name="SaveButton" type="Button" parent="1st Column/HBoxContainer"]
+layout_mode = 2
+text = "Save"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="1st Column"]
+layout_mode = 2
+
+[node name="TroopCountSpinbox" type="SpinBox" parent="1st Column/HBoxContainer2"]
+layout_mode = 2
+min_value = 1.0
+max_value = 9999.0
+value = 1.0
+alignment = 1
+
+[node name="ChangeTroopMaxButton" type="Button" parent="1st Column/HBoxContainer2"]
+layout_mode = 2
+text = "Change Max"
+
+[node name="TroopList" type="ItemList" parent="1st Column"]
+custom_minimum_size = Vector2(0, 495.595)
+layout_mode = 2
+
+[node name="right column" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.844
+anchor_right = 1.0
+anchor_bottom = 0.836
+offset_left = -0.320068
+offset_bottom = 0.0799561
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="right column"]
+layout_mode = 2
+text = "Enemies"
+horizontal_alignment = 1
+
+[node name="EnemyItemList" type="ItemList" parent="right column"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.918
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.039978
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="AssignSlotsHBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="EnemySlot" parent="ScrollContainer/AssignSlotsHBoxContainer" instance=ExtResource("2_df4l2")]
+layout_mode = 2

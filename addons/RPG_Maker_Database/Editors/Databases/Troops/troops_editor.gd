@@ -12,6 +12,7 @@ const TROOP_SAMPLE_ENEMY = preload("res://addons/RPG_Maker_Database/Editors/Data
 
 @export var slots_container:HBoxContainer
 @export var battlefield:Node2D
+@export var assign_slot:HBoxContainer
 #endregion
 
 var cur_troop_index:int
@@ -25,10 +26,7 @@ signal TroopsUpdated(troops)
 func _ready() -> void:
 	await get_tree().process_frame
 	_check_json()
-	_load_troop_buttons()
-	_load_enemies()
-	_load_slots()
-	_load_troop(0)
+	_on_char_tab_container_tab_clicked(3)
 	
 func _check_json():
 	if FileAccess.file_exists(JSON_SAVE_PATH):
@@ -91,6 +89,7 @@ func _load_slots():
 	for i in TroopSetup.slots.size():
 		var new_slot:EnemySlot = ENEMY_SLOT.instantiate()
 		slots_container.add_child(new_slot)
+		new_slot.label.text = "Slot " + str(i) + ":"
 		new_slot.assign_button.button_down.connect(_assign_enemy.bind(i))
 		new_slot.clear_button.button_down.connect(_design_enemy.bind(i))
 	
@@ -100,7 +99,7 @@ func _on_char_tab_container_tab_clicked(tab: int) -> void:
 	_load_enemies()
 	_load_slots()
 	_load_troop(0)
-	
+	_load_troop_buttons()
 
 func _on_enemy_item_list_item_selected(index: int) -> void:
 	cur_selected_enemy = index
@@ -136,6 +135,7 @@ func _assign_enemy(slot_index:int):
 	battlefield.add_child(new_enemy)
 	new_enemy.position = Vector2(TroopSetup.slots[slot_index].x,TroopSetup.slots[slot_index].y)
 	troops[cur_troop_index].enemies[slot_index] = cur_selected_enemy
+	#assign_slot.get_child(slot_index).label.text = "Slot " + str(slot_index) + ": " + EnemyEditor.enemies[cur_selected_enemy].name
 	pass
 
 func _design_enemy(slot_index:int):#removing an enemy from a slot 

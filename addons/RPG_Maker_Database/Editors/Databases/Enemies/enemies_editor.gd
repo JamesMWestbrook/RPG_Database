@@ -1,5 +1,5 @@
 extends Control
-
+class_name EnemyEditor
 #region
 @export var enemy_count_spinbox:SpinBox
 @export var enemy_item_list:ItemList
@@ -30,7 +30,7 @@ extends Control
 #endregion
 
 const JSON_SAVE_PATH:String = "res://data/enemies.json"
-var enemies:Array
+static var enemies:Array
 var cur_enemy_index:int
 
 signal EnemiesUpdated(enemies)

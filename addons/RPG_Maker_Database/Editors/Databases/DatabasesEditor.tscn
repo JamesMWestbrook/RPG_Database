@@ -163,5 +163,6 @@ metadata/_tab_index = 3
 visible = false
 
 [connection signal="tab_clicked" from="Characters/CharTabContainer" to="." method="_on_character_tab_container_tab_clicked"]
+[connection signal="tab_clicked" from="Characters/CharTabContainer" to="Characters/CharTabContainer/Troops" method="_on_char_tab_container_tab_clicked"]
 [connection signal="ClassesUpdated" from="Characters/CharTabContainer/Classes" to="Characters/CharTabContainer/Actors" method="_classes_updated"]
 [connection signal="tab_clicked" from="Objects/ObjTabContainer" to="." method="_on_obj_tab_container_tab_clicked"]

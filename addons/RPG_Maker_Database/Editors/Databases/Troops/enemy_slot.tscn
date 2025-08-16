@@ -13,3 +13,7 @@ text = "Slot X: "
 [node name="AssignButton" type="Button" parent="."]
 layout_mode = 2
 text = "Assign to slot"
+
+[node name="ClearButton" type="Button" parent="."]
+layout_mode = 2
+text = "Clear Slot"

@@ -8,7 +8,7 @@ script = ExtResource("1_4q5m7")
 [node name="FunctionOption" type="OptionButton" parent="."]
 layout_mode = 2
 selected = 0
-item_count = 24
+item_count = 25
 popup/item_0/text = "Element Rate"
 popup/item_0/id = 0
 popup/item_1/text = "Debuff Rate"
@@ -31,32 +31,34 @@ popup/item_9/text = "Attack Speed"
 popup/item_9/id = 9
 popup/item_10/text = "Attack Times +"
 popup/item_10/id = 10
-popup/item_11/text = "Add Skill Type"
+popup/item_11/text = "Attack Skill"
 popup/item_11/id = 11
-popup/item_12/text = "Seal Skill Type"
+popup/item_12/text = "Add Skill Type"
 popup/item_12/id = 12
-popup/item_13/text = "Add Skill"
+popup/item_13/text = "Seal Skill Type"
 popup/item_13/id = 13
-popup/item_14/text = "Seal Skill"
+popup/item_14/text = "Add Skill"
 popup/item_14/id = 14
-popup/item_15/text = "Equip Weapon"
-popup/item_15/id = 15
-popup/item_16/text = "Equip Armor"
-popup/item_16/id = 16
-popup/item_17/text = "Lock Equip"
-popup/item_17/id = 17
-popup/item_18/text = "Seal Equip"
-popup/item_18/id = 18
-popup/item_19/text = "Slot Type"
-popup/item_19/id = 19
-popup/item_20/text = "Action Times +"
-popup/item_20/id = 20
-popup/item_21/text = "Special Flag"
-popup/item_21/id = 21
-popup/item_22/text = "Collapse Effect"
-popup/item_22/id = 22
-popup/item_23/text = "Party Ability"
-popup/item_23/id = 23
+popup/item_15/text = "Seal Skill"
+popup/item_15/id = 14
+popup/item_16/text = "Equip Weapon"
+popup/item_16/id = 15
+popup/item_17/text = "Equip Armor"
+popup/item_17/id = 16
+popup/item_18/text = "Lock Equip"
+popup/item_18/id = 17
+popup/item_19/text = "Seal Equip"
+popup/item_19/id = 18
+popup/item_20/text = "Slot Type"
+popup/item_20/id = 19
+popup/item_21/text = "Action Times +"
+popup/item_21/id = 20
+popup/item_22/text = "Special Flag"
+popup/item_22/id = 21
+popup/item_23/text = "Collapse Effect"
+popup/item_23/id = 22
+popup/item_24/text = "Party Ability"
+popup/item_24/id = 23
 
 [node name="ElementOptionButton" type="OptionButton" parent="."]
 layout_mode = 2
@@ -95,7 +97,64 @@ popup/item_6/id = 6
 popup/item_7/text = "Luck"
 popup/item_7/id = 7
 
+[node name="ExOptionButton" type="OptionButton" parent="."]
+visible = false
+layout_mode = 2
+alignment = 1
+selected = 0
+item_count = 10
+popup/item_0/text = "Hit Rate"
+popup/item_0/id = 0
+popup/item_1/text = "Evasion Rate"
+popup/item_1/id = 1
+popup/item_2/text = "Critical Rate"
+popup/item_2/id = 2
+popup/item_3/text = "Critical Evasion"
+popup/item_3/id = 3
+popup/item_4/text = "Magic Evasion"
+popup/item_4/id = 4
+popup/item_5/text = "Magic Reflection"
+popup/item_5/id = 5
+popup/item_6/text = "Counter Attack"
+popup/item_6/id = 6
+popup/item_7/text = "HP Regeneration"
+popup/item_7/id = 7
+popup/item_8/text = "MP Regeneration"
+popup/item_8/id = 8
+popup/item_9/text = "TP Regeneration"
+popup/item_9/id = 9
+
+[node name="SpOptionButton" type="OptionButton" parent="."]
+visible = false
+layout_mode = 2
+alignment = 1
+selected = 0
+item_count = 11
+popup/item_0/text = "Target Rate"
+popup/item_0/id = 0
+popup/item_1/text = "Guard Effect"
+popup/item_1/id = 1
+popup/item_2/text = "Recovery Effect"
+popup/item_2/id = 2
+popup/item_3/text = "Pharmacology"
+popup/item_3/id = 3
+popup/item_4/text = "MP Cost Rate"
+popup/item_4/id = 4
+popup/item_5/text = "TP Charge Rate"
+popup/item_5/id = 5
+popup/item_6/text = "Physical Damage"
+popup/item_6/id = 6
+popup/item_7/text = "Magic Damage"
+popup/item_7/id = 7
+popup/item_8/text = "Floor Damage"
+popup/item_8/id = 8
+popup/item_9/text = "Experience"
+popup/item_9/id = 9
+popup/item_10/text = "Job Points"
+popup/item_10/id = 10
+
 [node name="StatusOptionButton" type="OptionButton" parent="."]
+visible = false
 layout_mode = 2
 selected = 0
 item_count = 1
@@ -158,7 +217,7 @@ item_count = 1
 popup/item_0/text = "Attack"
 popup/item_0/id = 0
 
-[node name="CollaspeEffectOptionButton" type="OptionButton" parent="."]
+[node name="CollapseEffectOptionButton" type="OptionButton" parent="."]
 visible = false
 layout_mode = 2
 selected = 0
@@ -185,7 +244,7 @@ suffix = "%"
 [node name="AdditiveSpinBox" type="SpinBox" parent="."]
 visible = false
 layout_mode = 2
-value = 100.0
+max_value = 9999.0
 
 [node name="DeleteButton" type="Button" parent="."]
 visible = false
@@ -196,8 +255,14 @@ text = "X"
 [connection signal="button_down" from="ElementOptionButton" to="." method="_on_element_option_button_button_down"]
 [connection signal="item_selected" from="ElementOptionButton" to="." method="_on_argument_option_selected"]
 [connection signal="item_selected" from="StatOptionButton" to="." method="_on_stat_option_button_item_selected"]
+[connection signal="item_selected" from="ExOptionButton" to="." method="_on_ex_option_button_item_selected"]
+[connection signal="item_selected" from="SpOptionButton" to="." method="_on_sp_option_button_item_selected"]
 [connection signal="button_down" from="StatusOptionButton" to="." method="_on_status_option_button_button_down"]
 [connection signal="item_selected" from="StatusOptionButton" to="." method="_on_status_option_button_item_selected"]
+[connection signal="button_down" from="SkillTypesOptionButton" to="." method="_on_skill_types_option_button_button_down"]
+[connection signal="item_selected" from="SkillTypesOptionButton" to="." method="_on_skill_types_option_button_item_selected"]
+[connection signal="button_down" from="SkillOptionButton" to="." method="_on_skill_option_button_button_down"]
+[connection signal="item_selected" from="SkillOptionButton" to="." method="_on_skill_option_button_item_selected"]
 [connection signal="value_changed" from="PercentMultiplierSpinBox" to="." method="on_value_changed"]
 [connection signal="value_changed" from="AdditiveSpinBox" to="." method="on_value_changed"]
 [connection signal="button_down" from="DeleteButton" to="." method="_on_delete_button_button_down"]

@@ -25,6 +25,8 @@ signal changed()
 @onready var function_option: OptionButton = $FunctionOption
 @onready var element_option_button: OptionButton = $ElementOptionButton
 @onready var stat_option_button: OptionButton = $StatOptionButton
+@onready var ex_option_button: OptionButton = $ExOptionButton
+@onready var sp_option_button: OptionButton = $SpOptionButton
 @onready var status_option_button: OptionButton = $StatusOptionButton
 @onready var skill_types_option_button: OptionButton = $SkillTypesOptionButton
 @onready var skill_option_button: OptionButton = $SkillOptionButton
@@ -33,7 +35,7 @@ signal changed()
 @onready var lock_equip_option_button: OptionButton = $LockEquipOptionButton
 @onready var slot_type_option_button: OptionButton = $SlotTypeOptionButton
 @onready var special_flag_option_button: OptionButton = $SpecialFlagOptionButton
-@onready var collaspe_effect_option_button: OptionButton = $CollaspeEffectOptionButton
+@onready var collapse_effect_option_button: OptionButton = $CollapseEffectOptionButton
 @onready var party_ability: OptionButton = $PartyAbility
 @onready var percent_multiplier_spin_box: SpinBox = $PercentMultiplierSpinBox
 @onready var additive_spin_box: SpinBox = $AdditiveSpinBox
@@ -67,6 +69,7 @@ func _on_function_option_item_selected(index: int, arg_index:int = 0, arg_value:
 	argument = arg_index
 	argument_value = 100
 	percent_multiplier_spin_box.value = 100
+	percent_multiplier_spin_box.prefix = "*"
 	on_value_changed(arg_value)
 	
 	match index:
@@ -90,14 +93,54 @@ func _on_function_option_item_selected(index: int, arg_index:int = 0, arg_value:
 			status_option_button.select(arg_index)
 			percent_multiplier_spin_box.value = arg_value
 		3: #State Resist
-			pass
+			status_option_button.show()
+			_on_status_option_button_button_down()
+			status_option_button.select(arg_index)
 		4: #Parameter
-			pass
+			stat_option_button.show()
+			percent_multiplier_spin_box.show()
+			
+			stat_option_button.select(arg_index)
+			percent_multiplier_spin_box.value = arg_value
 		5: #Ex. Parameter
-			pass
+			ex_option_button.show()
+			percent_multiplier_spin_box.show()
+			percent_multiplier_spin_box.prefix = "+"
+			
+			ex_option_button.select(arg_index)
+			percent_multiplier_spin_box.value = arg_value
 		6: #SP Parameter
-			pass
-		
+			sp_option_button.show()
+			percent_multiplier_spin_box.show()
+			
+			sp_option_button.select(arg_index)
+			percent_multiplier_spin_box.value = arg_value
+		7: #Attack Element
+			element_option_button.show()
+			_on_element_option_button_button_down()
+			element_option_button.select(arg_index)
+		8: #attack state
+			status_option_button.show()
+			percent_multiplier_spin_box.show()
+			percent_multiplier_spin_box.prefix = "+"
+			_on_status_option_button_button_down()
+			status_option_button.select(arg_index)
+			percent_multiplier_spin_box.value = arg_value
+		9: #attack speed
+			additive_spin_box.show()
+			additive_spin_box.value = arg_value
+		10:#attack times +
+			additive_spin_box.show()
+			additive_spin_box.value = arg_value
+		11: #Attack Skill
+			skill_option_button.show()
+			_on_skill_option_button_button_down()
+			skill_option_button.select(arg_index)
+		12: #Add Skill Type
+			skill_types_option_button.show()
+			_on_skill_types_option_button_button_down()
+			skill_types_option_button.select(arg_index)
+			
 	changed.emit()
 		
 func _on_argument_option_selected(index:int) -> void:
@@ -133,4 +176,34 @@ func _on_status_option_button_button_down() -> void:
 
 
 func _on_status_option_button_item_selected(index: int) -> void:
+	argument = index
+
+
+func _on_ex_option_button_item_selected(index: int) -> void:
+	argument = index
+
+
+func _on_sp_option_button_item_selected(index: int) -> void:
+	argument = index
+
+
+func _on_skill_option_button_button_down() -> void:
+	var skills = SkillEditor.skills
+	skill_option_button.clear()
+	for s in skills:
+		skill_option_button.add_item(s.name)
+
+
+func _on_skill_option_button_item_selected(index: int) -> void:
+	argument = index
+
+
+func _on_skill_types_option_button_button_down() -> void:
+	skill_types_option_button.clear()
+	var skill_types:Array = TypesEditor.type_data[1]
+	for s in skill_types:
+		skill_types_option_button.add_item(s)
+
+
+func _on_skill_types_option_button_item_selected(index: int) -> void:
 	argument = index

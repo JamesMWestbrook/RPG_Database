@@ -37,7 +37,6 @@ layout_mode = 2
 [node name="Elements" parent="ScrollContainer/VBoxContainer/TypeContainers" instance=ExtResource("1_nxovw")]
 layout_mode = 2
 category = "Elements"
-is_equip_type = null
 
 [node name="VSeparator" type="VSeparator" parent="ScrollContainer/VBoxContainer/TypeContainers"]
 layout_mode = 2
@@ -46,7 +45,6 @@ layout_mode = 2
 layout_mode = 2
 category = "Skill Types"
 category_index = 1
-is_equip_type = null
 
 [node name="VSeparator2" type="VSeparator" parent="ScrollContainer/VBoxContainer/TypeContainers"]
 layout_mode = 2
@@ -55,7 +53,6 @@ layout_mode = 2
 layout_mode = 2
 category = "Weapon Types"
 category_index = 2
-is_equip_type = null
 
 [node name="VSeparator4" type="VSeparator" parent="ScrollContainer/VBoxContainer/TypeContainers"]
 layout_mode = 2
@@ -64,7 +61,6 @@ layout_mode = 2
 layout_mode = 2
 category = "Armor Types"
 category_index = 3
-is_equip_type = null
 
 [node name="VSeparator3" type="VSeparator" parent="ScrollContainer/VBoxContainer/TypeContainers"]
 layout_mode = 2

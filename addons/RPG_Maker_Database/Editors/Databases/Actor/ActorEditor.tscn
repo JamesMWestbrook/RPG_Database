@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://1btl6oul0k7i"]
+[gd_scene load_steps=4 format=3 uid="uid://1btl6oul0k7i"]
 
 [ext_resource type="Script" uid="uid://dbwnfj416aiou" path="res://addons/RPG_Maker_Database/Editors/Databases/Actor/actor_editor.gd" id="1_3yu4n"]
-[ext_resource type="Script" uid="uid://dvi3pm07wa58f" path="res://addons/eranot.resizable/resizable.gd" id="4_rsfhn"]
 [ext_resource type="PackedScene" uid="uid://0o7cxqncf2l2" path="res://addons/RPG_Maker_Database/Editors/Databases/trait_container.tscn" id="5_31y7y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yb4wf"]
@@ -297,11 +296,6 @@ text = "+"
 
 [node name="TraitContainer" parent="BoxContainer/ScrollColumn2/VBoxContainer" instance=ExtResource("5_31y7y")]
 layout_mode = 2
-
-[node name="Resizable" type="Control" parent="BoxContainer"]
-layout_mode = 2
-mouse_filter = 2
-script = ExtResource("4_rsfhn")
 
 [node name="FaceFileDialog" type="FileDialog" parent="."]
 title = "Open a File"

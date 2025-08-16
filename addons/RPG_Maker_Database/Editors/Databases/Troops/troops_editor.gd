@@ -134,5 +134,11 @@ func _assign_enemy(slot_index:int):
 	troops[cur_troop_index].enemies[slot_index] = cur_selected_enemy
 	pass
 
-func _design_enemy(slot_index:int):
-	pass
+func _design_enemy(slot_index:int):#removing an enemy from a slot 
+	troops[cur_troop_index].enemies[slot_index] = -1
+	_load_troop(cur_troop_index)
+
+
+func _on_name_line_edit_text_changed(new_text: String) -> void:
+	troops[cur_troop_index].name = new_text
+	troop_item_list.set_item_text(cur_troop_index, str(cur_troop_index) + " " + new_text)

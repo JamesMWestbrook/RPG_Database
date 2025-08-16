@@ -150,7 +150,7 @@ func _load_enemy(index:int):
 
 func _on_name_edit_text_changed(new_text: String) -> void:
 	enemies[cur_enemy_index].name = new_text
-	enemy_item_list.set_item_text(cur_enemy_index, new_text)
+	#enemy_item_list.set_item_text(cur_enemy_index, new_text)
 	enemy_item_list.set_item_text(cur_enemy_index, str(cur_enemy_index) + " " + new_text)
 
 

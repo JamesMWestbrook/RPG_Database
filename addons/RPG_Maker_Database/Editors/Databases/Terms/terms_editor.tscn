@@ -1,0 +1,514 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhjhujukpi838"]
+
+[ext_resource type="Script" uid="uid://bi6xkmnoxe2tg" path="res://addons/RPG_Maker_Database/Editors/Databases/Terms/RPG_Editor.gd" id="1_di8np"]
+
+[node name="Terms" type="Control" node_paths=PackedStringArray("Nodes")]
+layout_mode = 3
+anchor_top = 0.126
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.279999
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_di8np")
+DataType = "Terms"
+Nodes = [NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/Level"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2/Lvl"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HealthPoints"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer2/HP"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer3/VBoxContainer2/MP"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer3/VBoxContainer/MagicPoints"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer4/VBoxContainer/TacticalPoints"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer4/VBoxContainer2/TP"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer5/VBoxContainer/Experience"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer5/VBoxContainer2/EXP"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer6/VBoxContainer/JobPoints"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer6/VBoxContainer2/JP"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/MaxHP"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/MaxMP"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer2/VBoxContainer/Attack"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer/MAttack"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer/MAttack"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer2/MDefense"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer4/VBoxContainer/Agility"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer4/VBoxContainer2/Luck"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer5/VBoxContainer/Hit"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer5/VBoxContainer2/Evasion"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer6/VBoxContainer/Class"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer2/VBoxContainer/Fight"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer2/Status"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer2/VBoxContainer3/Item"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer2/VBoxContainer4/Skill"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer/Equip"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer2/Status"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer3/Save"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer4/GameEnd"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer4/VBoxContainer/NewGame"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer4/VBoxContainer2/Continue"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer4/VBoxContainer3/ToTitle")]
+metadata/_tab_index = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer"]
+layout_mode = 2
+
+[node name="SaveButton" type="Button" parent="ScrollContainer/BoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Save"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Statistics"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Level:"
+
+[node name="Level" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Level"
+expand_to_text_length = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Level (abbr.):"
+
+[node name="Lvl" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Lv"
+expand_to_text_length = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "HP:"
+
+[node name="HealthPoints" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Health Points"
+expand_to_text_length = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+text = "HP (abbr.):"
+
+[node name="HP" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+text = "HP"
+expand_to_text_length = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+text = "MP:"
+
+[node name="MagicPoints" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+text = "Magic Points"
+expand_to_text_length = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+text = "MP (abbr.):"
+
+[node name="MP" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+text = "MP"
+expand_to_text_length = true
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer4/VBoxContainer"]
+layout_mode = 2
+text = "TP: "
+
+[node name="TacticalPoints" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer4/VBoxContainer"]
+layout_mode = 2
+text = "Tactical Points?"
+expand_to_text_length = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer4/VBoxContainer2"]
+layout_mode = 2
+text = "TP (abbr.):"
+
+[node name="TP" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer4/VBoxContainer2"]
+layout_mode = 2
+text = "TP"
+expand_to_text_length = true
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer5/VBoxContainer"]
+layout_mode = 2
+text = "EXP:"
+
+[node name="Experience" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer5/VBoxContainer"]
+layout_mode = 2
+text = "Experience"
+expand_to_text_length = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer5/VBoxContainer2"]
+layout_mode = 2
+text = "EXP (abbr.):"
+
+[node name="EXP" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer5/VBoxContainer2"]
+layout_mode = 2
+text = "EXP"
+expand_to_text_length = true
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer6/VBoxContainer"]
+layout_mode = 2
+text = "JP:"
+
+[node name="JobPoints" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer6/VBoxContainer"]
+layout_mode = 2
+text = "Job Points"
+expand_to_text_length = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer6/VBoxContainer2"]
+layout_mode = 2
+text = "JP (abbr.):"
+
+[node name="JP" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer6/VBoxContainer2"]
+layout_mode = 2
+text = "JP"
+expand_to_text_length = true
+
+[node name="VSeparator" type="VSeparator" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Parameters"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Max HP:"
+
+[node name="MaxHP" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Max HP"
+expand_to_text_length = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Max MP:"
+
+[node name="MaxMP" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Max MP"
+expand_to_text_length = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Attack:"
+
+[node name="Attack" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Attack"
+expand_to_text_length = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+text = "Defense:"
+
+[node name="Defense" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+text = "Defense"
+expand_to_text_length = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+text = "M.Attack:"
+
+[node name="MAttack" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+text = "M.Attack"
+expand_to_text_length = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+text = "M.Defense:"
+
+[node name="MDefense" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+text = "M.Defense"
+expand_to_text_length = true
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer4/VBoxContainer"]
+layout_mode = 2
+text = "Agility:"
+
+[node name="Agility" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer4/VBoxContainer"]
+layout_mode = 2
+text = "Agility"
+expand_to_text_length = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer4/VBoxContainer2"]
+layout_mode = 2
+text = "Luck:"
+
+[node name="Luck" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer4/VBoxContainer2"]
+layout_mode = 2
+text = "Luck"
+expand_to_text_length = true
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer5"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer5/VBoxContainer"]
+layout_mode = 2
+text = "Hit:"
+
+[node name="Hit" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer5/VBoxContainer"]
+layout_mode = 2
+text = "Hit"
+expand_to_text_length = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer5"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer5/VBoxContainer2"]
+layout_mode = 2
+text = "Evasion Rate:"
+
+[node name="Evasion" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer5/VBoxContainer2"]
+layout_mode = 2
+text = "Evasion"
+expand_to_text_length = true
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer6"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer6/VBoxContainer"]
+layout_mode = 2
+text = "Class:"
+
+[node name="Class" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer6/VBoxContainer"]
+layout_mode = 2
+text = "Class"
+expand_to_text_length = true
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Commands"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Fight:"
+
+[node name="Fight" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Fight"
+expand_to_text_length = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+text = "Escape:"
+
+[node name="Escape" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+text = "Escape"
+expand_to_text_length = true
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer2/VBoxContainer3"]
+layout_mode = 2
+text = "Item:"
+
+[node name="Item" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer2/VBoxContainer3"]
+layout_mode = 2
+text = "Item"
+expand_to_text_length = true
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer2/VBoxContainer4"]
+layout_mode = 2
+text = "Skill:"
+
+[node name="Skill" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer2/VBoxContainer4"]
+layout_mode = 2
+text = "Skill"
+expand_to_text_length = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+text = "Equip:"
+
+[node name="Equip" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+text = "Equip"
+expand_to_text_length = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+text = "Status:"
+
+[node name="Status" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+text = "Status"
+expand_to_text_length = true
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer3"]
+layout_mode = 2
+text = "Save:"
+
+[node name="Save" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer3"]
+layout_mode = 2
+text = "Save"
+expand_to_text_length = true
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer4"]
+layout_mode = 2
+text = "Game End:"
+
+[node name="GameEnd" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer4"]
+layout_mode = 2
+text = "Game End"
+expand_to_text_length = true
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer4/VBoxContainer"]
+layout_mode = 2
+text = "New Game:"
+
+[node name="NewGame" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer4/VBoxContainer"]
+layout_mode = 2
+text = "New Game"
+expand_to_text_length = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer4/VBoxContainer2"]
+layout_mode = 2
+text = "Continue:"
+
+[node name="Continue" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer4/VBoxContainer2"]
+layout_mode = 2
+text = "Continue"
+expand_to_text_length = true
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer4/VBoxContainer3"]
+layout_mode = 2
+text = "To Title:"
+
+[node name="ToTitle" type="LineEdit" parent="ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer4/VBoxContainer3"]
+layout_mode = 2
+text = "To Title"
+expand_to_text_length = true
+
+[connection signal="button_down" from="ScrollContainer/BoxContainer/VBoxContainer2/SaveButton" to="." method="_save_json"]

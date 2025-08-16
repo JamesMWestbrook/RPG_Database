@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dcqbtahnsdr2v"]
+[gd_scene load_steps=18 format=3 uid="uid://dcqbtahnsdr2v"]
 
 [ext_resource type="Script" uid="uid://dq7fer6h7gpa7" path="res://addons/RPG_Maker_Database/Editors/Databases/databases_editor.gd" id="1_o5pce"]
 [ext_resource type="PackedScene" uid="uid://1btl6oul0k7i" path="res://addons/RPG_Maker_Database/Editors/Databases/Actor/ActorEditor.tscn" id="2_o8jcg"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://ct028egsh2ibo" path="res://addons/RPG_Maker_Database/Editors/Databases/Variables/variables.tscn" id="6_xg6gf"]
 [ext_resource type="PackedScene" uid="uid://cir1qqyfqrxnx" path="res://addons/RPG_Maker_Database/Editors/Databases/Armor/ArmorEditor.tscn" id="7_8plf8"]
 [ext_resource type="PackedScene" uid="uid://dc8vankfv6efh" path="res://addons/RPG_Maker_Database/Editors/Databases/Types/types_editor.tscn" id="8_mp56p"]
+[ext_resource type="PackedScene" uid="uid://dhjhujukpi838" path="res://addons/RPG_Maker_Database/Editors/Databases/Terms/terms_editor.tscn" id="16_y43a8"]
 
 [node name="Databases" type="TabContainer"]
 anchors_preset = 15
@@ -23,10 +24,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 0
+current_tab = 4
 script = ExtResource("1_o5pce")
 
 [node name="Characters" type="Control" parent="."]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -127,7 +129,6 @@ layout_mode = 2
 metadata/_tab_index = 3
 
 [node name="System" type="Control" parent="."]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 4
 
@@ -138,7 +139,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 2
+current_tab = 3
 
 [node name="Config" type="Control" parent="System/TabContainer"]
 visible = false
@@ -151,13 +152,12 @@ layout_mode = 2
 metadata/_tab_index = 1
 
 [node name="Types" parent="System/TabContainer" instance=ExtResource("8_mp56p")]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="Terms" type="Control" parent="System/TabContainer"]
-visible = false
+[node name="Terms" parent="System/TabContainer" instance=ExtResource("16_y43a8")]
 layout_mode = 2
-metadata/_tab_index = 3
 
 [node name="TraitsWindow" parent="." instance=ExtResource("5_duimv")]
 visible = false

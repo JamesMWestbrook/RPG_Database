@@ -38,7 +38,7 @@ func _check_json():
 			var new_troop:Dictionary = {}
 			troops.append(new_troop)
 			_check_troop(i)
-		#_save_json()
+		_save_json()
 func _save_json():
 	var save_data:Dictionary = {
 		"troops" : troops

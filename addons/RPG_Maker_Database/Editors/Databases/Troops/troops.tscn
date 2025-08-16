@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b2kj2jw4juik1" path="res://addons/RPG_Maker_Database/Editors/Databases/Troops/troops_editor.gd" id="1_f01xq"]
 [ext_resource type="PackedScene" uid="uid://35kk06mmw7wy" path="res://addons/RPG_Maker_Database/Editors/Databases/Troops/enemy_slot.tscn" id="2_df4l2"]
 
-[node name="Troops" type="Control" node_paths=PackedStringArray("troop_count_spinbox", "troop_item_list", "enemy_item_list", "slots_container", "battlefield")]
+[node name="Troops" type="Control" node_paths=PackedStringArray("name_line_edit", "troop_count_spinbox", "troop_item_list", "enemy_item_list", "slots_container", "battlefield")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,6 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f01xq")
+name_line_edit = NodePath("HBoxContainer/NameLineEdit")
 troop_count_spinbox = NodePath("1st Column/HBoxContainer2/TroopCountSpinbox")
 troop_item_list = NodePath("1st Column/TroopList")
 enemy_item_list = NodePath("right column/EnemyItemList")
@@ -40,6 +41,10 @@ custom_minimum_size = Vector2(91.97, 0)
 layout_mode = 2
 text = "Troop Name Wow"
 expand_to_text_length = true
+
+[node name="AutoNameButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Auto Set Name"
 
 [node name="1st Column" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -123,6 +128,7 @@ layout_mode = 2
 [node name="BattleField" type="Node2D" parent="."]
 
 [connection signal="text_changed" from="HBoxContainer/NameLineEdit" to="." method="_on_name_line_edit_text_changed"]
+[connection signal="button_down" from="HBoxContainer/AutoNameButton" to="." method="_on_auto_name_button_button_down"]
 [connection signal="button_down" from="1st Column/HBoxContainer/SaveButton" to="." method="_save_json"]
 [connection signal="item_selected" from="1st Column/TroopList" to="." method="_load_troop"]
 [connection signal="item_selected" from="right column/EnemyItemList" to="." method="_on_enemy_item_list_item_selected"]

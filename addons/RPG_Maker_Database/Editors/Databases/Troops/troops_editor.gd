@@ -5,6 +5,7 @@ const ENEMY_SLOT = preload("res://addons/RPG_Maker_Database/Editors/Databases/Tr
 const TROOP_SAMPLE_ENEMY = preload("res://addons/RPG_Maker_Database/Editors/Databases/Troops/Troop_Layout/troop_sample_enemy.tscn")
 
 #region
+@export var name_line_edit:LineEdit
 @export var troop_count_spinbox:SpinBox
 @export var troop_item_list:ItemList
 @export var enemy_item_list:ItemList
@@ -76,8 +77,10 @@ func _check_troop(index:int):
 	
 func _load_troop_buttons():
 	troop_item_list.clear()
+	var index:int
 	for troop:Dictionary in troops:
-		troop_item_list.add_item(troop.name)
+		troop_item_list.add_item(str(index) + " " + troop.name)
+		index += 1
 
 func _load_enemies():
 	enemy_item_list.clear()
@@ -110,6 +113,7 @@ func _clear_children(node):
 func _load_troop(index:int):
 	_clear_children(battlefield)
 	cur_troop_index = index
+	name_line_edit.text = troops[cur_troop_index].name
 	var enemies:Array = troops[cur_troop_index].enemies
 	var slot_index:int = 0
 	for i in enemies:
@@ -142,3 +146,15 @@ func _design_enemy(slot_index:int):#removing an enemy from a slot
 func _on_name_line_edit_text_changed(new_text: String) -> void:
 	troops[cur_troop_index].name = new_text
 	troop_item_list.set_item_text(cur_troop_index, str(cur_troop_index) + " " + new_text)
+
+
+func _on_auto_name_button_button_down() -> void:
+	var new_name:String
+	var enemies:Array = troops[cur_troop_index].enemies
+	for i in enemies:
+		if i == -1:
+			continue
+		new_name += EnemyEditor.enemies[i].name + " "
+	new_name = new_name.trim_suffix(" ")
+	troops[cur_troop_index].name = new_name
+	troop_item_list.set_item_text(cur_troop_index, str(cur_troop_index) + " " + new_name)

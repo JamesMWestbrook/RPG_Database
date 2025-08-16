@@ -60,7 +60,7 @@ func set_normal():
 func _on_function_option_item_selected(index: int, arg_index:int = 0, arg_value:int = 100) -> void:
 	hide_all()
 	$DeleteButton.show()
-	
+	state = index
 	function_option.show()
 	function_option.select(index)
 	
@@ -71,22 +71,24 @@ func _on_function_option_item_selected(index: int, arg_index:int = 0, arg_value:
 	
 	match index:
 		0: #element rate
-			state = STATE.ELEMENT_RATE
 			element_option_button.show()
 			percent_multiplier_spin_box.show()
 			_on_element_option_button_button_down()
 			element_option_button.select(arg_index)
 			percent_multiplier_spin_box.value = arg_value
 
-		1: 
-			state = STATE.DEBUFF_RATE
+		1: #debuff rate
 			stat_option_button.show()
 			percent_multiplier_spin_box.show()
 			
 			stat_option_button.select(arg_index)
 			percent_multiplier_spin_box.value = arg_value
 		2: 
-			state = STATE.STATE_RATE
+			status_option_button.show()
+			percent_multiplier_spin_box.show()
+			_on_status_option_button_button_down()
+			status_option_button.select(arg_index)
+			percent_multiplier_spin_box.value = arg_value
 		3: #State Resist
 			pass
 		4: #Parameter
@@ -121,3 +123,14 @@ func _on_element_option_button_button_down() -> void:
 	element_option_button.clear()
 	for e in elements:
 		element_option_button.add_item(e)
+
+
+func _on_status_option_button_button_down() -> void:
+	var states = States.states
+	status_option_button.clear()
+	for s in states:
+		status_option_button.add_item(s.name)
+
+
+func _on_status_option_button_item_selected(index: int) -> void:
+	argument = index

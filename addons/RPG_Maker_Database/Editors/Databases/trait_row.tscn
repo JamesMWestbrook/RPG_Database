@@ -96,7 +96,6 @@ popup/item_7/text = "Luck"
 popup/item_7/id = 7
 
 [node name="StatusOptionButton" type="OptionButton" parent="."]
-visible = false
 layout_mode = 2
 selected = 0
 item_count = 1
@@ -177,7 +176,6 @@ popup/item_0/id = 0
 
 [node name="PercentMultiplierSpinBox" type="SpinBox" parent="."]
 layout_mode = 2
-min_value = -1000.0
 max_value = 1000.0
 value = 100.0
 update_on_text_changed = true
@@ -198,6 +196,8 @@ text = "X"
 [connection signal="button_down" from="ElementOptionButton" to="." method="_on_element_option_button_button_down"]
 [connection signal="item_selected" from="ElementOptionButton" to="." method="_on_argument_option_selected"]
 [connection signal="item_selected" from="StatOptionButton" to="." method="_on_stat_option_button_item_selected"]
+[connection signal="button_down" from="StatusOptionButton" to="." method="_on_status_option_button_button_down"]
+[connection signal="item_selected" from="StatusOptionButton" to="." method="_on_status_option_button_item_selected"]
 [connection signal="value_changed" from="PercentMultiplierSpinBox" to="." method="on_value_changed"]
 [connection signal="value_changed" from="AdditiveSpinBox" to="." method="on_value_changed"]
 [connection signal="button_down" from="DeleteButton" to="." method="_on_delete_button_button_down"]

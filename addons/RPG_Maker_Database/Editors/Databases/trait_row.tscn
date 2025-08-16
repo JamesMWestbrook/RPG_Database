@@ -190,10 +190,12 @@ layout_mode = 2
 value = 100.0
 
 [node name="DeleteButton" type="Button" parent="."]
+visible = false
 layout_mode = 2
 text = "X"
 
 [connection signal="item_selected" from="FunctionOption" to="." method="_on_function_option_item_selected"]
+[connection signal="button_down" from="ElementOptionButton" to="." method="_on_element_option_button_button_down"]
 [connection signal="item_selected" from="ElementOptionButton" to="." method="_on_argument_option_selected"]
 [connection signal="item_selected" from="StatOptionButton" to="." method="_on_stat_option_button_item_selected"]
 [connection signal="value_changed" from="PercentMultiplierSpinBox" to="." method="on_value_changed"]

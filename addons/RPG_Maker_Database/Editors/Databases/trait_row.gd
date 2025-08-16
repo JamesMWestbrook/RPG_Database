@@ -74,12 +74,8 @@ func _on_function_option_item_selected(index: int, arg_index:int = 0, arg_value:
 			state = STATE.ELEMENT_RATE
 			element_option_button.show()
 			percent_multiplier_spin_box.show()
-			var elements = TypesEditor.type_data[0] #elements list
-			element_option_button.get_popup().clear()
-			for e in elements:
-				element_option_button.get_popup().add_item(e)
+			_on_element_option_button_button_down()
 			element_option_button.select(arg_index)
-			
 			percent_multiplier_spin_box.value = arg_value
 
 		1: 
@@ -118,3 +114,10 @@ func _on_delete_button_button_down() -> void:
 	do_not_count_me = true
 	changed.emit()
 	queue_free()
+
+
+func _on_element_option_button_button_down() -> void:
+	var elements = TypesEditor.type_data[0] #elements list
+	element_option_button.clear()
+	for e in elements:
+		element_option_button.add_item(e)

@@ -8,6 +8,7 @@ script = ExtResource("1_4q5m7")
 [node name="FunctionOption" type="OptionButton" parent="."]
 layout_mode = 2
 selected = 0
+allow_reselect = true
 item_count = 25
 popup/item_0/text = "Element Rate"
 popup/item_0/id = 0
@@ -64,6 +65,7 @@ popup/item_24/id = 23
 layout_mode = 2
 alignment = 1
 selected = 0
+allow_reselect = true
 item_count = 4
 popup/item_0/text = "Normal"
 popup/item_0/id = 0
@@ -79,6 +81,7 @@ visible = false
 layout_mode = 2
 alignment = 1
 selected = 0
+allow_reselect = true
 item_count = 8
 popup/item_0/text = "Max HP"
 popup/item_0/id = 0
@@ -102,6 +105,7 @@ visible = false
 layout_mode = 2
 alignment = 1
 selected = 0
+allow_reselect = true
 item_count = 10
 popup/item_0/text = "Hit Rate"
 popup/item_0/id = 0
@@ -129,6 +133,7 @@ visible = false
 layout_mode = 2
 alignment = 1
 selected = 0
+allow_reselect = true
 item_count = 11
 popup/item_0/text = "Target Rate"
 popup/item_0/id = 0
@@ -157,6 +162,7 @@ popup/item_10/id = 10
 visible = false
 layout_mode = 2
 selected = 0
+allow_reselect = true
 item_count = 1
 popup/item_0/text = "000 Knockout"
 popup/item_0/id = 0
@@ -165,6 +171,7 @@ popup/item_0/id = 0
 visible = false
 layout_mode = 2
 selected = 0
+allow_reselect = true
 item_count = 1
 popup/item_0/text = "Special"
 popup/item_0/id = 0
@@ -173,6 +180,7 @@ popup/item_0/id = 0
 visible = false
 layout_mode = 2
 selected = 0
+allow_reselect = true
 item_count = 1
 popup/item_0/text = "Attack"
 popup/item_0/id = 0
@@ -180,23 +188,18 @@ popup/item_0/id = 0
 [node name="WeaponOptionButton" type="OptionButton" parent="."]
 visible = false
 layout_mode = 2
-selected = 0
-item_count = 1
-popup/item_0/text = "Attack"
-popup/item_0/id = 0
+allow_reselect = true
 
 [node name="ArmorOptionButton" type="OptionButton" parent="."]
-visible = false
 layout_mode = 2
 selected = 0
-item_count = 1
-popup/item_0/text = "Attack"
-popup/item_0/id = 0
+allow_reselect = true
 
 [node name="LockEquipOptionButton" type="OptionButton" parent="."]
 visible = false
 layout_mode = 2
 selected = 0
+allow_reselect = true
 item_count = 1
 popup/item_0/text = "Attack"
 popup/item_0/id = 0
@@ -205,14 +208,18 @@ popup/item_0/id = 0
 visible = false
 layout_mode = 2
 selected = 0
-item_count = 1
-popup/item_0/text = "Attack"
+allow_reselect = true
+item_count = 2
+popup/item_0/text = "Normal"
 popup/item_0/id = 0
+popup/item_1/text = "Dual Wield"
+popup/item_1/id = 1
 
 [node name="SpecialFlagOptionButton" type="OptionButton" parent="."]
 visible = false
 layout_mode = 2
 selected = 0
+allow_reselect = true
 item_count = 1
 popup/item_0/text = "Attack"
 popup/item_0/id = 0
@@ -221,6 +228,7 @@ popup/item_0/id = 0
 visible = false
 layout_mode = 2
 selected = 0
+allow_reselect = true
 item_count = 1
 popup/item_0/text = "Attack"
 popup/item_0/id = 0
@@ -229,6 +237,7 @@ popup/item_0/id = 0
 visible = false
 layout_mode = 2
 selected = 0
+allow_reselect = true
 item_count = 1
 popup/item_0/text = "Attack"
 popup/item_0/id = 0
@@ -263,6 +272,10 @@ text = "X"
 [connection signal="item_selected" from="SkillTypesOptionButton" to="." method="_on_skill_types_option_button_item_selected"]
 [connection signal="button_down" from="SkillOptionButton" to="." method="_on_skill_option_button_button_down"]
 [connection signal="item_selected" from="SkillOptionButton" to="." method="_on_skill_option_button_item_selected"]
+[connection signal="item_selected" from="WeaponOptionButton" to="." method="_on_weapon_option_button_item_selected"]
+[connection signal="item_selected" from="ArmorOptionButton" to="." method="_on_armor_option_button_item_selected"]
+[connection signal="item_selected" from="LockEquipOptionButton" to="." method="_on_lock_equip_option_button_item_selected"]
+[connection signal="item_selected" from="SlotTypeOptionButton" to="." method="_on_slot_type_option_button_item_selected"]
 [connection signal="value_changed" from="PercentMultiplierSpinBox" to="." method="on_value_changed"]
 [connection signal="value_changed" from="AdditiveSpinBox" to="." method="on_value_changed"]
 [connection signal="button_down" from="DeleteButton" to="." method="_on_delete_button_button_down"]

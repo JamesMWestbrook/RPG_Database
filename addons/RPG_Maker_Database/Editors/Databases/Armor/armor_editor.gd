@@ -28,7 +28,7 @@ class_name Armors
 #endregion
 
 var cur_armor_index:int
-var armors:Array
+static var armors:Array
 const JSON_SAVE_PATH = "res://data/armors.json"
 
 signal ArmorsUpdated(armors)

@@ -140,7 +140,37 @@ func _on_function_option_item_selected(index: int, arg_index:int = 0, arg_value:
 			skill_types_option_button.show()
 			_on_skill_types_option_button_button_down()
 			skill_types_option_button.select(arg_index)
-			
+		13: #Seal Skill Type
+			skill_types_option_button.show()
+			_on_skill_types_option_button_button_down()
+			skill_types_option_button.select(arg_index)
+		14: #Add Skill
+			skill_option_button.show()
+			_on_skill_option_button_button_down()
+			skill_option_button.select(arg_index)
+		15: #Seal Skill
+			skill_option_button.show()
+			_on_skill_option_button_button_down()
+			skill_option_button.select(arg_index)
+		16: #Equip Weapon
+			weapon_option_button.show()
+			_on_weapon_option_button_button_down()
+			weapon_option_button.select(arg_index)
+		17: #Equip Armors
+			armor_option_button.show()
+			_on_armor_option_button_button_down()
+			armor_option_button.select(arg_index)
+		18: #Lock Equip Slot
+			lock_equip_option_button.show()
+			_set_equip()
+			lock_equip_option_button.select(arg_index)
+		19: #seal equip
+			lock_equip_option_button.show()
+			_set_equip()
+			lock_equip_option_button.select(arg_index)
+		20: #Slot type, normal or duel wield
+			slot_type_option_button.show()
+			slot_type_option_button.select(arg_index)
 	changed.emit()
 		
 func _on_argument_option_selected(index:int) -> void:
@@ -206,4 +236,38 @@ func _on_skill_types_option_button_button_down() -> void:
 
 
 func _on_skill_types_option_button_item_selected(index: int) -> void:
+	argument = index
+
+
+func _on_weapon_option_button_button_down() -> void:
+	weapon_option_button.clear()
+	var weapons:Array = TypesEditor.type_data[2]
+	for w in weapons:
+		weapon_option_button.add_item(w)
+
+func _on_weapon_option_button_item_selected(index: int) -> void:
+	argument = index
+
+
+func _on_armor_option_button_button_down() -> void:
+	armor_option_button.clear()
+	var armors:Array = TypesEditor.type_data[3]
+	for a in armors:
+		armor_option_button.add_item(a)
+
+
+func _on_armor_option_button_item_selected(index: int) -> void:
+	argument = index
+func _set_equip():
+	lock_equip_option_button.clear()
+	var equips = TypesEditor.type_data[4]
+	for e in equips:
+		lock_equip_option_button.add_item(e)
+
+
+func _on_lock_equip_option_button_item_selected(index: int) -> void:
+	argument = index
+
+
+func _on_slot_type_option_button_item_selected(index: int) -> void:
 	argument = index

@@ -27,7 +27,7 @@ class_name Weapons
 #endregion
 
 var cur_weapon_index:int
-var weapons:Array
+static var weapons:Array
 const JSON_SAVE_PATH = "res://data/weapons.json"
 
 signal WeaponsUpdated(weapons)

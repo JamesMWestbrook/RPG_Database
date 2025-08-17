@@ -28,6 +28,7 @@ class_name Items
 @export var element_type_option_button:OptionButton
 @export var formula_editor:CodeEdit
 @export var notes_edit:TextEdit
+@export var effect_container:EffectContainer
 #endregion
 
 var cur_item_index:int
@@ -102,6 +103,7 @@ func _check_item(index:int):
 	item.element = 1
 	item.formula = ""
 	item.note = ""
+	item.effects = []
 	
 	items[index] = item
 
@@ -165,6 +167,8 @@ func _load_item(index:int):
 	element_type_option_button.select(item.element)
 	formula_editor.text = item.formula
 	notes_edit.text = item.note
+	effect_container._clear()
+	effect_container._load(item.effects)
 
 func _on_change_item_max_button_button_down() -> void:
 	items.resize(item_count_spinbox.value)
@@ -240,3 +244,7 @@ func _on_formula_editor_text_changed() -> void:
 
 func _on_notes_text_edit_text_changed() -> void:
 	items[cur_item_index].note = notes_edit.text
+
+
+func _on_effect_container_updated_effects(list: Variant) -> void:
+	items[cur_item_index].effects = list

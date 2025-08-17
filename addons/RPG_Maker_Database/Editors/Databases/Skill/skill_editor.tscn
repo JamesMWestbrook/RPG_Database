@@ -475,18 +475,14 @@ text = "Note"
 custom_minimum_size = Vector2(0, 206.295)
 layout_mode = 2
 
-[node name="Label6" type="Label" parent="ScrollContainer/BoxContainer/3rd Column"]
-layout_mode = 2
-text = "Effects"
-horizontal_alignment = 1
-
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/BoxContainer/3rd Column"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label7" type="Label" parent="ScrollContainer/BoxContainer/3rd Column/HBoxContainer"]
+[node name="Label6" type="Label" parent="ScrollContainer/BoxContainer/3rd Column/HBoxContainer"]
 layout_mode = 2
-text = "Type/Content"
+text = "Effects"
+horizontal_alignment = 1
 
 [node name="AddEffectButton" type="Button" parent="ScrollContainer/BoxContainer/3rd Column/HBoxContainer"]
 layout_mode = 2

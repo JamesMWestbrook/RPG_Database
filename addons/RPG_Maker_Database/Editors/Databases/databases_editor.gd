@@ -44,9 +44,9 @@ func _on_obj_tab_container_tab_clicked(tab: int) -> void:
 			skills._load_skill(skills.cur_skill_index)
 		1: #Items
 			items._load_item(items.cur_item_index)
-		3: #Weapons
+		2: #Weapons
 			weapons._load_weapon(weapons.cur_weapon_index)
-		4: #Armors
+		3: #Armors
 			armors._load_armor(armors.cur_armor_index)
-		5: #States
+		4: #States
 			states._load_state(states.cur_state_index)

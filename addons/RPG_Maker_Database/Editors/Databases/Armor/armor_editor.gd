@@ -136,7 +136,6 @@ func _load_armor(index:int):
 	armor_type_option_button.select(armor.type)
 	body_part_option_button.select(armor.body_part)
 	price_spin_box.value = armor.price
-	animation_type_option_button.select(armor.animation)
 	
 	atk_spin_box.value = armor.atk
 	def_spin_box.value = armor.def

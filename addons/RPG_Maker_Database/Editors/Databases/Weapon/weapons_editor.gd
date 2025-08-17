@@ -133,7 +133,6 @@ func _load_weapon(index:int):
 		texture.texture = placeholder_icon
 	weapon_type_option_button.select(weapon.type)
 	price_spin_box.value = weapon.price
-	animation_type_option_button.select(weapon.animation)
 	
 	atk_spin_box.value = weapon.atk
 	def_spin_box.value = weapon.def

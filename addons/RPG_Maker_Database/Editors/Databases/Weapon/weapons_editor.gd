@@ -23,7 +23,7 @@ class_name Weapons
 @export var mmp_spin_box:SpinBox
 
 @export var note_edit:TextEdit
-
+@export var trait_container:TraitContainer
 #endregion
 
 var cur_weapon_index:int
@@ -36,7 +36,7 @@ func _ready() -> void:
 	_check_json()
 	await get_tree().process_frame
 	_weapon_buttons()
-	_load_weapon(0)
+	#_load_weapon(0)
 	
 func _check_json():
 	if FileAccess.file_exists(JSON_SAVE_PATH):
@@ -100,9 +100,11 @@ func _check_weapon(index:int):
 	weapon.mmp = 0
 	
 	weapon.note = ""
+	weapon.traits = []
 	
 	weapons[index] = weapon
-
+	
+	
 func _weapon_buttons():
 	weapon_item_list.clear()
 	
@@ -143,7 +145,8 @@ func _load_weapon(index:int):
 	mmp_spin_box.value = weapon.mmp
 	
 	note_edit.text = weapon.note
-
+	trait_container._clear()
+	trait_container._load_traits(weapon.traits)
 
 func _on_name_edit_text_changed(new_text: String) -> void:
 	weapons[cur_weapon_index].name = new_text
@@ -200,3 +203,7 @@ func _on_mmp_spin_box_value_changed(value: float) -> void:
 
 func _on_note_text_edit_text_changed() -> void:
 	weapons[cur_weapon_index].note = note_edit.text
+
+
+func _on_trait_container_updated_traits(list: Variant) -> void:
+	weapons[cur_weapon_index].traits = list

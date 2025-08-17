@@ -45,6 +45,7 @@ signal changed()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hide_all()
+	$DeleteButton.show()
 	set_normal()
 	#_on_function_option_item_selected(0)
 

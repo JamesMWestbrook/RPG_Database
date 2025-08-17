@@ -22,7 +22,7 @@ class_name States
 @export var actor_inflicted_edit:LineEdit
 @export var state_persist_edit:LineEdit
 @export var state_removed_edit:LineEdit
-
+@export var trait_container:TraitContainer
 
 
 #endregion
@@ -55,7 +55,6 @@ enum AUTO_REMOVAL_TIMING{
 func _ready() -> void:
 	_check_json()
 	await get_tree().process_frame
-	_load_state(0)
 	_state_buttons()
 		
 func _check_json():
@@ -132,7 +131,8 @@ func _load_state(index:int):
 	actor_inflicted_edit.text = state.actor_inflicted_message
 	state_persist_edit.text = state.persist_message
 	state_removed_edit.text = state.removed_message
-	#Put in trait loading logic
+	trait_container._clear()
+	trait_container._load_traits(state.traits)
 
 func _check_state(index:int):
 	if states[index] == null:
@@ -164,8 +164,7 @@ func _check_state(index:int):
 		states[index] = state
 		
 func _on_trait_container_updated_traits(list: Variant) -> void:
-	pass
-	#states[cur_state_index].traits = list
+	states[cur_state_index].traits = list
 	
 
 func _on_change_actor_max_button_button_down() -> void:

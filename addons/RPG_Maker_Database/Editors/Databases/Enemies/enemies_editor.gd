@@ -24,6 +24,7 @@ class_name EnemyEditor
 
 @export var note_edit:TextEdit
 @export var desc_edit:TextEdit
+@export var trait_container:TraitContainer
 
 @onready var action_container: VBoxContainer = $"ScrollContainer/BoxContainer/3rd Column/ScrollContainer/ActionContainer"
 
@@ -104,6 +105,7 @@ func _check_enemy(index:int):
 	
 	enemy.note = ""
 	enemy.desc = ""
+	enemy.traits = []
 	
 	enemy.actions = []
 	
@@ -145,6 +147,9 @@ func _load_enemy(index:int):
 	
 	note_edit.text = enemy.note
 	desc_edit.text = enemy.desc
+	
+	trait_container._clear()
+	trait_container._load_traits(enemy.traits)
 
 	action_container._load(enemy.actions)
 
@@ -220,3 +225,7 @@ func _on_desc_text_edit_text_changed() -> void:
 
 func _on_action_container_updated_actions(_actions: Variant) -> void:
 	enemies[cur_enemy_index].actions = _actions
+
+
+func _on_trait_container_updated_traits(list: Variant) -> void:
+	enemies[cur_enemy_index].traits = list

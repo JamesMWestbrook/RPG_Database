@@ -8,10 +8,6 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 25.0
-offset_top = -2.0
-offset_right = 25.0
-offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_013nu")
@@ -20,9 +16,12 @@ metadata/_edit_horizontal_guides_ = [422.0]
 metadata/_edit_vertical_guides_ = [545.0]
 
 [node name="BoxContainer" type="BoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="1st Column" type="VBoxContainer" parent="BoxContainer"]
 custom_minimum_size = Vector2(169.47, 0)
@@ -269,20 +268,25 @@ prefix = "Lvl 99:"
 [node name="3rd Column" type="VBoxContainer" parent="BoxContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="BoxContainer/3rd Column"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="BoxContainer/3rd Column"]
 layout_mode = 2
 alignment = 1
 
-[node name="TraitsLabel" type="Label" parent="BoxContainer/3rd Column/HBoxContainer"]
+[node name="TraitsLabel" type="Label" parent="BoxContainer/3rd Column/HBoxContainer4"]
 layout_mode = 2
 text = "Traits"
 
-[node name="Button" type="Button" parent="BoxContainer/3rd Column/HBoxContainer"]
+[node name="Traits help" type="Button" parent="BoxContainer/3rd Column/HBoxContainer4"]
+layout_mode = 2
+tooltip_text = "Click here to know learn what each trait does. "
+text = "?"
+
+[node name="AddTraitButton" type="Button" parent="BoxContainer/3rd Column/HBoxContainer4"]
 layout_mode = 2
 text = "+"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="BoxContainer/3rd Column"]
-custom_minimum_size = Vector2(239.425, 390.295)
+custom_minimum_size = Vector2(453.46, 390.295)
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -308,3 +312,5 @@ layout_mode = 2
 [connection signal="value_changed" from="BoxContainer/2nd Column/VBoxContainer/AgilityBox/AgiEndSpinBox" to="." method="_on_agi_end_spin_box_value_changed"]
 [connection signal="value_changed" from="BoxContainer/2nd Column/VBoxContainer/LuckBox/LckStartSpinBox" to="." method="_on_lck_start_spin_box_value_changed"]
 [connection signal="value_changed" from="BoxContainer/2nd Column/VBoxContainer/LuckBox/LckEndSpinBox" to="." method="_on_lck_end_spin_box_value_changed"]
+[connection signal="button_down" from="BoxContainer/3rd Column/HBoxContainer4/AddTraitButton" to="BoxContainer/3rd Column/ScrollContainer/TraitContainer" method="_add_new"]
+[connection signal="UpdatedTraits" from="BoxContainer/3rd Column/ScrollContainer/TraitContainer" to="." method="_on_trait_container_updated_traits"]

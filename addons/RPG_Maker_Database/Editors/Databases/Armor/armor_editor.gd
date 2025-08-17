@@ -24,7 +24,7 @@ class_name Armors
 @export var mmp_spin_box:SpinBox
 
 @export var note_edit:TextEdit
-
+@export var trait_container:TraitContainer
 #endregion
 
 var cur_armor_index:int
@@ -102,6 +102,7 @@ func _check_armor(index:int):
 	armor.mmp = 0
 	
 	armor.note = ""
+	armor.traits = []
 	
 	armors[index] = armor
 
@@ -147,7 +148,8 @@ func _load_armor(index:int):
 	mmp_spin_box.value = armor.mmp
 	
 	note_edit.text = armor.note
-
+	trait_container._clear()
+	trait_container._load_traits(armor.traits)
 
 func _on_name_edit_text_changed(new_text: String) -> void:
 	armors[cur_armor_index].name = new_text
@@ -208,3 +210,7 @@ func _on_note_text_edit_text_changed() -> void:
 
 func _on_body_part_button_item_selected(index: int) -> void:
 	armors[cur_armor_index].body_part = index
+
+
+func _on_trait_container_updated_traits(list: Variant) -> void:
+	armors[cur_armor_index].traits = list

@@ -66,15 +66,6 @@ layout_mode = 2
 alignment = 1
 selected = 0
 allow_reselect = true
-item_count = 4
-popup/item_0/text = "Normal"
-popup/item_0/id = 0
-popup/item_1/text = "Water"
-popup/item_1/id = 1
-popup/item_2/text = "Ice"
-popup/item_2/id = 2
-popup/item_3/text = "Fire"
-popup/item_3/id = 3
 
 [node name="StatOptionButton" type="OptionButton" parent="."]
 visible = false
@@ -191,8 +182,8 @@ layout_mode = 2
 allow_reselect = true
 
 [node name="ArmorOptionButton" type="OptionButton" parent="."]
+visible = false
 layout_mode = 2
-selected = 0
 allow_reselect = true
 
 [node name="LockEquipOptionButton" type="OptionButton" parent="."]
@@ -266,6 +257,7 @@ popup/item_5/id = 5
 
 [node name="PercentMultiplierSpinBox" type="SpinBox" parent="."]
 layout_mode = 2
+min_value = -1000.0
 max_value = 1000.0
 value = 100.0
 update_on_text_changed = true
@@ -278,7 +270,6 @@ layout_mode = 2
 max_value = 9999.0
 
 [node name="DeleteButton" type="Button" parent="."]
-visible = false
 layout_mode = 2
 text = "X"
 

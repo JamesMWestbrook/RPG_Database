@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dt3xjpi7u8hxf"]
+[gd_scene load_steps=4 format=3 uid="uid://dt3xjpi7u8hxf"]
 
 [ext_resource type="Script" uid="uid://bbl5gg14fy2p6" path="res://addons/RPG_Maker_Database/Editors/Databases/Weapon/weapons_editor.gd" id="1_8u4tl"]
 [ext_resource type="Texture2D" uid="uid://dtmg6im6vp32p" path="res://icon.svg" id="1_xqlhu"]
+[ext_resource type="PackedScene" uid="uid://0o7cxqncf2l2" path="res://addons/RPG_Maker_Database/Editors/Databases/trait_container.tscn" id="3_4f2lj"]
 
-[node name="Weapons" type="Control" node_paths=PackedStringArray("weapon_count_spinbox", "weapon_item_list", "texture", "name_edit", "desc_edit", "weapon_type_option_button", "price_spin_box", "animation_type_option_button", "atk_spin_box", "def_spin_box", "mat_spin_box", "mdef_spin_box", "agi_spin_box", "lck_spin_box", "mhp_spin_box", "mmp_spin_box", "note_edit")]
+[node name="Weapons" type="Control" node_paths=PackedStringArray("weapon_count_spinbox", "weapon_item_list", "texture", "name_edit", "desc_edit", "weapon_type_option_button", "price_spin_box", "animation_type_option_button", "atk_spin_box", "def_spin_box", "mat_spin_box", "mdef_spin_box", "agi_spin_box", "lck_spin_box", "mhp_spin_box", "mmp_spin_box", "note_edit", "trait_container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,6 +30,7 @@ lck_spin_box = NodePath("ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/
 mhp_spin_box = NodePath("ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer3/MhpSpinBox")
 mmp_spin_box = NodePath("ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer4/MmpSpinBox")
 note_edit = NodePath("ScrollContainer/BoxContainer/3rd Column/NoteTextEdit")
+trait_container = NodePath("ScrollContainer/BoxContainer/3rd Column/TraitContainer")
 metadata/_tab_index = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
@@ -263,6 +265,26 @@ text = "Note"
 custom_minimum_size = Vector2(273, 206.295)
 layout_mode = 2
 
+[node name="HBoxContainer4" type="HBoxContainer" parent="ScrollContainer/BoxContainer/3rd Column"]
+layout_mode = 2
+alignment = 1
+
+[node name="TraitsLabel" type="Label" parent="ScrollContainer/BoxContainer/3rd Column/HBoxContainer4"]
+layout_mode = 2
+text = "Traits"
+
+[node name="Traits help" type="Button" parent="ScrollContainer/BoxContainer/3rd Column/HBoxContainer4"]
+layout_mode = 2
+tooltip_text = "Click here to know learn what each trait does. "
+text = "?"
+
+[node name="AddTraitButton" type="Button" parent="ScrollContainer/BoxContainer/3rd Column/HBoxContainer4"]
+layout_mode = 2
+text = "+"
+
+[node name="TraitContainer" parent="ScrollContainer/BoxContainer/3rd Column" instance=ExtResource("3_4f2lj")]
+layout_mode = 2
+
 [connection signal="button_down" from="ScrollContainer/BoxContainer/1st Column/HBoxContainer/SaveButton" to="." method="_save_json"]
 [connection signal="button_down" from="ScrollContainer/BoxContainer/1st Column/HBoxContainer2/ChangeWeaponMaxButton" to="." method="_on_change_actor_max_button_button_down"]
 [connection signal="item_selected" from="ScrollContainer/BoxContainer/1st Column/WeaponList" to="." method="_load_weapon"]
@@ -280,3 +302,5 @@ layout_mode = 2
 [connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer3/MhpSpinBox" to="." method="_on_mhp_spin_box_value_changed"]
 [connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer4/MmpSpinBox" to="." method="_on_mmp_spin_box_value_changed"]
 [connection signal="text_changed" from="ScrollContainer/BoxContainer/3rd Column/NoteTextEdit" to="." method="_on_note_text_edit_text_changed"]
+[connection signal="button_down" from="ScrollContainer/BoxContainer/3rd Column/HBoxContainer4/AddTraitButton" to="ScrollContainer/BoxContainer/3rd Column/TraitContainer" method="_add_new"]
+[connection signal="UpdatedTraits" from="ScrollContainer/BoxContainer/3rd Column/TraitContainer" to="." method="_on_trait_container_updated_traits"]

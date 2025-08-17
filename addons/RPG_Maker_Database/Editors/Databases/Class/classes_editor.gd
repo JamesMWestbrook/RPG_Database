@@ -28,6 +28,7 @@ class_name  ClassEditor
 @onready var agi_end_spin_box: SpinBox = $"BoxContainer/2nd Column/VBoxContainer/AgilityBox/AgiEndSpinBox"
 @onready var lck_start_spin_box: SpinBox = $"BoxContainer/2nd Column/VBoxContainer/LuckBox/LckStartSpinBox"
 @onready var lck_end_spin_box: SpinBox = $"BoxContainer/2nd Column/VBoxContainer/LuckBox/LckEndSpinBox"
+@onready var trait_container: TraitContainer = $"BoxContainer/3rd Column/ScrollContainer/TraitContainer"
 
 
 #endregion 
@@ -43,8 +44,6 @@ signal ClassesUpdated(classes:Array)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_check_json()
-	
-	_load_class(0)
 	for c in classes:
 		_check_class(c)
 
@@ -116,7 +115,9 @@ func _load_class(index:int):
 		_update_name("Class " + str(index))
 	_check_class(classes[cur_class_index])
 	_load_class_stats(classes[cur_class_index])
-	
+	trait_container._clear()
+	trait_container._load_traits(classes[cur_class_index].traits)
+
 	
 		
 func _update_name(text:String):
@@ -145,6 +146,7 @@ func _check_class(c:Dictionary):
 		c.end_agi = 70
 		c.start_lck = 5
 		c.end_lck = 30
+		c.traits = []
 		
 func _load_class_stats(c:Dictionary):
 	hp_start_spin_box.value = c.start_hp
@@ -242,3 +244,7 @@ func _init_classes():
 		if classes[i] == null:
 			classes[i] = {}
 		
+
+
+func _on_trait_container_updated_traits(list: Variant) -> void:
+	classes[cur_class_index].traits = list

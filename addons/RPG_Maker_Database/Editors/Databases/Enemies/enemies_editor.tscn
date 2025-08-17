@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://ndjan0dp1yow"]
+[gd_scene load_steps=5 format=3 uid="uid://ndjan0dp1yow"]
 
 [ext_resource type="Script" uid="uid://bmtbxbtvjsoe7" path="res://addons/RPG_Maker_Database/Editors/Databases/Enemies/enemies_editor.gd" id="1_lpdo6"]
 [ext_resource type="Texture2D" uid="uid://bh53mhtf42uo2" path="res://addons/RPG_Maker_Database/Editors/DefaultImage.png" id="2_lpdo6"]
 [ext_resource type="Script" uid="uid://db86pmwppw1rg" path="res://addons/RPG_Maker_Database/Editors/Databases/Enemies/action_container.gd" id="3_hsy2h"]
+[ext_resource type="PackedScene" uid="uid://0o7cxqncf2l2" path="res://addons/RPG_Maker_Database/Editors/Databases/trait_container.tscn" id="4_hsy2h"]
 
-[node name="Enemies" type="Control" node_paths=PackedStringArray("enemy_count_spinbox", "enemy_item_list", "name_edit", "texture", "enemy_scene_path", "atk_spin_box", "def_spin_box", "mat_spin_box", "mdef_spin_box", "agi_spin_box", "lck_spin_box", "mhp_spin_box", "mmp_spin_box", "exp_spin_box", "gold_spin_box", "jp_spin_box", "note_edit", "desc_edit")]
+[node name="Enemies" type="Control" node_paths=PackedStringArray("enemy_count_spinbox", "enemy_item_list", "name_edit", "texture", "enemy_scene_path", "atk_spin_box", "def_spin_box", "mat_spin_box", "mdef_spin_box", "agi_spin_box", "lck_spin_box", "mhp_spin_box", "mmp_spin_box", "exp_spin_box", "gold_spin_box", "jp_spin_box", "note_edit", "desc_edit", "trait_container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,6 +32,7 @@ gold_spin_box = NodePath("ScrollContainer/BoxContainer/2nd Column/HBoxContainer/
 jp_spin_box = NodePath("ScrollContainer/BoxContainer/2nd Column/HBoxContainer/VBoxContainer3/JPSpinBox")
 note_edit = NodePath("ScrollContainer/BoxContainer/4th Column/NoteTextEdit")
 desc_edit = NodePath("ScrollContainer/BoxContainer/4th Column/DescTextEdit")
+trait_container = NodePath("ScrollContainer/BoxContainer/4th Column/TraitContainer")
 metadata/_tab_index = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
@@ -343,6 +345,26 @@ text = "Description"
 custom_minimum_size = Vector2(273, 206.295)
 layout_mode = 2
 
+[node name="HBoxContainer4" type="HBoxContainer" parent="ScrollContainer/BoxContainer/4th Column"]
+layout_mode = 2
+alignment = 1
+
+[node name="TraitsLabel" type="Label" parent="ScrollContainer/BoxContainer/4th Column/HBoxContainer4"]
+layout_mode = 2
+text = "Traits"
+
+[node name="Traits help" type="Button" parent="ScrollContainer/BoxContainer/4th Column/HBoxContainer4"]
+layout_mode = 2
+tooltip_text = "Click here to know learn what each trait does. "
+text = "?"
+
+[node name="AddTraitButton" type="Button" parent="ScrollContainer/BoxContainer/4th Column/HBoxContainer4"]
+layout_mode = 2
+text = "+"
+
+[node name="TraitContainer" parent="ScrollContainer/BoxContainer/4th Column" instance=ExtResource("4_hsy2h")]
+layout_mode = 2
+
 [node name="TextureFileDialog" type="FileDialog" parent="."]
 title = "Open a File"
 ok_button_text = "Open"
@@ -370,4 +392,6 @@ use_native_dialog = true
 [connection signal="button_down" from="ScrollContainer/BoxContainer/3rd Column/ScrollContainer/ActionContainer/AddActionButton" to="ScrollContainer/BoxContainer/3rd Column/ScrollContainer/ActionContainer" method="_on_add_action_button_button_down"]
 [connection signal="text_changed" from="ScrollContainer/BoxContainer/4th Column/NoteTextEdit" to="." method="_on_note_text_edit_text_changed"]
 [connection signal="text_changed" from="ScrollContainer/BoxContainer/4th Column/DescTextEdit" to="." method="_on_desc_edit_text_changed"]
+[connection signal="button_down" from="ScrollContainer/BoxContainer/4th Column/HBoxContainer4/AddTraitButton" to="ScrollContainer/BoxContainer/4th Column/TraitContainer" method="_add_new"]
+[connection signal="UpdatedTraits" from="ScrollContainer/BoxContainer/4th Column/TraitContainer" to="." method="_on_trait_container_updated_traits"]
 [connection signal="file_selected" from="TextureFileDialog" to="." method="_on_texture_file_dialog_file_selected"]

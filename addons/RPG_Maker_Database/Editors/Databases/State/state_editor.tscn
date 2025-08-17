@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://0o7cxqncf2l2" path="res://addons/RPG_Maker_Database/Editors/Databases/trait_container.tscn" id="1_vhlb7"]
 [ext_resource type="Script" uid="uid://cf8k7x0uyvoh4" path="res://addons/RPG_Maker_Database/Editors/Databases/State/state_editor.gd" id="1_x83wl"]
 
-[node name="StateEditor" type="Control" node_paths=PackedStringArray("state_count_spinbox", "states_item_list", "name_line_edit", "restriction_button", "priority_spin_box", "sv_motion_button", "sv_overlay_button", "battle_end_checkbox", "restriction_checkbox", "auto_removal_button", "lower_turn_spin", "max_turn_spin", "via_damage_checkbox", "damage_spin_box", "via_walking_checkbox", "walking_spin_box", "actor_inflicted_edit", "state_persist_edit", "state_removed_edit")]
+[node name="StateEditor" type="Control" node_paths=PackedStringArray("state_count_spinbox", "states_item_list", "name_line_edit", "restriction_button", "priority_spin_box", "sv_motion_button", "sv_overlay_button", "battle_end_checkbox", "restriction_checkbox", "auto_removal_button", "lower_turn_spin", "max_turn_spin", "via_damage_checkbox", "damage_spin_box", "via_walking_checkbox", "walking_spin_box", "actor_inflicted_edit", "state_persist_edit", "state_removed_edit", "trait_container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,6 +30,7 @@ walking_spin_box = NodePath("ScrollContainer/BoxContainer/Column2Scroll/VBox/HBo
 actor_inflicted_edit = NodePath("ScrollContainer/BoxContainer/Column2Scroll/VBox/ActorInflictedEdit")
 state_persist_edit = NodePath("ScrollContainer/BoxContainer/Column2Scroll/VBox/StatePersistEdit")
 state_removed_edit = NodePath("ScrollContainer/BoxContainer/Column2Scroll/VBox/StateRemovedEdit")
+trait_container = NodePath("ScrollContainer/BoxContainer/ScrollContainer/VBoxContainer/TraitContainer")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
@@ -307,19 +308,31 @@ text = "If the state is removed:"
 [node name="StateRemovedEdit" type="LineEdit" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox"]
 layout_mode = 2
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox"]
+[node name="ScrollContainer" type="ScrollContainer" parent="ScrollContainer/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="ScrollContainer/BoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="TraitsLabel" type="Label" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBoxContainer4"]
+[node name="TraitsLabel" type="Label" parent="ScrollContainer/BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 text = "Traits"
 
-[node name="AddTraitButton" type="Button" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBoxContainer4"]
+[node name="Traits help" type="Button" parent="ScrollContainer/BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+tooltip_text = "Click here to know learn what each trait does. "
+text = "?"
+
+[node name="AddTraitButton" type="Button" parent="ScrollContainer/BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 text = "+"
 
-[node name="TraitContainer" parent="ScrollContainer/BoxContainer/Column2Scroll/VBox" instance=ExtResource("1_vhlb7")]
+[node name="TraitContainer" parent="ScrollContainer/BoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_vhlb7")]
 layout_mode = 2
 
 [connection signal="button_down" from="ScrollContainer/BoxContainer/Column1/HBoxContainer/SaveButton" to="." method="_save_json"]
@@ -343,5 +356,5 @@ layout_mode = 2
 [connection signal="text_changed" from="ScrollContainer/BoxContainer/Column2Scroll/VBox/EnemyInflictedEdit" to="." method="_on_enemy_inflicted_edit_text_changed"]
 [connection signal="text_changed" from="ScrollContainer/BoxContainer/Column2Scroll/VBox/StatePersistEdit" to="." method="_on_state_persist_edit_text_changed"]
 [connection signal="text_changed" from="ScrollContainer/BoxContainer/Column2Scroll/VBox/StateRemovedEdit" to="." method="_on_state_removed_edit_text_changed"]
-[connection signal="button_down" from="ScrollContainer/BoxContainer/Column2Scroll/VBox/HBoxContainer4/AddTraitButton" to="ScrollContainer/BoxContainer/Column2Scroll/VBox/TraitContainer" method="_add_new"]
-[connection signal="UpdatedTraits" from="ScrollContainer/BoxContainer/Column2Scroll/VBox/TraitContainer" to="." method="_on_trait_container_updated_traits"]
+[connection signal="button_down" from="ScrollContainer/BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4/AddTraitButton" to="ScrollContainer/BoxContainer/ScrollContainer/VBoxContainer/TraitContainer" method="_add_new"]
+[connection signal="UpdatedTraits" from="ScrollContainer/BoxContainer/ScrollContainer/VBoxContainer/TraitContainer" to="." method="_on_trait_container_updated_traits"]

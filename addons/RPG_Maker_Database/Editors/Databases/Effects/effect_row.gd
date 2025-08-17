@@ -50,6 +50,53 @@ func _on_main_option_button_item_selected(index: int, arg_index:int = 0, arg_val
 			additive_spin_box.show()
 			percentage_spin_box.value = argument_value1
 			additive_spin_box.value = argument_value2
+		2: #Gain TP
+			additive_spin_box.show()
+			additive_spin_box.value = argument_value2
+		3: #Add State
+			state_option_button.show()
+			_load_states()
+			state_option_button.select(argument)
+			percentage_spin_box.show()
+			percentage_spin_box.value = argument_value1
+		4: #Remove State
+			state_option_button.show()
+			_load_states()
+			state_option_button.select(argument)
+			percentage_spin_box.show()
+			percentage_spin_box.value = argument_value1
+		5: #Add Buff
+			stat_option_button.show()
+			stat_option_button.select(argument)
+			additive_spin_box.show()
+			additive_spin_box.suffix = " turns"
+			additive_spin_box.value = argument_value2
+		6: #Add Debuff
+			stat_option_button.show()
+			stat_option_button.select(argument)
+			additive_spin_box.show()
+			additive_spin_box.suffix = " turns"
+			additive_spin_box.value = argument_value2
+		7: #Remove Buff
+			stat_option_button.show()
+			stat_option_button.select(argument)
+		8: #Remove deuff
+			stat_option_button.show()
+			stat_option_button.select(argument)
+		9: #Special Effect
+			special_option_button.show()
+			special_option_button.select(argument)
+		10: #Grow
+			stat_option_button.show()
+			stat_option_button.select(argument)
+			additive_spin_box.show()
+			additive_spin_box.value = argument_value2
+		11: #Learn Skill
+			skill_option_button.show()
+			_load_skills()
+			skill_option_button.select(argument)
+		12: #Common Event, not to be implemented yet
+			pass
 	Changed.emit()
 func hide_all():
 	for i in get_children():
@@ -75,3 +122,14 @@ func _on_delete_button_button_down() -> void:
 	do_not_count_me = true
 	Changed.emit()
 	queue_free()
+
+func _load_states():
+	state_option_button.clear()
+	var states:Array = States.states
+	for s in states:
+		state_option_button.add_item(s.name)
+func _load_skills():
+	skill_option_button.clear()
+	var skills:Array = SkillEditor.skills
+	for s in skills:
+		skill_option_button.add_item(s.name)

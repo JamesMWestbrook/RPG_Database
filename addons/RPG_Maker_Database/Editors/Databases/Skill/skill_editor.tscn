@@ -56,6 +56,7 @@ text = "Change Max"
 [node name="ScrollContainer" type="ScrollContainer" parent="ScrollContainer/BoxContainer/1st Column"]
 custom_minimum_size = Vector2(0, 289.655)
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="SkillsBox" type="VBoxContainer" parent="ScrollContainer/BoxContainer/1st Column/ScrollContainer"]
 layout_mode = 2

@@ -171,6 +171,19 @@ func _on_function_option_item_selected(index: int, arg_index:int = 0, arg_value:
 		20: #Slot type, normal or duel wield
 			slot_type_option_button.show()
 			slot_type_option_button.select(arg_index)
+		21: #action time+
+			percent_multiplier_spin_box.show()
+			percent_multiplier_spin_box.prefix = "+"
+			percent_multiplier_spin_box.value = arg_value
+		22: #special flag
+			special_flag_option_button.show()
+			special_flag_option_button.select(arg_index)
+		23: #collapse effect
+			collapse_effect_option_button.show()
+			collapse_effect_option_button.select(arg_index)
+		24: #party ability
+			party_ability.show()
+			party_ability.select(arg_index)
 	changed.emit()
 		
 func _on_argument_option_selected(index:int) -> void:
@@ -270,4 +283,8 @@ func _on_lock_equip_option_button_item_selected(index: int) -> void:
 
 
 func _on_slot_type_option_button_item_selected(index: int) -> void:
+	argument = index
+
+
+func _set_argument(index:int):
 	argument = index

@@ -185,6 +185,9 @@ func _on_function_option_item_selected(index: int, arg_index:int = 0, arg_value:
 		24: #party ability
 			party_ability.show()
 			party_ability.select(arg_index)
+		25: #Follower Only, doesn't participate in battle
+			#also called Bystander
+			pass
 	changed.emit()
 		
 func _on_argument_option_selected(index:int) -> void:

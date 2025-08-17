@@ -9,7 +9,7 @@ script = ExtResource("1_4q5m7")
 layout_mode = 2
 selected = 0
 allow_reselect = true
-item_count = 25
+item_count = 26
 popup/item_0/text = "Element Rate"
 popup/item_0/id = 0
 popup/item_1/text = "Debuff Rate"
@@ -60,6 +60,8 @@ popup/item_23/text = "Collapse Effect"
 popup/item_23/id = 22
 popup/item_24/text = "Party Ability"
 popup/item_24/id = 23
+popup/item_25/text = "Battle Bystander(Follower)"
+popup/item_25/id = 25
 
 [node name="ElementOptionButton" type="OptionButton" parent="."]
 layout_mode = 2

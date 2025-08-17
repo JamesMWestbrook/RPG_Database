@@ -1,3 +1,4 @@
+@tool
 extends Control
 class_name Troops
 
@@ -121,7 +122,8 @@ func _load_troop(index:int):
 			continue
 		var chosen_graphic_path:String = EnemyEditor.enemies[i].texture
 		var new_enemy = TROOP_SAMPLE_ENEMY.instantiate()
-		new_enemy.texture = load(chosen_graphic_path)
+		if FileAccess.file_exists(chosen_graphic_path):
+			new_enemy.texture = load(chosen_graphic_path)
 		battlefield.add_child(new_enemy)
 		new_enemy.position = Vector2(TroopSetup.slots[slot_index].x,TroopSetup.slots[slot_index].y)
 		slot_index += 1
@@ -158,3 +160,10 @@ func _on_auto_name_button_button_down() -> void:
 	new_name = new_name.trim_suffix(" ")
 	troops[cur_troop_index].name = new_name
 	troop_item_list.set_item_text(cur_troop_index, str(cur_troop_index) + " " + new_name)
+	name_line_edit.text = new_name
+
+func _on_change_troop_max_button_button_down() -> void:
+	troops.resize(troop_count_spinbox.value)
+	for t in troops.size():
+		_check_troop(t)
+	_load_troop_buttons()

@@ -1,3 +1,4 @@
+@tool
 extends Control
 class_name TroopSetup
 
@@ -77,7 +78,10 @@ func _populate():
 	for i in troop_button_list.get_children():
 		troop_button_list.remove_child(i)
 		i.queue_free()
-	
+	for i in battlefield.get_children():
+		battlefield.remove_child(i)
+		i.queue_free()
+		
 	var index:int = 0
 	for s:Dictionary in slots:
 		var new_slot:TroopLayoutSlot = _on_add_spawn_button_button_down()
@@ -90,6 +94,7 @@ func _populate():
 		new_slot.y_spin_box.max_value = DisplayServer.screen_get_size(0).y
 		new_slot.loading = false
 		var sprite = sample_enemy.instantiate()
+		new_slot.connected_sprite = sprite
 		sprite.texture = load("res://addons/eranot.resizable/icon.svg")
 		battlefield.add_child(sprite)
 		sprite.global_position.x = new_slot.x

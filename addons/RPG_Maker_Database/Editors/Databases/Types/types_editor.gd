@@ -1,4 +1,4 @@
-#@tool
+@tool
 extends Control
 class_name TypesEditor
 const SAVE_PATH = "res://data/types.json"

@@ -44,6 +44,7 @@ layout_mode = 2
 
 [node name="MaxSpinBox" type="SpinBox" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+value = 1.0
 
 [node name="SetMaxButton" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -59,4 +60,5 @@ layout_mode = 2
 [node name="BattleField" type="Node2D" parent="."]
 
 [connection signal="button_down" from="ScrollContainer/VBoxContainer/AddSpawnButton" to="." method="_on_add_spawn_button_button_down"]
+[connection signal="button_down" from="ScrollContainer/VBoxContainer/HBoxContainer/SetMaxButton" to="." method="_on_change_slot_max_button_button_down"]
 [connection signal="button_down" from="ScrollContainer/VBoxContainer/SaveButton" to="." method="_save_json"]

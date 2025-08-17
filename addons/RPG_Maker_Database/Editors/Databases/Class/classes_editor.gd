@@ -1,3 +1,4 @@
+@tool
 extends Control
 class_name  ClassEditor
 @export var clear_textures: bool:

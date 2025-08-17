@@ -28,6 +28,7 @@ max_value = 3000.0
 prefix = "Y"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="."]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 

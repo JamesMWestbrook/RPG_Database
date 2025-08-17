@@ -1,3 +1,4 @@
+@tool
 extends VBoxContainer
 class_name TroopLayoutSlot
 
@@ -10,7 +11,7 @@ var loading:bool
 
 signal UpdatePosition(x, y)
 signal UpdateSlots()
-
+var connected_sprite
 func _set_x_y(_x,_y):
 	x = _x
 	y = _y
@@ -31,5 +32,6 @@ func _update_signal():
 	UpdateSlots.emit()
 
 func _on_delete_button_button_down() -> void:
+	connected_sprite.queue_free()
 	UpdateSlots.emit()
 	queue_free()

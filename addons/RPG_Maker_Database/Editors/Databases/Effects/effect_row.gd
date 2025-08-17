@@ -1,3 +1,4 @@
+@tool
 extends HBoxContainer
 class_name Effect
 @onready var main_option_button: OptionButton = $MainOptionButton

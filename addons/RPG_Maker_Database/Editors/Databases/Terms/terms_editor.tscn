@@ -4,12 +4,7 @@
 
 [node name="Terms" type="Control" node_paths=PackedStringArray("Nodes")]
 layout_mode = 3
-anchor_top = 0.126
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 0.279999
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_di8np")
 DataType = "Terms"
 Nodes = [NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/Level"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2/Lvl"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HealthPoints"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer2/HP"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer3/VBoxContainer2/MP"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer3/VBoxContainer/MagicPoints"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer4/VBoxContainer/TacticalPoints"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer4/VBoxContainer2/TP"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer5/VBoxContainer/Experience"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer5/VBoxContainer2/EXP"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer6/VBoxContainer/JobPoints"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/HBoxContainer6/VBoxContainer2/JP"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/MaxHP"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/MaxMP"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer2/VBoxContainer/Attack"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer/MAttack"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer/MAttack"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer2/MDefense"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer4/VBoxContainer/Agility"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer4/VBoxContainer2/Luck"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer5/VBoxContainer/Hit"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer5/VBoxContainer2/Evasion"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/HBoxContainer6/VBoxContainer/Class"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer2/VBoxContainer/Fight"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer2/Status"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer2/VBoxContainer3/Item"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer2/VBoxContainer4/Skill"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer/Equip"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer2/Status"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer3/Save"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer3/VBoxContainer4/GameEnd"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer4/VBoxContainer/NewGame"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer4/VBoxContainer2/Continue"), NodePath("ScrollContainer/BoxContainer/VBoxContainer2/HBoxContainer4/VBoxContainer3/ToTitle")]
@@ -20,6 +15,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 874.0
+offset_bottom = 526.0
 grow_horizontal = 2
 grow_vertical = 2
 

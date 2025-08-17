@@ -1,3 +1,4 @@
+@tool
 extends VBoxContainer
 
 const ENEMY_ACTION = preload("res://addons/RPG_Maker_Database/Editors/Databases/Enemies/enemy_action.tscn")

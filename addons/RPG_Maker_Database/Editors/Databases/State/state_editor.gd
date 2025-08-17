@@ -1,3 +1,4 @@
+@tool
 extends Control
 class_name States
 
@@ -169,6 +170,8 @@ func _on_trait_container_updated_traits(list: Variant) -> void:
 
 func _on_change_actor_max_button_button_down() -> void:
 	states.resize(state_count_spinbox.value)
+	for s in states.size():
+		_check_state(s)
 	_state_buttons()
 
 

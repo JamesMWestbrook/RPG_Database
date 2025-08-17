@@ -1,3 +1,4 @@
+@tool
 extends VBoxContainer
 class_name EffectContainer
 const EFFECT_ROW = preload("res://addons/RPG_Maker_Database/Editors/Databases/Effects/effect_row.tscn")

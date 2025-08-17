@@ -5,23 +5,16 @@
 
 [node name="Classes" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_013nu")
 metadata/_tab_index = 1
 metadata/_edit_horizontal_guides_ = [422.0]
-metadata/_edit_vertical_guides_ = [545.0]
+metadata/_edit_vertical_guides_ = [545.0, 606.0]
 
 [node name="BoxContainer" type="BoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 943.0
+offset_bottom = 425.0
 
 [node name="1st Column" type="VBoxContainer" parent="BoxContainer"]
 custom_minimum_size = Vector2(169.47, 0)

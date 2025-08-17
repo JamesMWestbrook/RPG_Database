@@ -1,4 +1,4 @@
-#@tool
+@tool
 extends Control
 
 const SAVE_PATH = "res://data/variables.json"

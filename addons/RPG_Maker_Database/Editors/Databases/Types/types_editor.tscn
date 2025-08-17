@@ -5,11 +5,7 @@
 
 [node name="TypesEditor" type="Control" node_paths=PackedStringArray("types")]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_m7bmw")
 types = [NodePath("ScrollContainer/VBoxContainer/TypeContainers/Elements"), NodePath("ScrollContainer/VBoxContainer/TypeContainers/SkillTypes"), NodePath("ScrollContainer/VBoxContainer/TypeContainers/WeaponTypes"), NodePath("ScrollContainer/VBoxContainer/TypeContainers/ArmorTypes"), NodePath("ScrollContainer/VBoxContainer/TypeContainers/EquipTypes")]
 metadata/_tab_index = 1
@@ -20,6 +16,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1021.0
+offset_bottom = 364.0
 grow_horizontal = 2
 grow_vertical = 2
 

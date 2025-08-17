@@ -33,11 +33,10 @@ metadata/_tab_index = 0
 
 [node name="CharTabContainer" type="TabContainer" parent="Characters"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
+offset_bottom = 593.0
 grow_horizontal = 2
-grow_vertical = 2
 current_tab = 0
 
 [node name="Actors" parent="Characters/CharTabContainer" instance=ExtResource("2_o8jcg")]
@@ -46,6 +45,7 @@ layout_mode = 2
 [node name="Classes" parent="Characters/CharTabContainer" instance=ExtResource("3_6di2n")]
 visible = false
 layout_mode = 2
+metadata/_edit_vertical_guides_ = [545.0]
 
 [node name="Enemies" parent="Characters/CharTabContainer" instance=ExtResource("4_8plf8")]
 visible = false
@@ -71,11 +71,10 @@ metadata/_tab_index = 1
 
 [node name="ObjTabContainer" type="TabContainer" parent="Objects"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
+offset_bottom = 31.0
 grow_horizontal = 2
-grow_vertical = 2
 current_tab = 0
 
 [node name="Skills" parent="Objects/ObjTabContainer" instance=ExtResource("4_bqmk1")]
@@ -107,18 +106,17 @@ metadata/_tab_index = 2
 
 [node name="TabContainer" type="TabContainer" parent="Variables"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
+offset_bottom = 685.0
 grow_horizontal = 2
-grow_vertical = 2
-current_tab = 1
+current_tab = 0
 
 [node name="Switches" parent="Variables/TabContainer" instance=ExtResource("5_vyqpw")]
-visible = false
 layout_mode = 2
 
 [node name="Variables" parent="Variables/TabContainer" instance=ExtResource("6_xg6gf")]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -139,7 +137,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 3
+current_tab = 2
 
 [node name="Config" type="Control" parent="System/TabContainer"]
 visible = false
@@ -152,11 +150,11 @@ layout_mode = 2
 metadata/_tab_index = 1
 
 [node name="Types" parent="System/TabContainer" instance=ExtResource("8_mp56p")]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
 [node name="Terms" parent="System/TabContainer" instance=ExtResource("16_y43a8")]
+visible = false
 layout_mode = 2
 
 [node name="TraitsWindow" parent="." instance=ExtResource("5_duimv")]

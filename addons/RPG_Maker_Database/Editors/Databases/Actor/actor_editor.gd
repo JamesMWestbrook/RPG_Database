@@ -1,3 +1,4 @@
+@tool
 extends Control
 class_name ActorEditor
 
@@ -55,13 +56,6 @@ func _ready() -> void:
 	_load_actor(0)
 	class_button.get_popup().index_pressed.connect(_select_class)
 	
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("height_mode"):
-		small_mode = !small_mode
-		if small_mode:
-			$BoxContainer.size.y = 373
-		else:
-			$BoxContainer.size.y = 657
 		
 func _check_json():
 	if FileAccess.file_exists(JSON_SAVE_PATH):

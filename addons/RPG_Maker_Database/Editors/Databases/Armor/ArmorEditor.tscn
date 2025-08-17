@@ -6,11 +6,7 @@
 
 [node name="Armors" type="Control" node_paths=PackedStringArray("armor_count_spinbox", "armor_item_list", "texture", "name_edit", "desc_edit", "armor_type_option_button", "body_part_option_button", "price_spin_box", "animation_type_option_button", "atk_spin_box", "def_spin_box", "mat_spin_box", "mdef_spin_box", "agi_spin_box", "lck_spin_box", "mhp_spin_box", "mmp_spin_box", "note_edit", "trait_container")]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_lrdbp")
 placeholder_icon = ExtResource("1_3omru")
 armor_count_spinbox = NodePath("ScrollContainer/BoxContainer/1st Column/HBoxContainer2/ArmorCountSpinbox")
@@ -39,6 +35,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1143.0
+offset_bottom = 570.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -66,7 +64,7 @@ layout_mode = 2
 layout_mode = 2
 min_value = 1.0
 max_value = 9999.0
-value = 1.0
+value = 5.0
 alignment = 1
 
 [node name="ChangeArmorMaxButton" type="Button" parent="ScrollContainer/BoxContainer/1st Column/HBoxContainer2"]
@@ -74,8 +72,14 @@ layout_mode = 2
 text = "Change Max"
 
 [node name="ArmorList" type="ItemList" parent="ScrollContainer/BoxContainer/1st Column"]
-custom_minimum_size = Vector2(0, 638.03)
+custom_minimum_size = Vector2(0, 494.405)
 layout_mode = 2
+item_count = 5
+item_0/text = "0 Water Armor"
+item_1/text = "1 armor 1"
+item_2/text = "2 armor 2"
+item_3/text = "3 armor 3"
+item_4/text = "4 armor 4"
 
 [node name="2nd Column" type="VBoxContainer" parent="ScrollContainer/BoxContainer"]
 layout_mode = 2
@@ -102,6 +106,7 @@ text = "Set Icon"
 
 [node name="NameEdit" type="LineEdit" parent="ScrollContainer/BoxContainer/2nd Column"]
 layout_mode = 2
+text = "Water Armor"
 
 [node name="Label2" type="Label" parent="ScrollContainer/BoxContainer/2nd Column"]
 layout_mode = 2
@@ -110,7 +115,6 @@ text = "Description:"
 [node name="DescEdit" type="TextEdit" parent="ScrollContainer/BoxContainer/2nd Column"]
 custom_minimum_size = Vector2(445.875, 61.88)
 layout_mode = 2
-text = "Room for multiple sentences please. Yes please. Multiple sentences should fit here. "
 wrap_mode = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column"]
@@ -125,6 +129,16 @@ text = "Armor Type:"
 
 [node name="ArmorTypeButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
+selected = 0
+item_count = 4
+popup/item_0/text = "Light"
+popup/item_0/id = 0
+popup/item_1/text = "Medium"
+popup/item_1/id = 1
+popup/item_2/text = "Heavy"
+popup/item_2/id = 2
+popup/item_3/text = "HEAVY HEAVY"
+popup/item_3/id = 3
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2"]
 layout_mode = 2
@@ -135,6 +149,16 @@ text = "Body Part:"
 
 [node name="BodyPartButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2/VBoxContainer4"]
 layout_mode = 2
+selected = 0
+item_count = 4
+popup/item_0/text = "Head"
+popup/item_0/id = 0
+popup/item_1/text = "Body"
+popup/item_1/id = 1
+popup/item_2/text = "Undergarment"
+popup/item_2/id = 2
+popup/item_3/text = "Accessory"
+popup/item_3/id = 3
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer2"]
 layout_mode = 2

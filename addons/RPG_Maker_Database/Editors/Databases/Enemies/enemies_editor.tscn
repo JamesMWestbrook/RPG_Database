@@ -392,6 +392,7 @@ use_native_dialog = true
 [connection signal="button_down" from="ScrollContainer/BoxContainer/3rd Column/ScrollContainer/ActionContainer/AddActionButton" to="ScrollContainer/BoxContainer/3rd Column/ScrollContainer/ActionContainer" method="_on_add_action_button_button_down"]
 [connection signal="text_changed" from="ScrollContainer/BoxContainer/4th Column/NoteTextEdit" to="." method="_on_note_text_edit_text_changed"]
 [connection signal="text_changed" from="ScrollContainer/BoxContainer/4th Column/DescTextEdit" to="." method="_on_desc_edit_text_changed"]
+[connection signal="button_down" from="ScrollContainer/BoxContainer/4th Column/HBoxContainer4/Traits help" to="ScrollContainer/BoxContainer/4th Column/TraitContainer" method="_on_traits_help_button_down"]
 [connection signal="button_down" from="ScrollContainer/BoxContainer/4th Column/HBoxContainer4/AddTraitButton" to="ScrollContainer/BoxContainer/4th Column/TraitContainer" method="_add_new"]
 [connection signal="UpdatedTraits" from="ScrollContainer/BoxContainer/4th Column/TraitContainer" to="." method="_on_trait_container_updated_traits"]
 [connection signal="file_selected" from="TextureFileDialog" to="." method="_on_texture_file_dialog_file_selected"]

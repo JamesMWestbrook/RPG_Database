@@ -314,5 +314,6 @@ layout_mode = 2
 [connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer3/MhpSpinBox" to="." method="_on_mhp_spin_box_value_changed"]
 [connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4/VBoxContainer4/MmpSpinBox" to="." method="_on_mmp_spin_box_value_changed"]
 [connection signal="text_changed" from="ScrollContainer/BoxContainer/3rd Column/NoteTextEdit" to="." method="_on_note_text_edit_text_changed"]
+[connection signal="button_down" from="ScrollContainer/BoxContainer/3rd Column/HBoxContainer4/Traits help" to="ScrollContainer/BoxContainer/3rd Column/TraitContainer" method="_on_traits_help_button_down"]
 [connection signal="button_down" from="ScrollContainer/BoxContainer/3rd Column/HBoxContainer4/AddTraitButton" to="ScrollContainer/BoxContainer/3rd Column/TraitContainer" method="_add_new"]
 [connection signal="UpdatedTraits" from="ScrollContainer/BoxContainer/3rd Column/TraitContainer" to="." method="_on_trait_container_updated_traits"]

@@ -312,5 +312,6 @@ layout_mode = 2
 [connection signal="value_changed" from="BoxContainer/2nd Column/VBoxContainer/AgilityBox/AgiEndSpinBox" to="." method="_on_agi_end_spin_box_value_changed"]
 [connection signal="value_changed" from="BoxContainer/2nd Column/VBoxContainer/LuckBox/LckStartSpinBox" to="." method="_on_lck_start_spin_box_value_changed"]
 [connection signal="value_changed" from="BoxContainer/2nd Column/VBoxContainer/LuckBox/LckEndSpinBox" to="." method="_on_lck_end_spin_box_value_changed"]
+[connection signal="button_down" from="BoxContainer/3rd Column/HBoxContainer4/Traits help" to="BoxContainer/3rd Column/ScrollContainer/TraitContainer" method="_on_traits_help_button_down"]
 [connection signal="button_down" from="BoxContainer/3rd Column/HBoxContainer4/AddTraitButton" to="BoxContainer/3rd Column/ScrollContainer/TraitContainer" method="_add_new"]
 [connection signal="UpdatedTraits" from="BoxContainer/3rd Column/ScrollContainer/TraitContainer" to="." method="_on_trait_container_updated_traits"]

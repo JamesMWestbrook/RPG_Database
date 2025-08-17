@@ -356,5 +356,6 @@ layout_mode = 2
 [connection signal="text_changed" from="ScrollContainer/BoxContainer/Column2Scroll/VBox/EnemyInflictedEdit" to="." method="_on_enemy_inflicted_edit_text_changed"]
 [connection signal="text_changed" from="ScrollContainer/BoxContainer/Column2Scroll/VBox/StatePersistEdit" to="." method="_on_state_persist_edit_text_changed"]
 [connection signal="text_changed" from="ScrollContainer/BoxContainer/Column2Scroll/VBox/StateRemovedEdit" to="." method="_on_state_removed_edit_text_changed"]
+[connection signal="button_down" from="ScrollContainer/BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4/Traits help" to="ScrollContainer/BoxContainer/ScrollContainer/VBoxContainer/TraitContainer" method="_on_traits_help_button_down"]
 [connection signal="button_down" from="ScrollContainer/BoxContainer/ScrollContainer/VBoxContainer/HBoxContainer4/AddTraitButton" to="ScrollContainer/BoxContainer/ScrollContainer/VBoxContainer/TraitContainer" method="_add_new"]
 [connection signal="UpdatedTraits" from="ScrollContainer/BoxContainer/ScrollContainer/VBoxContainer/TraitContainer" to="." method="_on_trait_container_updated_traits"]

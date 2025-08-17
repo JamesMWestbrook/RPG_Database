@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://8xd3q03h5p75"]
+
+[ext_resource type="Script" uid="uid://bnqm0mqvyrgvv" path="res://addons/RPG_Maker_Database/Editors/Databases/Effects/effect_container.gd" id="1_7ipup"]
+
+[node name="effect_container" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_7ipup")

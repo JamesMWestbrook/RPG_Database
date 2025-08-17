@@ -64,7 +64,6 @@ popup/item_24/id = 23
 [node name="ElementOptionButton" type="OptionButton" parent="."]
 layout_mode = 2
 alignment = 1
-selected = 0
 allow_reselect = true
 
 [node name="StatOptionButton" type="OptionButton" parent="."]

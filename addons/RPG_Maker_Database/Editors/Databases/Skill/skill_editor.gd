@@ -28,6 +28,7 @@ class_name SkillEditor
 @onready var animation_option_button: OptionButton = $"ScrollContainer/BoxContainer/2nd Column/Invocation Row/AnimationContainer/AnimationOptionButton"
 @onready var damage_type_option_button: OptionButton = $"ScrollContainer/BoxContainer/3rd Column/Row9/Box/DamageTypeOptionButton"
 @onready var element_type_option_button: OptionButton = $"ScrollContainer/BoxContainer/3rd Column/Row9/Box2/ElementTypeOptionButton"
+@onready var effect_container: EffectContainer = $"ScrollContainer/BoxContainer/3rd Column/effect_container"
 
 #endregion
 
@@ -148,7 +149,8 @@ func _load_skill(index:int):
 	damage_type_option_button.select(skill.damage_type)
 	element_type_option_button.select(skill.element)
 	formula_editor.text = skill.damage_formula
-	
+	effect_container._clear()
+	effect_container._load(skill.effects)
 	
 func _check_skill(index:int): #Not assigning Dictionary as type since null is sometimes its type/value
 	if skills[index] == null:
@@ -186,8 +188,7 @@ func _check_skill(index:int): #Not assigning Dictionary as type since null is so
 		skills[index].damage_type = 0
 		skills[index].element = 1
 		skills[index].damage_formula = "a.atk * 4 - b.def * 2"
-		
-		#effects are not yet implemented
+		skills[index].effects = []
 	
 func _skill_buttons():
 	for i in skills_box.get_children():
@@ -315,3 +316,7 @@ func _on_does_button_button_down() -> void:
 func _on_uses_button_button_down() -> void:
 	message_edit.text = "%1 uses %2!"
 	message_edit.text_changed.emit(message_edit.text)
+
+
+func _on_effect_container_updated_effects(list: Variant) -> void:
+	skills[cur_skill_index].effects = list

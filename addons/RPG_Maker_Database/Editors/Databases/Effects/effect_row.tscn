@@ -80,10 +80,12 @@ layout_mode = 2
 
 [node name="PercentageSpinBox" type="SpinBox" parent="."]
 layout_mode = 2
+max_value = 9999.0
 suffix = "%"
 
 [node name="AdditiveSpinBox" type="SpinBox" parent="."]
 layout_mode = 2
+max_value = 9999.0
 prefix = "+"
 
 [node name="DeleteButton" type="Button" parent="."]
@@ -96,3 +98,6 @@ text = "X"
 [connection signal="item_selected" from="SpecialOptionButton" to="." method="set_argument"]
 [connection signal="item_selected" from="SkillOptionButton" to="." method="set_argument"]
 [connection signal="item_selected" from="CommonEventOptionButton" to="." method="set_argument"]
+[connection signal="value_changed" from="PercentageSpinBox" to="." method="_on_percentage_spin_box_value_changed"]
+[connection signal="value_changed" from="AdditiveSpinBox" to="." method="_on_additive_spin_box_value_changed"]
+[connection signal="button_down" from="DeleteButton" to="." method="_on_delete_button_button_down"]

@@ -41,12 +41,16 @@ func _on_main_option_button_item_selected(index: int, arg_index:int = 0, arg_val
 	
 	match index:
 		0:#recover HP
-			percentage_spin_box.value = arg_value1
+			percentage_spin_box.show()
+			additive_spin_box.show()
+			percentage_spin_box.value = argument_value1
 			additive_spin_box.value = argument_value2
 		1: #recover MP
-			percentage_spin_box.value = arg_value1
+			percentage_spin_box.show()
+			additive_spin_box.show()
+			percentage_spin_box.value = argument_value1
 			additive_spin_box.value = argument_value2
-
+	Changed.emit()
 func hide_all():
 	for i in get_children():
 		i.hide()
@@ -54,3 +58,20 @@ func hide_all():
 
 func set_argument(index: int) -> void:
 	argument = index
+	Changed.emit()
+
+
+func _on_percentage_spin_box_value_changed(value: float) -> void:
+	argument_value1 = value
+	Changed.emit()
+
+
+func _on_additive_spin_box_value_changed(value: float) -> void:
+	argument_value2 = value
+	Changed.emit()
+
+
+func _on_delete_button_button_down() -> void:
+	do_not_count_me = true
+	Changed.emit()
+	queue_free()

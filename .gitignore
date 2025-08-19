@@ -1,7 +1,7 @@
 data/
 assets/
 json_beautifier/
-
+RPG_Baker/
 
 # Godot 4+ specific ignores
 .godot/
@@ -19,3 +19,4 @@ export_presets.cfg
 data_*/
 mono_crash.*.json
 script-ide/
+

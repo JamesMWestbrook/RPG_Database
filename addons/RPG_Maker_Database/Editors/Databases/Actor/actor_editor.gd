@@ -220,9 +220,8 @@ func sprite_selected(sprite_path:String):
 	actors[cur_actor_index]["walking_sprite"] = sprite_path
 	
 func clear_walking_sprite():
-	walking_sprite.texture = null
+	walking_sprite.sprite_frames = null
 	actors[cur_actor_index]["walking_sprite"] = ""
-	sprite_index_spinbox.value = 0
 func _sprite_index(index):
 	actors[cur_actor_index]["walk_index"] = index
 	if index < 4:
@@ -236,7 +235,7 @@ func _battler_selected(path:String):
 	
 func _clear_battler():
 	actors[cur_actor_index]["battler"] = ""
-	battler_sprite.texture = null
+	battler_sprite.sprite_frames = null
 	
 func _select_class(index:int):
 	print(str(index) + " Selected")

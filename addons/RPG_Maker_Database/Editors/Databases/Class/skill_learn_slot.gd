@@ -17,16 +17,16 @@ var level_learned:int = 1:
 		changed.emit()
 var do_not_count_me:bool = false
 
-func _on_skill_option_button_button_down(index:int = -1) -> void:
+func _on_skill_option_button_button_down() -> void:
 	var skills:Array = SkillEditor.skills
 	skill_option_button.clear()
 	for s in skills:
 		skill_option_button.add_item(s.name)
+	if selected_index < skill_option_button.item_count:
+		skill_option_button.select(selected_index)
+func _load_skill(index:int = -1):
 	if index != -1:
 		skill_option_button.select(index)
-	elif selected_index < skill_option_button.item_count:
-		skill_option_button.select(selected_index)
-
 
 func _on_skill_option_button_item_selected(index: int) -> void:
 	selected_index = index

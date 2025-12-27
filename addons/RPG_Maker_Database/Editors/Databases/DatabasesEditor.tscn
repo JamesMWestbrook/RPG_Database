@@ -152,6 +152,7 @@ metadata/_tab_index = 1
 [node name="Types" parent="System/TabContainer" instance=ExtResource("8_mp56p")]
 layout_mode = 2
 metadata/_tab_index = 2
+metadata/_edit_vertical_guides_ = [-90.0]
 
 [node name="Terms" parent="System/TabContainer" instance=ExtResource("16_y43a8")]
 visible = false

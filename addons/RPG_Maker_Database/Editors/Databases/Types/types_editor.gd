@@ -11,7 +11,7 @@ var slot_quantities:Array
 signal load_quantities(quantities)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	type_data.resize(5)
+	type_data.resize(types.size() + 1)
 	_load_json()
 
 
@@ -33,7 +33,7 @@ func _load_json():
 	type_data = json_data.type_data
 	slot_quantities = json_data.slot_quantities
 	load_quantities.emit(slot_quantities)
-	for i in 5:
+	for i in types.size():
 		var data = type_data[i]
 		if data != null:
 			types[i].sub_types = type_data[i]
@@ -54,6 +54,7 @@ func _save_json():
 
 
 func _on_elements_data_changed(types: Array, index) -> void:
+	print(type_data)
 	type_data[index] = types
 
 

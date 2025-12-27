@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3tfeu2e5yqq2"]
+[gd_scene load_steps=5 format=3 uid="uid://c3tfeu2e5yqq2"]
 
 [ext_resource type="Script" uid="uid://6vndh6crawjr" path="res://addons/RPG_Maker_Database/Editors/Databases/Class/classes_editor.gd" id="1_013nu"]
 [ext_resource type="PackedScene" uid="uid://0o7cxqncf2l2" path="res://addons/RPG_Maker_Database/Editors/Databases/trait_container.tscn" id="2_b31ui"]
+[ext_resource type="Script" uid="uid://chvxrpgmfndyb" path="res://addons/RPG_Maker_Database/Editors/Databases/Class/skill_container.gd" id="3_d6bkj"]
+[ext_resource type="PackedScene" uid="uid://c223mx1hh7nua" path="res://addons/RPG_Maker_Database/Editors/Databases/Class/skill_learn_slot.tscn" id="4_hctxo"]
 
 [node name="Classes" type="Control"]
 layout_mode = 3
@@ -279,11 +281,39 @@ layout_mode = 2
 text = "+"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="BoxContainer/3rd Column"]
-custom_minimum_size = Vector2(453.46, 390.295)
+custom_minimum_size = Vector2(453.46, 188.243)
 layout_mode = 2
 size_flags_vertical = 3
 
 [node name="TraitContainer" parent="BoxContainer/3rd Column/ScrollContainer" instance=ExtResource("2_b31ui")]
+layout_mode = 2
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="BoxContainer/3rd Column"]
+layout_mode = 2
+alignment = 1
+
+[node name="SkillsLabel" type="Label" parent="BoxContainer/3rd Column/HBoxContainer5"]
+layout_mode = 2
+text = "Skills"
+
+[node name="Skills help" type="Button" parent="BoxContainer/3rd Column/HBoxContainer5"]
+layout_mode = 2
+tooltip_text = "Click here to know learn what each trait does. "
+text = "?"
+
+[node name="AddSkillButton" type="Button" parent="BoxContainer/3rd Column/HBoxContainer5"]
+layout_mode = 2
+text = "+"
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="BoxContainer/3rd Column"]
+custom_minimum_size = Vector2(383.77, 163.433)
+layout_mode = 2
+
+[node name="SkillContainer" type="GridContainer" parent="BoxContainer/3rd Column/ScrollContainer2"]
+layout_mode = 2
+script = ExtResource("3_d6bkj")
+
+[node name="SkillLearnSlot" parent="BoxContainer/3rd Column/ScrollContainer2/SkillContainer" instance=ExtResource("4_hctxo")]
 layout_mode = 2
 
 [connection signal="button_down" from="BoxContainer/1st Column/HBoxContainer/SaveButton" to="." method="_save_json"]
@@ -308,3 +338,5 @@ layout_mode = 2
 [connection signal="button_down" from="BoxContainer/3rd Column/HBoxContainer4/Traits help" to="BoxContainer/3rd Column/ScrollContainer/TraitContainer" method="_on_traits_help_button_down"]
 [connection signal="button_down" from="BoxContainer/3rd Column/HBoxContainer4/AddTraitButton" to="BoxContainer/3rd Column/ScrollContainer/TraitContainer" method="_add_new"]
 [connection signal="UpdatedTraits" from="BoxContainer/3rd Column/ScrollContainer/TraitContainer" to="." method="_on_trait_container_updated_traits"]
+[connection signal="button_down" from="BoxContainer/3rd Column/HBoxContainer5/AddSkillButton" to="BoxContainer/3rd Column/ScrollContainer2/SkillContainer" method="add_new"]
+[connection signal="UpdatedSkills" from="BoxContainer/3rd Column/ScrollContainer2/SkillContainer" to="." method="_on_skill_container_updated_skills"]

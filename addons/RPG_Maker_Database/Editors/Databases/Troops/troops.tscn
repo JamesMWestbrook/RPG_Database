@@ -39,7 +39,7 @@ text = "Name:"
 [node name="NameLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(91.97, 0)
 layout_mode = 2
-text = "Dragon"
+text = "Troop 0"
 expand_to_text_length = true
 
 [node name="AutoNameButton" type="Button" parent="VBoxContainer/HBoxContainer"]
@@ -87,8 +87,8 @@ text = "Change Max"
 custom_minimum_size = Vector2(0, 361.755)
 layout_mode = 2
 item_count = 5
-item_0/text = "0 Dragon"
-item_1/text = "1 Wizard Party"
+item_0/text = "0 Troop 0"
+item_1/text = "1 Troop 1"
 item_2/text = "2 Troop 2"
 item_3/text = "3 Troop 3"
 item_4/text = "4 Troop 4"
@@ -111,7 +111,7 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 item_count = 5
-item_0/text = "Father"
+item_0/text = "enemy 0"
 item_1/text = "enemy 1"
 item_2/text = "enemy 2"
 item_3/text = "enemy 3"

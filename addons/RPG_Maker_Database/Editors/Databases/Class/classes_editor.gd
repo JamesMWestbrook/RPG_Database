@@ -30,7 +30,7 @@ class_name  ClassEditor
 @onready var lck_start_spin_box: SpinBox = $"BoxContainer/2nd Column/VBoxContainer/LuckBox/LckStartSpinBox"
 @onready var lck_end_spin_box: SpinBox = $"BoxContainer/2nd Column/VBoxContainer/LuckBox/LckEndSpinBox"
 @onready var trait_container: TraitContainer = $"BoxContainer/3rd Column/ScrollContainer/TraitContainer"
-
+@onready var skill_container: GridContainer = $"BoxContainer/3rd Column/ScrollContainer2/SkillContainer"
 
 #endregion 
 
@@ -118,6 +118,8 @@ func _load_class(index:int):
 	_load_class_stats(classes[cur_class_index])
 	trait_container._clear()
 	trait_container._load_traits(classes[cur_class_index].traits)
+	skill_container._clear()
+	skill_container._load_skills(classes[cur_class_index].skills)
 
 	
 		
@@ -148,6 +150,7 @@ func _check_class(c:Dictionary):
 		c.start_lck = 5
 		c.end_lck = 30
 		c.traits = []
+		c.skills = []
 		
 func _load_class_stats(c:Dictionary):
 	hp_start_spin_box.value = c.start_hp
@@ -249,3 +252,7 @@ func _init_classes():
 
 func _on_trait_container_updated_traits(list: Variant) -> void:
 	classes[cur_class_index].traits = list
+
+
+func _on_skill_container_updated_skills(list: Variant) -> void:
+	classes[cur_class_index].skills = list

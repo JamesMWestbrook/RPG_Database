@@ -44,7 +44,7 @@ layout_mode = 2
 layout_mode = 2
 min_value = 1.0
 max_value = 9999.0
-value = 101.0
+value = 5.0
 alignment = 1
 
 [node name="ChangeActorMaxButton" type="Button" parent="ScrollContainer/BoxContainer/1st Column/HBoxContainer2"]
@@ -96,7 +96,7 @@ text = "Set Icon"
 [node name="NameEdit" type="LineEdit" parent="ScrollContainer/BoxContainer/2nd Column"]
 custom_minimum_size = Vector2(233.62, 0)
 layout_mode = 2
-text = "Restore MP"
+text = "Attack"
 
 [node name="DescLabel" type="Label" parent="ScrollContainer/BoxContainer/2nd Column"]
 layout_mode = 2
@@ -120,15 +120,13 @@ text = "Skill Type:"
 [node name="SkillType" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Type&Cost/SkillTypeContainer"]
 layout_mode = 2
 selected = 0
-item_count = 4
+item_count = 3
 popup/item_0/text = "None"
 popup/item_0/id = 0
 popup/item_1/text = "Special"
 popup/item_1/id = 1
 popup/item_2/text = "Magic"
 popup/item_2/id = 2
-popup/item_3/text = "Demoncraft"
-popup/item_3/id = 3
 
 [node name="MPCostContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Type&Cost"]
 layout_mode = 2
@@ -280,32 +278,16 @@ layout_mode = 2
 [node name="WeaponOneOptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/VBoxContainer/VBoxContainer2/Row8"]
 custom_minimum_size = Vector2(190, 0)
 layout_mode = 2
-item_count = 5
+item_count = 1
 popup/item_0/text = "None"
 popup/item_0/id = 0
-popup/item_1/text = "Broadsword"
-popup/item_1/id = 1
-popup/item_2/text = "Sword"
-popup/item_2/id = 2
-popup/item_3/text = "Staff"
-popup/item_3/id = 3
-popup/item_4/text = "Bow"
-popup/item_4/id = 4
 
 [node name="WeaponTwoOptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Scope Row/VBoxContainer/VBoxContainer2/Row8"]
 custom_minimum_size = Vector2(190, 0)
 layout_mode = 2
-item_count = 5
+item_count = 1
 popup/item_0/text = "None"
 popup/item_0/id = 0
-popup/item_1/text = "Broadsword"
-popup/item_1/id = 1
-popup/item_2/text = "Sword"
-popup/item_2/id = 2
-popup/item_3/text = "Staff"
-popup/item_3/id = 3
-popup/item_4/text = "Bow"
-popup/item_4/id = 4
 
 [node name="Invocation" type="HSeparator" parent="ScrollContainer/BoxContainer/2nd Column"]
 layout_mode = 2
@@ -475,25 +457,19 @@ text = "Element:"
 layout_mode = 2
 tooltip_text = "Normal = whatever element the user is attuned to. "
 selected = 1
-item_count = 9
+item_count = 6
 popup/item_0/text = "Normal"
 popup/item_0/id = 0
 popup/item_1/text = "None"
 popup/item_1/id = 1
-popup/item_2/text = "Fire"
+popup/item_2/text = "Normal"
 popup/item_2/id = 2
-popup/item_3/text = "Water"
+popup/item_3/text = "Fire"
 popup/item_3/id = 3
-popup/item_4/text = "Ice"
+popup/item_4/text = "Water"
 popup/item_4/id = 4
-popup/item_5/text = "Thunder"
+popup/item_5/text = "Ice"
 popup/item_5/id = 5
-popup/item_6/text = "Earth"
-popup/item_6/id = 6
-popup/item_7/text = "Moon"
-popup/item_7/id = 7
-popup/item_8/text = "Sun"
-popup/item_8/id = 8
 
 [node name="Label5" type="Label" parent="ScrollContainer/BoxContainer/3rd Column"]
 layout_mode = 2
@@ -550,6 +526,7 @@ layout_mode = 2
 [connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container3/RepeatSpinBox" to="." method="_on_repeat_spin_box_value_changed"]
 [connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/Invocation Row/Container4/TPGainSpinBox" to="." method="_on_tp_gain_spin_box_value_changed"]
 [connection signal="item_selected" from="ScrollContainer/BoxContainer/2nd Column/Invocation Row/HitTypeContainer/HitTypeOptionButton" to="." method="_on_hit_type_option_button_item_selected"]
+[connection signal="button_down" from="ScrollContainer/BoxContainer/2nd Column/Invocation Row/AnimationContainer/AnimationOptionButton" to="." method="_on_animation_option_button_button_down"]
 [connection signal="item_selected" from="ScrollContainer/BoxContainer/2nd Column/Invocation Row/AnimationContainer/AnimationOptionButton" to="." method="_on_animation_option_button_item_selected"]
 [connection signal="text_changed" from="ScrollContainer/BoxContainer/2nd Column/MessageEdit" to="." method="_on_message_edit_text_changed"]
 [connection signal="button_down" from="ScrollContainer/BoxContainer/2nd Column/Row6/CastsButton" to="." method="_on_casts_button_button_down"]

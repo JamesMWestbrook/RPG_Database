@@ -143,7 +143,11 @@ func _load_skill(index:int):
 	repeat_spin_box.value = skill.repeat
 	tp_gain_spin_box.value = skill.tp_gain
 	hit_type_option_button.select(skill.hit_type)
-	animation_option_button.select(skill.animation)
+	animation_option_button.clear()
+	for i in TypesEditor.type_data[5]:
+		animation_option_button.add_item(i)
+	if skill.animation < animation_option_button.item_count:
+		animation_option_button.select(skill.animation)
 	
 	message_edit.text = skill.message
 	
@@ -292,6 +296,16 @@ func _on_hit_type_option_button_item_selected(index: int) -> void:
 
 func _on_animation_option_button_item_selected(index: int) -> void:
 	skills[cur_skill_index].animation = index
+
+func _on_animation_option_button_button_down() -> void:
+	var animations:Array = TypesEditor.type_data[5]
+	animation_option_button.clear()
+	var selected_index:int = skills[cur_skill_index].animation
+	for i in animations:
+		animation_option_button.add_item(i)
+	if selected_index < animation_option_button.item_count:
+		animation_option_button.select(selected_index)
+		
 
 func _on_message_edit_text_changed(new_text: String) -> void:
 	skills[cur_skill_index].message = new_text

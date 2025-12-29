@@ -27,7 +27,7 @@ func _on_add_action_button_button_down() -> EnemyAction:
 	var new_action = ENEMY_ACTION.instantiate()
 	new_action.action_updated.connect(_update_list)
 	action_list.add_child(new_action)
-	#_update_list()
+	#_update_list() this appears to do nothing, leaving commented to keep things cleaner
 	return new_action
 	
 func _update_list():

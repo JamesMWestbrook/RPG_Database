@@ -94,7 +94,6 @@ func _load_skill(index:int):
 	#Everything that should be loaded before loading the skill
 	#skill type
 	skill_type.clear()
-	skill_type.add_item("None")
 	for type:String in TypesEditor.type_data[1]:
 		skill_type.add_item(type)
 		

@@ -192,7 +192,7 @@ func _check_skill(index:int): #Not assigning Dictionary as type since null is so
 		
 		skills[index].damage_type = 0
 		skills[index].element = 1
-		skills[index].damage_formula = "a.atk * 4 - b.def * 2"
+		skills[index].damage_formula = "a.base_str * 4 - b.base_def * 2"
 		skills[index].effects = []
 	
 func _skill_buttons():

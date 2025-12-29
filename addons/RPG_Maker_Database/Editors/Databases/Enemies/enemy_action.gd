@@ -25,6 +25,7 @@ var arg_1:int
 var arg_2:int
 
 var loading:bool
+var do_not_count_me:bool
 
 func _ready() -> void:
 	_hide_all()
@@ -171,3 +172,9 @@ func _on_switch_option_button_item_selected(index: int) -> void:
 	if !loading:
 		action_updated.emit()
 	
+
+
+func _on_delete_button_button_down() -> void:
+	do_not_count_me = true
+	action_updated.emit()
+	queue_free()

@@ -54,7 +54,6 @@ func _save_json():
 
 
 func _on_elements_data_changed(types: Array, index) -> void:
-	print(type_data)
 	type_data[index] = types
 
 

@@ -33,6 +33,8 @@ func _on_add_action_button_button_down() -> EnemyAction:
 func _update_list():
 	actions.clear()
 	for action in action_list.get_children():
+		if action.do_not_count_me:
+			continue
 		var new_action:Dictionary
 		new_action.chosen_skill = action.chosen_skill
 		new_action.rating = action.rating

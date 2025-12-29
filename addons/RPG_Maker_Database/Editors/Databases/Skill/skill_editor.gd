@@ -69,7 +69,7 @@ func _save_json() -> void:
 	var save_data:Dictionary = {
 		"skills" : skills
 	}
-	var json_string:String = JSON.stringify(save_data)
+	var json_string:String = JSON.stringify(save_data, "\n")
 	var file:FileAccess = FileAccess.open(JSON_SAVE_PATH, FileAccess.WRITE)
 	file.store_string(json_string)
 	SkillsUpdated.emit(skills)

@@ -41,6 +41,7 @@ func _load_skills(skills):
 		new_skill._on_skill_option_button_button_down()
 		new_skill._load_skill(s.skill)
 		new_skill.selected_index = s.skill
+		new_skill.skill_index = s.skill
 		#new_skill._on_level_spin_box_value_changed(s.level_learned)
 		new_skill.level_spin_box.value = s.level_learned
 	#_update_list()

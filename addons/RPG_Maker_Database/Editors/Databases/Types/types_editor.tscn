@@ -7,9 +7,9 @@
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_m7bmw")
-types = [NodePath("ScrollContainer/VBoxContainer/TypeContainers/Elements"), NodePath("ScrollContainer/VBoxContainer/TypeContainers/SkillTypes"), NodePath("ScrollContainer/VBoxContainer/TypeContainers/WeaponTypes"), NodePath("ScrollContainer/VBoxContainer/TypeContainers/ArmorTypes"), NodePath("ScrollContainer/VBoxContainer/TypeContainers/EquipTypes")]
+types = [NodePath("ScrollContainer/VBoxContainer/TypeContainers/Elements"), NodePath("ScrollContainer/VBoxContainer/TypeContainers/SkillTypes"), NodePath("ScrollContainer/VBoxContainer/TypeContainers/WeaponTypes"), NodePath("ScrollContainer/VBoxContainer/TypeContainers/ArmorTypes"), NodePath("ScrollContainer/VBoxContainer/TypeContainers/EquipTypes"), NodePath("ScrollContainer/VBoxContainer/TypeContainers/AnimTypes")]
 metadata/_tab_index = 1
-metadata/_edit_vertical_guides_ = [-90.0]
+metadata/_edit_vertical_guides_ = [-90.0, 751.0]
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
@@ -69,6 +69,14 @@ category = "Equipment Slots"
 category_index = 4
 is_equip_type = true
 
+[node name="VSeparator5" type="VSeparator" parent="ScrollContainer/VBoxContainer/TypeContainers"]
+layout_mode = 2
+
+[node name="AnimTypes" parent="ScrollContainer/VBoxContainer/TypeContainers" instance=ExtResource("1_nxovw")]
+layout_mode = 2
+category = "Animation Slots"
+category_index = 5
+
 [connection signal="load_quantities" from="." to="ScrollContainer/VBoxContainer/TypeContainers/EquipTypes" method="_on_types_editor_load_quantities"]
 [connection signal="button_down" from="ScrollContainer/VBoxContainer/Save" to="." method="_save_json"]
 [connection signal="DataChanged" from="ScrollContainer/VBoxContainer/TypeContainers/Elements" to="." method="_on_elements_data_changed"]
@@ -77,3 +85,4 @@ is_equip_type = true
 [connection signal="DataChanged" from="ScrollContainer/VBoxContainer/TypeContainers/ArmorTypes" to="." method="_on_elements_data_changed"]
 [connection signal="DataChanged" from="ScrollContainer/VBoxContainer/TypeContainers/EquipTypes" to="." method="_on_elements_data_changed"]
 [connection signal="QuantityChanged" from="ScrollContainer/VBoxContainer/TypeContainers/EquipTypes" to="." method="_on_equip_types_quantity_changed"]
+[connection signal="DataChanged" from="ScrollContainer/VBoxContainer/TypeContainers/AnimTypes" to="." method="_on_elements_data_changed"]

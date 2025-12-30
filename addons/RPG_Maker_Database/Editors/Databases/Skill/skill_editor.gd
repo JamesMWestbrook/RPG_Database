@@ -69,7 +69,7 @@ func _save_json() -> void:
 	var save_data:Dictionary = {
 		"skills" : skills
 	}
-	var json_string:String = JSON.stringify(save_data)
+	var json_string:String = JSON.stringify(save_data, "\n")
 	var file:FileAccess = FileAccess.open(JSON_SAVE_PATH, FileAccess.WRITE)
 	file.store_string(json_string)
 	SkillsUpdated.emit(skills)
@@ -94,7 +94,6 @@ func _load_skill(index:int):
 	#Everything that should be loaded before loading the skill
 	#skill type
 	skill_type.clear()
-	skill_type.add_item("None")
 	for type:String in TypesEditor.type_data[1]:
 		skill_type.add_item(type)
 		
@@ -143,7 +142,11 @@ func _load_skill(index:int):
 	repeat_spin_box.value = skill.repeat
 	tp_gain_spin_box.value = skill.tp_gain
 	hit_type_option_button.select(skill.hit_type)
-	animation_option_button.select(skill.animation)
+	animation_option_button.clear()
+	for i in TypesEditor.type_data[5]:
+		animation_option_button.add_item(i)
+	if skill.animation < animation_option_button.item_count:
+		animation_option_button.select(skill.animation)
 	
 	message_edit.text = skill.message
 	
@@ -188,7 +191,7 @@ func _check_skill(index:int): #Not assigning Dictionary as type since null is so
 		
 		skills[index].damage_type = 0
 		skills[index].element = 1
-		skills[index].damage_formula = "a.atk * 4 - b.def * 2"
+		skills[index].damage_formula = "a.base_str * 4 - b.base_def * 2"
 		skills[index].effects = []
 	
 func _skill_buttons():
@@ -292,6 +295,16 @@ func _on_hit_type_option_button_item_selected(index: int) -> void:
 
 func _on_animation_option_button_item_selected(index: int) -> void:
 	skills[cur_skill_index].animation = index
+
+func _on_animation_option_button_button_down() -> void:
+	var animations:Array = TypesEditor.type_data[5]
+	animation_option_button.clear()
+	var selected_index:int = skills[cur_skill_index].animation
+	for i in animations:
+		animation_option_button.add_item(i)
+	if selected_index < animation_option_button.item_count:
+		animation_option_button.select(selected_index)
+		
 
 func _on_message_edit_text_changed(new_text: String) -> void:
 	skills[cur_skill_index].message = new_text

@@ -28,11 +28,11 @@ class_name ActorEditor
 @onready var face_index_spinbox: SpinBox = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer4/FaceIndexSpinbox
 
 @onready var sprite_button: Button = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/SpriteButton
-@onready var walking_sprite: Sprite2D = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/SpriteButton/WalkingSprite
+@onready var walking_sprite: AnimatedSprite2D = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/SpriteButton/WalkingSprite
 @onready var sprite_index_spinbox: SpinBox = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer4/SpriteIndexSpinbox
 
 @onready var battler_button: Button = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/BattlerButton
-@onready var battler_sprite: Sprite2D = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/BattlerButton/BattlerSprite
+@onready var battler_sprite: AnimatedSprite2D = $BoxContainer/ScrollColumn2/VBoxContainer/HBoxContainer/Column2/HBoxContainer3/BattlerButton/BattlerSprite
 
 @onready var trait_container: TraitContainer = $BoxContainer/ScrollColumn2/VBoxContainer/TraitContainer
 
@@ -157,28 +157,16 @@ func _load_actor(index:int):
 		face_index_spinbox.value = 0
 	if actor.has("walking_sprite"):
 		var sprite_path:String = actor["walking_sprite"]
-		walking_sprite.texture = load(sprite_path)
-		if sprite_path.get_file().begins_with("$"):
-			#if it starts with $ meaning a single sprite
-			sprite_index_spinbox.hide()
-		else:
-			#full sprite sheet
-			sprite_index_spinbox.show()
-			walking_sprite.hframes = 12
-			walking_sprite.vframes = 8
-			walking_sprite.frame = 1
-			if actor.has("walk_index"):
-				_sprite_index(actor["walk_index"])
-				sprite_index_spinbox.value = actor["walk_index"]
+		walking_sprite.sprite_frames = load(sprite_path)
 	else:
-		walking_sprite.texture = null
+		walking_sprite.sprite_frames = null
 		sprite_index_spinbox.hide()
 	if actor.has("battler") and actor["battler"] != "":
 		var path:String = actor["battler"]
 		if FileAccess.file_exists(path):
-			battler_sprite.texture = load(actor["battler"])
+			battler_sprite.sprite_frames = load(actor["battler"])
 	else:
-		battler_sprite.texture = null
+		battler_sprite.sprite_frames = null
 		actor["battler"] = ""
 	if actor.has("traits"):
 		trait_container._load_traits(actor.traits)
@@ -225,29 +213,15 @@ func face_index(index:int):
 	face_sprite.frame = index
 
 func sprite_selected(sprite_path:String):
-	var new_sprite = load(sprite_path)
-	walking_sprite.texture = new_sprite
+	var new_sprite_frames = load(sprite_path)
+	walking_sprite.sprite_frames = new_sprite_frames
 	var file_name = sprite_path.get_file()
-	if file_name.begins_with("$"):
-		walking_sprite.hframes = 3
-		walking_sprite.vframes = 4
-		walking_sprite.frame = 1
-		sprite_index_spinbox.hide()
-		
-	else:
-		#filename does NOT start with $, a full spritesheet
-		walking_sprite.hframes = 12
-		walking_sprite.vframes = 8
-		walking_sprite.frame = 1
-		sprite_index_spinbox.show()
-
 	
 	actors[cur_actor_index]["walking_sprite"] = sprite_path
 	
 func clear_walking_sprite():
-	walking_sprite.texture = null
+	walking_sprite.sprite_frames = null
 	actors[cur_actor_index]["walking_sprite"] = ""
-	sprite_index_spinbox.value = 0
 func _sprite_index(index):
 	actors[cur_actor_index]["walk_index"] = index
 	if index < 4:
@@ -257,11 +231,11 @@ func _sprite_index(index):
 	
 func _battler_selected(path:String):
 	actors[cur_actor_index]["battler"] = path
-	battler_sprite.texture = load(path)
+	battler_sprite.sprite_frames = load(path)
 	
 func _clear_battler():
 	actors[cur_actor_index]["battler"] = ""
-	battler_sprite.texture = null
+	battler_sprite.sprite_frames = null
 	
 func _select_class(index:int):
 	print(str(index) + " Selected")

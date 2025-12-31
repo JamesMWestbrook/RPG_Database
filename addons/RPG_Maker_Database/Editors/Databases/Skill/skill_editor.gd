@@ -31,6 +31,8 @@ class_name SkillEditor
 @onready var element_type_option_button: OptionButton = $"ScrollContainer/BoxContainer/3rd Column/Row9/Box2/ElementTypeOptionButton"
 @onready var effect_container: EffectContainer = $"ScrollContainer/BoxContainer/3rd Column/effect_container"
 @onready var particle_animation_button: Button = $"ScrollContainer/BoxContainer/2nd Column/Invocation Row/ParticleAnimationContainer/ParticleAnimationButton"
+@onready var sound_effect_button: Button = $"ScrollContainer/BoxContainer/2nd Column/Row5/ParticleAnimationContainer2/SoundEffectButton"
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 #endregion
 
@@ -165,6 +167,15 @@ func _load_skill(index:int):
 	else:
 		skill.particle_animation = ""
 		particle_animation_button.text = "Select Animation"
+	if skill.has("sound_effect"):
+		var text:String = skill.sound_effect.get_file()
+		if text.is_empty():
+			sound_effect_button.text = "Select Sound"
+		else:
+			sound_effect_button.text = text
+	else:
+		skill.sound_effect = ""
+		sound_effect_button.text = "Select Sound"
 	
 func _check_skill(index:int): #Not assigning Dictionary as type since null is sometimes its type/value
 	if skills[index] == null:
@@ -204,7 +215,8 @@ func _check_skill(index:int): #Not assigning Dictionary as type since null is so
 		skills[index].damage_formula = "a.base_str * 4 - b.base_def * 2"
 		skills[index].effects = []
 		skills[index].particle_animation = ""
-	
+		skills[index].sound_effect = ""
+		
 func _skill_buttons():
 	for i in skills_box.get_children():
 		skills_box.remove_child(i)
@@ -350,3 +362,14 @@ func _on_effect_container_updated_effects(list: Variant) -> void:
 func _on_particle_animation_file_dialog_file_selected(path: String) -> void:
 	skills[cur_skill_index].particle_animation = path
 	particle_animation_button.text = path.get_file()
+
+
+func _on_sound_effect_file_dialog_file_selected(path: String) -> void:
+	skills[cur_skill_index].sound_effect = path
+	sound_effect_button.text = path.get_file()
+
+
+func _on_sound_preview_button_button_down() -> void:
+	var sound_effect = skills[cur_skill_index].sound_effect
+	audio_stream_player.stream = load(sound_effect)
+	audio_stream_player.play()

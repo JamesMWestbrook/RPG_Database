@@ -390,10 +390,27 @@ text = "Particle Animation:"
 
 [node name="ParticleAnimationButton" type="Button" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row/ParticleAnimationContainer" unique_id=2106455815]
 layout_mode = 2
-text = "Select Animation"
+text = "attack.tres"
 
 [node name="Row5" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column" unique_id=524580796]
 layout_mode = 2
+alignment = 2
+
+[node name="ParticleAnimationContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Row5" unique_id=1713534808]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Row5/ParticleAnimationContainer2" unique_id=114570429]
+layout_mode = 2
+text = "Sound Effect:               "
+
+[node name="SoundEffectButton" type="Button" parent="ScrollContainer/BoxContainer/2nd Column/Row5/ParticleAnimationContainer2" unique_id=1119202275]
+layout_mode = 2
+text = "attack.tres"
+
+[node name="SoundPreviewButton" type="Button" parent="ScrollContainer/BoxContainer/2nd Column/Row5" unique_id=291947743]
+layout_mode = 2
+text = "Preview Sound"
 
 [node name="HSeparator2" type="HSeparator" parent="ScrollContainer/BoxContainer/2nd Column" unique_id=460864704]
 layout_mode = 2
@@ -529,6 +546,15 @@ file_mode = 0
 display_mode = 1
 filters = PackedStringArray("*.tres")
 
+[node name="SoundEffectFileDialog" type="FileDialog" parent="." unique_id=1901799933]
+oversampling_override = 1.0
+title = "Open a File"
+file_mode = 0
+display_mode = 1
+filters = PackedStringArray("*.wav", "*.mp3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1572890972]
+
 [connection signal="button_down" from="ScrollContainer/BoxContainer/1st Column/HBoxContainer/SaveButton" to="." method="_save_json"]
 [connection signal="button_down" from="ScrollContainer/BoxContainer/1st Column/HBoxContainer2/ChangeActorMaxButton" to="." method="_on_change_actor_max_button_down"]
 [connection signal="text_changed" from="ScrollContainer/BoxContainer/2nd Column/NameEdit" to="." method="_update_name"]
@@ -552,6 +578,8 @@ filters = PackedStringArray("*.tres")
 [connection signal="button_down" from="ScrollContainer/BoxContainer/2nd Column/Invocation Row/AnimationContainer/AnimationOptionButton" to="." method="_on_animation_option_button_button_down"]
 [connection signal="item_selected" from="ScrollContainer/BoxContainer/2nd Column/Invocation Row/AnimationContainer/AnimationOptionButton" to="." method="_on_animation_option_button_item_selected"]
 [connection signal="button_down" from="ScrollContainer/BoxContainer/2nd Column/Invocation Row/ParticleAnimationContainer/ParticleAnimationButton" to="ParticleAnimationFileDialog" method="show"]
+[connection signal="button_down" from="ScrollContainer/BoxContainer/2nd Column/Row5/ParticleAnimationContainer2/SoundEffectButton" to="SoundEffectFileDialog" method="show"]
+[connection signal="button_down" from="ScrollContainer/BoxContainer/2nd Column/Row5/SoundPreviewButton" to="." method="_on_sound_preview_button_button_down"]
 [connection signal="text_changed" from="ScrollContainer/BoxContainer/2nd Column/MessageEdit" to="." method="_on_message_edit_text_changed"]
 [connection signal="button_down" from="ScrollContainer/BoxContainer/2nd Column/Row6/CastsButton" to="." method="_on_casts_button_button_down"]
 [connection signal="button_down" from="ScrollContainer/BoxContainer/2nd Column/Row6/DoesButton" to="." method="_on_does_button_button_down"]
@@ -563,3 +591,5 @@ filters = PackedStringArray("*.tres")
 [connection signal="UpdatedEffects" from="ScrollContainer/BoxContainer/3rd Column/effect_container" to="." method="_on_effect_container_updated_effects"]
 [connection signal="file_selected" from="ParticleAnimationFileDialog" to="." method="_on_particle_animation_file_dialog_file_selected"]
 [connection signal="file_selected" from="ParticleAnimationFileDialog" to="ParticleAnimationFileDialog" method="hide"]
+[connection signal="file_selected" from="SoundEffectFileDialog" to="." method="_on_sound_effect_file_dialog_file_selected"]
+[connection signal="file_selected" from="SoundEffectFileDialog" to="SoundEffectFileDialog" method="hide"]

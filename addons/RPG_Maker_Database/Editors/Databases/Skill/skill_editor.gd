@@ -30,6 +30,7 @@ class_name SkillEditor
 @onready var damage_type_option_button: OptionButton = $"ScrollContainer/BoxContainer/3rd Column/Row9/Box/DamageTypeOptionButton"
 @onready var element_type_option_button: OptionButton = $"ScrollContainer/BoxContainer/3rd Column/Row9/Box2/ElementTypeOptionButton"
 @onready var effect_container: EffectContainer = $"ScrollContainer/BoxContainer/3rd Column/effect_container"
+@onready var particle_animation_button: Button = $"ScrollContainer/BoxContainer/2nd Column/Invocation Row/ParticleAnimationContainer/ParticleAnimationButton"
 
 #endregion
 
@@ -155,6 +156,15 @@ func _load_skill(index:int):
 	formula_editor.text = skill.damage_formula
 	effect_container._clear()
 	effect_container._load(skill.effects)
+	if skill.has("particle_animation"):
+		var text:String = skill.particle_animation.get_file()
+		if text.is_empty():
+			particle_animation_button.text = "Select Animation"
+		else:
+			particle_animation_button.text = text
+	else:
+		skill.particle_animation = ""
+		particle_animation_button.text = "Select Animation"
 	
 func _check_skill(index:int): #Not assigning Dictionary as type since null is sometimes its type/value
 	if skills[index] == null:
@@ -193,6 +203,7 @@ func _check_skill(index:int): #Not assigning Dictionary as type since null is so
 		skills[index].element = 1
 		skills[index].damage_formula = "a.base_str * 4 - b.base_def * 2"
 		skills[index].effects = []
+		skills[index].particle_animation = ""
 	
 func _skill_buttons():
 	for i in skills_box.get_children():
@@ -334,3 +345,8 @@ func _on_uses_button_button_down() -> void:
 
 func _on_effect_container_updated_effects(list: Variant) -> void:
 	skills[cur_skill_index].effects = list
+
+
+func _on_particle_animation_file_dialog_file_selected(path: String) -> void:
+	skills[cur_skill_index].particle_animation = path
+	particle_animation_button.text = path.get_file()

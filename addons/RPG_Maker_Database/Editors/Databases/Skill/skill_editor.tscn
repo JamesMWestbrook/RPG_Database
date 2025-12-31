@@ -45,7 +45,7 @@ layout_mode = 2
 layout_mode = 2
 min_value = 1.0
 max_value = 9999.0
-value = 10.0
+value = 5.0
 alignment = 1
 
 [node name="ChangeActorMaxButton" type="Button" parent="ScrollContainer/BoxContainer/1st Column/HBoxContainer2" unique_id=574783972]
@@ -97,7 +97,7 @@ text = "Set Icon"
 [node name="NameEdit" type="LineEdit" parent="ScrollContainer/BoxContainer/2nd Column" unique_id=1858147163]
 custom_minimum_size = Vector2(233.62, 0)
 layout_mode = 2
-text = "Attack"
+text = "Skill 0"
 
 [node name="DescLabel" type="Label" parent="ScrollContainer/BoxContainer/2nd Column" unique_id=860507142]
 layout_mode = 2
@@ -120,12 +120,6 @@ text = "Skill Type:"
 
 [node name="SkillType" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Type&Cost/SkillTypeContainer" unique_id=214536245]
 layout_mode = 2
-selected = 0
-item_count = 2
-popup/item_0/text = "Special"
-popup/item_0/id = 0
-popup/item_1/text = "Magic"
-popup/item_1/id = 1
 
 [node name="MPCostContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Type&Cost" unique_id=309881977]
 layout_mode = 2
@@ -372,14 +366,6 @@ text = "Animation:"
 
 [node name="AnimationOptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row/AnimationContainer" unique_id=605358615]
 layout_mode = 2
-selected = 0
-item_count = 3
-popup/item_0/text = "attack"
-popup/item_0/id = 0
-popup/item_1/text = "magic"
-popup/item_1/id = 1
-popup/item_2/text = "magic2"
-popup/item_2/id = 2
 
 [node name="ParticleAnimationContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row" unique_id=460733523]
 layout_mode = 2
@@ -390,7 +376,7 @@ text = "Particle Animation:"
 
 [node name="ParticleAnimationButton" type="Button" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row/ParticleAnimationContainer" unique_id=2106455815]
 layout_mode = 2
-text = "attack.tres"
+text = "Select Animation"
 
 [node name="Row5" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column" unique_id=524580796]
 layout_mode = 2
@@ -406,7 +392,7 @@ text = "Sound Effect:               "
 
 [node name="SoundEffectButton" type="Button" parent="ScrollContainer/BoxContainer/2nd Column/Row5/ParticleAnimationContainer2" unique_id=1119202275]
 layout_mode = 2
-text = "attack.tres"
+text = "Select Sound"
 
 [node name="SoundPreviewButton" type="Button" parent="ScrollContainer/BoxContainer/2nd Column/Row5" unique_id=291947743]
 layout_mode = 2
@@ -488,19 +474,11 @@ text = "Element:"
 layout_mode = 2
 tooltip_text = "Normal = whatever element the user is attuned to. "
 selected = 1
-item_count = 6
+item_count = 2
 popup/item_0/text = "Normal"
 popup/item_0/id = 0
 popup/item_1/text = "None"
 popup/item_1/id = 1
-popup/item_2/text = "Normal"
-popup/item_2/id = 2
-popup/item_3/text = "Fire"
-popup/item_3/id = 3
-popup/item_4/text = "Water"
-popup/item_4/id = 4
-popup/item_5/text = "Ice"
-popup/item_5/id = 5
 
 [node name="Label5" type="Label" parent="ScrollContainer/BoxContainer/3rd Column" unique_id=2076594556]
 layout_mode = 2
@@ -510,7 +488,7 @@ text = "Damage Formula:"
 custom_minimum_size = Vector2(0, 80.395)
 layout_mode = 2
 tooltip_text = "Currently there is no autocomplete support due to a bug that started with Godot version 4.3. "
-text = "a.atk * 28 - b.def * 2"
+text = "a.base_str * 4 - b.base_def * 2"
 code_completion_enabled = true
 script = ExtResource("3_xdto0")
 codes_to_complete = PackedStringArray("base_hp", "max_hp", "base_mp", "max_mp", "base_str", "base_mag", "base_def", "base_mdf", "base_agi", "base_luck")

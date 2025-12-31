@@ -281,7 +281,7 @@ func _on_scope_option_button_item_selected(index: int) -> void:
 	skills[cur_skill_index].scope_side = index
 
 func _on_number_option_item_selected(index: int) -> void:
-	skills[cur_skill_index].scope_number = 0
+	skills[cur_skill_index].scope_number = index
 	
 	random_spin_box.editable = false
 	if index == 2:

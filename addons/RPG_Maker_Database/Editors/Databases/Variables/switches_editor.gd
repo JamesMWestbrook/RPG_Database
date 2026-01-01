@@ -94,7 +94,7 @@ func _save_json():
 		"max" : max_amount,
 		"switch_names" : switch_names,
 		"switch_defaults" : switch_default_values
-	})
+	},"\t")
 	file.store_string(data)
 
 func _on_resize_button_button_down() -> void:

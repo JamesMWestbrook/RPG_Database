@@ -58,7 +58,7 @@ func _save_json() -> void:
 	var save_data:Dictionary = {
 		"enemies" : enemies
 	}
-	var json_string:String = JSON.stringify(save_data, "\n")
+	var json_string:String = JSON.stringify(save_data, "\t")
 	var file:FileAccess = FileAccess.open(JSON_SAVE_PATH, FileAccess.WRITE)
 	file.store_string(json_string)
 	EnemiesUpdated.emit(enemies)

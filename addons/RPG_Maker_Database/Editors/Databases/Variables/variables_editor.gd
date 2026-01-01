@@ -42,7 +42,7 @@ func _save_json():
 		"max": max_amount,
 		"var_names": var_names,
 		"var_defaults": var_default_values
-	})
+	},"\t")
 	file.store_string(data)
 
 func _load_set(index:int):

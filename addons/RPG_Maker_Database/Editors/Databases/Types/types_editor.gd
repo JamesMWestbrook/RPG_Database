@@ -47,7 +47,7 @@ func _save_json():
 		"slot_quantities": slot_quantities
 	}
 	
-	var json_data = JSON.stringify(new_save)
+	var json_data = JSON.stringify(new_save,"\t")
 	var file = FileAccess.open(SAVE_PATH,FileAccess.WRITE)
 	file.store_string(json_data)
 	

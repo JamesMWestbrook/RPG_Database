@@ -56,7 +56,7 @@ func _save_json() -> void:
 	var save_data:Dictionary = {
 		"armors" : armors
 	}
-	var json_string:String = JSON.stringify(save_data)
+	var json_string:String = JSON.stringify(save_data,"\t")
 	var file:FileAccess = FileAccess.open(JSON_SAVE_PATH, FileAccess.WRITE)
 	file.store_string(json_string)
 	ArmorsUpdated.emit(armors)

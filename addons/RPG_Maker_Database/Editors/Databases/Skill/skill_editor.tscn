@@ -45,7 +45,7 @@ layout_mode = 2
 layout_mode = 2
 min_value = 1.0
 max_value = 9999.0
-value = 5.0
+value = 10.0
 alignment = 1
 
 [node name="ChangeActorMaxButton" type="Button" parent="ScrollContainer/BoxContainer/1st Column/HBoxContainer2" unique_id=574783972]
@@ -97,7 +97,7 @@ text = "Set Icon"
 [node name="NameEdit" type="LineEdit" parent="ScrollContainer/BoxContainer/2nd Column" unique_id=1858147163]
 custom_minimum_size = Vector2(233.62, 0)
 layout_mode = 2
-text = "Skill 0"
+text = "Attack"
 
 [node name="DescLabel" type="Label" parent="ScrollContainer/BoxContainer/2nd Column" unique_id=860507142]
 layout_mode = 2
@@ -120,6 +120,12 @@ text = "Skill Type:"
 
 [node name="SkillType" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Type&Cost/SkillTypeContainer" unique_id=214536245]
 layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "Special"
+popup/item_0/id = 0
+popup/item_1/text = "Magic"
+popup/item_1/id = 1
 
 [node name="MPCostContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Type&Cost" unique_id=309881977]
 layout_mode = 2
@@ -162,6 +168,51 @@ layout_mode = 2
 text = "Gold Cost:"
 
 [node name="GoldCostSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/Type&Cost/GoldCostContainer2" unique_id=352520019]
+layout_mode = 2
+max_value = 9999.0
+
+[node name="RequiredSkillContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Type&Cost" unique_id=1438079631]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Type&Cost/RequiredSkillContainer" unique_id=1928543161]
+layout_mode = 2
+text = "Prerequisite Skill:"
+
+[node name="RequiredSkill" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Type&Cost/RequiredSkillContainer" unique_id=2023250357]
+layout_mode = 2
+selected = 0
+item_count = 11
+popup/item_0/text = "None"
+popup/item_0/id = 0
+popup/item_1/text = "Attack"
+popup/item_1/id = 1
+popup/item_2/text = "Freeze"
+popup/item_2/id = 2
+popup/item_3/text = "Burn"
+popup/item_3/id = 3
+popup/item_4/text = "Kick"
+popup/item_4/id = 4
+popup/item_5/text = "Punch"
+popup/item_5/id = 5
+popup/item_6/text = "Skill 5"
+popup/item_6/id = 6
+popup/item_7/text = "Skill 6"
+popup/item_7/id = 7
+popup/item_8/text = "Skill 7"
+popup/item_8/id = 8
+popup/item_9/text = "Skill 8"
+popup/item_9/id = 9
+popup/item_10/text = "Skill 9"
+popup/item_10/id = 10
+
+[node name="JPCostContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Type&Cost" unique_id=1331767110]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/BoxContainer/2nd Column/Type&Cost/JPCostContainer" unique_id=1769596477]
+layout_mode = 2
+text = "JP Cost:"
+
+[node name="JPCostSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/Type&Cost/JPCostContainer" unique_id=237341824]
 layout_mode = 2
 max_value = 9999.0
 
@@ -366,6 +417,14 @@ text = "Animation:"
 
 [node name="AnimationOptionButton" type="OptionButton" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row/AnimationContainer" unique_id=605358615]
 layout_mode = 2
+selected = 0
+item_count = 3
+popup/item_0/text = "attack"
+popup/item_0/id = 0
+popup/item_1/text = "magic"
+popup/item_1/id = 1
+popup/item_2/text = "magic2"
+popup/item_2/id = 2
 
 [node name="ParticleAnimationContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row" unique_id=460733523]
 layout_mode = 2
@@ -376,7 +435,7 @@ text = "Particle Animation:"
 
 [node name="ParticleAnimationButton" type="Button" parent="ScrollContainer/BoxContainer/2nd Column/Invocation Row/ParticleAnimationContainer" unique_id=2106455815]
 layout_mode = 2
-text = "Select Animation"
+text = "attack.tres"
 
 [node name="Row5" type="HBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column" unique_id=524580796]
 layout_mode = 2
@@ -392,7 +451,7 @@ text = "Sound Effect:               "
 
 [node name="SoundEffectButton" type="Button" parent="ScrollContainer/BoxContainer/2nd Column/Row5/ParticleAnimationContainer2" unique_id=1119202275]
 layout_mode = 2
-text = "Select Sound"
+text = "07_human_atk_sword_2.wav"
 
 [node name="SoundPreviewButton" type="Button" parent="ScrollContainer/BoxContainer/2nd Column/Row5" unique_id=291947743]
 layout_mode = 2
@@ -474,11 +533,19 @@ text = "Element:"
 layout_mode = 2
 tooltip_text = "Normal = whatever element the user is attuned to. "
 selected = 1
-item_count = 2
+item_count = 6
 popup/item_0/text = "Normal"
 popup/item_0/id = 0
 popup/item_1/text = "None"
 popup/item_1/id = 1
+popup/item_2/text = "Normal"
+popup/item_2/id = 2
+popup/item_3/text = "Fire"
+popup/item_3/id = 3
+popup/item_4/text = "Water"
+popup/item_4/id = 4
+popup/item_5/text = "Ice"
+popup/item_5/id = 5
 
 [node name="Label5" type="Label" parent="ScrollContainer/BoxContainer/3rd Column" unique_id=2076594556]
 layout_mode = 2
@@ -488,7 +555,7 @@ text = "Damage Formula:"
 custom_minimum_size = Vector2(0, 80.395)
 layout_mode = 2
 tooltip_text = "Currently there is no autocomplete support due to a bug that started with Godot version 4.3. "
-text = "a.base_str * 4 - b.base_def * 2"
+text = "a.atk * 28 - b.def * 2"
 code_completion_enabled = true
 script = ExtResource("3_xdto0")
 codes_to_complete = PackedStringArray("base_hp", "max_hp", "base_mp", "max_mp", "base_str", "base_mag", "base_def", "base_mdf", "base_agi", "base_luck")
@@ -542,6 +609,9 @@ filters = PackedStringArray("*.wav", "*.mp3")
 [connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/Type&Cost/TPCostContainer/TPCostSpinBox" to="." method="_on_tp_cost_spin_box_value_changed"]
 [connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/Type&Cost/HPCostContainer2/HPCostSpinBox" to="." method="_on_hp_cost_spin_box_value_changed"]
 [connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/Type&Cost/GoldCostContainer2/GoldCostSpinBox" to="." method="_on_gold_cost_spin_box_value_changed"]
+[connection signal="button_down" from="ScrollContainer/BoxContainer/2nd Column/Type&Cost/RequiredSkillContainer/RequiredSkill" to="." method="_on_required_skill_button_down"]
+[connection signal="item_selected" from="ScrollContainer/BoxContainer/2nd Column/Type&Cost/RequiredSkillContainer/RequiredSkill" to="." method="_on_required_skill_item_selected"]
+[connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/Type&Cost/JPCostContainer/JPCostSpinBox" to="." method="_on_jp_cost_spin_box_value_changed"]
 [connection signal="item_selected" from="ScrollContainer/BoxContainer/2nd Column/Scope Row/ScopeContainer/ScopeOptionButton" to="." method="_on_scope_option_button_item_selected"]
 [connection signal="item_selected" from="ScrollContainer/BoxContainer/2nd Column/Scope Row/NumberColumn/NumberOption" to="." method="_on_number_option_item_selected"]
 [connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/Scope Row/NumberColumn/RandomSpinBox" to="." method="_on_random_spin_box_value_changed"]

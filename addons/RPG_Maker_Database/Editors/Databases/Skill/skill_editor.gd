@@ -33,6 +33,8 @@ class_name SkillEditor
 @onready var particle_animation_button: Button = $"ScrollContainer/BoxContainer/2nd Column/Invocation Row/ParticleAnimationContainer/ParticleAnimationButton"
 @onready var sound_effect_button: Button = $"ScrollContainer/BoxContainer/2nd Column/Row5/ParticleAnimationContainer2/SoundEffectButton"
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var required_skill: OptionButton = $"ScrollContainer/BoxContainer/2nd Column/Type&Cost/RequiredSkillContainer/RequiredSkill"
+@onready var jp_cost_spin_box: SpinBox = $"ScrollContainer/BoxContainer/2nd Column/Type&Cost/JPCostContainer/JPCostSpinBox"
 
 #endregion
 
@@ -176,6 +178,11 @@ func _load_skill(index:int):
 	else:
 		skill.sound_effect = ""
 		sound_effect_button.text = "Select Sound"
+	_on_required_skill_button_down()
+	if skill.has("jp_cost"):
+		jp_cost_spin_box.value = skill.jp_cost
+	else:
+		jp_cost_spin_box.value = 0
 	
 func _check_skill(index:int): #Not assigning Dictionary as type since null is sometimes its type/value
 	if skills[index] == null:
@@ -216,6 +223,9 @@ func _check_skill(index:int): #Not assigning Dictionary as type since null is so
 		skills[index].effects = []
 		skills[index].particle_animation = ""
 		skills[index].sound_effect = ""
+		skills[index].previous_skill = -1
+		skills[index].jp_cost = 0
+		
 		
 func _skill_buttons():
 	for i in skills_box.get_children():
@@ -373,3 +383,20 @@ func _on_sound_preview_button_button_down() -> void:
 	var sound_effect = skills[cur_skill_index].sound_effect
 	audio_stream_player.stream = load(sound_effect)
 	audio_stream_player.play()
+
+
+func _on_required_skill_item_selected(index: int) -> void:
+	skills[cur_skill_index].previous_skill = index - 1 #-1 = None
+
+func _on_required_skill_button_down() -> void:
+	required_skill.clear()
+	required_skill.add_item("None")
+	for s in skills:
+		required_skill.add_item(s.name)
+	if skills[cur_skill_index].has("previous_skill"):
+		if skills[cur_skill_index].previous_skill != -1:
+			required_skill.select(skills[cur_skill_index].previous_skill + 1)
+
+
+func _on_jp_cost_spin_box_value_changed(value: float) -> void:
+	skills[cur_skill_index].jp_cost = value

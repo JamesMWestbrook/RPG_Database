@@ -215,6 +215,7 @@ text = "JP Cost:"
 [node name="JPCostSpinBox" type="SpinBox" parent="ScrollContainer/BoxContainer/2nd Column/Type&Cost/JPCostContainer" unique_id=237341824]
 layout_mode = 2
 max_value = 9999.0
+value = 1.0
 
 [node name="Scope" type="HSeparator" parent="ScrollContainer/BoxContainer/2nd Column" unique_id=707798704]
 layout_mode = 2
@@ -558,7 +559,7 @@ tooltip_text = "Currently there is no autocomplete support due to a bug that sta
 text = "a.atk * 28 - b.def * 2"
 code_completion_enabled = true
 script = ExtResource("3_xdto0")
-codes_to_complete = PackedStringArray("base_hp", "max_hp", "base_mp", "max_mp", "base_str", "base_mag", "base_def", "base_mdf", "base_agi", "base_luck")
+codes_to_complete = PackedStringArray("base_hp", "_get_max_hp()", "base_mp", "_get_max_mp() ", "_get_str()", "_get_mag()", "_get_def()", "_get_mdf()", "_get_agi()", "_get_luck()")
 
 [node name="Label" type="Label" parent="ScrollContainer/BoxContainer/3rd Column" unique_id=627599543]
 layout_mode = 2

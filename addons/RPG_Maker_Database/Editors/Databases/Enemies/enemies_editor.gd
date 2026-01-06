@@ -23,11 +23,13 @@ class_name EnemyEditor
 @export var gold_spin_box:SpinBox
 @export var jp_spin_box:SpinBox
 
-@export var note_edit:TextEdit
+@export var note_edit:TextEdit # Replace with function body.
 @export var desc_edit:TextEdit
 @export var trait_container:TraitContainer
 
 @onready var action_container: VBoxContainer = $"ScrollContainer/BoxContainer/3rd Column/ScrollContainer/ActionContainer"
+@onready var item_box_container: VBoxContainer = $"ScrollContainer/BoxContainer/2nd Column/ScrollContainer/VBoxContainer/ItemBoxContainer"
+const ENEMY_ITEM_SLOT = preload("uid://ger5y31xsq38")
 
 #endregion
 
@@ -230,3 +232,16 @@ func _on_action_container_updated_actions(_actions: Variant) -> void:
 
 func _on_trait_container_updated_traits(list: Variant) -> void:
 	enemies[cur_enemy_index].traits = list
+
+
+func _on_add_item_button_down() -> void:
+	var item_slot = ENEMY_ITEM_SLOT.instantiate()
+	item_slot.Updated.connect(_update_items)
+	item_box_container.add_child(item_slot)
+
+func _update_items() -> void:
+	var items:Array
+	for i in item_box_container.get_children():
+		items.append({
+			
+		})

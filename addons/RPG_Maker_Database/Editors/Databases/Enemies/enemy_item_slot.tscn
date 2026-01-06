@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://ger5y31xsq38"]
+
+[ext_resource type="Script" uid="uid://bgcs32wgtf4ep" path="res://addons/RPG_Maker_Database/Editors/Databases/Enemies/enemy_item_slot.gd" id="1_tmmxq"]
+
+[node name="EnemyItemSlot" type="HBoxContainer" unique_id=927745161]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_tmmxq")
+
+[node name="Type" type="OptionButton" parent="." unique_id=315236487]
+layout_mode = 2
+selected = 0
+item_count = 3
+popup/item_0/text = "Item"
+popup/item_0/id = 0
+popup/item_1/text = "Weapon"
+popup/item_1/id = 1
+popup/item_2/text = "Armor"
+popup/item_2/id = 2
+
+[node name="Item" type="OptionButton" parent="." unique_id=364034176]
+layout_mode = 2
+
+[node name="Probability" type="SpinBox" parent="." unique_id=2030015706]
+layout_mode = 2
+min_value = 1.0
+max_value = 100000.0
+value = 1.0
+prefix = "1 /"
+
+[connection signal="item_selected" from="Type" to="." method="_on_type_item_selected"]
+[connection signal="button_down" from="Item" to="." method="_on_item_button_down"]
+[connection signal="item_selected" from="Item" to="." method="_on_item_item_selected"]
+[connection signal="value_changed" from="Probability" to="." method="_on_probability_value_changed"]

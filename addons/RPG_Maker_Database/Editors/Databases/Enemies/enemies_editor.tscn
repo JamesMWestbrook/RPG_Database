@@ -298,11 +298,11 @@ layout_mode = 2
 layout_mode = 2
 text = "Drop Items:"
 
-[node name="Button" type="Button" parent="ScrollContainer/BoxContainer/2nd Column/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=735386221]
+[node name="AddItem" type="Button" parent="ScrollContainer/BoxContainer/2nd Column/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=735386221]
 layout_mode = 2
 text = "Add Item"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/ScrollContainer/VBoxContainer" unique_id=1913634570]
+[node name="ItemBoxContainer" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/ScrollContainer/VBoxContainer" unique_id=1913634570]
 layout_mode = 2
 
 [node name="3rd Column" type="VBoxContainer" parent="ScrollContainer/BoxContainer" unique_id=1652462237]
@@ -393,6 +393,7 @@ use_native_dialog = true
 [connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer/VBoxContainer/EXPSpinBox" to="." method="_on_exp_spin_box_value_changed"]
 [connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer/VBoxContainer2/GoldSpinBox" to="." method="_on_gold_spin_box_value_changed"]
 [connection signal="value_changed" from="ScrollContainer/BoxContainer/2nd Column/HBoxContainer/VBoxContainer3/JPSpinBox" to="." method="_on_jp_spin_box_value_changed"]
+[connection signal="button_down" from="ScrollContainer/BoxContainer/2nd Column/ScrollContainer/VBoxContainer/HBoxContainer/AddItem" to="." method="_on_add_item_button_down"]
 [connection signal="UpdatedActions" from="ScrollContainer/BoxContainer/3rd Column/ScrollContainer/ActionContainer" to="." method="_on_action_container_updated_actions"]
 [connection signal="button_down" from="ScrollContainer/BoxContainer/3rd Column/ScrollContainer/ActionContainer/AddActionButton" to="ScrollContainer/BoxContainer/3rd Column/ScrollContainer/ActionContainer" method="_on_add_action_button_button_down"]
 [connection signal="text_changed" from="ScrollContainer/BoxContainer/4th Column/NoteTextEdit" to="." method="_on_note_text_edit_text_changed"]

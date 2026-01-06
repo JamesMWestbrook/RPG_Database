@@ -1,3 +1,5 @@
+#action_container.gd
+#contains all enemy_actions
 @tool
 extends VBoxContainer
 
@@ -15,7 +17,7 @@ func _load(new_actions:Array):
 	_clear()
 	
 	for a:Dictionary in actions:
-		var new_action:EnemyAction = _on_add_action_button_button_down()
+		var new_action:EnemyAction = _on_add_action_button_button_down(true)
 		new_action._load(a)
 		
 func _clear():
@@ -23,16 +25,16 @@ func _clear():
 		action_list.remove_child(i)
 		i.queue_free()
 
-func _on_add_action_button_button_down() -> EnemyAction:
+func _on_add_action_button_button_down(loading:bool = false) -> EnemyAction:
 	var new_action = ENEMY_ACTION.instantiate()
 	new_action.action_updated.connect(_update_list)
 	action_list.add_child(new_action)
-	#_update_list() this appears to do nothing, leaving commented to keep things cleaner
+	new_action._on_option_button_item_selected(0, loading)
 	return new_action
 	
 func _update_list():
 	actions.clear()
-	for action in action_list.get_children():
+	for action:EnemyAction in action_list.get_children():
 		if action.do_not_count_me:
 			continue
 		var new_action:Dictionary

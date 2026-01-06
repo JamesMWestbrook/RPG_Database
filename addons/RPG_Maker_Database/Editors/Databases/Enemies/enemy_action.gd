@@ -1,3 +1,4 @@
+#enemy_action.gd
 @tool
 extends VBoxContainer
 class_name EnemyAction

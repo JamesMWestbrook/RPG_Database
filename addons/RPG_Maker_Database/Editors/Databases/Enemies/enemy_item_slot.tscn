@@ -28,7 +28,12 @@ max_value = 100000.0
 value = 1.0
 prefix = "1 /"
 
+[node name="Delete" type="Button" parent="." unique_id=157665179]
+layout_mode = 2
+text = "X"
+
 [connection signal="item_selected" from="Type" to="." method="_on_type_item_selected"]
 [connection signal="button_down" from="Item" to="." method="_on_item_button_down"]
 [connection signal="item_selected" from="Item" to="." method="_on_item_item_selected"]
 [connection signal="value_changed" from="Probability" to="." method="_on_probability_value_changed"]
+[connection signal="button_down" from="Delete" to="." method="_on_delete_button_down"]

@@ -111,8 +111,11 @@ func _check_enemy(index:int):
 	enemy.traits = []
 	
 	enemy.actions = []
-	
+	enemy.items = []
+		
 	enemies[index] = enemy
+
+
 
 func _enemy_buttons():
 	enemy_item_list.clear()
@@ -154,7 +157,14 @@ func _load_enemy(index:int):
 	trait_container._clear()
 	trait_container._load_traits(enemy.traits)
 
+	for i in item_box_container.get_children():
+		i.queue_free()
+	if enemy.has("items"):
+		for i in enemy.items:
+			_on_add_item_button_down(i.type, i.item, i.probability, true)
+
 	action_container._load(enemy.actions)
+	
 
 func _on_name_edit_text_changed(new_text: String) -> void:
 	enemies[cur_enemy_index].name = new_text
@@ -234,14 +244,21 @@ func _on_trait_container_updated_traits(list: Variant) -> void:
 	enemies[cur_enemy_index].traits = list
 
 
-func _on_add_item_button_down() -> void:
+func _on_add_item_button_down(type_index:int = 0, item_index:int = 0, prob:int = 1, loading:bool = false) -> void:
 	var item_slot = ENEMY_ITEM_SLOT.instantiate()
 	item_slot.Updated.connect(_update_items)
 	item_box_container.add_child(item_slot)
+	item_slot._init_data(type_index, item_index, prob, true)
 
 func _update_items() -> void:
 	var items:Array
 	for i in item_box_container.get_children():
+		if i.skip_me:
+			continue
 		items.append({
-			
+			"type" : i.type.selected,
+			"item" : i.item.selected,
+			"probability" : i.probability.value
 		})
+	enemies[cur_enemy_index].items = items
+	

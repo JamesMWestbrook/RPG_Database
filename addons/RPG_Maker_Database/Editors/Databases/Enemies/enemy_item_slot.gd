@@ -1,9 +1,11 @@
+@tool
 extends HBoxContainer
 
 signal Updated
 
 
 var updating:bool
+var skip_me:bool
 
 @onready var type: OptionButton = $Type
 @onready var item: OptionButton = $Item
@@ -11,13 +13,15 @@ var updating:bool
 
 
 
-func _init_data(type_index:int, item_index:int, prob:int):
+func _init_data(type_index:int, item_index:int, prob:int, loading:bool):
 	updating = true
 	type.select(type_index)
 	_fill_item_list()
 	item.select(item_index)
 	probability.value = prob
 	updating = false
+	if loading:
+		Updated.emit()
 	
 func _fill_item_list():
 	item.clear()
@@ -59,3 +63,9 @@ func _on_item_button_down() -> void:
 	var index:int = item.selected
 	_fill_item_list()
 	item.select(index)
+
+
+func _on_delete_button_down() -> void:
+	skip_me = true
+	Updated.emit()
+	queue_free()

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bmtbxbtvjsoe7" path="res://addons/RPG_Maker_Database/Editors/Databases/Enemies/enemies_editor.gd" id="1_lpdo6"]
 [ext_resource type="Texture2D" uid="uid://bh53mhtf42uo2" path="res://addons/RPG_Maker_Database/Editors/DefaultImage.png" id="2_lpdo6"]
-[ext_resource type="Texture2D" uid="uid://bciifgi26ugdw" path="res://assets/debug_enemies/EvilWeapon.png" id="3_5e0u1"]
+[ext_resource type="Texture2D" uid="uid://bdhnsmhfniodb" path="res://assets/enemies/debug_enemies/Dryad2.png" id="3_5e0u1"]
 [ext_resource type="Script" uid="uid://db86pmwppw1rg" path="res://addons/RPG_Maker_Database/Editors/Databases/Enemies/action_container.gd" id="3_hsy2h"]
 [ext_resource type="PackedScene" uid="uid://0o7cxqncf2l2" path="res://addons/RPG_Maker_Database/Editors/Databases/trait_container.tscn" id="4_hsy2h"]
 
@@ -73,8 +73,8 @@ text = "Change Max"
 custom_minimum_size = Vector2(0, 638.03)
 layout_mode = 2
 item_count = 5
-item_0/text = "0 Machine God"
-item_1/text = "1 enemy 1"
+item_0/text = "0 Dryad"
+item_1/text = "1 Drone"
 item_2/text = "2 enemy 2"
 item_3/text = "3 enemy 3"
 item_4/text = "4 enemy 4"
@@ -92,7 +92,7 @@ text = "Name:"
 
 [node name="NameEdit" type="LineEdit" parent="ScrollContainer/BoxContainer/2nd Column" unique_id=589746299]
 layout_mode = 2
-text = "Machine God"
+text = "Dryad"
 
 [node name="ChooseTextureButton" type="Button" parent="ScrollContainer/BoxContainer/2nd Column" unique_id=1456263476]
 custom_minimum_size = Vector2(250, 250)
@@ -197,7 +197,7 @@ text = "Agility:"
 layout_mode = 2
 min_value = 1.0
 max_value = 9999.0
-value = 1.0
+value = 5.0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4" unique_id=886201832]
 layout_mode = 2
@@ -210,7 +210,7 @@ text = "Luck:"
 layout_mode = 2
 min_value = 1.0
 max_value = 9999.0
-value = 1.0
+value = 3.0
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="ScrollContainer/BoxContainer/2nd Column/HBoxContainer4" unique_id=1710092228]
 layout_mode = 2

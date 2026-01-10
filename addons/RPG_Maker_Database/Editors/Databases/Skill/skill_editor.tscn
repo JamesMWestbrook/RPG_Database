@@ -38,6 +38,17 @@ text = "Skills"
 layout_mode = 2
 text = "Save"
 
+[node name="HBoxContainer3" type="HBoxContainer" parent="ScrollContainer/BoxContainer/1st Column" unique_id=107410040]
+layout_mode = 2
+
+[node name="Copy" type="Button" parent="ScrollContainer/BoxContainer/1st Column/HBoxContainer3" unique_id=1802812332]
+layout_mode = 2
+text = "Copy"
+
+[node name="Paste" type="Button" parent="ScrollContainer/BoxContainer/1st Column/HBoxContainer3" unique_id=38148307]
+layout_mode = 2
+text = "Paste"
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/BoxContainer/1st Column" unique_id=678425198]
 layout_mode = 2
 
@@ -556,7 +567,7 @@ text = "Damage Formula:"
 custom_minimum_size = Vector2(0, 80.395)
 layout_mode = 2
 tooltip_text = "Currently there is no autocomplete support due to a bug that started with Godot version 4.3. "
-text = "a.atk * 28 - b.def * 2"
+text = "a._get_str() * 28 - b._get_def() * 2"
 code_completion_enabled = true
 script = ExtResource("3_xdto0")
 codes_to_complete = PackedStringArray("base_hp", "_get_max_hp()", "base_mp", "_get_max_mp() ", "_get_str()", "_get_mag()", "_get_def()", "_get_mdf()", "_get_agi()", "_get_luck()")
@@ -602,6 +613,8 @@ filters = PackedStringArray("*.wav", "*.mp3")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1572890972]
 
 [connection signal="button_down" from="ScrollContainer/BoxContainer/1st Column/HBoxContainer/SaveButton" to="." method="_save_json"]
+[connection signal="button_down" from="ScrollContainer/BoxContainer/1st Column/HBoxContainer3/Copy" to="." method="_on_copy_button_down"]
+[connection signal="button_down" from="ScrollContainer/BoxContainer/1st Column/HBoxContainer3/Paste" to="." method="_on_paste_button_down"]
 [connection signal="button_down" from="ScrollContainer/BoxContainer/1st Column/HBoxContainer2/ChangeActorMaxButton" to="." method="_on_change_actor_max_button_down"]
 [connection signal="text_changed" from="ScrollContainer/BoxContainer/2nd Column/NameEdit" to="." method="_update_name"]
 [connection signal="text_changed" from="ScrollContainer/BoxContainer/2nd Column/DescriptionEdit" to="." method="_on_description_edit_text_changed"]

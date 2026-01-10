@@ -39,6 +39,7 @@ class_name SkillEditor
 #endregion
 
 var cur_skill_index:int
+var copied_skill:Dictionary
 static var skills:Array
 const JSON_SAVE_PATH = "res://data/skills.json"
 
@@ -400,3 +401,13 @@ func _on_required_skill_button_down() -> void:
 
 func _on_jp_cost_spin_box_value_changed(value: float) -> void:
 	skills[cur_skill_index].jp_cost = value
+
+
+func _on_copy_button_down() -> void:
+	copied_skill = skills[cur_skill_index].duplicate(true)
+
+
+func _on_paste_button_down() -> void:
+	skills[cur_skill_index] = copied_skill.duplicate(true)
+	_load_skill(cur_skill_index)
+	_update_name(skills[cur_skill_index].name)
